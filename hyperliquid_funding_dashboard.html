@@ -1,0 +1,1057 @@
+<title>Funding Carry Board</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --surface: #ffffff;
+    --surface-2: #edeff2;
+    --border: #dde1e7;
+    --border-strong: #c7cdd6;
+    --text: #171b21;
+    --text-dim: #5b6472;
+    --text-faint: #8991a0;
+    --accent: #a3690f;
+    --accent-soft: #f3e3c8;
+    --positive: #14805a;
+    --positive-soft: #dcf3e9;
+    --negative: #b8382a;
+    --negative-soft: #fbe4e0;
+    --tag-hyperliquid: #2f6fed;
+    --tag-hyperliquid-soft: #e4ecfd;
+    --tag-aster: #8a4fd1;
+    --tag-aster-soft: #ece1fa;
+    --tag-backpack: #c23b8a;
+    --tag-backpack-soft: #fbe2f0;
+    --tag-injective: #1f9c8f;
+    --tag-injective-soft: #dcf3f0;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    --radius: 5px;
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0a0d12;
+      --surface: #12161d;
+      --surface-2: #181d26;
+      --border: #262c38;
+      --border-strong: #333a48;
+      --text: #e7eaee;
+      --text-dim: #939cac;
+      --text-faint: #626b7a;
+      --accent: #d9a441;
+      --accent-soft: #3a2f16;
+      --positive: #3fcb96;
+      --positive-soft: #12291f;
+      --negative: #f0705c;
+      --negative-soft: #2f1815;
+      --tag-hyperliquid: #7ea6ff;
+      --tag-hyperliquid-soft: #1c2740;
+      --tag-aster: #c79bf5;
+      --tag-aster-soft: #2a1f3d;
+      --tag-backpack: #ef8cc4;
+      --tag-backpack-soft: #3a1f2e;
+      --tag-injective: #5fd1c2;
+      --tag-injective-soft: #123230;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0a0d12;
+    --surface: #12161d;
+    --surface-2: #181d26;
+    --border: #262c38;
+    --border-strong: #333a48;
+    --text: #e7eaee;
+    --text-dim: #939cac;
+    --text-faint: #626b7a;
+    --accent: #d9a441;
+    --accent-soft: #3a2f16;
+    --positive: #3fcb96;
+    --positive-soft: #12291f;
+    --negative: #f0705c;
+    --negative-soft: #2f1815;
+    --tag-hyperliquid: #7ea6ff;
+    --tag-hyperliquid-soft: #1c2740;
+    --tag-aster: #c79bf5;
+    --tag-aster-soft: #2a1f3d;
+    --tag-backpack: #ef8cc4;
+    --tag-backpack-soft: #3a1f2e;
+    --tag-injective: #5fd1c2;
+    --tag-injective-soft: #123230;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 20px 64px;
+  }
+
+  /* ---------- Tabs ---------- */
+
+  .tab-bar {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab-btn {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-faint);
+    background: transparent;
+    border: none;
+    padding: 10px 4px;
+    margin-right: 22px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text-dim); }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ---------- Spread scanner ---------- */
+
+  .spread-type-badge {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    border: 1px solid var(--border-strong);
+    color: var(--text-dim);
+  }
+  .spread-type-badge.cross { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+
+  .leg-block { flex: 1; min-width: 0; }
+  .leg-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    margin-bottom: 3px;
+  }
+  .leg-contract { font-family: var(--mono); font-size: 12.5px; color: var(--text-dim); margin-top: 2px; }
+  .leg-apr { font-family: var(--mono); font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .legs-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .legs-vs {
+    color: var(--text-faint);
+    font-family: var(--mono);
+    font-size: 11px;
+    flex-shrink: 0;
+    padding-top: 18px;
+  }
+
+  @media (max-width: 720px) {
+    .legs-row { flex-direction: column; gap: 8px; }
+    .legs-vs { display: none; }
+  }
+
+  /* ---------- Header ---------- */
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+
+  .masthead-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 6px;
+  }
+
+  h1 {
+    font-family: var(--mono);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .masthead-sub {
+    margin: 6px 0 0;
+    color: var(--text-dim);
+    font-size: 13px;
+    max-width: 46ch;
+  }
+
+  .meta-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-faint);
+    text-align: right;
+  }
+
+  .meta-badges .live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-faint);
+    margin-right: 6px;
+    vertical-align: 1px;
+  }
+
+  .meta-badges strong { color: var(--text-dim); font-weight: 600; }
+
+  /* ---------- Summary strip ---------- */
+
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+
+  .summary-cell {
+    background: var(--surface);
+    padding: 13px 16px;
+  }
+
+  .summary-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    margin: 0 0 5px;
+  }
+
+  .summary-value {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .summary-value.accent { color: var(--accent); }
+  .summary-value small { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--text-dim); }
+
+  @media (max-width: 640px) {
+    .summary { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Controls ---------- */
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .sort-group {
+    display: inline-flex;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .sort-group button {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-right: 1px solid var(--border-strong);
+  }
+  .sort-group button:last-child { border-right: none; }
+  .sort-group button:hover { background: var(--surface-2); color: var(--text); }
+  .sort-group button.active { background: var(--accent); color: #1a1300; font-weight: 700; }
+
+  .filter-group {
+    display: inline-flex;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .filter-group button {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    border-right: 1px solid var(--border-strong);
+  }
+  .filter-group button:last-child { border-right: none; }
+  .filter-group button:hover { background: var(--surface-2); color: var(--text); }
+  .filter-group button.active { background: var(--text); color: var(--surface); font-weight: 700; }
+
+  .controls-left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+  .notional-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+
+  .notional-field label { white-space: nowrap; }
+
+  .notional-field input {
+    width: 110px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 6px 8px;
+  }
+  .notional-field input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  /* ---------- Opportunity rows ---------- */
+
+  .board {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .row-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .rank {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+    width: 20px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .symbol-block { flex-shrink: 0; min-width: 150px; }
+
+  .symbol-row { display: flex; align-items: center; gap: 7px; }
+
+  .symbol {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .exchange-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .exchange-tag.ex-hyperliquid { color: var(--tag-hyperliquid); background: var(--tag-hyperliquid-soft); }
+  .exchange-tag.ex-aster { color: var(--tag-aster); background: var(--tag-aster-soft); }
+  .exchange-tag.ex-backpack { color: var(--tag-backpack); background: var(--tag-backpack-soft); }
+  .exchange-tag.ex-injective { color: var(--tag-injective); background: var(--tag-injective-soft); }
+
+  .pair-line {
+    font-size: 11.5px;
+    color: var(--text-faint);
+    margin-top: 1px;
+  }
+
+  .positions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .pill {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .pill.spot-long { color: var(--positive); background: var(--positive-soft); border-color: color-mix(in srgb, var(--positive) 35%, transparent); }
+  .pill.spot-short { color: var(--negative); background: var(--negative-soft); border-color: color-mix(in srgb, var(--negative) 35%, transparent); }
+  .pill.perp-short { color: var(--negative); background: var(--negative-soft); border-color: color-mix(in srgb, var(--negative) 35%, transparent); }
+  .pill.perp-long { color: var(--positive); background: var(--positive-soft); border-color: color-mix(in srgb, var(--positive) 35%, transparent); }
+
+  .join-arrow { color: var(--text-faint); font-size: 11px; }
+
+  .spacer { flex: 1; }
+
+  .apr-block { text-align: right; flex-shrink: 0; }
+
+  .apr-value {
+    font-family: var(--mono);
+    font-size: 21px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .apr-value.pos { color: var(--positive); }
+  .apr-value.neg { color: var(--negative); }
+
+  .apr-caption {
+    font-size: 10.5px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 1px;
+  }
+
+  .row-detail {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    gap: 22px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+  }
+
+  .stat-label {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    margin-bottom: 2px;
+  }
+  .stat-value { color: var(--text-dim); }
+  .stat-value.spotlight { color: var(--text); }
+
+  .row-note {
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: var(--accent-soft);
+    border-left: 2px solid var(--accent);
+    border-radius: 3px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 720px) {
+    .row-top { flex-wrap: wrap; }
+    .apr-block { margin-left: auto; }
+    .row-detail { grid-template-columns: repeat(2, 1fr); gap: 12px 18px; }
+  }
+
+  /* ---------- Excluded / methodology ---------- */
+
+  details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+  }
+
+  summary {
+    cursor: pointer;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dim);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-family: var(--mono);
+    color: var(--text-faint);
+    font-size: 16px;
+  }
+  details[open] summary::after { content: "\2212"; }
+
+  .excluded-table-wrap { overflow-x: auto; }
+
+  table.excluded {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  table.excluded th {
+    text-align: left;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    font-weight: 600;
+    padding: 6px 16px;
+    border-top: 1px solid var(--border);
+  }
+  table.excluded td {
+    padding: 7px 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-dim);
+  }
+  table.excluded td:first-child, table.excluded th:first-child { font-family: var(--sans); }
+
+  .method-list {
+    padding: 4px 16px 14px;
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+  .method-list li { margin-bottom: 4px; }
+  .method-list code {
+    font-family: var(--mono);
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11.5px;
+  }
+
+  footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    color: var(--text-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+
+<div class="page">
+
+  <div class="masthead">
+    <div>
+      <p class="masthead-title" id="masthead-exchanges">Multi-DEX &middot; Spot / Perp</p>
+      <h1>Funding Carry Board</h1>
+      <p class="masthead-sub">現物とPerpを逆方向に建ててファンディングレートを受け取る、デルタニュートラルな裁定候補を複数取引所横断でランキング。</p>
+    </div>
+    <div class="meta-badges">
+      <div><span class="live-dot"></span>SNAPSHOT <strong id="snapshot-time">&mdash;</strong></div>
+      <div>想定サイズ <strong id="notional-badge">$10,000</strong> / 平均出来高フィルタ <strong>$20,000+</strong></div>
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="carry">ファンディングキャリー</button>
+    <button class="tab-btn" data-tab="spread">Perp差分スキャナー</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-carry">
+
+    <div class="summary">
+      <div class="summary-cell">
+        <p class="summary-label">最有力候補</p>
+        <p class="summary-value accent" id="stat-top-symbol">&mdash;</p>
+      </div>
+      <div class="summary-cell">
+        <p class="summary-label">最大APR (3日実績)</p>
+        <p class="summary-value" id="stat-top-apr">&mdash;</p>
+      </div>
+      <div class="summary-cell">
+        <p class="summary-label">候補数 / 除外数</p>
+        <p class="summary-value" id="stat-counts">&mdash;</p>
+      </div>
+      <div class="summary-cell">
+        <p class="summary-label">想定年間収益(上位)</p>
+        <p class="summary-value" id="stat-top-profit">&mdash;</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="controls-left">
+        <div class="sort-group" id="sort-group">
+          <button data-sort="apr" class="active">APR順</button>
+          <button data-sort="volume">出来高順</button>
+          <button data-sort="basis">ベーシス順</button>
+        </div>
+        <div class="filter-group" id="filter-group"></div>
+      </div>
+      <div class="notional-field">
+        <label for="notional-input">想定ポジション(USD)</label>
+        <input id="notional-input" type="number" min="0" step="1000" value="10000" />
+      </div>
+    </div>
+
+    <div class="board" id="board"></div>
+
+    <details>
+      <summary>流動性不足で除外した候補 (<span id="excluded-count">0</span>件)</summary>
+      <div class="excluded-table-wrap">
+        <table class="excluded">
+          <thead>
+            <tr><th>取引所</th><th>Perp</th><th>Spotペア</th><th>対応方式</th><th>24h出来高(spot)</th></tr>
+          </thead>
+          <tbody id="excluded-body"></tbody>
+        </table>
+      </div>
+    </details>
+
+    <details open>
+      <summary>戦略メモ</summary>
+      <ul class="method-list">
+        <li>APRは各取引所の funding 履歴 API から取得した直近3日間の実績平均を年率換算した値。瞬間値だけでなく安定性を重視している。</li>
+        <li>funding平均がプラス → 現物「買い」+ Perp「ショート」。マイナス → 現物「売り」+ Perp「ロング」。ただし各取引所の spot は原則フルコラテラルで新規空売りができないため、マイナス側は保有現物の売却以外では実行できない。</li>
+        <li>同一銘柄に複数の spot ペアが存在する場合は、24h出来高が最大のものだけを採用(出来高ゼロの死んだペアを除外するため)。</li>
+        <li>funding 間隔は取引所・銘柄ごとに異なる (Hyperliquidは1時間固定、Asterは銘柄により1〜8時間)。各取引所の実際の間隔を検出してから年率換算しているため、取引所間でAPRを直接比較できる。</li>
+        <li><code>k</code> プレフィックスの Hyperliquid Perp (例: kBONK) は1コントラクト=対象トークン1000枚分の建値のため、ベーシス計算時に1000で正規化している。</li>
+        <li>Injective (Helix) のみ簡易実装: APIがgRPC-Webベースで価格・出来高・funding履歴の正しいRESTエンドポイントが未特定のため、現在のfunding rateのみを参考値として掲載。価格・ベーシス・出来高フィルタなし(表内は &mdash; 表示)。実際に取引する前に自分でHelix上の板の厚みを確認すること。</li>
+        <li>このページはスナップショットで、自動更新はされない。最新化するには Claude に再取得を依頼すること。</li>
+      </ul>
+    </details>
+
+  </div>
+
+  <div class="tab-panel" id="tab-spread">
+
+    <div class="summary">
+      <div class="summary-cell">
+        <p class="summary-label">最有力候補</p>
+        <p class="summary-value accent" id="spread-top-symbol">&mdash;</p>
+      </div>
+      <div class="summary-cell">
+        <p class="summary-label">最大差分APR</p>
+        <p class="summary-value" id="spread-top-apr">&mdash;</p>
+      </div>
+      <div class="summary-cell">
+        <p class="summary-label">候補数</p>
+        <p class="summary-value" id="spread-counts">&mdash;</p>
+      </div>
+      <div class="summary-cell">
+        <p class="summary-label">3日実績で検証済み</p>
+        <p class="summary-value" id="spread-verified-count">&mdash;</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="controls-left">
+        <div class="filter-group" id="spread-type-filter">
+          <button data-type="all" class="active">全タイプ</button>
+          <button data-type="cross_exchange">取引所間</button>
+          <button data-type="same_exchange">同一取引所</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="board" id="spread-board"></div>
+
+    <details open>
+      <summary>戦略メモ (Perp差分スキャナー)</summary>
+      <ul class="method-list">
+        <li>現物を使わず、無期限先物同士を逆方向に建ててファンディングレートの「差分」を取る戦略の候補一覧。両脚とも証拠金取引のためレバレッジをかけられる。</li>
+        <li><strong>取引所間</strong>: 同じ銘柄のperpが複数取引所に上場している場合、fundingが高い取引所でショート・低い取引所でロングする。取引所間の送金・出金リスク、価格が一瞬ズレるタイミングリスクがある。</li>
+        <li><strong>同一取引所</strong>: 同一取引所内で決済通貨違いの複数perp契約がある場合 (例: Asterの BTCUSDT/BTCUSD1/BTCU) の差分。送金リスクは無いが、決済通貨自体のデペッグリスクがある。</li>
+        <li>まず瞬間値でスクリーニングし、有望な上位候補のみ3日間の実績平均で再検証している。「3日実績」列が空欄の行は上位候補外のため未検証(瞬間値のみ、参考程度に見ること)。3日実績がマイナスに転じた行は、瞬間値ほど安定した機会ではないことを示す。</li>
+        <li>Injective が絡む行は出来高が不明なため「参考情報」。実際に取引可能かは自分で板の厚みを確認すること。</li>
+        <li>両脚とも証拠金取引のため、清算リスクが両側に発生する。特に取引所間の差分を狙う場合は2つの取引所の証拠金維持率を両方監視する必要がある。</li>
+      </ul>
+    </details>
+
+  </div>
+
+  <footer>
+    <span id="footer-sources">データ取得元: &mdash;</span>
+    <span>投資助言ではありません。執行にはスリッページ・手数料・清算リスクの検討が必要です。</span>
+  </footer>
+
+</div>
+
+<script>
+  const DATA = {"generated_at": "2026-08-17T22:11:47.386726+00:00", "notional_usd": 10000.0, "min_liquidity_usd": 20000.0, "exchanges": ["Hyperliquid", "Aster", "Backpack", "Injective"], "rows": [{"exchange": "Injective", "perp_symbol": "ATOM", "spot_pair_name": "ATOM/USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.014045, "funding_now_apr_pct": 123.034, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 123.034, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 12303.4, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "INJ", "spot_pair_name": "INJ/USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.008232, "funding_now_apr_pct": 72.1131, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 72.1131, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 7211.31, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Aster", "perp_symbol": "CYS", "spot_pair_name": "CYSUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.45575, "perp_price": 0.45187683, "spot_volume_24h_usd": 858357.78, "basis_pct": -0.8498, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.5294, "funding_3d_apr_pct": 64.4114, "notional_usd": 10000.0, "est_3d_profit_usd": 52.94, "est_annual_profit_usd": 6441.14, "note": ""}, {"exchange": "Aster", "perp_symbol": "TAG", "spot_pair_name": "TAGUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.0009408, "perp_price": 0.00094344, "spot_volume_24h_usd": 41170.18, "basis_pct": 0.2806, "funding_interval_hours": 4.0, "funding_now_period_pct": 0.005, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.3085, "funding_3d_apr_pct": 37.5378, "notional_usd": 10000.0, "est_3d_profit_usd": 30.85, "est_annual_profit_usd": 3753.78, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "FARTCOIN", "spot_pair_name": "@162", "spot_quote_symbol": "USDC", "match_type": "unit_prefix_startswith", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.14382, "perp_price": 0.14392, "spot_volume_24h_usd": 254026.43, "basis_pct": 0.0695, "funding_interval_hours": 1, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.25, "funding_3d_apr_pct": 30.4118, "notional_usd": 10000.0, "est_3d_profit_usd": 25.0, "est_annual_profit_usd": 3041.18, "note": ""}, {"exchange": "Backpack", "perp_symbol": "JUP", "spot_pair_name": "JUP_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.16807, "perp_price": 0.16783, "spot_volume_24h_usd": 37067.1, "basis_pct": -0.1428, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.225, "funding_3d_apr_pct": 27.3715, "notional_usd": 10000.0, "est_3d_profit_usd": 22.5, "est_annual_profit_usd": 2737.15, "note": ""}, {"exchange": "Injective", "perp_symbol": "LINK", "spot_pair_name": "LINK/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.002106, "funding_now_apr_pct": 18.4481, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 18.4481, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 1844.81, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Hyperliquid", "perp_symbol": "PURR", "spot_pair_name": "PURR/USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.072467, "perp_price": 0.07259, "spot_volume_24h_usd": 692290.34, "basis_pct": 0.1697, "funding_interval_hours": 1, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.1412, "funding_3d_apr_pct": 17.1829, "notional_usd": 10000.0, "est_3d_profit_usd": 14.12, "est_annual_profit_usd": 1718.29, "note": ""}, {"exchange": "Aster", "perp_symbol": "ASTER", "spot_pair_name": "ASTERUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.60097, "perp_price": 0.60169808, "spot_volume_24h_usd": 1724591.71, "basis_pct": 0.1212, "funding_interval_hours": 4.0, "funding_now_period_pct": 0.00342, "funding_now_apr_pct": 7.4898, "funding_3d_cum_pct": 0.131, "funding_3d_apr_pct": 15.9347, "notional_usd": 10000.0, "est_3d_profit_usd": 13.1, "est_annual_profit_usd": 1593.47, "note": ""}, {"exchange": "Aster", "perp_symbol": "FORM", "spot_pair_name": "FORMUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.2047, "perp_price": 0.20458278, "spot_volume_24h_usd": 66706.65, "basis_pct": -0.0573, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.09, "funding_3d_apr_pct": 10.95, "notional_usd": 10000.0, "est_3d_profit_usd": 9.0, "est_annual_profit_usd": 1095.0, "note": ""}, {"exchange": "Backpack", "perp_symbol": "ETH", "spot_pair_name": "ETH_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 1904.23, "perp_price": 1903.41, "spot_volume_24h_usd": 454922.87, "basis_pct": -0.0431, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.09, "funding_3d_apr_pct": 10.945, "notional_usd": 10000.0, "est_3d_profit_usd": 9.0, "est_annual_profit_usd": 1094.5, "note": ""}, {"exchange": "Backpack", "perp_symbol": "PAXG", "spot_pair_name": "PAXG_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 4405.7, "perp_price": 4406.27, "spot_volume_24h_usd": 22559.01, "basis_pct": 0.0129, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0884, "funding_3d_apr_pct": 10.7607, "notional_usd": 10000.0, "est_3d_profit_usd": 8.84, "est_annual_profit_usd": 1076.07, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "HYPE", "spot_pair_name": "@107", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 58.904, "perp_price": 58.879, "spot_volume_24h_usd": 32921484.2, "basis_pct": -0.0424, "funding_interval_hours": 1, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0883, "funding_3d_apr_pct": 10.7423, "notional_usd": 10000.0, "est_3d_profit_usd": 8.83, "est_annual_profit_usd": 1074.23, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "PUMP", "spot_pair_name": "@188", "spot_quote_symbol": "USDC", "match_type": "unit_prefix", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.0027566, "perp_price": 0.002758, "spot_volume_24h_usd": 2990200.13, "basis_pct": 0.0508, "funding_interval_hours": 1, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0879, "funding_3d_apr_pct": 10.6941, "notional_usd": 10000.0, "est_3d_profit_usd": 8.79, "est_annual_profit_usd": 1069.41, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "XPL", "spot_pair_name": "@210", "spot_quote_symbol": "USDC", "match_type": "unit_prefix", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.076301, "perp_price": 0.076318, "spot_volume_24h_usd": 54065.5, "basis_pct": 0.0223, "funding_interval_hours": 1, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0875, "funding_3d_apr_pct": 10.6451, "notional_usd": 10000.0, "est_3d_profit_usd": 8.75, "est_annual_profit_usd": 1064.51, "note": ""}, {"exchange": "Backpack", "perp_symbol": "ZEC", "spot_pair_name": "ZEC_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 515.2, "perp_price": 513.2, "spot_volume_24h_usd": 44857.68, "basis_pct": -0.3882, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.000665, "funding_now_apr_pct": -5.8271, "funding_3d_cum_pct": 0.0858, "funding_3d_apr_pct": 10.4433, "notional_usd": 10000.0, "est_3d_profit_usd": 8.58, "est_annual_profit_usd": 1044.33, "note": ""}, {"exchange": "Backpack", "perp_symbol": "APT", "spot_pair_name": "APT_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.5329, "perp_price": 0.531, "spot_volume_24h_usd": 26074.97, "basis_pct": -0.3565, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0835, "funding_3d_apr_pct": 10.1598, "notional_usd": 10000.0, "est_3d_profit_usd": 8.35, "est_annual_profit_usd": 1015.98, "note": ""}, {"exchange": "Backpack", "perp_symbol": "BTC", "spot_pair_name": "BTC_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 64284.2, "perp_price": 64234.0, "spot_volume_24h_usd": 5483712.8, "basis_pct": -0.0781, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.000748, "funding_now_apr_pct": -6.5554, "funding_3d_cum_pct": 0.0794, "funding_3d_apr_pct": 9.6606, "notional_usd": 10000.0, "est_3d_profit_usd": 7.94, "est_annual_profit_usd": 966.06, "note": ""}, {"exchange": "Backpack", "perp_symbol": "BNB", "spot_pair_name": "BNB_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 604.67, "perp_price": 604.28, "spot_volume_24h_usd": 82225.88, "basis_pct": -0.0645, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000961, "funding_now_apr_pct": 8.4226, "funding_3d_cum_pct": 0.0735, "funding_3d_apr_pct": 8.947, "notional_usd": 10000.0, "est_3d_profit_usd": 7.35, "est_annual_profit_usd": 894.7, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "ZEC", "spot_pair_name": "@272", "spot_quote_symbol": "USDC", "match_type": "unit_prefix", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 513.86, "perp_price": 514.3386, "spot_volume_24h_usd": 1846990.77, "basis_pct": 0.0931, "funding_interval_hours": 1, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0607, "funding_3d_apr_pct": 7.3882, "notional_usd": 10000.0, "est_3d_profit_usd": 6.07, "est_annual_profit_usd": 738.82, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "ETH", "spot_pair_name": "@151", "spot_quote_symbol": "USDC", "match_type": "unit_prefix", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 1904.4, "perp_price": 1904.4, "spot_volume_24h_usd": 15889274.13, "basis_pct": 0.0, "funding_interval_hours": 1, "funding_now_period_pct": 4.7e-05, "funding_now_apr_pct": 0.4157, "funding_3d_cum_pct": 0.0606, "funding_3d_apr_pct": 7.3775, "notional_usd": 10000.0, "est_3d_profit_usd": 6.06, "est_annual_profit_usd": 737.75, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "BTC", "spot_pair_name": "@142", "spot_quote_symbol": "USDC", "match_type": "unit_prefix", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 64265.0, "perp_price": 64281.0, "spot_volume_24h_usd": 19723453.94, "basis_pct": 0.0249, "funding_interval_hours": 1, "funding_now_period_pct": -0.00123, "funding_now_apr_pct": -10.7709, "funding_3d_cum_pct": 0.0599, "funding_3d_apr_pct": 7.2846, "notional_usd": 10000.0, "est_3d_profit_usd": 5.99, "est_annual_profit_usd": 728.46, "note": ""}, {"exchange": "Aster", "perp_symbol": "BTC", "spot_pair_name": "BTCUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 64339.54, "perp_price": 64294.5173587, "spot_volume_24h_usd": 954475.22, "basis_pct": -0.07, "funding_interval_hours": 8.0, "funding_now_period_pct": 0.003065, "funding_now_apr_pct": 3.3562, "funding_3d_cum_pct": 0.051, "funding_3d_apr_pct": 6.2091, "notional_usd": 10000.0, "est_3d_profit_usd": 5.1, "est_annual_profit_usd": 620.91, "note": ""}, {"exchange": "Hyperliquid", "perp_symbol": "SOL", "spot_pair_name": "@156", "spot_quote_symbol": "USDC", "match_type": "unit_prefix", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 75.825, "perp_price": 75.837, "spot_volume_24h_usd": 2465142.63, "basis_pct": 0.0158, "funding_interval_hours": 1, "funding_now_period_pct": -6.6e-05, "funding_now_apr_pct": -0.5757, "funding_3d_cum_pct": 0.0425, "funding_3d_apr_pct": 5.1758, "notional_usd": 10000.0, "est_3d_profit_usd": 4.25, "est_annual_profit_usd": 517.58, "note": ""}, {"exchange": "Injective", "perp_symbol": "APE", "spot_pair_name": "APE/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "AXS", "spot_pair_name": "AXS/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "BRETT", "spot_pair_name": "BRETT/INJ", "spot_quote_symbol": "INJ", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "DOT", "spot_pair_name": "DOT/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "ENA", "spot_pair_name": "ENA/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "FET", "spot_pair_name": "FET/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "GRT", "spot_pair_name": "GRT/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "SNX", "spot_pair_name": "SNX/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Injective", "perp_symbol": "SUSHI", "spot_pair_name": "SUSHI/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000417, "funding_now_apr_pct": 3.65, "funding_3d_cum_pct": null, "funding_3d_apr_pct": 3.65, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": 365.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"}, {"exchange": "Aster", "perp_symbol": "ETH", "spot_pair_name": "ETHUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 1905.91, "perp_price": 1904.62300388, "spot_volume_24h_usd": 679678.03, "basis_pct": -0.0675, "funding_interval_hours": 8.0, "funding_now_period_pct": 0.005113, "funding_now_apr_pct": 5.5987, "funding_3d_cum_pct": 0.0291, "funding_3d_apr_pct": 3.5433, "notional_usd": 10000.0, "est_3d_profit_usd": 2.91, "est_annual_profit_usd": 354.33, "note": ""}, {"exchange": "Backpack", "perp_symbol": "HYPE", "spot_pair_name": "HYPE_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 58.892, "perp_price": 58.857, "spot_volume_24h_usd": 273210.96, "basis_pct": -0.0594, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0146, "funding_3d_apr_pct": 1.7765, "notional_usd": 10000.0, "est_3d_profit_usd": 1.46, "est_annual_profit_usd": 177.65, "note": ""}, {"exchange": "Aster", "perp_symbol": "BNB", "spot_pair_name": "BNBUSDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 605.38, "perp_price": 605.35, "spot_volume_24h_usd": 65527.88, "basis_pct": -0.005, "funding_interval_hours": 8.0, "funding_now_period_pct": 0.004678, "funding_now_apr_pct": 5.1224, "funding_3d_cum_pct": 0.0059, "funding_3d_apr_pct": 0.7226, "notional_usd": 10000.0, "est_3d_profit_usd": 0.59, "est_annual_profit_usd": 72.26, "note": ""}, {"exchange": "Backpack", "perp_symbol": "MON", "spot_pair_name": "MON_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "買い(ロング)", "perp_action": "ショート(売り)", "spot_price": 0.021147, "perp_price": 0.021029, "spot_volume_24h_usd": 50664.86, "basis_pct": -0.558, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.00125, "funding_now_apr_pct": 10.95, "funding_3d_cum_pct": 0.0002, "funding_3d_apr_pct": 0.0302, "notional_usd": 10000.0, "est_3d_profit_usd": 0.02, "est_annual_profit_usd": 3.02, "note": ""}, {"exchange": "Injective", "perp_symbol": "UNI", "spot_pair_name": "UNI/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.0625, "funding_now_apr_pct": -547.5, "funding_3d_cum_pct": null, "funding_3d_apr_pct": -547.5, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": -54750.0, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし) / 現物の空売りは既に現物を保有している場合のみ実行可"}, {"exchange": "Injective", "perp_symbol": "QNT", "spot_pair_name": "QNT/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.041678, "funding_now_apr_pct": -365.0998, "funding_3d_cum_pct": null, "funding_3d_apr_pct": -365.0998, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": -36509.98, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし) / 現物の空売りは既に現物を保有している場合のみ実行可"}, {"exchange": "Injective", "perp_symbol": "AAVE", "spot_pair_name": "AAVE/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.041566, "funding_now_apr_pct": -364.1188, "funding_3d_cum_pct": null, "funding_3d_apr_pct": -364.1188, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": -36411.88, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし) / 現物の空売りは既に現物を保有している場合のみ実行可"}, {"exchange": "Backpack", "perp_symbol": "PUMP", "spot_pair_name": "PUMP_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": 0.0027682, "perp_price": 0.0027541, "spot_volume_24h_usd": 56510.3, "basis_pct": -0.5094, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.005728, "funding_now_apr_pct": -50.1785, "funding_3d_cum_pct": -0.1727, "funding_3d_apr_pct": -21.0062, "notional_usd": 10000.0, "est_3d_profit_usd": -17.27, "est_annual_profit_usd": -2100.62, "note": "現物の空売りは既に現物を保有している場合のみ実行可(Backpackのspotはフルコラテラルで新規空売り不可)"}, {"exchange": "Injective", "perp_symbol": "TIA", "spot_pair_name": "TIA/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.002344, "funding_now_apr_pct": -20.5318, "funding_3d_cum_pct": null, "funding_3d_apr_pct": -20.5318, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": -2053.18, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし) / 現物の空売りは既に現物を保有している場合のみ実行可"}, {"exchange": "Injective", "perp_symbol": "BOME", "spot_pair_name": "BOME/USDT", "spot_quote_symbol": "USDT", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": null, "perp_price": null, "spot_volume_24h_usd": null, "basis_pct": null, "funding_interval_hours": 1.0, "funding_now_period_pct": -0.001076, "funding_now_apr_pct": -9.4298, "funding_3d_cum_pct": null, "funding_3d_apr_pct": -9.4298, "notional_usd": 10000.0, "est_3d_profit_usd": null, "est_annual_profit_usd": -942.98, "note": "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし) / 現物の空売りは既に現物を保有している場合のみ実行可"}, {"exchange": "Backpack", "perp_symbol": "SOL", "spot_pair_name": "SOL_USDC", "spot_quote_symbol": "USDC", "match_type": "exact", "spot_action": "売り", "perp_action": "ロング(買い)", "spot_price": 75.83, "perp_price": 75.78, "spot_volume_24h_usd": 407922.82, "basis_pct": -0.0659, "funding_interval_hours": 1.0, "funding_now_period_pct": 0.000324, "funding_now_apr_pct": 2.8368, "funding_3d_cum_pct": -0.0033, "funding_3d_apr_pct": -0.4012, "notional_usd": 10000.0, "est_3d_profit_usd": -0.33, "est_annual_profit_usd": -40.12, "note": "現物の空売りは既に現物を保有している場合のみ実行可(Backpackのspotはフルコラテラルで新規空売り不可)"}], "excluded": [{"exchange": "Hyperliquid", "perp_symbol": "AVAX", "spot_pair_name": "@306", "match_type": "unit_prefix", "spot_volume_usd": 11480.1353848}, {"exchange": "Hyperliquid", "perp_symbol": "AZTEC", "spot_pair_name": "@285", "match_type": "exact", "spot_volume_usd": 0.0}, {"exchange": "Hyperliquid", "perp_symbol": "BERA", "spot_pair_name": "@117", "match_type": "exact", "spot_volume_usd": 0.0}, {"exchange": "Hyperliquid", "perp_symbol": "ENA", "spot_pair_name": "@206", "match_type": "unit_prefix", "spot_volume_usd": 8064.1477634}, {"exchange": "Hyperliquid", "perp_symbol": "MEGA", "spot_pair_name": "@257", "match_type": "unit_prefix", "spot_volume_usd": 0.0}, {"exchange": "Hyperliquid", "perp_symbol": "MON", "spot_pair_name": "@243", "match_type": "unit_prefix", "spot_volume_usd": 11172.5215507}, {"exchange": "Hyperliquid", "perp_symbol": "SPX", "spot_pair_name": "@193", "match_type": "unit_prefix", "spot_volume_usd": 436.105134}, {"exchange": "Hyperliquid", "perp_symbol": "STABLE", "spot_pair_name": "@258", "match_type": "exact", "spot_volume_usd": 3159.14978183}, {"exchange": "Hyperliquid", "perp_symbol": "TRUMP", "spot_pair_name": "@9", "match_type": "exact", "spot_volume_usd": 0.0}, {"exchange": "Hyperliquid", "perp_symbol": "VIRTUAL", "spot_pair_name": "@290", "match_type": "unit_prefix_startswith", "spot_volume_usd": 3324.42607}, {"exchange": "Hyperliquid", "perp_symbol": "WLD", "spot_pair_name": "@224", "match_type": "unit_prefix", "spot_volume_usd": 0.0}, {"exchange": "Hyperliquid", "perp_symbol": "kBONK", "spot_pair_name": "@194", "match_type": "unit_prefix_k", "spot_volume_usd": 991.61434541}, {"exchange": "Aster", "perp_symbol": "4", "spot_pair_name": "4USDT", "match_type": "exact", "spot_volume_usd": 95.17405}, {"exchange": "Aster", "perp_symbol": "ALLO", "spot_pair_name": "ALLOUSDT", "match_type": "exact", "spot_volume_usd": 5.973}, {"exchange": "Aster", "perp_symbol": "AT", "spot_pair_name": "ATUSDT", "match_type": "exact", "spot_volume_usd": 32.5707639}, {"exchange": "Aster", "perp_symbol": "AVL", "spot_pair_name": "AVLUSDT", "match_type": "exact", "spot_volume_usd": 302.5806}, {"exchange": "Aster", "perp_symbol": "B", "spot_pair_name": "BUSD1", "match_type": "exact", "spot_volume_usd": 16506.88138}, {"exchange": "Aster", "perp_symbol": "BANANAS31", "spot_pair_name": "BANANAS31USDT", "match_type": "exact", "spot_volume_usd": 27.298216}, {"exchange": "Aster", "perp_symbol": "BANK", "spot_pair_name": "BANKUSDT", "match_type": "exact", "spot_volume_usd": 1982.35107}, {"exchange": "Aster", "perp_symbol": "BIO", "spot_pair_name": "BIOUSDT", "match_type": "exact", "spot_volume_usd": 7728.365919}, {"exchange": "Aster", "perp_symbol": "BLESS", "spot_pair_name": "BLESSUSDT", "match_type": "exact", "spot_volume_usd": 169.1308}, {"exchange": "Aster", "perp_symbol": "BMT", "spot_pair_name": "BMTUSDT", "match_type": "exact", "spot_volume_usd": 320.312832}, {"exchange": "Aster", "perp_symbol": "BREV", "spot_pair_name": "BREVUSDT", "match_type": "exact", "spot_volume_usd": 55.77594}, {"exchange": "Aster", "perp_symbol": "DEXE", "spot_pair_name": "DEXEUSDT", "match_type": "exact", "spot_volume_usd": 31.02075}, {"exchange": "Aster", "perp_symbol": "EVAA", "spot_pair_name": "EVAAUSDT", "match_type": "exact", "spot_volume_usd": 512.49059}, {"exchange": "Aster", "perp_symbol": "GIGGLE", "spot_pair_name": "GIGGLEUSDT", "match_type": "exact", "spot_volume_usd": 5.0736}, {"exchange": "Aster", "perp_symbol": "GUA", "spot_pair_name": "GUAUSDT", "match_type": "exact", "spot_volume_usd": 15.37575}, {"exchange": "Aster", "perp_symbol": "HEMI", "spot_pair_name": "HEMIUSDT", "match_type": "exact", "spot_volume_usd": 2046.9982353}, {"exchange": "Aster", "perp_symbol": "JCT", "spot_pair_name": "JCTUSDT", "match_type": "exact", "spot_volume_usd": 18339.987445}, {"exchange": "Aster", "perp_symbol": "LAB", "spot_pair_name": "LABUSDT", "match_type": "exact", "spot_volume_usd": 16067.376357}, {"exchange": "Aster", "perp_symbol": "MMT", "spot_pair_name": "MMTUSDT", "match_type": "exact", "spot_volume_usd": 3830.94187}, {"exchange": "Aster", "perp_symbol": "O", "spot_pair_name": "OUSDT", "match_type": "exact", "spot_volume_usd": 17.4591}, {"exchange": "Aster", "perp_symbol": "OPEN", "spot_pair_name": "OPENUSDT", "match_type": "exact", "spot_volume_usd": 4.9536}, {"exchange": "Aster", "perp_symbol": "PUMPBTC", "spot_pair_name": "PUMPBTCUSDT", "match_type": "exact", "spot_volume_usd": 2314.7365}, {"exchange": "Aster", "perp_symbol": "RAVE", "spot_pair_name": "RAVEUSD1", "match_type": "exact", "spot_volume_usd": 1.2536}, {"exchange": "Aster", "perp_symbol": "RTX", "spot_pair_name": "RTXUSD1", "match_type": "exact", "spot_volume_usd": 19.48914}, {"exchange": "Aster", "perp_symbol": "SKYAI", "spot_pair_name": "SKYAIUSDT", "match_type": "exact", "spot_volume_usd": 8747.30838}, {"exchange": "Aster", "perp_symbol": "SOL", "spot_pair_name": "SOLUSDT", "match_type": "exact", "spot_volume_usd": 14063.53358}, {"exchange": "Aster", "perp_symbol": "SOON", "spot_pair_name": "SOONUSDT", "match_type": "exact", "spot_volume_usd": 110.251173}, {"exchange": "Aster", "perp_symbol": "SPACE", "spot_pair_name": "SPACEUSD1", "match_type": "exact", "spot_volume_usd": 6.764436}, {"exchange": "Aster", "perp_symbol": "STAR", "spot_pair_name": "STARUSDT", "match_type": "exact", "spot_volume_usd": 368.690609}, {"exchange": "Aster", "perp_symbol": "TUT", "spot_pair_name": "TUTUSDT", "match_type": "exact", "spot_volume_usd": 10.08641}, {"exchange": "Aster", "perp_symbol": "UP", "spot_pair_name": "UPUSDT", "match_type": "exact", "spot_volume_usd": 836.22434}, {"exchange": "Aster", "perp_symbol": "US", "spot_pair_name": "USUSDT", "match_type": "exact", "spot_volume_usd": 59.96315}, {"exchange": "Aster", "perp_symbol": "USD1", "spot_pair_name": "USD1USDT", "match_type": "exact", "spot_volume_usd": 1082.034642}, {"exchange": "Aster", "perp_symbol": "VELO", "spot_pair_name": "VELOUSDT", "match_type": "exact", "spot_volume_usd": 199.644768}, {"exchange": "Backpack", "perp_symbol": "0G", "spot_pair_name": "0G_USDC", "match_type": "exact", "spot_volume_usd": 1.89942}, {"exchange": "Backpack", "perp_symbol": "2Z", "spot_pair_name": "2Z_USDC", "match_type": "exact", "spot_volume_usd": 1309.56894}, {"exchange": "Backpack", "perp_symbol": "AAVE", "spot_pair_name": "AAVE_USDC", "match_type": "exact", "spot_volume_usd": 1250.6476}, {"exchange": "Backpack", "perp_symbol": "DOGE", "spot_pair_name": "DOGE_USDC", "match_type": "exact", "spot_volume_usd": 10151.70302}, {"exchange": "Backpack", "perp_symbol": "ENA", "spot_pair_name": "ENA_USDC", "match_type": "exact", "spot_volume_usd": 65.899475}, {"exchange": "Backpack", "perp_symbol": "FOGO", "spot_pair_name": "FOGO_USDC", "match_type": "exact", "spot_volume_usd": 414.45504}, {"exchange": "Backpack", "perp_symbol": "JTO", "spot_pair_name": "JTO_USDC", "match_type": "exact", "spot_volume_usd": 4242.8741}, {"exchange": "Backpack", "perp_symbol": "KMNO", "spot_pair_name": "KMNO_USDC", "match_type": "exact", "spot_volume_usd": 654.11606}, {"exchange": "Backpack", "perp_symbol": "LDO", "spot_pair_name": "LDO_USDC", "match_type": "exact", "spot_volume_usd": 1.8183}, {"exchange": "Backpack", "perp_symbol": "LINK", "spot_pair_name": "LINK_USDC", "match_type": "exact", "spot_volume_usd": 377.6907}, {"exchange": "Backpack", "perp_symbol": "MET", "spot_pair_name": "MET_USDC", "match_type": "exact", "spot_volume_usd": 540.55205}, {"exchange": "Backpack", "perp_symbol": "ONDO", "spot_pair_name": "ONDO_USDC", "match_type": "exact", "spot_volume_usd": 497.866981}, {"exchange": "Backpack", "perp_symbol": "PENGU", "spot_pair_name": "PENGU_USDC", "match_type": "exact", "spot_volume_usd": 321.1838}, {"exchange": "Backpack", "perp_symbol": "PYTH", "spot_pair_name": "PYTH_USDC", "match_type": "exact", "spot_volume_usd": 122.826109}, {"exchange": "Backpack", "perp_symbol": "SEI", "spot_pair_name": "SEI_USDC", "match_type": "exact", "spot_volume_usd": 1657.54497}, {"exchange": "Backpack", "perp_symbol": "SKR", "spot_pair_name": "SKR_USDC", "match_type": "exact", "spot_volume_usd": 89.3317}, {"exchange": "Backpack", "perp_symbol": "STABLE", "spot_pair_name": "STABLE_USDC", "match_type": "exact", "spot_volume_usd": 1995.96389}, {"exchange": "Backpack", "perp_symbol": "STRK", "spot_pair_name": "STRK_USDC", "match_type": "exact", "spot_volume_usd": 24.97776}, {"exchange": "Backpack", "perp_symbol": "SUI", "spot_pair_name": "SUI_USDC", "match_type": "exact", "spot_volume_usd": 13596.43964}, {"exchange": "Backpack", "perp_symbol": "TRUMP", "spot_pair_name": "TRUMP_USDC", "match_type": "exact", "spot_volume_usd": 1.992615}, {"exchange": "Backpack", "perp_symbol": "TRX", "spot_pair_name": "TRX_USDC", "match_type": "exact", "spot_volume_usd": 1669.59388}, {"exchange": "Backpack", "perp_symbol": "UNI", "spot_pair_name": "UNI_USDC", "match_type": "exact", "spot_volume_usd": 32.47872}, {"exchange": "Backpack", "perp_symbol": "W", "spot_pair_name": "W_USDC", "match_type": "exact", "spot_volume_usd": 1711.39027}, {"exchange": "Backpack", "perp_symbol": "WIF", "spot_pair_name": "WIF_USDC", "match_type": "exact", "spot_volume_usd": 0.276674}, {"exchange": "Backpack", "perp_symbol": "WLD", "spot_pair_name": "WLD_USDC", "match_type": "exact", "spot_volume_usd": 556.7496}, {"exchange": "Backpack", "perp_symbol": "WLFI", "spot_pair_name": "WLFI_USDC", "match_type": "exact", "spot_volume_usd": 62.6184}, {"exchange": "Backpack", "perp_symbol": "XPL", "spot_pair_name": "XPL_USDC", "match_type": "exact", "spot_volume_usd": 6477.28507}, {"exchange": "Backpack", "perp_symbol": "XRP", "spot_pair_name": "XRP_USDC", "match_type": "exact", "spot_volume_usd": 7101.61188}, {"exchange": "Backpack", "perp_symbol": "ZRO", "spot_pair_name": "ZRO_USDC", "match_type": "exact", "spot_volume_usd": 235.8905}], "errors": {}};
+
+  const SPREAD_DATA = {"generated_at": "2026-08-17T22:11:54.991821+00:00", "min_liquidity_usd": 20000.0, "exchanges": ["Hyperliquid", "Aster", "Backpack", "Injective"], "rows": [{"base_symbol": "S", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "S", "short_funding_apr_now_pct": 10.95, "short_price": 0.021877, "short_volume_24h_usd": 145741.0773600001, "long_exchange": "Backpack", "long_contract": "S_USDC_PERP", "long_funding_apr_now_pct": -42.1012, "long_price": 0.0219, "long_volume_24h_usd": 35745.7203, "net_apr_now_pct": 53.0512, "price_diff_pct": -0.105, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 8.2621, "long_funding_apr_3d_pct": -69.0805, "net_apr_3d_pct": 77.3426}, {"base_symbol": "FARTCOIN", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "FARTCOIN", "short_funding_apr_now_pct": 10.95, "short_price": 0.14395, "short_volume_24h_usd": 4805305.8235679995, "long_exchange": "Backpack", "long_contract": "FARTCOIN_USDC_PERP", "long_funding_apr_now_pct": -84.8102, "long_price": 0.14351, "long_volume_24h_usd": 177440.916474, "net_apr_now_pct": 95.7602, "price_diff_pct": 0.3066, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 30.4118, "long_funding_apr_3d_pct": -38.2621, "net_apr_3d_pct": 68.674}, {"base_symbol": "ACE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ACE", "short_funding_apr_now_pct": -459.2552, "short_price": 0.159, "short_volume_24h_usd": 5014095.498811998, "long_exchange": "Aster", "long_contract": "ACEUSDT", "long_funding_apr_now_pct": -513.0557, "long_price": 0.15884716, "long_volume_24h_usd": 1183397.12, "net_apr_now_pct": 53.8005, "price_diff_pct": 0.0962, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": -1472.6841, "long_funding_apr_3d_pct": -1537.5986, "net_apr_3d_pct": 64.9145}, {"base_symbol": "2Z", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "2Z_USDC_PERP", "short_funding_apr_now_pct": 10.95, "short_price": 0.04898, "short_volume_24h_usd": 137871.9403, "long_exchange": "Hyperliquid", "long_contract": "2Z", "long_funding_apr_now_pct": -16.5845, "long_price": 0.04897, "long_volume_24h_usd": 168740.6008200001, "net_apr_now_pct": 27.5345, "price_diff_pct": 0.0204, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": -4.2705, "long_funding_apr_3d_pct": -58.9112, "net_apr_3d_pct": 54.6407}, {"base_symbol": "ADA", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ADA", "short_funding_apr_now_pct": 10.95, "short_price": 0.1736, "short_volume_24h_usd": 6054021.799089999, "long_exchange": "Backpack", "long_contract": "ADA_USDC_PERP", "long_funding_apr_now_pct": -14.2784, "long_price": 0.17343, "long_volume_24h_usd": 355725.43574, "net_apr_now_pct": 25.2284, "price_diff_pct": 0.098, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": -1.1231, "long_funding_apr_3d_pct": -36.6889, "net_apr_3d_pct": 35.5658}, {"base_symbol": "W", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "W_USDC_PERP", "short_funding_apr_now_pct": 10.95, "short_price": 0.008308, "short_volume_24h_usd": 28290.2541, "long_exchange": "Hyperliquid", "long_contract": "W", "long_funding_apr_now_pct": -59.5727, "long_price": 0.0083, "long_volume_24h_usd": 159441.206003, "net_apr_now_pct": 70.5227, "price_diff_pct": 0.0964, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 37.6286, "long_funding_apr_3d_pct": 2.0749, "net_apr_3d_pct": 35.5537}, {"base_symbol": "STABLE", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "STABLEUSDT", "short_funding_apr_now_pct": -109.7453, "short_price": 0.03048, "short_volume_24h_usd": 201697.36, "long_exchange": "Backpack", "long_contract": "STABLE_USDC_PERP", "long_funding_apr_now_pct": -263.8839, "long_price": 0.030513, "long_volume_24h_usd": 22499.75156, "net_apr_now_pct": 154.1387, "price_diff_pct": -0.1082, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": -242.8457, "long_funding_apr_3d_pct": -276.8193, "net_apr_3d_pct": 33.9736}, {"base_symbol": "PUMP", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "PUMP", "short_funding_apr_now_pct": 10.95, "short_price": 0.00276, "short_volume_24h_usd": 57335011.759569965, "long_exchange": "Backpack", "long_contract": "PUMP_USDC_PERP", "long_funding_apr_now_pct": -50.0587, "long_price": 0.0027556, "long_volume_24h_usd": 252076.06249, "net_apr_now_pct": 61.0087, "price_diff_pct": 0.1597, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 10.6941, "long_funding_apr_3d_pct": -21.8046, "net_apr_3d_pct": 32.4988}, {"base_symbol": "OP", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "OP", "short_funding_apr_now_pct": 5.7601, "short_price": 0.08375, "short_volume_24h_usd": 300511.7814339999, "long_exchange": "Backpack", "long_contract": "OP_USDC_PERP", "long_funding_apr_now_pct": -83.2371, "long_price": 0.08374, "long_volume_24h_usd": 83536.06878, "net_apr_now_pct": 88.9971, "price_diff_pct": 0.0119, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": -10.4985, "long_funding_apr_3d_pct": -40.3652, "net_apr_3d_pct": 29.8667}, {"base_symbol": "MNT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "MNT", "short_funding_apr_now_pct": 10.95, "short_price": 0.44049, "short_volume_24h_usd": 221122.190483, "long_exchange": "Backpack", "long_contract": "MNT_USDC_PERP", "long_funding_apr_now_pct": -45.8708, "long_price": 0.44, "long_volume_24h_usd": 49684.53449, "net_apr_now_pct": 56.8208, "price_diff_pct": 0.1114, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 11.5039, "long_funding_apr_3d_pct": -15.4174, "net_apr_3d_pct": 26.9213}, {"base_symbol": "JTO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "JTO", "short_funding_apr_now_pct": 10.95, "short_price": 0.58245, "short_volume_24h_usd": 1431479.3269899995, "long_exchange": "Backpack", "long_contract": "JTO_USDC_PERP", "long_funding_apr_now_pct": 3.4105, "long_price": 0.58249, "long_volume_24h_usd": 79973.11827, "net_apr_now_pct": 7.5395, "price_diff_pct": -0.0069, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 4.0894, "long_funding_apr_3d_pct": -17.2403, "net_apr_3d_pct": 21.3297}, {"base_symbol": "POL", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "POL", "short_funding_apr_now_pct": 10.95, "short_price": 0.079722, "short_volume_24h_usd": 1086304.3700650006, "long_exchange": "Aster", "long_contract": "POLUSDT", "long_funding_apr_now_pct": -22.2154, "long_price": 0.07975941, "long_volume_24h_usd": 38541.04, "net_apr_now_pct": 33.1654, "price_diff_pct": -0.0469, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 7.1715, "long_funding_apr_3d_pct": -4.7623, "net_apr_3d_pct": 11.9338}, {"base_symbol": "JUP", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "JUP", "short_funding_apr_now_pct": 10.95, "short_price": 0.1678, "short_volume_24h_usd": 1280672.32363, "long_exchange": "Aster", "long_contract": "JUPUSDT", "long_funding_apr_now_pct": -24.9572, "long_price": 0.1678, "long_volume_24h_usd": 29358.96, "net_apr_now_pct": 35.9072, "price_diff_pct": 0.0, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 8.1428, "long_funding_apr_3d_pct": -2.239, "net_apr_3d_pct": 10.3819}, {"base_symbol": "BCH", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "BCHUSDT", "short_funding_apr_now_pct": 10.95, "short_price": 204.67, "short_volume_24h_usd": 52508.22, "long_exchange": "Hyperliquid", "long_contract": "BCH", "long_funding_apr_now_pct": -2.6637, "long_price": 204.64, "long_volume_24h_usd": 1176634.7259200003, "net_apr_now_pct": 13.6137, "price_diff_pct": 0.0147, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 3.8189, "long_funding_apr_3d_pct": -5.9358, "net_apr_3d_pct": 9.7547}, {"base_symbol": "VIRTUAL", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "VIRTUAL", "short_funding_apr_now_pct": 10.95, "short_price": 0.57486, "short_volume_24h_usd": 2679224.61873, "long_exchange": "Aster", "long_contract": "VIRTUALUSDT", "long_funding_apr_now_pct": -28.4788, "long_price": 0.57550497, "long_volume_24h_usd": 27386.95, "net_apr_now_pct": 39.4288, "price_diff_pct": -0.1121, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 10.552, "long_funding_apr_3d_pct": 1.1207, "net_apr_3d_pct": 9.4313}, {"base_symbol": "ENA", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ENA", "short_funding_apr_now_pct": 10.95, "short_price": 0.08331, "short_volume_24h_usd": 2863826.986034001, "long_exchange": "Backpack", "long_contract": "ENA_USDC_PERP", "long_funding_apr_now_pct": -42.4259, "long_price": 0.08328, "long_volume_24h_usd": 36285.847106, "net_apr_now_pct": 53.3759, "price_diff_pct": 0.036, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 8.2439, "long_funding_apr_3d_pct": -0.9945, "net_apr_3d_pct": 9.2385}, {"base_symbol": "SEI", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "SEI", "short_funding_apr_now_pct": 10.95, "short_price": 0.0398, "short_volume_24h_usd": 260450.6519680001, "long_exchange": "Backpack", "long_contract": "SEI_USDC_PERP", "long_funding_apr_now_pct": -35.0759, "long_price": 0.03978, "long_volume_24h_usd": 22971.99913, "net_apr_now_pct": 46.0259, "price_diff_pct": 0.0503, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 4.0919, "long_funding_apr_3d_pct": -3.7922, "net_apr_3d_pct": 7.8841}, {"base_symbol": "CRV", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "CRV", "short_funding_apr_now_pct": 10.95, "short_price": 0.24291, "short_volume_24h_usd": 4352802.834787999, "long_exchange": "Backpack", "long_contract": "CRV_USDC_PERP", "long_funding_apr_now_pct": -78.3025, "long_price": 0.24262, "long_volume_24h_usd": 120818.81555, "net_apr_now_pct": 89.2525, "price_diff_pct": 0.1195, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 9.2984, "long_funding_apr_3d_pct": 1.4737, "net_apr_3d_pct": 7.8247}, {"base_symbol": "FET", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "FETUSDT", "short_funding_apr_now_pct": 10.95, "short_price": 0.12391335, "short_volume_24h_usd": 82093.17, "long_exchange": "Hyperliquid", "long_contract": "FET", "long_funding_apr_now_pct": -42.0349, "long_price": 0.12395, "long_volume_24h_usd": 1661959.3990399996, "net_apr_now_pct": 52.9849, "price_diff_pct": -0.0296, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 10.9153, "long_funding_apr_3d_pct": 6.9061, "net_apr_3d_pct": 4.0092}, {"base_symbol": "ZORA", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ZORA", "short_funding_apr_now_pct": -72.2768, "short_price": 0.004818, "short_volume_24h_usd": 275169.250554, "long_exchange": "Backpack", "long_contract": "ZORA_USDC_PERP", "long_funding_apr_now_pct": -90.5017, "long_price": 0.00482, "long_volume_24h_usd": 50990.41215, "net_apr_now_pct": 18.2248, "price_diff_pct": -0.0415, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": -68.0921, "long_funding_apr_3d_pct": -71.3713, "net_apr_3d_pct": 3.2793}, {"base_symbol": "VVV", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "VVVUSDT", "short_funding_apr_now_pct": 20.8225, "short_price": 13.23960195, "short_volume_24h_usd": 54987.93, "long_exchange": "Backpack", "long_contract": "VVV_USDC_PERP", "long_funding_apr_now_pct": -6.1227, "long_price": 13.2088, "long_volume_24h_usd": 131111.897, "net_apr_now_pct": 26.9452, "price_diff_pct": 0.2332, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 13.5302, "long_funding_apr_3d_pct": 10.2705, "net_apr_3d_pct": 3.2597}, {"base_symbol": "ZEC", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ZEC", "short_funding_apr_now_pct": 10.95, "short_price": 514.35, "short_volume_24h_usd": 61395002.91599999, "long_exchange": "Aster", "long_contract": "ZECUSDT", "long_funding_apr_now_pct": -6.1583, "long_price": 514.09684107, "long_volume_24h_usd": 4788896.06, "net_apr_now_pct": 17.1083, "price_diff_pct": 0.0492, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある", "short_funding_apr_3d_pct": 7.3882, "long_funding_apr_3d_pct": 6.6001, "net_apr_3d_pct": 0.7882}, {"base_symbol": "SOL", "spread_type": "same_exchange", "short_exchange": "Aster", "short_contract": "SOLUSD1", "short_funding_apr_now_pct": 1.5166, "short_price": 75.84096179, "short_volume_24h_usd": 14378313.2, "long_exchange": "Aster", "long_contract": "SOLUSDT", "long_funding_apr_now_pct": -1.2297, "long_price": 75.83369764, "long_volume_24h_usd": 36501814.08, "net_apr_now_pct": 2.7463, "price_diff_pct": 0.0096, "note": "決済通貨が異なる(USDT vs USD1)。決済通貨自体のデペッグリスクに注意 / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": -1.3318, "long_funding_apr_3d_pct": -1.1332, "net_apr_3d_pct": -0.1986}, {"base_symbol": "XPL", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "XPL", "short_funding_apr_now_pct": 10.95, "short_price": 0.076314, "short_volume_24h_usd": 2222149.7597209997, "long_exchange": "Backpack", "long_contract": "XPL_USDC_PERP", "long_funding_apr_now_pct": -18.8387, "long_price": 0.07627, "long_volume_24h_usd": 35106.78895, "net_apr_now_pct": 29.7887, "price_diff_pct": 0.0577, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": 10.6451, "long_funding_apr_3d_pct": 11.063, "net_apr_3d_pct": -0.4179}, {"base_symbol": "ETH", "spread_type": "same_exchange", "short_exchange": "Aster", "short_contract": "ETHUSD1", "short_funding_apr_now_pct": 10.95, "short_price": 1905.03, "short_volume_24h_usd": 3394993.2, "long_exchange": "Aster", "long_contract": "ETHUSDT", "long_funding_apr_now_pct": 5.5987, "long_price": 1904.60567054, "long_volume_24h_usd": 346623314.41, "net_apr_now_pct": 5.3513, "price_diff_pct": 0.0223, "note": "決済通貨が異なる(USDT vs USD1)。決済通貨自体のデペッグリスクに注意 / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": 0.5626, "long_funding_apr_3d_pct": 3.5433, "net_apr_3d_pct": -2.9807}, {"base_symbol": "kPEPE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "kPEPE", "short_funding_apr_now_pct": 10.95, "short_price": 0.00259, "short_volume_24h_usd": 4750690.504568002, "long_exchange": "Backpack", "long_contract": "kPEPE_USDC_PERP", "long_funding_apr_now_pct": -8.8035, "long_price": 0.002589, "long_volume_24h_usd": 144124.50552, "net_apr_now_pct": 19.7535, "price_diff_pct": 0.0386, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": 4.029, "long_funding_apr_3d_pct": 7.0248, "net_apr_3d_pct": -2.9959}, {"base_symbol": "BTC", "spread_type": "same_exchange", "short_exchange": "Aster", "short_contract": "BTCU", "short_funding_apr_now_pct": 5.1323, "short_price": 64282.82121796, "short_volume_24h_usd": 709372.15, "long_exchange": "Aster", "long_contract": "BTCUSD1", "long_funding_apr_now_pct": 1.5122, "long_price": 64300.5, "long_volume_24h_usd": 9168573.1, "net_apr_now_pct": 3.6201, "price_diff_pct": -0.0275, "note": "決済通貨が異なる(USD1 vs U)。決済通貨自体のデペッグリスクに注意 / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": 4.5936, "long_funding_apr_3d_pct": 7.7397, "net_apr_3d_pct": -3.1461}, {"base_symbol": "MET", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "MET", "short_funding_apr_now_pct": 10.95, "short_price": 0.16321, "short_volume_24h_usd": 150530.22166, "long_exchange": "Backpack", "long_contract": "MET_USDC_PERP", "long_funding_apr_now_pct": 2.547, "long_price": 0.16319, "long_volume_24h_usd": 147087.80434, "net_apr_now_pct": 8.403, "price_diff_pct": 0.0123, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": 10.7554, "long_funding_apr_3d_pct": 17.0585, "net_apr_3d_pct": -6.3031}, {"base_symbol": "AVNT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "AVNT", "short_funding_apr_now_pct": 10.95, "short_price": 0.094527, "short_volume_24h_usd": 328648.8481910001, "long_exchange": "Aster", "long_contract": "AVNTUSDT", "long_funding_apr_now_pct": 10.512, "long_price": 0.09449738, "long_volume_24h_usd": 24774.9, "net_apr_now_pct": 0.438, "price_diff_pct": 0.0313, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 3日実績では差分がマイナスに転じており、瞬間値ほど安定した機会ではない", "short_funding_apr_3d_pct": -9.5496, "long_funding_apr_3d_pct": 7.3791, "net_apr_3d_pct": -16.9287}, {"base_symbol": "UNI", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "UNI", "short_funding_apr_now_pct": 10.95, "short_price": 3.2833, "short_volume_24h_usd": 1804360.6568199995, "long_exchange": "Injective", "long_contract": "UNI/USDC PERP", "long_funding_apr_now_pct": -547.5, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 558.45, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 3日実績データ取得不可のため瞬間値のみ", "short_funding_apr_3d_pct": 10.7193, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "PENDLE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "PENDLE", "short_funding_apr_now_pct": 10.95, "short_price": 1.3243, "short_volume_24h_usd": 665050.6153, "long_exchange": "Injective", "long_contract": "PENDLE/USDC PERP", "long_funding_apr_now_pct": -547.5, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 558.45, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 3日実績データ取得不可のため瞬間値のみ", "short_funding_apr_3d_pct": 10.7786, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "LIT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "LIT", "short_funding_apr_now_pct": 10.95, "short_price": 2.345, "short_volume_24h_usd": 7650442.722100004, "long_exchange": "Injective", "long_contract": "LIT/USDC PERP", "long_funding_apr_now_pct": -547.5, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 558.45, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 3日実績データ取得不可のため瞬間値のみ", "short_funding_apr_3d_pct": 4.8518, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ORDI", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ORDI/USDC PERP", "short_funding_apr_now_pct": 547.5, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ORDI", "long_funding_apr_now_pct": 10.95, "long_price": 3.3832, "long_volume_24h_usd": 122162.013862, "net_apr_now_pct": 536.55, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 3日実績データ取得不可のため瞬間値のみ", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": 7.3834, "net_apr_3d_pct": null}, {"base_symbol": "WLFI", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "WLFI/USDC PERP", "short_funding_apr_now_pct": 547.5, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "WLFI", "long_funding_apr_now_pct": 10.95, "long_price": 0.060725, "long_volume_24h_usd": 1440349.0471559998, "net_apr_now_pct": 536.55, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 3日実績データ取得不可のため瞬間値のみ", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": 10.3665, "net_apr_3d_pct": null}, {"base_symbol": "XMR", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "XMR_USDC_PERP", "short_funding_apr_now_pct": 131.5539, "short_price": 415.29, "short_volume_24h_usd": 56064.24433, "long_exchange": "Injective", "long_contract": "XMR/USDC PERP", "long_funding_apr_now_pct": -361.9187, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 493.4726, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "CELO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "CELO", "short_funding_apr_now_pct": 10.95, "short_price": 0.059267, "short_volume_24h_usd": 72171.801417, "long_exchange": "Injective", "long_contract": "CELO/USDC PERP", "long_funding_apr_now_pct": -414.9132, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 425.8632, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ALT", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ALT/USDC PERP", "short_funding_apr_now_pct": 369.1305, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ALT", "long_funding_apr_now_pct": -45.0049, "long_price": 0.005958, "long_volume_24h_usd": 85412.669158, "net_apr_now_pct": 414.1355, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "CASHCAT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "CASHCAT", "short_funding_apr_now_pct": 399.0232, "short_price": 0.11262, "short_volume_24h_usd": 13160774.449930001, "long_exchange": "Injective", "long_contract": "CASHCAT/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 395.3732, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AR", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "AR", "short_funding_apr_now_pct": 10.95, "short_price": 1.822, "short_volume_24h_usd": 108865.544095, "long_exchange": "Injective", "long_contract": "AR/USDC PERP", "long_funding_apr_now_pct": -380.7661, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 391.7161, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AAVE", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "AAVEUSDT", "short_funding_apr_now_pct": 10.95, "short_price": 88.60241776, "short_volume_24h_usd": 353419.58, "long_exchange": "Injective", "long_contract": "AAVE/USDC PERP", "long_funding_apr_now_pct": -364.1188, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 375.0688, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DYM", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "DYM", "short_funding_apr_now_pct": 10.95, "short_price": 0.01448, "short_volume_24h_usd": 70397.3166670001, "long_exchange": "Injective", "long_contract": "DYM/USDC PERP", "long_funding_apr_now_pct": -360.7259, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 371.6759, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TAIKO", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "TAIKOUSDT", "short_funding_apr_now_pct": 21.3481, "short_price": 0.0692206, "short_volume_24h_usd": 60201.75, "long_exchange": "Injective", "long_contract": "TAIKO/USDC PERP", "long_funding_apr_now_pct": -334.6551, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 356.0032, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "PENGU", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "PENGU", "short_funding_apr_now_pct": 10.95, "short_price": 0.005991, "short_volume_24h_usd": 1063450.2378890002, "long_exchange": "Injective", "long_contract": "PENGU/USDC PERP", "long_funding_apr_now_pct": -337.9127, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 348.8627, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "COMP", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "COMP", "short_funding_apr_now_pct": 10.95, "short_price": 17.84, "short_volume_24h_usd": 643097.2627700001, "long_exchange": "Injective", "long_contract": "COMP/USDC PERP", "long_funding_apr_now_pct": -304.5588, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 315.5088, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MON", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "MON", "short_funding_apr_now_pct": 10.95, "short_price": 0.021033, "short_volume_24h_usd": 5149275.387142999, "long_exchange": "Injective", "long_contract": "MON/USDC PERP", "long_funding_apr_now_pct": -256.2249, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 267.1749, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TRUMP", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "TRUMP/USDC PERP", "short_funding_apr_now_pct": 149.8603, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Backpack", "long_contract": "TRUMP_USDC_PERP", "long_funding_apr_now_pct": -20.2485, "long_price": 1.3957, "long_volume_24h_usd": 212851.845258, "net_apr_now_pct": 170.1088, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "XRP", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "XRP/USDC PERP", "short_funding_apr_now_pct": 171.3891, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "XRP", "long_funding_apr_now_pct": 5.9408, "long_price": 1.0011, "long_volume_24h_usd": 33409779.789440002, "net_apr_now_pct": 165.4483, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "CC", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "CC/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "CCUSDT", "long_funding_apr_now_pct": -160.2467, "long_price": 0.09055, "long_volume_24h_usd": 91273.93, "net_apr_now_pct": 163.8967, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ETHFI", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ETHFI", "short_funding_apr_now_pct": 10.95, "short_price": 0.49856, "short_volume_24h_usd": 3089844.7062659976, "long_exchange": "Injective", "long_contract": "ETHFI/USDC PERP", "long_funding_apr_now_pct": -150.4803, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 161.4303, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "APT", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "APT_USDC_PERP", "short_funding_apr_now_pct": 10.95, "short_price": 0.5311, "short_volume_24h_usd": 202808.43993, "long_exchange": "Injective", "long_contract": "APT/USDC PERP", "long_funding_apr_now_pct": -138.5711, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 149.5211, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ATOM", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ATOM/USDC PERP", "short_funding_apr_now_pct": 123.034, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ATOM", "long_funding_apr_now_pct": -14.4847, "long_price": 1.4166, "long_volume_24h_usd": 396025.0489200001, "net_apr_now_pct": 137.5188, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "KAITO", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "KAITO/USDC PERP", "short_funding_apr_now_pct": 2.1865, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Backpack", "long_contract": "KAITO_USDC_PERP", "long_funding_apr_now_pct": -122.6475, "long_price": 0.33144, "long_volume_24h_usd": 617841.864385, "net_apr_now_pct": 124.8341, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ARB", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ARB/USDC PERP", "short_funding_apr_now_pct": 107.0244, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ARB", "long_funding_apr_now_pct": -17.446, "long_price": 0.07507, "long_volume_24h_usd": 1596624.4452790008, "net_apr_now_pct": 124.4704, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ZRO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ZRO", "short_funding_apr_now_pct": 15.7801, "short_price": 0.77968, "short_volume_24h_usd": 1882789.414448, "long_exchange": "Injective", "long_contract": "ZRO/USDC PERP", "long_funding_apr_now_pct": -102.2896, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 118.0697, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "INJ", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "INJ/USDC PERP", "short_funding_apr_now_pct": 72.1131, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "INJ", "long_funding_apr_now_pct": -39.5265, "long_price": 4.0665, "long_volume_24h_usd": 725261.7570100004, "net_apr_now_pct": 111.6396, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SKY", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "SKY/USDC PERP", "short_funding_apr_now_pct": 115.3382, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "SKY", "long_funding_apr_now_pct": 10.95, "long_price": 0.054023, "long_volume_24h_usd": 470347.6935159999, "net_apr_now_pct": 104.3882, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "EIGEN", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "EIGEN/USDC PERP", "short_funding_apr_now_pct": 110.1012, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "EIGEN", "long_funding_apr_now_pct": 10.95, "long_price": 0.1702, "long_volume_24h_usd": 365571.390983, "net_apr_now_pct": 99.1512, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "LINEA", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "LINEA_USDC_PERP", "short_funding_apr_now_pct": 95.0705, "short_price": 0.0021455, "short_volume_24h_usd": 33515.86475, "long_exchange": "Injective", "long_contract": "LINEA/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 91.4205, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "FIL", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "FIL", "short_funding_apr_now_pct": 10.95, "short_price": 0.67087, "short_volume_24h_usd": 188467.983554, "long_exchange": "Injective", "long_contract": "FIL/USDC PERP", "long_funding_apr_now_pct": -78.9949, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 89.9449, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SPCX", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "SPCX/USDC PERP", "short_funding_apr_now_pct": 48.18, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "SPCXUSDT", "long_funding_apr_now_pct": -34.2067, "long_price": 145.87038206, "long_volume_24h_usd": 13412690.82, "net_apr_now_pct": 82.3867, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "WLD", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "WLD", "short_funding_apr_now_pct": 10.95, "short_price": 0.34807, "short_volume_24h_usd": 5929378.769642002, "long_exchange": "Injective", "long_contract": "WLD/USDC PERP", "long_funding_apr_now_pct": -50.8813, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 61.8313, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AVAX", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "AVAX", "short_funding_apr_now_pct": 9.9698, "short_price": 6.3307, "short_volume_24h_usd": 1956270.907259, "long_exchange": "Injective", "long_contract": "AVAX/USDC PERP", "long_funding_apr_now_pct": -48.077, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 58.0469, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ETH", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ETH/USDC PERP", "short_funding_apr_now_pct": 56.5726, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ETH", "long_funding_apr_now_pct": 0.4322, "long_price": 1904.4, "long_volume_24h_usd": 531902865.3035599, "net_apr_now_pct": 56.1404, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "CRCL", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "CRCLUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 74.80410502, "short_volume_24h_usd": 1014735.48, "long_exchange": "Injective", "long_contract": "CRCL/USDC PERP", "long_funding_apr_now_pct": -48.18, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 48.18, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MSTR", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "MSTRUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 97.76026315, "short_volume_24h_usd": 134732.06, "long_exchange": "Injective", "long_contract": "MSTR/USDC PERP", "long_funding_apr_now_pct": -48.18, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 48.18, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "LTC", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "LTC/USDC PERP", "short_funding_apr_now_pct": 51.4726, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "LTC", "long_funding_apr_now_pct": 10.95, "long_price": 44.5279, "long_volume_24h_usd": 989357.2857199999, "net_apr_now_pct": 40.5226, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SNDK", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "SNDK/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "SNDKUSDT", "long_funding_apr_now_pct": -34.9447, "long_price": 1799.48449781, "long_volume_24h_usd": 25475924.69, "net_apr_now_pct": 38.5947, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "NEAR", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "NEAR_USDC_PERP", "short_funding_apr_now_pct": 39.5595, "short_price": 1.6375, "short_volume_24h_usd": 202611.3642, "long_exchange": "Injective", "long_contract": "NEAR/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 35.9095, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "PAXG", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "PAXG", "short_funding_apr_now_pct": 10.95, "short_price": 4409.4, "short_volume_24h_usd": 3555682.798900001, "long_exchange": "Injective", "long_contract": "PAXG/USDC PERP", "long_funding_apr_now_pct": -24.09, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 35.04, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TIA", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "TIAUSDT", "short_funding_apr_now_pct": 10.95, "short_price": 0.30354591, "short_volume_24h_usd": 20023.54, "long_exchange": "Injective", "long_contract": "TIA/USDC PERP", "long_funding_apr_now_pct": -20.5318, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 31.4818, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BTC", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "BTC/USDC PERP", "short_funding_apr_now_pct": 17.9241, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "BTC", "long_funding_apr_now_pct": -10.7688, "long_price": 64281.0, "long_volume_24h_usd": 2085626751.5530105, "net_apr_now_pct": 28.6928, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "WIF", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "WIF_USDC_PERP", "short_funding_apr_now_pct": 28.1153, "short_price": 0.13817, "short_volume_24h_usd": 41818.834262, "long_exchange": "Injective", "long_contract": "WIF/USDC PERP", "long_funding_apr_now_pct": 2.8084, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 25.3069, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TSLA", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "TSLA/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "TSLAUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 340.50231573, "long_volume_24h_usd": 256362.28, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AMD", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "AMDUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 507.0, "short_volume_24h_usd": 115811.75, "long_exchange": "Injective", "long_contract": "AMD/USDC PERP", "long_funding_apr_now_pct": -24.09, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "INTC", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "INTCUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 104.03264219, "short_volume_24h_usd": 136748.36, "long_exchange": "Injective", "long_contract": "INTC/USDC PERP", "long_funding_apr_now_pct": -24.09, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "META", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "META/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "METAUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 569.93875427, "long_volume_24h_usd": 118257.21, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "XAG", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "XAGUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 65.88710376, "short_volume_24h_usd": 5095370.4, "long_exchange": "Injective", "long_contract": "XAG/USDC PERP", "long_funding_apr_now_pct": -24.09, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MU", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "MU/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "MUUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 1019.7216802, "long_volume_24h_usd": 2833126.65, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AVGO", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "AVGOUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 392.79437875, "short_volume_24h_usd": 52509.49, "long_exchange": "Injective", "long_contract": "AVGO/USDC PERP", "long_funding_apr_now_pct": -24.09, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "RKLB", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "RKLB/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "RKLBUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 82.54853236, "long_volume_24h_usd": 33720.03, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "PLTR", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "PLTRUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 171.99001745, "short_volume_24h_usd": 31840.58, "long_exchange": "Injective", "long_contract": "PLTR/USDC PERP", "long_funding_apr_now_pct": -24.09, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "NVDA", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "NVDA/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "NVDAUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 225.27586181, "long_volume_24h_usd": 540637.75, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MSFT", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "MSFT/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "MSFTUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 480.33140693, "long_volume_24h_usd": 86466.92, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AMZN", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "AMZN/USDC PERP", "short_funding_apr_now_pct": 24.09, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "AMZNUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 261.54166451, "long_volume_24h_usd": 83669.83, "net_apr_now_pct": 24.09, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BOME", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "BOME", "short_funding_apr_now_pct": 10.95, "short_price": 0.000779, "short_volume_24h_usd": 209374.541939, "long_exchange": "Injective", "long_contract": "BOME/USDC PERP", "long_funding_apr_now_pct": -9.4298, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 20.3798, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "XPD", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "XPDUSDT", "short_funding_apr_now_pct": 21.3744, "short_price": 1333.2851543, "short_volume_24h_usd": 28382.78, "long_exchange": "Injective", "long_contract": "XPD/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 17.7244, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ALGO", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ALGO/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ALGO", "long_funding_apr_now_pct": -13.9846, "long_price": 0.07836, "long_volume_24h_usd": 391953.781881, "net_apr_now_pct": 17.6345, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AXS", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "AXS/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "AXS", "long_funding_apr_now_pct": -11.5734, "long_price": 0.85084, "long_volume_24h_usd": 167763.9273979999, "net_apr_now_pct": 15.2234, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "LINK", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "LINK/USDC PERP", "short_funding_apr_now_pct": 18.4481, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Backpack", "long_contract": "LINK_USDC_PERP", "long_funding_apr_now_pct": 5.2752, "long_price": 9.472, "long_volume_24h_usd": 44830.88, "net_apr_now_pct": 13.1729, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SUI", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "SUI", "short_funding_apr_now_pct": 10.95, "short_price": 0.676, "short_volume_24h_usd": 7558189.852067001, "long_exchange": "Injective", "long_contract": "SUI/USDC PERP", "long_funding_apr_now_pct": -1.5358, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 12.4858, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "H", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "HUSDT", "short_funding_apr_now_pct": 14.6993, "short_price": 0.12040774, "short_volume_24h_usd": 277530.8, "long_exchange": "Injective", "long_contract": "H/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 11.0493, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DYDX", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "DYDX", "short_funding_apr_now_pct": 10.95, "short_price": 0.10076, "short_volume_24h_usd": 362293.403561, "long_exchange": "Injective", "long_contract": "DYDX/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BNB", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "BNB", "short_funding_apr_now_pct": 10.95, "short_price": 604.71, "short_volume_24h_usd": 3714168.365620001, "long_exchange": "Injective", "long_contract": "BNB/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "APE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "APE", "short_funding_apr_now_pct": 10.95, "short_price": 0.12434, "short_volume_24h_usd": 102341.380608, "long_exchange": "Injective", "long_contract": "APE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DOGE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "DOGE", "short_funding_apr_now_pct": 10.95, "short_price": 0.07035, "short_volume_24h_usd": 5735392.201171, "long_exchange": "Injective", "long_contract": "DOGE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "LDO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "LDO", "short_funding_apr_now_pct": 10.95, "short_price": 0.30356, "short_volume_24h_usd": 411708.790335, "long_exchange": "Injective", "long_contract": "LDO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "STX", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "STX", "short_funding_apr_now_pct": 10.95, "short_price": 0.12138, "short_volume_24h_usd": 119173.755921, "long_exchange": "Injective", "long_contract": "STX/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "GMX", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "GMX", "short_funding_apr_now_pct": 10.95, "short_price": 6.5925, "short_volume_24h_usd": 81293.607718, "long_exchange": "Injective", "long_contract": "GMX/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "RUNE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "RUNE", "short_funding_apr_now_pct": 10.95, "short_price": 0.41672, "short_volume_24h_usd": 92314.450478, "long_exchange": "Injective", "long_contract": "RUNE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DOT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "DOT", "short_funding_apr_now_pct": 10.95, "short_price": 0.75942, "short_volume_24h_usd": 1059436.0873609995, "long_exchange": "Injective", "long_contract": "DOT/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "KAS", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "KAS", "short_funding_apr_now_pct": 10.95, "short_price": 0.025533, "short_volume_24h_usd": 204420.244308, "long_exchange": "Injective", "long_contract": "KAS/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BLUR", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "BLUR", "short_funding_apr_now_pct": 10.95, "short_price": 0.013144, "short_volume_24h_usd": 78449.746331, "long_exchange": "Injective", "long_contract": "BLUR/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BSV", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "BSV", "short_funding_apr_now_pct": 10.95, "short_price": 15.1912, "short_volume_24h_usd": 150299.9134600001, "long_exchange": "Injective", "long_contract": "BSV/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "PYTH", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "PYTH", "short_funding_apr_now_pct": 10.95, "short_price": 0.038671, "short_volume_24h_usd": 129779.4634649999, "long_exchange": "Injective", "long_contract": "PYTH/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "IMX", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "IMX", "short_funding_apr_now_pct": 10.95, "short_price": 0.10683, "short_volume_24h_usd": 149330.3010849999, "long_exchange": "Injective", "long_contract": "IMX/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "GALA", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "GALA", "short_funding_apr_now_pct": 10.95, "short_price": 0.001623, "short_volume_24h_usd": 74435.504402, "long_exchange": "Injective", "long_contract": "GALA/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "CAKE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "CAKE", "short_funding_apr_now_pct": 10.95, "short_price": 1.4659, "short_volume_24h_usd": 281229.1612199999, "long_exchange": "Injective", "long_contract": "CAKE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ETC", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ETC", "short_funding_apr_now_pct": 10.95, "short_price": 6.1744, "short_volume_24h_usd": 202930.489945, "long_exchange": "Injective", "long_contract": "ETC/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MANTA", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "MANTA", "short_funding_apr_now_pct": 10.95, "short_price": 0.05682, "short_volume_24h_usd": 77367.84664, "long_exchange": "Injective", "long_contract": "MANTA/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ONDO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ONDO", "short_funding_apr_now_pct": 10.95, "short_price": 0.33438, "short_volume_24h_usd": 2786207.6554400004, "long_exchange": "Injective", "long_contract": "ONDO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ZETA", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ZETA", "short_funding_apr_now_pct": 10.95, "short_price": 0.02758, "short_volume_24h_usd": 432725.1727149999, "long_exchange": "Injective", "long_contract": "ZETA/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "STRK", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "STRK", "short_funding_apr_now_pct": 10.95, "short_price": 0.02306, "short_volume_24h_usd": 277418.6942469998, "long_exchange": "Injective", "long_contract": "STRK/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TAO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "TAO", "short_funding_apr_now_pct": 10.95, "short_price": 196.16, "short_volume_24h_usd": 4766626.428090003, "long_exchange": "Injective", "long_contract": "TAO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "HBAR", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "HBAR", "short_funding_apr_now_pct": 10.95, "short_price": 0.065792, "short_volume_24h_usd": 547690.1321639998, "long_exchange": "Injective", "long_contract": "HBAR/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "POPCAT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "POPCAT", "short_funding_apr_now_pct": 10.95, "short_price": 0.041235, "short_volume_24h_usd": 175945.633734, "long_exchange": "Injective", "long_contract": "POPCAT/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "NOT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "NOT", "short_funding_apr_now_pct": 10.95, "short_price": 0.000383, "short_volume_24h_usd": 30252.55242, "long_exchange": "Injective", "long_contract": "NOT/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TURBO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "TURBO", "short_funding_apr_now_pct": 10.95, "short_price": 0.000776, "short_volume_24h_usd": 76122.905984, "long_exchange": "Injective", "long_contract": "TURBO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BRETT", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "BRETT", "short_funding_apr_now_pct": 10.95, "short_price": 0.003745, "short_volume_24h_usd": 171166.263731, "long_exchange": "Injective", "long_contract": "BRETT/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "IO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "IO", "short_funding_apr_now_pct": 10.95, "short_price": 0.11213, "short_volume_24h_usd": 107918.63051, "long_exchange": "Injective", "long_contract": "IO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "RENDER", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "RENDER", "short_funding_apr_now_pct": 10.95, "short_price": 1.2709, "short_volume_24h_usd": 230999.7250300001, "long_exchange": "Injective", "long_contract": "RENDER/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "GRASS", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "GRASS", "short_funding_apr_now_pct": 10.95, "short_price": 0.32278, "short_volume_24h_usd": 896953.1232179998, "long_exchange": "Injective", "long_contract": "GRASS/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "XLM", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "XLM", "short_funding_apr_now_pct": 10.95, "short_price": 0.15733, "short_volume_24h_usd": 512845.1704, "long_exchange": "Injective", "long_contract": "XLM/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SAND", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "SAND", "short_funding_apr_now_pct": 10.95, "short_price": 0.039159, "short_volume_24h_usd": 338761.0107340001, "long_exchange": "Injective", "long_contract": "SAND/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "HYPE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "HYPE", "short_funding_apr_now_pct": 10.95, "short_price": 58.908, "short_volume_24h_usd": 256381902.00117007, "long_exchange": "Injective", "long_contract": "HYPE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MOVE", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "MOVE", "short_funding_apr_now_pct": 10.95, "short_price": 0.006245, "short_volume_24h_usd": 322457.3262939999, "long_exchange": "Injective", "long_contract": "MOVE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "USUAL", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "USUAL", "short_funding_apr_now_pct": 10.95, "short_price": 0.00902, "short_volume_24h_usd": 83215.291886, "long_exchange": "Injective", "long_contract": "USUAL/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SPX", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "SPX", "short_funding_apr_now_pct": 10.95, "short_price": 0.31856, "short_volume_24h_usd": 914971.5765830004, "long_exchange": "Injective", "long_contract": "SPX/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MORPHO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "MORPHO", "short_funding_apr_now_pct": 10.95, "short_price": 2.1172, "short_volume_24h_usd": 1565720.0360599998, "long_exchange": "Injective", "long_contract": "MORPHO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "BERA", "spread_type": "cross_exchange", "short_exchange": "Backpack", "short_contract": "BERA_USDC_PERP", "short_funding_apr_now_pct": 10.95, "short_price": 0.15094, "short_volume_24h_usd": 137233.195158, "long_exchange": "Injective", "long_contract": "BERA/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "LAYER", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "LAYER", "short_funding_apr_now_pct": 10.95, "short_price": 0.060666, "short_volume_24h_usd": 69010.972227, "long_exchange": "Injective", "long_contract": "LAYER/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ASTER", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ASTER", "short_funding_apr_now_pct": 10.95, "short_price": 0.60128, "short_volume_24h_usd": 348501.0698200001, "long_exchange": "Injective", "long_contract": "ASTER/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ICP", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "ICP", "short_funding_apr_now_pct": 10.95, "short_price": 2.2537, "short_volume_24h_usd": 575629.37882, "long_exchange": "Injective", "long_contract": "ICP/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AERO", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "AERO", "short_funding_apr_now_pct": 10.95, "short_price": 0.40839, "short_volume_24h_usd": 518409.4846000001, "long_exchange": "Injective", "long_contract": "AERO/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DASH", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "DASH", "short_funding_apr_now_pct": 10.95, "short_price": 30.449, "short_volume_24h_usd": 232872.16469, "long_exchange": "Injective", "long_contract": "DASH/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "GRAM", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "GRAM", "short_funding_apr_now_pct": 10.95, "short_price": 1.3255, "short_volume_24h_usd": 319250.402, "long_exchange": "Injective", "long_contract": "GRAM/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DEXE", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "DEXEUSDT", "short_funding_apr_now_pct": 10.95, "short_price": 1.96046916, "short_volume_24h_usd": 57004.86, "long_exchange": "Injective", "long_contract": "DEXE/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.3, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "TRX", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "TRXUSDT", "short_funding_apr_now_pct": 10.8471, "short_price": 0.33108405, "short_volume_24h_usd": 110752.87, "long_exchange": "Injective", "long_contract": "TRX/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 7.1971, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SUSHI", "spread_type": "cross_exchange", "short_exchange": "Hyperliquid", "short_contract": "SUSHI", "short_funding_apr_now_pct": 9.6314, "short_price": 0.16134, "short_volume_24h_usd": 63620.217019, "long_exchange": "Injective", "long_contract": "SUSHI/USDC PERP", "long_funding_apr_now_pct": 3.65, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 5.9815, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SOL", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "SOL/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "SOLUSDT", "long_funding_apr_now_pct": -1.2297, "long_price": 75.83369764, "long_volume_24h_usd": 36501814.08, "net_apr_now_pct": 4.8797, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "AAPL", "spread_type": "cross_exchange", "short_exchange": "Aster", "short_contract": "AAPLUSDT", "short_funding_apr_now_pct": 0.0, "short_price": 305.43504376, "short_volume_24h_usd": 114555.16, "long_exchange": "Injective", "long_contract": "AAPL/USDC PERP", "long_funding_apr_now_pct": -3.8557, "long_price": null, "long_volume_24h_usd": null, "net_apr_now_pct": 3.8557, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "UBER", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "UBER/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "UBERUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 75.21411034, "long_volume_24h_usd": 60494.67, "net_apr_now_pct": 3.65, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "MRVL", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "MRVL/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "MRVLUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 235.4642228, "long_volume_24h_usd": 94383.64, "net_apr_now_pct": 3.65, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "XAU", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "XAU/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "XAUUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 4419.98983323, "long_volume_24h_usd": 9760264.08, "net_apr_now_pct": 3.65, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "DELL", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "DELL/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Aster", "long_contract": "DELLUSDT", "long_funding_apr_now_pct": 0.0, "long_price": 479.45688028, "long_volume_24h_usd": 556768.97, "net_apr_now_pct": 3.65, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "SNX", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "SNX/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "SNX", "long_funding_apr_now_pct": 0.16, "long_price": 0.1961, "long_volume_24h_usd": 183658.133341, "net_apr_now_pct": 3.49, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}, {"base_symbol": "ZK", "spread_type": "cross_exchange", "short_exchange": "Injective", "short_contract": "ZK/USDC PERP", "short_funding_apr_now_pct": 3.65, "short_price": null, "short_volume_24h_usd": null, "long_exchange": "Hyperliquid", "long_contract": "ZK", "long_funding_apr_now_pct": 1.4103, "long_price": 0.007636, "long_volume_24h_usd": 359074.2405909998, "net_apr_now_pct": 2.2397, "price_diff_pct": null, "note": "取引所間の送金・出金リスクあり。両取引所に資金を分けて用意する必要がある / 出来高不明な脚を含む(参考情報) / 上位候補外のため3日実績は未検証(瞬間値のみ)", "short_funding_apr_3d_pct": null, "long_funding_apr_3d_pct": null, "net_apr_3d_pct": null}]};
+
+  const boardEl = document.getElementById('board');
+  const excludedBody = document.getElementById('excluded-body');
+  const excludedCount = document.getElementById('excluded-count');
+  const notionalInput = document.getElementById('notional-input');
+  const sortGroup = document.getElementById('sort-group');
+  const filterGroup = document.getElementById('filter-group');
+
+  let sortKey = 'apr';
+  let exchangeFilter = 'all';
+  let notional = DATA.notional_usd;
+
+  const matchTypeLabel = {
+    exact: '完全一致',
+    unit_prefix: 'Unit資産',
+    unit_prefix_k: 'Unit資産(k)',
+    unit_prefix_startswith: 'Unit資産(部分一致)',
+  };
+
+  function aprCompare(a, b) {
+    const av = a.funding_3d_apr_pct, bv = b.funding_3d_apr_pct;
+    const aPos = av > 0, bPos = bv > 0;
+    if (aPos && !bPos) return -1;
+    if (!aPos && bPos) return 1;
+    return aPos ? bv - av : av - bv; // プラス同士は降順、マイナス同士は絶対値降順(=昇順)
+  }
+
+  function exchangeSlug(name) {
+    return name.toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+
+  function buildFilterButtons() {
+    const exchanges = DATA.exchanges && DATA.exchanges.length
+      ? DATA.exchanges
+      : [...new Set(DATA.rows.map(r => r.exchange))];
+    const buttons = ['all', ...exchanges];
+    filterGroup.innerHTML = buttons.map(ex => `
+      <button data-exchange="${ex}" class="${ex === 'all' ? 'active' : ''}">${ex === 'all' ? '全取引所' : ex}</button>
+    `).join('');
+  }
+
+  function fmtUsd(v, opts = {}) {
+    if (v === null || v === undefined) return '&mdash;';
+    const abs = Math.abs(v);
+    const digits = abs >= 1000 ? 0 : abs >= 1 ? 2 : 6;
+    return (v < 0 ? '-$' : '$') + Math.abs(v).toLocaleString('en-US', { minimumFractionDigits: opts.digits ?? digits, maximumFractionDigits: opts.digits ?? digits });
+  }
+
+  function fmtCompactUsd(v) {
+    if (v === null || v === undefined) return '&mdash;';
+    if (v >= 1_000_000) return '$' + (v / 1_000_000).toFixed(2) + 'M';
+    if (v >= 1_000) return '$' + (v / 1_000).toFixed(1) + 'K';
+    return '$' + v.toFixed(0);
+  }
+
+  function fmtPct(v, digits = 2) {
+    if (v === null || v === undefined) return '&mdash;';
+    return (v > 0 ? '+' : '') + v.toFixed(digits) + '%';
+  }
+
+  function fmtPrice(v) {
+    if (v === null || v === undefined) return '&mdash;';
+    if (v >= 100) return v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+    if (v >= 1) return v.toFixed(4);
+    return v.toPrecision(4);
+  }
+
+  function scaledProfit(row, hours) {
+    // funding_3d_apr_pct is annualized from the 3-day average; derive a same-basis
+    // per-period figure for the user-adjustable notional.
+    const annualPct = row.funding_3d_apr_pct;
+    return notional * (annualPct / 100) * (hours / (24 * 365));
+  }
+
+  function render() {
+    let rows = [...DATA.rows];
+    if (exchangeFilter !== 'all') rows = rows.filter(r => r.exchange === exchangeFilter);
+    if (sortKey === 'apr') rows.sort(aprCompare);
+    if (sortKey === 'volume') rows.sort((a, b) => (b.spot_volume_24h_usd ?? -1) - (a.spot_volume_24h_usd ?? -1));
+    if (sortKey === 'basis') rows.sort((a, b) => {
+      const av = a.basis_pct === null ? Infinity : Math.abs(a.basis_pct);
+      const bv = b.basis_pct === null ? Infinity : Math.abs(b.basis_pct);
+      return av - bv;
+    });
+
+    boardEl.innerHTML = rows.map((r, i) => {
+      const aprPos = r.funding_3d_apr_pct >= 0;
+      const spotPillClass = r.spot_action.includes('買い') ? 'spot-long' : 'spot-short';
+      const perpPillClass = r.perp_action.includes('ショート') ? 'perp-short' : 'perp-long';
+      const profit3d = scaledProfit(r, 72);
+      const profitAnnual = scaledProfit(r, 24 * 365);
+      const exTagClass = 'ex-' + exchangeSlug(r.exchange);
+      return `
+        <div class="row">
+          <div class="row-top">
+            <span class="rank">${String(i + 1).padStart(2, '0')}</span>
+            <div class="symbol-block">
+              <div class="symbol-row">
+                <span class="symbol">${r.perp_symbol}</span>
+                <span class="exchange-tag ${exTagClass}">${r.exchange}</span>
+              </div>
+              <div class="pair-line">${r.spot_pair_name} &middot; ${matchTypeLabel[r.match_type] || r.match_type}</div>
+            </div>
+            <div class="positions">
+              <span class="pill ${spotPillClass}">現物 ${r.spot_action}</span>
+              <span class="join-arrow">+</span>
+              <span class="pill ${perpPillClass}">Perp ${r.perp_action}</span>
+            </div>
+            <span class="spacer"></span>
+            <div class="apr-block">
+              <div class="apr-value ${aprPos ? 'pos' : 'neg'}">${fmtPct(r.funding_3d_apr_pct)}</div>
+              <div class="apr-caption">年率 &middot; 3日実績</div>
+            </div>
+          </div>
+          <div class="row-detail">
+            <div><div class="stat-label">瞬間APR</div><div class="stat-value">${fmtPct(r.funding_now_apr_pct)}</div></div>
+            <div><div class="stat-label">funding間隔</div><div class="stat-value">${r.funding_interval_hours}h</div></div>
+            <div><div class="stat-label">ベーシス</div><div class="stat-value">${fmtPct(r.basis_pct, 3)}</div></div>
+            <div><div class="stat-label">Spot / Perp価格</div><div class="stat-value spotlight">${fmtPrice(r.spot_price)} / ${fmtPrice(r.perp_price)}</div></div>
+            <div><div class="stat-label">24h出来高(spot)</div><div class="stat-value">${fmtCompactUsd(r.spot_volume_24h_usd)}</div></div>
+            <div><div class="stat-label">想定収益 3日/年</div><div class="stat-value spotlight">${fmtUsd(profit3d, {digits: 2})} / ${fmtUsd(profitAnnual, {digits: 0})}</div></div>
+          </div>
+          ${r.note ? `<div class="row-note">${r.note}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    if (!rows.length) {
+      boardEl.innerHTML = `<div class="row" style="text-align:center; color: var(--text-faint);">この条件に一致する候補はありません</div>`;
+    }
+  }
+
+  function renderExcluded() {
+    excludedCount.textContent = DATA.excluded.length;
+    excludedBody.innerHTML = DATA.excluded
+      .slice()
+      .sort((a, b) => b.spot_volume_usd - a.spot_volume_usd)
+      .map(e => `
+        <tr>
+          <td><span class="exchange-tag ex-${exchangeSlug(e.exchange)}">${e.exchange}</span></td>
+          <td>${e.perp_symbol}</td>
+          <td>${e.spot_pair_name}</td>
+          <td>${matchTypeLabel[e.match_type] || e.match_type}</td>
+          <td>${fmtCompactUsd(e.spot_volume_usd)}</td>
+        </tr>
+      `).join('');
+  }
+
+  function renderSummary() {
+    const top = [...DATA.rows].sort(aprCompare)[0];
+    document.getElementById('stat-top-symbol').textContent = top ? `${top.perp_symbol} (${top.exchange})` : '—';
+    document.getElementById('stat-top-apr').textContent = top ? fmtPct(top.funding_3d_apr_pct) : '—';
+    document.getElementById('stat-counts').innerHTML = `${DATA.rows.length}<small> / ${DATA.excluded.length}件除外</small>`;
+    document.getElementById('stat-top-profit').textContent = top ? fmtUsd(scaledProfit(top, 24 * 365), {digits: 0}) : '—';
+
+    const generated = new Date(DATA.generated_at);
+    const formatted = new Intl.DateTimeFormat('ja-JP', {
+      timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hour12: false,
+    }).format(generated);
+    document.getElementById('snapshot-time').textContent = formatted + ' JST';
+    document.getElementById('notional-badge').textContent = fmtUsd(notional, {digits: 0});
+
+    const exchanges = DATA.exchanges && DATA.exchanges.length
+      ? DATA.exchanges
+      : [...new Set(DATA.rows.map(r => r.exchange))];
+    document.getElementById('masthead-exchanges').textContent = exchanges.join(' + ') + ' · Spot / Perp';
+    document.getElementById('footer-sources').innerHTML =
+      'データ取得元: ' + exchanges.map(ex => `<code style="font-family: var(--mono);">${ex}</code>`).join(' / ') + ' の公開 Info API';
+  }
+
+  sortGroup.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    sortKey = btn.dataset.sort;
+    [...sortGroup.children].forEach(b => b.classList.toggle('active', b === btn));
+    render();
+  });
+
+  filterGroup.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    exchangeFilter = btn.dataset.exchange;
+    [...filterGroup.children].forEach(b => b.classList.toggle('active', b === btn));
+    render();
+  });
+
+  notionalInput.addEventListener('input', () => {
+    const v = parseFloat(notionalInput.value);
+    notional = isNaN(v) || v < 0 ? 0 : v;
+    document.getElementById('notional-badge').textContent = fmtUsd(notional, {digits: 0});
+    render();
+    renderSummary();
+  });
+
+  buildFilterButtons();
+  render();
+  renderExcluded();
+  renderSummary();
+
+  // ---------------------------------------------------------------------
+  // Tabs
+  // ---------------------------------------------------------------------
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'tab-' + btn.dataset.tab));
+    });
+  });
+
+  // ---------------------------------------------------------------------
+  // Perp差分スキャナー
+  // ---------------------------------------------------------------------
+
+  const spreadBoardEl = document.getElementById('spread-board');
+  const spreadTypeFilterEl = document.getElementById('spread-type-filter');
+  let spreadTypeFilter = 'all';
+
+  const spreadTypeLabel = { cross_exchange: '取引所間', same_exchange: '同一取引所' };
+
+  function spreadNet(r) {
+    return r.net_apr_3d_pct !== null ? r.net_apr_3d_pct : r.net_apr_now_pct;
+  }
+
+  function spreadCompare(a, b) {
+    // 3日実績で検証済みの行を常に未検証の行より優先する
+    // (瞬間値だけの薄い銘柄が非現実的に大きい数値で上位に残るのを防ぐため)
+    const aVerified = a.net_apr_3d_pct !== null;
+    const bVerified = b.net_apr_3d_pct !== null;
+    if (aVerified !== bVerified) return aVerified ? -1 : 1;
+    return spreadNet(b) - spreadNet(a);
+  }
+
+  function legBlock(side, exchange, contract, aprNow, apr3d) {
+    const rate = apr3d !== null ? apr3d : aprNow;
+    // ショート側は自身のfunding rateがプラスなら受取・マイナスなら支払。
+    // ロング側は逆 (プラスなら支払・マイナスなら受取)。
+    const receives = side === 'short' ? rate >= 0 : rate < 0;
+    const sideLabel = side === 'short' ? 'ショート' : 'ロング';
+    const label = `${sideLabel} (${receives ? '受取' : '支払'})`;
+    const exTag = `<span class="exchange-tag ex-${exchangeSlug(exchange)}">${exchange}</span>`;
+    const aprDisplay = apr3d !== null ? fmtPct(apr3d) : fmtPct(aprNow) + ' (瞬間)';
+    return `
+      <div class="leg-block">
+        <div class="leg-label">${label}</div>
+        ${exTag}
+        <div class="leg-contract">${contract}</div>
+        <div class="leg-apr" style="color: var(--${receives ? 'positive' : 'negative'});">${aprDisplay}</div>
+      </div>
+    `;
+  }
+
+  function renderSpread() {
+    let rows = [...SPREAD_DATA.rows];
+    if (spreadTypeFilter !== 'all') rows = rows.filter(r => r.spread_type === spreadTypeFilter);
+    rows.sort(spreadCompare);
+
+    spreadBoardEl.innerHTML = rows.map((r, i) => {
+      const net = spreadNet(r);
+      const netVerified = r.net_apr_3d_pct !== null;
+      const netClass = net >= 0 ? 'pos' : 'neg';
+      const typeBadgeClass = r.spread_type === 'cross_exchange' ? 'cross' : '';
+      return `
+        <div class="row">
+          <div class="row-top">
+            <span class="rank">${String(i + 1).padStart(2, '0')}</span>
+            <div class="symbol-block" style="min-width: 90px;">
+              <div class="symbol-row">
+                <span class="symbol">${r.base_symbol}</span>
+              </div>
+              <div class="pair-line"><span class="spread-type-badge ${typeBadgeClass}">${spreadTypeLabel[r.spread_type]}</span></div>
+            </div>
+            <div class="legs-row">
+              ${legBlock('short', r.short_exchange, r.short_contract, r.short_funding_apr_now_pct, r.short_funding_apr_3d_pct)}
+              <span class="legs-vs">vs</span>
+              ${legBlock('long', r.long_exchange, r.long_contract, r.long_funding_apr_now_pct, r.long_funding_apr_3d_pct)}
+            </div>
+            <span class="spacer"></span>
+            <div class="apr-block">
+              <div class="apr-value ${netClass}">${fmtPct(net)}</div>
+              <div class="apr-caption">差分APR ${netVerified ? '(3日実績)' : '(瞬間値)'}</div>
+            </div>
+          </div>
+          <div class="row-detail" style="grid-template-columns: repeat(4, auto);">
+            <div><div class="stat-label">価格差</div><div class="stat-value">${fmtPct(r.price_diff_pct, 3)}</div></div>
+            <div><div class="stat-label">24h出来高(ショート側)</div><div class="stat-value">${fmtCompactUsd(r.short_volume_24h_usd)}</div></div>
+            <div><div class="stat-label">24h出来高(ロング側)</div><div class="stat-value">${fmtCompactUsd(r.long_volume_24h_usd)}</div></div>
+          </div>
+          ${r.note ? `<div class="row-note">${r.note}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    if (!rows.length) {
+      spreadBoardEl.innerHTML = `<div class="row" style="text-align:center; color: var(--text-faint);">この条件に一致する候補はありません</div>`;
+    }
+  }
+
+  function renderSpreadSummary() {
+    const top = [...SPREAD_DATA.rows].sort(spreadCompare)[0];
+    document.getElementById('spread-top-symbol').textContent = top ? top.base_symbol : '—';
+    document.getElementById('spread-top-apr').textContent = top ? fmtPct(spreadNet(top)) : '—';
+    document.getElementById('spread-counts').textContent = SPREAD_DATA.rows.length;
+    document.getElementById('spread-verified-count').textContent =
+      SPREAD_DATA.rows.filter(r => r.net_apr_3d_pct !== null).length + ' / ' + SPREAD_DATA.rows.length;
+  }
+
+  spreadTypeFilterEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    spreadTypeFilter = btn.dataset.type;
+    [...spreadTypeFilterEl.children].forEach(b => b.classList.toggle('active', b === btn));
+    renderSpread();
+  });
+
+  renderSpread();
+  renderSpreadSummary();
+</script>
