@@ -26,8 +26,25 @@ POSITIONS_PATH = "positions.json"
 HL_API = "https://api.hyperliquid.xyz/info"
 ASTER_FAPI = "https://fapi.asterdex.com"
 BACKPACK_API = "https://api.backpack.exchange"
+INJECTIVE_API = "https://sentry.exchange.grpc-web.injective.network"
 
-HISTORY_SUPPORTED_EXCHANGES = {"Hyperliquid", "Aster", "Backpack"}
+HISTORY_SUPPORTED_EXCHANGES = {"Hyperliquid", "Aster", "Backpack", "Injective"}
+
+_injective_market_id_by_ticker: dict[str, str] | None = None
+
+
+def _resolve_injective_market_id(ticker: str) -> str | None:
+    """表示用ticker (例: "BTC/USDC PERP") -> marketId hash。初回呼び出し時のみ
+    市場一覧を取得しキャッシュする(funding_spread_scanner.py と同じ発見済みAPIを、
+    モジュール間の暗黙のグローバル状態共有を避けて自己完結で複製)。"""
+    global _injective_market_id_by_ticker
+    if _injective_market_id_by_ticker is None:
+        try:
+            data = _get_json(f"{INJECTIVE_API}/api/exchange/derivative/v1/markets")
+            _injective_market_id_by_ticker = {m["ticker"]: m["marketId"] for m in data["markets"]}
+        except Exception:
+            _injective_market_id_by_ticker = {}
+    return _injective_market_id_by_ticker.get(ticker)
 
 
 def _get_json(url: str, method: str = "GET", body: dict | None = None, timeout: int = 20) -> object:
@@ -50,7 +67,7 @@ def _now_iso() -> str:
 
 
 # ---------------------------------------------------------------------------
-# 取引所ごとの funding 履歴合計 (%) 取得。Injective は履歴APIが未特定のため非対応。
+# 取引所ごとの funding 履歴合計 (%) 取得。
 # 戻り値: (cumulative_pct, complete) — complete=False は取得できた履歴が
 # 指定開始日時まで遡れていない(=集計が不完全)ことを示す
 # ---------------------------------------------------------------------------
@@ -90,7 +107,25 @@ def fetch_cumulative_funding_pct(
             rates = [float(h["fundingRate"]) for h in filtered]
             return (sum(rates) * 100 if rates else None), complete
 
-        return None, False  # Injective: 履歴API未対応、手動でP&Lを入力すること
+        if exchange == "Injective":
+            market_id = _resolve_injective_market_id(contract_symbol)
+            if market_id is None:
+                return None, False
+            data = _get_json(
+                f"{INJECTIVE_API}/api/exchange/derivative/v1/fundingRates"
+                f"?marketId={market_id}&limit=500"
+            )
+            history = data.get("fundingRates") or []
+            filtered = [h for h in history if start_ms <= h["timestamp"] <= end_ms]
+            complete = True
+            if history:
+                oldest_ms = min(h["timestamp"] for h in history)
+                if oldest_ms > start_ms:
+                    complete = False  # 取得できた履歴が開始日時まで遡れていない
+            rates = [float(h["rate"]) for h in filtered]
+            return (sum(rates) * 100 if rates else None), complete
+
+        return None, False
     except Exception as e:
         print(f"警告: {exchange} {contract_symbol} の履歴取得に失敗: {e}", file=sys.stderr)
         return None, False

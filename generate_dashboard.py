@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)のデータを
-再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA / TEAM_DATA) を
-最新の値に差し替える。
+再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA / TEAM_DATA /
+PAPER_BOT_DATA) を最新の値に差し替える。
 
 スケジュール実行 (毎時) から呼ばれることを想定:
   1. multi_exchange_arbitrage.build_combined_table() で spot/perp キャリー候補を取得
@@ -12,9 +12,12 @@ Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)の
   5. build_team_status_payload() で上記1〜4の結果からAI社員パネル用データを組み立てる
      (portfolio.py/positions.json には一切アクセスしない ── 実運用金額を含む個人情報を
      毎時自動公開されるこのダッシュボードに載せないため)
-  6. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等5つの定数を
+  6. paper_bot.run_cycle() で1・2の行データをそのまま使い、ペーパートレードBotの
+     エグジット/エントリー判定を1サイクル実行する(実弾なし。paper_positions.json は
+     シミュレーションのみで実金額を含まないため公開・git管理してよい)
+  7. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等6つの定数を
      正規表現で丸ごと置換する
-  7. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
+  8. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
 """
 
 import json
@@ -27,6 +30,7 @@ from multi_exchange_arbitrage import build_combined_table
 from funding_spread_scanner import build_spread_table
 from risk_manager import TOTAL_CAPITAL_USD, score_and_rank
 from market_intel import fetch_market_intel
+from paper_bot import run_cycle as run_paper_bot_cycle
 
 NOTIONAL_USD = 10000.0
 MIN_LIQUIDITY_USD = 20000.0
@@ -180,6 +184,15 @@ def main():
         carry_payload, spread_payload, ranking_payload, intel_payload
     )
     html = inject(html, "TEAM_DATA", team_status_payload)
+
+    print("ペーパートレードBot サイクル実行中...", file=sys.stderr)
+    paper_bot_payload = run_paper_bot_cycle(carry_payload["rows"], spread_payload["rows"], TOTAL_CAPITAL_USD)
+    html = inject(html, "PAPER_BOT_DATA", paper_bot_payload)
+    print(
+        f"  -> オープン{paper_bot_payload['open_count']}件 / "
+        f"確定損益${paper_bot_payload['realized_pnl_usd']:,.2f}",
+        file=sys.stderr,
+    )
 
     with open(HTML_PATH, "w", encoding="utf-8") as f:
         f.write(html)

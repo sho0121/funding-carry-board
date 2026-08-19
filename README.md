@@ -26,19 +26,26 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
                                      (トレンド銘柄)を認証不要APIから収集
                         │
                         ▼
-        generate_dashboard.py → hyperliquid_funding_dashboard.html (4タブ)
+        generate_dashboard.py → hyperliquid_funding_dashboard.html (5タブ)
                                    🏆 推奨ランキング / ファンディングキャリー /
-                                   Perp差分スキャナー / 📰 市場インテリジェンス
+                                   Perp差分スキャナー / 📰 市場インテリジェンス /
+                                   🤖 ペーパートレードBot
                         │
+                        ├─ paper_bot.py … 実際の発注はせず、推奨ポジションを「発注した
+                        │  と仮定」してportfolio.pyと同じ損益計算ロジックで検証する
+                        │  ペーパートレードBot(paper_positions.jsonは実金額を含まない
+                        │  ため公開・git管理・ダッシュボード表示してよい)
                         └─ daily_report.py → reports/YYYY-MM-DD.md (日次サマリー)
 
 portfolio.py … 実際に建てたポジションを記録し、各取引所の公開funding履歴APIから
-               実績のP&Lを自動計算する(独立したローカル専用の収益管理台帳)
+               実績のP&Lを自動計算する(独立したローカル専用の収益管理台帳。
+               positions.jsonは実運用金額を含むため非公開・gitignore対象)
 ```
 
-`.github/workflows/refresh-dashboard.yml` が毎時 `generate_dashboard.py` を実行し、
-更新されたHTMLを自動コミットする。この経路は純Python・LLM呼び出し不可のため、
-`risk_manager.py` と `market_intel.py` は認証不要の公開APIのみで完結している。
+`.github/workflows/refresh.yml` が毎時 `generate_dashboard.py` を実行し、更新された
+HTMLと `paper_positions.json` を自動コミットする。この経路は純Python・LLM呼び出し
+不可のため、`risk_manager.py` / `market_intel.py` / `paper_bot.py` はすべて認証不要の
+公開APIのみで完結している。
 
 定性的な調査(新興取引所の是非・個別ニュースの深掘り)はこの自動経路では行えないため、
 `market-intel-analyst` サブエージェントがオンデマンドで担当し、結果を
@@ -68,7 +75,9 @@ portfolio.py … 実際に建てたポジションを記録し、各取引所の
 - `market_intel.py` : リスクイベント・トレンド銘柄の自動収集
 - `generate_dashboard.py` : 上記すべてを `hyperliquid_funding_dashboard.html` に埋め込み
 - `daily_report.py` : 日次Markdownレポート生成
-- `portfolio.py` : ポジションの記録・funding実績に基づくP&L自動計算(収益管理台帳)
+- `portfolio.py` : ポジションの記録・funding実績に基づくP&L自動計算(実運用・非公開)
+- `paper_bot.py` : risk_manager.pyの推奨ポジションを実弾なしで自動エントリー/エグジート
+  し、portfolio.pyと同じロジックで損益検証するペーパートレードBot(公開・毎時自動更新)
 
 ## ローカル実行
 
@@ -79,14 +88,17 @@ python3 market_intel.py         # market_intel.json を単独生成(デバッグ
 python3 daily_report.py         # reports/YYYY-MM-DD.md を生成
 python3 portfolio.py status     # オープン中ポジションの含み損益
 python3 portfolio.py summary    # 確定+含み損益の集計
+python3 paper_bot.py run        # ペーパートレードBotを1サイクル実行(実弾なし)
+python3 paper_bot.py summary    # Botの成績(確定+含み損益、勝率)を表示
 ```
 
 ## ロードマップ
 
 - **Phase 2**: 市場インテリジェンスの定期スケジュール化・情報源拡充
-- **Phase 3**: バックテスト / ペーパートレード
+- **Phase 3**: バックテスト / ペーパートレード ← `paper_bot.py` で実装済み(実弾なし)
 - **Phase 4**: 取引所APIの読み取り専用連携(残高・ポジション照会)
 - **Phase 5**: 半自動執行(シグナル→人間承認→発注)
 - **Phase 6**: 完全自動化(希望する場合のみ)
 
-現時点ではAPIキー未設定のため Phase 4 以降は未着手。
+現時点ではAPIキー未設定のため Phase 4 以降は未着手。Phase 5以降に進む判断材料として、
+`paper_bot.py` の成績を継続的にウォッチする。

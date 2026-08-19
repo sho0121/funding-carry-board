@@ -29,6 +29,7 @@ EXCHANGES = {
 FIELDNAMES = [
     "exchange",
     "perp_symbol",
+    "perp_contract_symbol",
     "spot_pair_name",
     "spot_quote_symbol",
     "match_type",

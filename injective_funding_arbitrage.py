@@ -180,6 +180,7 @@ def build_arbitrage_table(
             {
                 "exchange": "Injective",
                 "perp_symbol": m["perp_symbol"],
+                "perp_contract_symbol": m["perp_ticker"],
                 "spot_pair_name": m["spot_ticker"],
                 "spot_quote_symbol": m["spot_ticker"].split("/")[1],
                 "match_type": m["match_type"],
@@ -214,6 +215,7 @@ def write_csv(rows: list[dict], path: str) -> None:
     fieldnames = [
         "exchange",
         "perp_symbol",
+        "perp_contract_symbol",
         "spot_pair_name",
         "spot_quote_symbol",
         "match_type",
