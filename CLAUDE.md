@@ -23,8 +23,10 @@
 ## 現状の制約(必ず踏まえること)
 
 - 取引所APIキー・自動発注は未設定。実際の発注はユーザーが手動で行う
-- `risk_manager.py` の `TOTAL_CAPITAL_USD` はダミー値。ユーザーの実際の運用資金と
-  異なる可能性があるため、資金配分の話をする際は前提として確認する
+- `risk_manager.py` の `TOTAL_CAPITAL_USD` は実際の運用資金(2026-08時点で$15,001)。
+  運用がうまくいけば今後増える想定なので、入出金や増資の話が出たらこの値も
+  更新してよいか確認し、更新したら `generate_dashboard.py` を再実行してダッシュボードの
+  推奨ランキングにも反映させること
 - `positions.json`(収益管理台帳)は実際の運用金額を含む個人情報。**絶対にgit管理・
   外部送信しない**(`.gitignore` 済み)
 - `.github/workflows/refresh-dashboard.yml` が毎時 `generate_dashboard.py` を実行し
