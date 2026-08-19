@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
 Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)のデータを
-再取得し、埋め込み JSON (DATA / SPREAD_DATA) を最新の値に差し替える。
+再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA) を
+最新の値に差し替える。
 
 スケジュール実行 (毎時) から呼ばれることを想定:
   1. multi_exchange_arbitrage.build_combined_table() で spot/perp キャリー候補を取得
   2. funding_spread_scanner.build_spread_table() で perp対perp 差分候補を取得
-  3. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` と
-     `const SPREAD_DATA = {...};` を正規表現で丸ごと置換する
-  4. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
+  3. risk_manager.score_and_rank() で 1・2 を横断したリスク調整後ランキングを算出
+  4. market_intel.fetch_market_intel() でリスクイベント・トレンド銘柄を取得
+  5. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等4つの定数を
+     正規表現で丸ごと置換する
+  6. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
 """
 
 import json
@@ -18,6 +21,8 @@ from datetime import datetime, timezone
 
 from multi_exchange_arbitrage import build_combined_table
 from funding_spread_scanner import build_spread_table
+from risk_manager import TOTAL_CAPITAL_USD, score_and_rank
+from market_intel import fetch_market_intel
 
 NOTIONAL_USD = 10000.0
 MIN_LIQUIDITY_USD = 20000.0
@@ -59,6 +64,19 @@ def build_spread_payload() -> dict:
     }
 
 
+def build_ranking_payload(carry_rows: list, spread_rows: list) -> dict:
+    ranked = score_and_rank(carry_rows, spread_rows, TOTAL_CAPITAL_USD)
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "capital_usd": TOTAL_CAPITAL_USD,
+        "rows": ranked,
+    }
+
+
+def build_intel_payload() -> dict:
+    return fetch_market_intel()
+
+
 def inject(html: str, var_name: str, payload: dict) -> str:
     new_line = f"const {var_name} = " + json.dumps(payload, ensure_ascii=False) + ";"
     pattern = rf"const {var_name} = \{{.*?\}};"
@@ -81,6 +99,20 @@ def main():
     spread_payload = build_spread_payload()
     html = inject(html, "SPREAD_DATA", spread_payload)
     print(f"  -> {len(spread_payload['rows'])} 件", file=sys.stderr)
+
+    print("リスク調整後ランキング算出中...", file=sys.stderr)
+    ranking_payload = build_ranking_payload(carry_payload["rows"], spread_payload["rows"])
+    html = inject(html, "RANKING_DATA", ranking_payload)
+    print(f"  -> {len(ranking_payload['rows'])} 件", file=sys.stderr)
+
+    print("市場インテリジェンス取得中...", file=sys.stderr)
+    intel_payload = build_intel_payload()
+    html = inject(html, "INTEL_DATA", intel_payload)
+    print(
+        f"  -> リスクイベント {len(intel_payload['risk_events'])} 件 / "
+        f"トレンド銘柄 {len(intel_payload['trending_coins'])} 件",
+        file=sys.stderr,
+    )
 
     with open(HTML_PATH, "w", encoding="utf-8") as f:
         f.write(html)
