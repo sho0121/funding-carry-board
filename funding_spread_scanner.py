@@ -151,6 +151,12 @@ def fetch_backpack_perps() -> list[dict]:
     return rows
 
 
+# Injectiveのfunding履歴API (fundingRates?marketId=...) はtickerではなくmarketIdの
+# hashを要求するため、表示用ticker -> marketId の対応をここに保持しておく
+# (fetch_injective_perps() 実行時に埋まる。fetch_3d_avg_apr() から参照する)
+_INJECTIVE_MARKET_ID_BY_TICKER: dict[str, str] = {}
+
+
 def fetch_injective_perps() -> list[dict]:
     """出来高が取得できないため volume_24h_usd は常に None (参考情報扱い)"""
     data = _get_json(f"{INJECTIVE_API}/api/exchange/derivative/v1/markets")
@@ -166,6 +172,7 @@ def fetch_injective_perps() -> list[dict]:
             continue
         periods_per_year = (365 * 24 * 3600) / interval_seconds
         base = m["ticker"].split("/")[0]
+        _INJECTIVE_MARKET_ID_BY_TICKER[m["ticker"]] = m["marketId"]
         rows.append(
             {
                 "exchange": "Injective",
@@ -236,7 +243,26 @@ def fetch_3d_avg_apr(exchange: str, contract_symbol: str, base_symbol: str) -> f
             # Backpack の perp は現状全て1時間間隔
             return (sum(rates) / len(rates)) * (365 * 24) * 100
 
-        return None  # Injective: 履歴APIが未特定のため対象外
+        if exchange == "Injective":
+            market_id = _INJECTIVE_MARKET_ID_BY_TICKER.get(contract_symbol)
+            if market_id is None:
+                return None
+            history = _get_json(
+                f"{INJECTIVE_API}/api/exchange/derivative/v1/fundingRates?marketId={market_id}&limit=100"
+            )
+            rates_data = history.get("fundingRates") or []
+            if not rates_data:
+                return None
+            recent = [h for h in rates_data if h["timestamp"] >= start_ms]
+            recent = recent or rates_data[:72]
+            times = sorted(h["timestamp"] for h in recent)
+            diffs = [b - a for a, b in zip(times, times[1:])]
+            interval_hours = statistics.median(diffs) / (3600 * 1000) if diffs else 1.0
+            rates = [float(h["rate"]) for h in recent]
+            periods_per_year = (365 * 24) / interval_hours
+            return (sum(rates) / len(rates)) * periods_per_year * 100
+
+        return None
     except Exception:
         return None
 
@@ -341,7 +367,7 @@ def build_spread_table(
     ]
     reference_rows = [r for r in rows if r["short_volume_24h_usd"] is None or r["long_volume_24h_usd"] is None]
 
-    REFERENCE_VERIFY_CAP = 5
+    REFERENCE_VERIFY_CAP = 25  # Injectiveのfunding履歴取得に対応したため引き上げた
     to_verify = tradable_rows[:TOP_N_TO_VERIFY] + reference_rows[:REFERENCE_VERIFY_CAP]
     verify_ids = {id(r) for r in to_verify}
     rest = [r for r in rows if id(r) not in verify_ids]

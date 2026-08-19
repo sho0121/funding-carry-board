@@ -6,20 +6,21 @@ Injective (Helix) で spot / perps 両方に上場している銘柄について
 
 --- 他取引所との違い (簡易実装であることの明記) ---
 
-Injective の Indexer API は gRPC-Web ベースで、価格・24h出来高・funding履歴を
-返す REST エンドポイント (旧 chronos サービス) の現在の正しいパスが
-たどれなかった (候補ホストが軒並み 404/503 で、公式 Python SDK もこの環境では
-インストールできなかった)。そのため、このモジュールは以下の点で他取引所版より
-情報が少ない簡易実装になっている:
+Injective の Indexer API は gRPC-Web ベースで、価格・24h出来高を返す REST
+エンドポイント (旧 chronos サービス) の現在の正しいパスがたどれなかった
+(候補ホストが軒並み 404/503 で、公式 Python SDK もこの環境ではインストール
+できなかった)。そのため、このモジュールは以下の点で他取引所版より情報が
+少ない簡易実装になっている:
 
   - spot_price / perp_price / basis_pct は取得できないため常に None
     (perp market メタデータの perpetualMarketFunding には現在の funding rate は
     含まれるが、現在の取引価格そのものは含まれていない)
   - 24h 出来高が取得できないため、流動性フィルタ (--min-liquidity-usd) は
     適用されない。マッチした全銘柄がそのまま候補になる (流動性は自己責任で確認)
-  - 3日間の実績平均が取得できないため、funding_3d_apr_pct は
-    funding_now_apr_pct (現在の瞬間レート) をそのまま流用した近似値
-    (funding_3d_cum_pct は None のまま)
+
+funding履歴は `/api/exchange/derivative/v1/fundingRates?marketId=...` で取得できる
+ことを確認できたため、他取引所と同様に直近3日間の実績平均を funding_3d_apr_pct /
+funding_3d_cum_pct として計算する(価格/出来高の欠落のみが残る制約)。
 
 将来的に正しい価格/出来高エンドポイント、または公式 SDK が利用可能になれば、
 他取引所と同じ精度に引き上げられる。
@@ -31,10 +32,12 @@ import argparse
 import csv
 import json
 import sys
+import time
 
 from injective_dual_listed import fetch, find_dual_listed
 
 HOURS_PER_YEAR = 24 * 365
+FUNDING_HISTORY_LOOKBACK_MS = 3 * 24 * 60 * 60 * 1000  # 3日間
 
 
 def apr_sort_key(row: dict):
@@ -43,9 +46,31 @@ def apr_sort_key(row: dict):
     apr = row["funding_3d_apr_pct"]
     return (0, -apr) if apr > 0 else (1, apr)
 DATA_LIMITATION_NOTE = (
-    "簡易実装: Injective の価格/出来高/funding履歴 REST エンドポイントが未特定のため、"
-    "現在のfunding rateのみを参考情報として表示(価格・ベーシス・出来高フィルタなし)"
+    "簡易実装: Injective の価格/出来高 REST エンドポイントが未特定のため、"
+    "価格・ベーシス・出来高フィルタなし(funding実績は3日平均を使用)"
 )
+
+
+def fetch_3d_avg_apr(market_id: str, periods_per_year: float) -> tuple[float | None, float | None]:
+    """直近3日間の実績平均funding APR(%)と累積funding(%)を返す。取得不可なら (None, None)。"""
+    try:
+        data = fetch(f"/api/exchange/derivative/v1/fundingRates?marketId={market_id}&limit=100")
+    except Exception:
+        return None, None
+
+    history = data.get("fundingRates") or []
+    if not history:
+        return None, None
+
+    cutoff_ms = int(time.time() * 1000) - FUNDING_HISTORY_LOOKBACK_MS
+    recent = [h for h in history if h["timestamp"] >= cutoff_ms]
+    if not recent:
+        return None, None
+
+    rates = [float(h["rate"]) for h in recent]
+    avg_apr_pct = (sum(rates) / len(rates)) * periods_per_year * 100
+    cum_pct = sum(rates) * 100
+    return avg_apr_pct, cum_pct
 
 
 def build_arbitrage_table(
@@ -77,6 +102,15 @@ def build_arbitrage_table(
         funding_now_period = float(last_funding_rate)
         funding_now_apr_pct = funding_now_period * periods_per_year * 100
 
+        avg_apr_3d, cum_pct_3d = fetch_3d_avg_apr(m["perp_market_id"], periods_per_year)
+        if avg_apr_3d is not None:
+            funding_3d_apr_pct = avg_apr_3d
+            funding_3d_cum_pct = cum_pct_3d
+        else:
+            # 3日実績が取得できない場合のみ瞬間値を代用し、その旨を注記する
+            funding_3d_apr_pct = funding_now_apr_pct
+            funding_3d_cum_pct = None
+
         if funding_now_period > 0:
             spot_action = "買い(ロング)"
             perp_action = "ショート(売り)"
@@ -93,7 +127,11 @@ def build_arbitrage_table(
             perp_action = "-"
             note = DATA_LIMITATION_NOTE + " / funding がほぼ0のため裁定機会なし"
 
-        est_annual_profit_usd = notional_usd * funding_now_apr_pct / 100
+        if avg_apr_3d is None:
+            note += " / 3日実績データ取得不可のため瞬間値のみ"
+
+        est_3d_profit_usd = notional_usd * funding_3d_cum_pct / 100 if funding_3d_cum_pct is not None else None
+        est_annual_profit_usd = notional_usd * funding_3d_apr_pct / 100
 
         rows.append(
             {
@@ -111,10 +149,10 @@ def build_arbitrage_table(
                 "funding_interval_hours": round(interval_hours, 2),
                 "funding_now_period_pct": round(funding_now_period * 100, 6),
                 "funding_now_apr_pct": round(funding_now_apr_pct, 4),
-                "funding_3d_cum_pct": None,
-                "funding_3d_apr_pct": round(funding_now_apr_pct, 4),
+                "funding_3d_cum_pct": round(funding_3d_cum_pct, 4) if funding_3d_cum_pct is not None else None,
+                "funding_3d_apr_pct": round(funding_3d_apr_pct, 4),
                 "notional_usd": notional_usd,
-                "est_3d_profit_usd": None,
+                "est_3d_profit_usd": round(est_3d_profit_usd, 2) if est_3d_profit_usd is not None else None,
                 "est_annual_profit_usd": round(est_annual_profit_usd, 2),
                 "note": note,
             }
