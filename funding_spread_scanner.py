@@ -16,8 +16,9 @@ spot を一切使わず、無期限先物同士を逆方向に建てて (両脚�
      その中でショート・ロングを組む。送金リスクは無いが、決済通貨自体の
      デペッグリスクがある。
 
-対象取引所: Hyperliquid, Aster, Backpack (出来高フィルタあり)。
-Injective は現状 24h 出来高が取得できないため「参考情報」として別枠で扱う。
+対象取引所: Hyperliquid, Aster, Backpack, Injective。Injective は瞬間値スクリーニング
+段階では出来高不明のまま候補に残すが、3日実績検証の対象になった行(上位候補)については
+約定履歴 (/api/exchange/derivative/v1/trades) から実際の24h出来高を遡って計算し補完する。
 
 funding rate は本スクリプトでは「現在の瞬間レート」を使う (3日実績平均では
 ない)。取引所間の一括比較を軽量に行うため、全銘柄について履歴を遡る代わりに
@@ -151,14 +152,15 @@ def fetch_backpack_perps() -> list[dict]:
     return rows
 
 
-# Injectiveのfunding履歴API (fundingRates?marketId=...) はtickerではなくmarketIdの
-# hashを要求するため、表示用ticker -> marketId の対応をここに保持しておく
-# (fetch_injective_perps() 実行時に埋まる。fetch_3d_avg_apr() から参照する)
-_INJECTIVE_MARKET_ID_BY_TICKER: dict[str, str] = {}
+# Injectiveのfunding履歴/約定履歴APIはtickerではなくmarketIdの hash を要求するため、
+# 表示用ticker -> {market_id, quote_decimals} の対応をここに保持しておく
+# (fetch_injective_perps() 実行時に埋まる。fetch_3d_avg_apr() / 出来高取得から参照する)
+_INJECTIVE_MARKET_META_BY_TICKER: dict[str, dict] = {}
 
 
 def fetch_injective_perps() -> list[dict]:
-    """出来高が取得できないため volume_24h_usd は常に None (参考情報扱い)"""
+    """瞬間値取得の時点では出来高は不明 (None)。上位候補になった行のみ、検証フェーズで
+    fetch_injective_24h_volume_usd() により実際の出来高を遡って補完する。"""
     data = _get_json(f"{INJECTIVE_API}/api/exchange/derivative/v1/markets")
     rows = []
     for m in data["markets"]:
@@ -172,7 +174,10 @@ def fetch_injective_perps() -> list[dict]:
             continue
         periods_per_year = (365 * 24 * 3600) / interval_seconds
         base = m["ticker"].split("/")[0]
-        _INJECTIVE_MARKET_ID_BY_TICKER[m["ticker"]] = m["marketId"]
+        _INJECTIVE_MARKET_META_BY_TICKER[m["ticker"]] = {
+            "market_id": m["marketId"],
+            "quote_decimals": m["quoteTokenMeta"]["decimals"],
+        }
         rows.append(
             {
                 "exchange": "Injective",
@@ -185,6 +190,41 @@ def fetch_injective_perps() -> list[dict]:
             }
         )
     return rows
+
+
+def fetch_injective_24h_volume_usd(contract_symbol: str) -> tuple[float | None, bool]:
+    """直近24hの約定履歴からUSD建て出来高を概算する。
+    価格は生の executionPrice を quote_decimals で割ればHyperliquidの実勢価格と一致する
+    ことを実データで検証済み(quantityは既に人間可読な単位で返る)。
+    戻り値の bool は「1000件上限に達し過小評価の可能性があるか」(False=不完全)。"""
+    meta = _INJECTIVE_MARKET_META_BY_TICKER.get(contract_symbol)
+    if meta is None:
+        return None, False
+    now_ms = int(time.time() * 1000)
+    start_ms = now_ms - 24 * 60 * 60 * 1000
+    try:
+        data = _get_json(
+            f"{INJECTIVE_API}/api/exchange/derivative/v1/trades"
+            f"?marketId={meta['market_id']}&startTime={start_ms}&endTime={now_ms}&limit=1000"
+        )
+    except Exception:
+        return None, False
+
+    trades = data.get("trades") or []
+    if not trades:
+        return 0.0, True
+
+    paging = data.get("paging") or {}
+    complete = int(paging.get("total", len(trades))) <= len(trades)
+    scale = 10 ** meta["quote_decimals"]
+    volume = 0.0
+    for t in trades:
+        delta = t.get("positionDelta") or {}
+        price, qty = delta.get("executionPrice"), delta.get("executionQuantity")
+        if price is None or qty is None:
+            continue
+        volume += (float(price) / scale) * float(qty)
+    return volume, complete
 
 
 FETCHERS = {
@@ -244,11 +284,11 @@ def fetch_3d_avg_apr(exchange: str, contract_symbol: str, base_symbol: str) -> f
             return (sum(rates) / len(rates)) * (365 * 24) * 100
 
         if exchange == "Injective":
-            market_id = _INJECTIVE_MARKET_ID_BY_TICKER.get(contract_symbol)
-            if market_id is None:
+            meta = _INJECTIVE_MARKET_META_BY_TICKER.get(contract_symbol)
+            if meta is None:
                 return None
             history = _get_json(
-                f"{INJECTIVE_API}/api/exchange/derivative/v1/fundingRates?marketId={market_id}&limit=100"
+                f"{INJECTIVE_API}/api/exchange/derivative/v1/fundingRates?marketId={meta['market_id']}&limit=100"
             )
             rates_data = history.get("fundingRates") or []
             if not rates_data:
@@ -367,12 +407,37 @@ def build_spread_table(
     ]
     reference_rows = [r for r in rows if r["short_volume_24h_usd"] is None or r["long_volume_24h_usd"] is None]
 
-    REFERENCE_VERIFY_CAP = 25  # Injectiveのfunding履歴取得に対応したため引き上げた
+    REFERENCE_VERIFY_CAP = 30  # Injectiveのfunding履歴・出来高取得に対応したため引き上げた
     to_verify = tradable_rows[:TOP_N_TO_VERIFY] + reference_rows[:REFERENCE_VERIFY_CAP]
     verify_ids = {id(r) for r in to_verify}
     rest = [r for r in rows if id(r) not in verify_ids]
 
+    def _strip_note_fragment(note: str, fragment: str) -> str:
+        return " / ".join(p for p in note.split(" / ") if p != fragment)
+
+    def _backfill_injective_volume(r: dict, side: str) -> None:
+        """side='short'|'long'。Injective脚で出来高が未知なら実際の24h出来高を取得して埋める。"""
+        exchange = r[f"{side}_exchange"]
+        if exchange != "Injective" or r[f"{side}_volume_24h_usd"] is not None:
+            return
+        volume, complete = fetch_injective_24h_volume_usd(r[f"{side}_contract"])
+        if volume is None:
+            return
+        r[f"{side}_volume_24h_usd"] = round(volume, 2)
+        if not complete:
+            r["note"] = (r["note"] + " / " if r["note"] else "") + f"{side}側出来高は取得上限のため過小評価の可能性"
+        elif volume < min_liquidity_usd:
+            r["note"] = (
+                (r["note"] + " / " if r["note"] else "")
+                + f"{side}側の実出来高が最小流動性(${min_liquidity_usd:,.0f})未満(${volume:,.0f})"
+            )
+
     for r in to_verify:
+        _backfill_injective_volume(r, "short")
+        _backfill_injective_volume(r, "long")
+        if r["short_volume_24h_usd"] is not None and r["long_volume_24h_usd"] is not None:
+            r["note"] = _strip_note_fragment(r["note"], "出来高不明な脚を含む(参考情報)")
+
         short_3d = fetch_3d_avg_apr(r["short_exchange"], r["short_contract"], r["base_symbol"])
         long_3d = fetch_3d_avg_apr(r["long_exchange"], r["long_contract"], r["base_symbol"])
         r["short_funding_apr_3d_pct"] = round(short_3d, 4) if short_3d is not None else None

@@ -63,6 +63,7 @@ def find_dual_listed() -> list[dict]:
                 "funding_interval_seconds": funding_info.get("fundingInterval"),
                 "spot_market_id": spot_m["marketId"],
                 "spot_ticker": spot_m["ticker"],
+                "spot_quote_decimals": spot_m["quoteTokenMeta"]["decimals"],
                 "match_type": "exact",
             }
         )

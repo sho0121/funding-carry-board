@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)のデータを
-再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA) を
+再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA / TEAM_DATA) を
 最新の値に差し替える。
 
 スケジュール実行 (毎時) から呼ばれることを想定:
@@ -9,12 +9,16 @@ Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)の
   2. funding_spread_scanner.build_spread_table() で perp対perp 差分候補を取得
   3. risk_manager.score_and_rank() で 1・2 を横断したリスク調整後ランキングを算出
   4. market_intel.fetch_market_intel() でリスクイベント・トレンド銘柄を取得
-  5. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等4つの定数を
+  5. build_team_status_payload() で上記1〜4の結果からAI社員パネル用データを組み立てる
+     (portfolio.py/positions.json には一切アクセスしない ── 実運用金額を含む個人情報を
+     毎時自動公開されるこのダッシュボードに載せないため)
+  6. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等5つの定数を
      正規表現で丸ごと置換する
-  6. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
+  7. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
 """
 
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -77,6 +81,64 @@ def build_intel_payload() -> dict:
     return fetch_market_intel()
 
 
+def build_team_status_payload(
+    carry_payload: dict, spread_payload: dict, ranking_payload: dict, intel_payload: dict
+) -> dict:
+    """AI社員(サブエージェント)5体の稼働状況パネル用データ。
+    portfolio-manager は positions.json (実際の運用金額を含む個人情報) を一切参照しない
+    ── ダッシュボードは毎時GitHub Actionsで自動公開されるため、意図的にここでは
+    ファイルの存在確認すら行わない。"""
+    latest_report = None
+    if os.path.isdir("reports"):
+        report_files = sorted(f for f in os.listdir("reports") if f.endswith(".md"))
+        if report_files:
+            latest_report = report_files[-1].removesuffix(".md")
+
+    top = ranking_payload["rows"][0] if ranking_payload["rows"] else None
+    intel_events = [e for e in intel_payload.get("risk_events", []) if "error" not in e]
+
+    return {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "members": [
+            {
+                "role": "research-analyst",
+                "label": "リサーチ担当",
+                "icon": "🔍",
+                "status": f"{len(carry_payload['rows']) + len(spread_payload['rows'])}件の裁定候補を検出",
+                "detail": f"キャリー{len(carry_payload['rows'])}件 / 差分{len(spread_payload['rows'])}件",
+            },
+            {
+                "role": "market-intel-analyst",
+                "label": "市場インテリジェンス担当",
+                "icon": "📰",
+                "status": f"リスクイベント{len(intel_events)}件を監視中",
+                "detail": "定性メモあり" if intel_payload.get("analyst_notes_available") else "定性メモなし(オンデマンドで依頼可)",
+            },
+            {
+                "role": "risk-manager",
+                "label": "リスク管理担当",
+                "icon": "🛡️",
+                "status": f"{len(ranking_payload['rows'])}件を評価しランキング済み",
+                "detail": f"総合1位: {top['label']}" if top else "評価対象なし",
+            },
+            {
+                "role": "ops-reporter",
+                "label": "運用管理担当",
+                "icon": "📋",
+                "status": f"最新日次レポート: {latest_report}" if latest_report else "日次レポート未生成",
+                "detail": "ダッシュボードは毎時自動更新",
+            },
+            {
+                "role": "portfolio-manager",
+                "label": "収益管理担当",
+                "icon": "💰",
+                "status": "ローカル専用(このダッシュボードには非表示)",
+                "detail": "positions.jsonは実運用金額を含むためgit管理・公開対象外",
+            },
+        ],
+    }
+
+
 def inject(html: str, var_name: str, payload: dict) -> str:
     new_line = f"const {var_name} = " + json.dumps(payload, ensure_ascii=False) + ";"
     pattern = rf"const {var_name} = \{{.*?\}};"
@@ -113,6 +175,11 @@ def main():
         f"トレンド銘柄 {len(intel_payload['trending_coins'])} 件",
         file=sys.stderr,
     )
+
+    team_status_payload = build_team_status_payload(
+        carry_payload, spread_payload, ranking_payload, intel_payload
+    )
+    html = inject(html, "TEAM_DATA", team_status_payload)
 
     with open(HTML_PATH, "w", encoding="utf-8") as f:
         f.write(html)

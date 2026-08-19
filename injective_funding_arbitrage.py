@@ -6,24 +6,17 @@ Injective (Helix) で spot / perps 両方に上場している銘柄について
 
 --- 他取引所との違い (簡易実装であることの明記) ---
 
-Injective の Indexer API は gRPC-Web ベースで、価格・24h出来高を返す REST
-エンドポイント (旧 chronos サービス) の現在の正しいパスがたどれなかった
-(候補ホストが軒並み 404/503 で、公式 Python SDK もこの環境ではインストール
-できなかった)。そのため、このモジュールは以下の点で他取引所版より情報が
-少ない簡易実装になっている:
+Injective の Indexer API は gRPC-Web ベースで、現在の取引価格そのものを返す
+REST エンドポイント (旧 chronos サービス) の正しいパスがたどれなかった。そのため
+spot_price / perp_price / basis_pct は依然として常に None(公式SDKが使えるように
+なれば引き上げられる)。
 
-  - spot_price / perp_price / basis_pct は取得できないため常に None
-    (perp market メタデータの perpetualMarketFunding には現在の funding rate は
-    含まれるが、現在の取引価格そのものは含まれていない)
-  - 24h 出来高が取得できないため、流動性フィルタ (--min-liquidity-usd) は
-    適用されない。マッチした全銘柄がそのまま候補になる (流動性は自己責任で確認)
-
-funding履歴は `/api/exchange/derivative/v1/fundingRates?marketId=...` で取得できる
-ことを確認できたため、他取引所と同様に直近3日間の実績平均を funding_3d_apr_pct /
-funding_3d_cum_pct として計算する(価格/出来高の欠落のみが残る制約)。
-
-将来的に正しい価格/出来高エンドポイント、または公式 SDK が利用可能になれば、
-他取引所と同じ精度に引き上げられる。
+funding履歴 (`/api/exchange/derivative/v1/fundingRates?marketId=...`) と
+約定履歴 (`/api/exchange/spot/v1/trades?marketId=...`) は実在するAPIを特定できた
+ため、他取引所と同様に直近3日間の実績平均funding、および実際の24h spot出来高
+(流動性フィルタ込み)を計算する。約定価格は生の price/quantity を
+quoteTokenMeta.decimals で調整すれば実勢価格と一致することを実データ(BTC/USDC:
+Hyperliquidのmark priceと0.005%差)で検証済み。
 """
 
 from __future__ import annotations
@@ -38,6 +31,7 @@ from injective_dual_listed import fetch, find_dual_listed
 
 HOURS_PER_YEAR = 24 * 365
 FUNDING_HISTORY_LOOKBACK_MS = 3 * 24 * 60 * 60 * 1000  # 3日間
+VOLUME_LOOKBACK_MS = 24 * 60 * 60 * 1000  # 24時間
 
 
 def apr_sort_key(row: dict):
@@ -46,9 +40,41 @@ def apr_sort_key(row: dict):
     apr = row["funding_3d_apr_pct"]
     return (0, -apr) if apr > 0 else (1, apr)
 DATA_LIMITATION_NOTE = (
-    "簡易実装: Injective の価格/出来高 REST エンドポイントが未特定のため、"
-    "価格・ベーシス・出来高フィルタなし(funding実績は3日平均を使用)"
+    "簡易実装: Injective の現在価格 REST エンドポイントが未特定のため、"
+    "価格・ベーシス表示なし(funding実績・出来高は実データから計算)"
 )
+
+
+def fetch_spot_24h_volume_usd(spot_market_id: str, quote_decimals: int) -> tuple[float | None, bool]:
+    """直近24hの約定履歴からUSD建て出来高を計算する。
+    price.price * price.quantity / 10^quote_decimals で notional(USD)になることを
+    実データ(INJ/USDT: Hyperliquid等の実勢価格と整合)で検証済み。
+    戻り値の bool は「1000件上限に達し過小評価の可能性があるか」(False=不完全)。"""
+    now_ms = int(time.time() * 1000)
+    start_ms = now_ms - VOLUME_LOOKBACK_MS
+    try:
+        data = fetch(
+            f"/api/exchange/spot/v1/trades?marketId={spot_market_id}"
+            f"&startTime={start_ms}&endTime={now_ms}&limit=1000"
+        )
+    except Exception:
+        return None, False
+
+    trades = data.get("trades") or []
+    if not trades:
+        return 0.0, True
+
+    paging = data.get("paging") or {}
+    complete = int(paging.get("total", len(trades))) <= len(trades)
+    scale = 10 ** quote_decimals
+    volume = 0.0
+    for t in trades:
+        p = t.get("price") or {}
+        price, qty = p.get("price"), p.get("quantity")
+        if price is None or qty is None:
+            continue
+        volume += float(price) * float(qty) / scale
+    return volume, complete
 
 
 def fetch_3d_avg_apr(market_id: str, periods_per_year: float) -> tuple[float | None, float | None]:
@@ -76,15 +102,30 @@ def fetch_3d_avg_apr(market_id: str, periods_per_year: float) -> tuple[float | N
 def build_arbitrage_table(
     notional_usd: float, min_liquidity_usd: float
 ) -> tuple[list[dict], list[dict]]:
-    """min_liquidity_usd は他取引所とのインターフェース互換のために受け取るが、
-    出来高データが取得できないため実際にはフィルタしない。"""
+    """他取引所と同様、spotの24h出来高が min_liquidity_usd 未満の銘柄は excluded に回す。"""
     matched = find_dual_listed()
     perp_ctx_by_market_id = {
         mkt["marketId"]: mkt for mkt in fetch("/api/exchange/derivative/v1/markets")["markets"]
     }
 
     rows = []
+    excluded = []
     for m in matched:
+        spot_volume_usd, volume_complete = fetch_spot_24h_volume_usd(
+            m["spot_market_id"], m["spot_quote_decimals"]
+        )
+        if spot_volume_usd is not None and spot_volume_usd < min_liquidity_usd:
+            excluded.append(
+                {
+                    "exchange": "Injective",
+                    "perp_symbol": m["perp_symbol"],
+                    "spot_pair_name": m["spot_ticker"],
+                    "match_type": m["match_type"],
+                    "spot_volume_usd": spot_volume_usd,
+                }
+            )
+            continue
+
         interval_seconds = m["funding_interval_seconds"]
         if not interval_seconds:
             continue
@@ -129,6 +170,8 @@ def build_arbitrage_table(
 
         if avg_apr_3d is None:
             note += " / 3日実績データ取得不可のため瞬間値のみ"
+        if not volume_complete:
+            note += " / 出来高は取得上限のため過小評価の可能性"
 
         est_3d_profit_usd = notional_usd * funding_3d_cum_pct / 100 if funding_3d_cum_pct is not None else None
         est_annual_profit_usd = notional_usd * funding_3d_apr_pct / 100
@@ -144,7 +187,7 @@ def build_arbitrage_table(
                 "perp_action": perp_action,
                 "spot_price": None,
                 "perp_price": None,
-                "spot_volume_24h_usd": None,
+                "spot_volume_24h_usd": round(spot_volume_usd, 2) if spot_volume_usd is not None else None,
                 "basis_pct": None,
                 "funding_interval_hours": round(interval_hours, 2),
                 "funding_now_period_pct": round(funding_now_period * 100, 6),
@@ -159,7 +202,7 @@ def build_arbitrage_table(
         )
 
     rows.sort(key=apr_sort_key)
-    return rows, []
+    return rows, excluded
 
 
 def write_json(rows: list[dict], path: str) -> None:
@@ -215,7 +258,14 @@ def main():
         write_csv(rows, output_path)
 
     print(f"{len(rows)} 件の裁定候補を出力しました -> {output_path}", file=sys.stderr)
-    print("注: 簡易実装のため価格・出来高フィルタなし。詳細はスクリプト先頭のdocstring参照", file=sys.stderr)
+    if excluded:
+        names = ", ".join(f"{e['perp_symbol']}(24h出来高 ${e['spot_volume_usd']:,.0f})" for e in excluded)
+        print(
+            f"注: spot の流動性不足 (--min-liquidity-usd={args.min_liquidity_usd:,.0f} 未満) "
+            f"のため除外: {names}",
+            file=sys.stderr,
+        )
+    print("注: 簡易実装のため価格・ベーシスは未取得。詳細はスクリプト先頭のdocstring参照", file=sys.stderr)
 
 
 if __name__ == "__main__":
