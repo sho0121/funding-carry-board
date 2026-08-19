@@ -173,16 +173,16 @@
     "base_symbol": "ADA",
     "notional_usd": 1889.32,
     "opened_at": "2026-08-19T20:14:50.568932+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-19T23:12:57.605277+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "ADAUSDT",
       "long_exchange": "Backpack",
       "long_contract": "ADA_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 26.16% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 26.16% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.78
   },
   {
     "id": "1b648acf",
@@ -298,6 +298,23 @@
       "long_contract": "SKR"
     },
     "notes": "Bot自動エントリー: APR 77.10% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "10675eb0",
+    "type": "spread",
+    "base_symbol": "PUMP",
+    "notional_usd": 414.61,
+    "opened_at": "2026-08-19T23:12:57.605277+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "PUMP/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "PUMP_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 115.23% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
