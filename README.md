@@ -4,8 +4,12 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
 (spot+perpキャリー、perp対perp差分)の候補を自動収集し、リスク調整後にランキングする
 ダッシュボード。毎時 GitHub Actions で自動更新される。
 
-**現在の運用範囲**: シグナル検出・リスク評価・推奨ポジションサイズの提示まで。
+**現在の運用範囲**: シグナル検出・リスク評価・推奨ポジションサイズの提示・収益管理まで。
 取引所APIキー・自動発注は未設定のため、実際の発注は手動で行う。投資助言ではない。
+
+このディレクトリでClaude Codeを開けば [CLAUDE.md](CLAUDE.md) の案内により、スクリプト名を
+意識せず普段の会話(「今の市場どう?」「損益は?」等)でリサーチ・市場動向・収益状況を
+確認できる。
 
 ## データフロー
 
@@ -27,6 +31,9 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
                                    Perp差分スキャナー / 📰 市場インテリジェンス
                         │
                         └─ daily_report.py → reports/YYYY-MM-DD.md (日次サマリー)
+
+portfolio.py … 実際に建てたポジションを記録し、各取引所の公開funding履歴APIから
+               実績のP&Lを自動計算する(独立したローカル専用の収益管理台帳)
 ```
 
 `.github/workflows/refresh-dashboard.yml` が毎時 `generate_dashboard.py` を実行し、
@@ -40,8 +47,8 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
 
 ## AI社員(サブエージェント)
 
-`.claude/agents/` に4つの役割を定義している。Claude Codeに「〜担当として」と話しかければ
-該当エージェントが呼び出される。
+`.claude/agents/` に5つの役割を定義している。Claude Codeに「〜担当として」と話しかければ
+該当エージェントが呼び出される(普段の雑談的な質問への対応方針は [CLAUDE.md](CLAUDE.md) 参照)。
 
 | エージェント | 役割 | 主な入出力 |
 |---|---|---|
@@ -49,6 +56,7 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
 | `market-intel-analyst` | 新興取引所・ニュースの定性調査 | `market_intel_notes.md` に追記 |
 | `risk-manager` | リスク評価・推奨ポジションサイズ・ランキングの解釈 | `risk_manager.py` |
 | `ops-reporter` | 日次レポート作成、ダッシュボード/CIの健全性確認 | `daily_report.py` |
+| `portfolio-manager` | ポジションの記録、含み損益/確定損益の確認 | `portfolio.py` |
 
 ## 主要スクリプト
 
@@ -60,6 +68,7 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
 - `market_intel.py` : リスクイベント・トレンド銘柄の自動収集
 - `generate_dashboard.py` : 上記すべてを `hyperliquid_funding_dashboard.html` に埋め込み
 - `daily_report.py` : 日次Markdownレポート生成
+- `portfolio.py` : ポジションの記録・funding実績に基づくP&L自動計算(収益管理台帳)
 
 ## ローカル実行
 
@@ -68,6 +77,8 @@ python3 generate_dashboard.py   # ダッシュボードHTMLを最新化
 python3 risk_manager.py         # risk_assessed_opportunities.csv を単独生成(デバッグ用)
 python3 market_intel.py         # market_intel.json を単独生成(デバッグ用)
 python3 daily_report.py         # reports/YYYY-MM-DD.md を生成
+python3 portfolio.py status     # オープン中ポジションの含み損益
+python3 portfolio.py summary    # 確定+含み損益の集計
 ```
 
 ## ロードマップ
