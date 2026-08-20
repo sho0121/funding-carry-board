@@ -524,16 +524,16 @@
     "base_symbol": "PUMP",
     "notional_usd": 993.15,
     "opened_at": "2026-08-20T05:19:47.263499+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-20T08:05:04.099118+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "PUMP/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "PUMP"
     },
-    "notes": "Bot自動エントリー: APR 88.72% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 88.72% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.1
   },
   {
     "id": "7c2a843d",
@@ -550,6 +550,23 @@
       "long_contract": "TRUMP/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 80.67% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9476972e",
+    "type": "spread",
+    "base_symbol": "AR",
+    "notional_usd": 523.44,
+    "opened_at": "2026-08-20T08:05:04.099118+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AR",
+      "long_exchange": "Injective",
+      "long_contract": "AR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 345.47% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
