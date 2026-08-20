@@ -17,6 +17,13 @@ funding履歴 (`/api/exchange/derivative/v1/fundingRates?marketId=...`) と
 (流動性フィルタ込み)を計算する。約定価格は生の price/quantity を
 quoteTokenMeta.decimals で調整すれば実勢価格と一致することを実データ(BTC/USDC:
 Hyperliquidのmark priceと0.005%差)で検証済み。
+
+流動性フィルタが特に重要な理由: Injectiveは誰でも無許可でspot/derivative市場を
+作成できるため、この Indexer API は Helix(公式フロントエンド)が実際に採用して
+いない市場も "active" として無差別に返す。実例: perpのAR/USDC PERPはAPI上activeで
+極少額の約定履歴もあったが、Helixの検索・市場一覧には一切出てこないことを実機検証で
+確認した(2026-08-20)。APIに「Helix採用済みか」を示す明示的なフラグが無いため、
+出来高が閾値未満かどうかを非採用市場の代理指標として使っている。
 """
 
 from __future__ import annotations
