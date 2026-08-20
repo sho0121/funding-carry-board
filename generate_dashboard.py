@@ -2,7 +2,7 @@
 """
 Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)のデータを
 再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA / TEAM_DATA /
-PAPER_BOT_DATA) を最新の値に差し替える。
+PAPER_BOT_DATA / EDGE_DATA) を最新の値に差し替える。
 
 スケジュール実行 (毎時) から呼ばれることを想定:
   1. multi_exchange_arbitrage.build_combined_table() で spot/perp キャリー候補を取得
@@ -15,9 +15,11 @@ PAPER_BOT_DATA) を最新の値に差し替える。
   6. paper_bot.run_cycle() で1・2の行データをそのまま使い、ペーパートレードBotの
      エグジット/エントリー判定を1サイクル実行する(実弾なし。paper_positions.json は
      シミュレーションのみで実金額を含まないため公開・git管理してよい)
-  7. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等6つの定数を
+  7. edge_watch.fetch_edge_signals() で「エッジ・ラボ」事業部の自動監視(新規上場検知・
+     異常ベーシス検知)を実行し、edge_playbook.md の検証状況サマリーも添える
+  8. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等7つの定数を
      正規表現で丸ごと置換する
-  8. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
+  9. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
 """
 
 import json
@@ -31,6 +33,10 @@ from funding_spread_scanner import build_spread_table
 from risk_manager import TOTAL_CAPITAL_USD, score_and_rank
 from market_intel import fetch_market_intel
 from paper_bot import run_cycle as run_paper_bot_cycle
+from edge_watch import fetch_edge_signals
+
+EDGE_PLAYBOOK_PATH = "edge_playbook.md"
+EDGE_PLAYBOOK_STATUSES = ["自社データで検証済み", "文献ベース", "未検証", "検証不可(データ基盤なし)"]
 
 NOTIONAL_USD = 10000.0
 MIN_LIQUIDITY_USD = 20000.0
@@ -143,6 +149,21 @@ def build_team_status_payload(
     }
 
 
+def _summarize_edge_playbook(path: str = EDGE_PLAYBOOK_PATH) -> dict:
+    try:
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+    except FileNotFoundError:
+        return {}
+    return {status: text.count(f"**{status}**") for status in EDGE_PLAYBOOK_STATUSES}
+
+
+def build_edge_payload(carry_rows: list) -> dict:
+    payload = fetch_edge_signals(carry_rows)
+    payload["playbook_summary"] = _summarize_edge_playbook()
+    return payload
+
+
 def inject(html: str, var_name: str, payload: dict) -> str:
     new_line = f"const {var_name} = " + json.dumps(payload, ensure_ascii=False) + ";"
     pattern = rf"const {var_name} = \{{.*?\}};"
@@ -191,6 +212,15 @@ def main():
     print(
         f"  -> オープン{paper_bot_payload['open_count']}件 / "
         f"確定損益${paper_bot_payload['realized_pnl_usd']:,.2f}",
+        file=sys.stderr,
+    )
+
+    print("エッジ・ラボ シグナル取得中...", file=sys.stderr)
+    edge_payload = build_edge_payload(carry_payload["rows"])
+    html = inject(html, "EDGE_DATA", edge_payload)
+    print(
+        f"  -> 新規上場{len(edge_payload['new_listings'])}件 / "
+        f"異常ベーシス{len(edge_payload['extreme_basis'])}件",
         file=sys.stderr,
     )
 

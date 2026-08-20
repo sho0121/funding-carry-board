@@ -4,6 +4,14 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
 (spot+perpキャリー、perp対perp差分)の候補を自動収集し、リスク調整後にランキングする
 ダッシュボード。毎時 GitHub Actions で自動更新される。
 
+2つの事業部で構成される:
+- **ファンディング裁定事業部**: 上記のファンディングレート裁定を実運用・自動収集する
+  コア事業(AI社員5体)
+- **エッジ・ラボ**: ファンディング裁定に限らずクリプト全般の「稼ぐためのエッジ」を
+  学び・発見・分析し、新しいエッジを生み出す研究部門(AI社員1体: `edge-researcher`)。
+  検証済みのエッジはファンディング裁定事業部の実行パイプライン(risk-manager /
+  portfolio-manager)に橋渡しする
+
 **現在の運用範囲**: シグナル検出・リスク評価・推奨ポジションサイズの提示・収益管理まで。
 取引所APIキー・自動発注は未設定のため、実際の発注は手動で行う。投資助言ではない。
 
@@ -28,14 +36,23 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
                         ▼
         generate_dashboard.py → hyperliquid_funding_dashboard.html (5タブ)
                                    🏆 推奨ランキング / ファンディングキャリー /
-                                   Perp差分スキャナー / 📰 市場インテリジェンス /
+                                   Perp差分スキャナー / 📰 市場インテリジェンス
+                                   (🧪 エッジ・ラボの自動監視シグナルも同タブ内) /
                                    🤖 ペーパートレードBot
                         │
                         ├─ paper_bot.py … 実際の発注はせず、推奨ポジションを「発注した
                         │  と仮定」してportfolio.pyと同じ損益計算ロジックで検証する
                         │  ペーパートレードBot(paper_positions.jsonは実金額を含まない
                         │  ため公開・git管理・ダッシュボード表示してよい)
+                        ├─ edge_watch.py … エッジ・ラボの自動監視(新規上場検知・異常な
+                        │  価格乖離検知)。認証不要データのみ・edge_playbook.mdの検証
+                        │  状況サマリーも添える(edge_watch_snapshot.jsonは差分検知の
+                        │  基準として永続化が必要なため公開・git管理)
                         └─ daily_report.py → reports/YYYY-MM-DD.md (日次サマリー)
+
+edge_playbook.md … クリプト全般の「稼ぐためのエッジ」のカタログ(ファンディング/
+                    ベーシス系に限らない)。仕組み・必要データ・検証状況を記録する
+                    生きたドキュメント。edge-researcherサブエージェントが更新する
 
 portfolio.py … 実際に建てたポジションを記録し、各取引所の公開funding履歴APIから
                実績のP&Lを自動計算する(独立したローカル専用の収益管理台帳。
@@ -54,7 +71,7 @@ HTMLと `paper_positions.json` を自動コミットする。この経路は純P
 
 ## AI社員(サブエージェント)
 
-`.claude/agents/` に5つの役割を定義している。Claude Codeに「〜担当として」と話しかければ
+`.claude/agents/` に6つの役割を定義している。Claude Codeに「〜担当として」と話しかければ
 該当エージェントが呼び出される(普段の雑談的な質問への対応方針は [CLAUDE.md](CLAUDE.md) 参照)。
 
 | エージェント | 役割 | 主な入出力 |
@@ -64,6 +81,7 @@ HTMLと `paper_positions.json` を自動コミットする。この経路は純P
 | `risk-manager` | リスク評価・推奨ポジションサイズ・ランキングの解釈 | `risk_manager.py` |
 | `ops-reporter` | 日次レポート作成、ダッシュボード/CIの健全性確認 | `daily_report.py` |
 | `portfolio-manager` | ポジションの記録、含み損益/確定損益の確認 | `portfolio.py` |
+| `edge-researcher` | クリプト全般のエッジを学ぶ・発見・分析・新エッジ創出(エッジ・ラボ) | `edge_playbook.md` に追記 |
 
 ## 主要スクリプト
 
@@ -78,6 +96,8 @@ HTMLと `paper_positions.json` を自動コミットする。この経路は純P
 - `portfolio.py` : ポジションの記録・funding実績に基づくP&L自動計算(実運用・非公開)
 - `paper_bot.py` : risk_manager.pyの推奨ポジションを実弾なしで自動エントリー/エグジート
   し、portfolio.pyと同じロジックで損益検証するペーパートレードBot(公開・毎時自動更新)
+- `edge_watch.py` : エッジ・ラボの自動監視(新規上場検知・異常な価格乖離検知)
+- `edge_playbook.md` : クリプト全般のエッジのカタログ(仕組み・必要データ・検証状況)
 
 ## ローカル実行
 
@@ -90,6 +110,7 @@ python3 portfolio.py status     # オープン中ポジションの含み損益
 python3 portfolio.py summary    # 確定+含み損益の集計
 python3 paper_bot.py run        # ペーパートレードBotを1サイクル実行(実弾なし)
 python3 paper_bot.py summary    # Botの成績(確定+含み損益、勝率)を表示
+python3 edge_watch.py           # 新規上場検知・異常ベーシス検知を単独実行
 ```
 
 ## ロードマップ

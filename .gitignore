@@ -3,6 +3,7 @@ __pycache__/
 *.csv
 *.json
 !paper_positions.json
+!edge_watch_snapshot.json
 .DS_Store
 .claude/settings.local.json
 .claude/scheduled_tasks.lock

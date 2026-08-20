@@ -16,7 +16,9 @@
 | 「今の損益は?」「含み益どう?」「儲かってる?」 | `python3 portfolio.py status`(オープン中)・`summary`(確定+含み合計)を実行して回答 |
 | 「このポジション建てた」「◯◯クローズした」 | `portfolio.py open` / `close` で記録する。銘柄・取引所・サイズをユーザーに確認してから実行(勝手に金額を推測しない) |
 | 「Botの成績どう?」「ペーパートレードの結果は?」 | `python3 paper_bot.py status`(オープン中)・`summary`(確定+含み+勝率)を実行して回答。**実弾は一切使っていないシミュレーションである旨を必ず明記する** |
-| 「ダッシュボード更新して」 | `python3 generate_dashboard.py` を実行(carry/spread/ranking/intel/team/paperbotの6データを再取得しHTMLに埋め込む) |
+| 「新しい儲け方(エッジ)を探して」「他に何かエッジはないか」 | `edge_playbook.md` を確認した上で、新規の発見・分析が必要なら `edge-researcher` エージェントに委任する。既知エッジの実行可否は `risk-manager` に橋渡しする |
+| 「このエッジは検証されてる?」「新規上場あった?」 | まず `edge_playbook.md`(検証状況)・`edge_signals.json`(直近の自動検知結果。無ければ `python3 edge_watch.py` で更新)を確認 |
+| 「ダッシュボード更新して」 | `python3 generate_dashboard.py` を実行(carry/spread/ranking/intel/team/paperbot/edgeの7データを再取得しHTMLに埋め込む) |
 
 いずれも投資助言ではなく裁定機会・損益の情報提供であることを踏まえた回答をする。
 数値は必ず実行結果に基づき、推測で答えない。
@@ -33,12 +35,20 @@
   (`paper_bot.py`)はシミュレーションのみで実金額を含まないため公開・git管理してよい
   ── この2つを混同しないこと
 - `.github/workflows/refresh.yml` が毎時 `generate_dashboard.py` を実行し
-  ダッシュボードHTMLと `paper_positions.json` を自動コミットする。この経路はLLM呼び出し
-  不可の純Pythonのみ(`risk_manager.py` / `market_intel.py` / `paper_bot.py` はこの
-  制約を満たす設計。APIキーも一切使わない)
+  ダッシュボードHTML・`paper_positions.json`・`edge_watch_snapshot.json` を自動コミット
+  する。この経路はLLM呼び出し不可の純Pythonのみ(`risk_manager.py` / `market_intel.py` /
+  `paper_bot.py` / `edge_watch.py` はこの制約を満たす設計。APIキーも一切使わない)
+- `edge_watch_snapshot.json`(新規上場検知の差分比較用スナップショット)は前回実行との
+  比較にしか使わず実金額を含まないため、`paper_positions.json` と同様に公開・git管理
+  してよい(`.gitignore` の `!edge_watch_snapshot.json` で明示的に除外解除している)
+- ファンディング裁定事業部(既存5体)とエッジ・ラボ(`edge-researcher`)は機能的に別部門。
+  エッジ・ラボが「実行可能・検証できそう」と判断したエッジは既存の
+  risk-manager/portfolio-manager/paper_botのパイプラインに橋渡しする(並行別事業では
+  なく、新しいエッジの入り口を既存の実行系につなぐ設計)
 
 ## AI社員(サブエージェント, `.claude/agents/`)
 
 `research-analyst` / `market-intel-analyst` / `risk-manager` / `ops-reporter` /
-`portfolio-manager` の5体。深い調査やリスク解釈が必要な質問はこれらに委任してよいが、
-簡単な確認(上表)はメインセッションでスクリプトを直接実行して即答してよい。
+`portfolio-manager` / `edge-researcher` の6体。深い調査やリスク解釈が必要な質問は
+これらに委任してよいが、簡単な確認(上表)はメインセッションでスクリプトを直接実行して
+即答してよい。
