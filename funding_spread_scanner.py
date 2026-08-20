@@ -19,6 +19,10 @@ spot を一切使わず、無期限先物同士を逆方向に建てて (両脚�
 対象取引所: Hyperliquid, Aster, Backpack, Injective。Injective は瞬間値スクリーニング
 段階では出来高不明のまま候補に残すが、3日実績検証の対象になった行(上位候補)については
 約定履歴 (/api/exchange/derivative/v1/trades) から実際の24h出来高を遡って計算し補完する。
+補完の結果、実出来高が --min-liquidity-usd 未満と判明した行は excluded に回す(APIでは
+"active" だが実質的にほぼ出来高が無い「ゴースト市場」が、薄さゆえの極端なfunding
+APRでAPR順リストの上位を占めてしまうのを防ぐため。ファンディングキャリー側の
+出来高フィルタ・excludedリストと同じ考え方)。
 
 funding rate は本スクリプトでは「現在の瞬間レート」を使う (3日実績平均では
 ない)。取引所間の一括比較を軽量に行うため、全銘柄について履歴を遡る代わりに
@@ -309,7 +313,7 @@ def fetch_3d_avg_apr(exchange: str, contract_symbol: str, base_symbol: str) -> f
 
 def build_spread_table(
     min_liquidity_usd: float, exchanges: list[str]
-) -> list[dict]:
+) -> tuple[list[dict], list[dict]]:
     all_perps: list[dict] = []
     for ex in exchanges:
         all_perps.extend(FETCHERS[ex]())
@@ -432,6 +436,12 @@ def build_spread_table(
                 + f"{side}側の実出来高が最小流動性(${min_liquidity_usd:,.0f})未満(${volume:,.0f})"
             )
 
+    # 検証フェーズでInjective脚の実出来高が判明し、最小流動性を下回ることが確定した
+    # 行はここでexcludedに回す(市場としては存在するが実質的に執行不能な「ゴースト
+    # 市場」がAPR順リストの上位を占めてしまうのを防ぐため。ファンディングキャリー側の
+    # 出来高フィルタと同じ考え方)
+    excluded = []
+    verified = []
     for r in to_verify:
         _backfill_injective_volume(r, "short")
         _backfill_injective_volume(r, "long")
@@ -453,23 +463,32 @@ def build_spread_table(
             r["net_apr_3d_pct"] = None
             r["note"] = (r["note"] + " / " if r["note"] else "") + "3日実績データ取得不可のため瞬間値のみ"
 
+        below_threshold = any(
+            r[f"{side}_volume_24h_usd"] is not None and r[f"{side}_volume_24h_usd"] < min_liquidity_usd
+            for side in ("short", "long")
+        )
+        if below_threshold:
+            excluded.append(r)
+        else:
+            verified.append(r)
+
     for r in rest:
         r["short_funding_apr_3d_pct"] = None
         r["long_funding_apr_3d_pct"] = None
         r["net_apr_3d_pct"] = None
         r["note"] = (r["note"] + " / " if r["note"] else "") + "上位候補外のため3日実績は未検証(瞬間値のみ)"
 
-    all_rows = to_verify + rest
+    all_rows = verified + rest
 
     def sort_key(r):
         # 3日実績で検証済みの行を常に未検証の行より優先する
         # (瞬間値だけの薄い銘柄が非現実的に大きい数値で上位に残るのを防ぐため)
-        verified = r["net_apr_3d_pct"] is not None
-        value = r["net_apr_3d_pct"] if verified else r["net_apr_now_pct"]
-        return (1 if verified else 0, value)
+        is_verified = r["net_apr_3d_pct"] is not None
+        value = r["net_apr_3d_pct"] if is_verified else r["net_apr_now_pct"]
+        return (1 if is_verified else 0, value)
 
     all_rows.sort(key=sort_key, reverse=True)
-    return all_rows
+    return all_rows, excluded
 
 
 def write_json(rows: list[dict], path: str) -> None:
@@ -519,7 +538,7 @@ def main():
     exchanges = [e.strip() for e in args.exchanges.split(",") if e.strip()]
     output_path = args.output or f"funding_spread.{args.format}"
 
-    rows = build_spread_table(args.min_liquidity_usd, exchanges)
+    rows, excluded = build_spread_table(args.min_liquidity_usd, exchanges)
 
     if args.format == "json":
         write_json(rows, output_path)
@@ -527,6 +546,12 @@ def main():
         write_csv(rows, output_path)
 
     print(f"{len(rows)} 件のスプレッド候補を出力しました -> {output_path}", file=sys.stderr)
+    if excluded:
+        names = ", ".join(f"{e['base_symbol']}({e['short_exchange']}/{e['long_exchange']})" for e in excluded)
+        print(
+            f"注: 検証の結果、実出来高が最小流動性未満のため除外: {names}",
+            file=sys.stderr,
+        )
     if rows:
         top = rows[0]
         net = top["net_apr_3d_pct"] if top["net_apr_3d_pct"] is not None else top["net_apr_now_pct"]

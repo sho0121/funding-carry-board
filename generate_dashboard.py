@@ -69,12 +69,22 @@ def build_carry_payload() -> dict:
 
 
 def build_spread_payload() -> dict:
-    rows = build_spread_table(MIN_LIQUIDITY_USD, EXCHANGE_LABELS)
+    rows, excluded = build_spread_table(MIN_LIQUIDITY_USD, EXCHANGE_LABELS)
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "min_liquidity_usd": MIN_LIQUIDITY_USD,
         "exchanges": EXCHANGE_LABELS,
         "rows": rows,
+        "excluded": [
+            {
+                "base_symbol": e["base_symbol"],
+                "short_exchange": e["short_exchange"],
+                "long_exchange": e["long_exchange"],
+                "short_volume_24h_usd": e["short_volume_24h_usd"],
+                "long_volume_24h_usd": e["long_volume_24h_usd"],
+            }
+            for e in excluded
+        ],
     }
 
 

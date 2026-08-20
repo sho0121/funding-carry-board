@@ -315,7 +315,7 @@ def cmd_run(args) -> None:
     exchanges_lower = ["hyperliquid", "aster", "backpack", "injective"]
     exchanges_label = ["Hyperliquid", "Aster", "Backpack", "Injective"]
     carry_rows, _, _ = build_combined_table(10000.0, 20000.0, exchanges_lower)
-    spread_rows = build_spread_table(20000.0, exchanges_label)
+    spread_rows, _ = build_spread_table(20000.0, exchanges_label)
 
     summary = run_cycle(carry_rows, spread_rows, args.capital_usd)
     print(
