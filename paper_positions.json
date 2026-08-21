@@ -1539,16 +1539,16 @@
     "base_symbol": "XMR",
     "notional_usd": 1614.74,
     "opened_at": "2026-08-21T20:55:38.672984+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T21:55:03.840137+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "XMR_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 267.81% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 267.81% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.91
   },
   {
     "id": "3d2a143c",
@@ -1582,6 +1582,23 @@
       "long_contract": "ARB"
     },
     "notes": "Bot自動エントリー: APR 69.33% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "86d6a115",
+    "type": "spread",
+    "base_symbol": "ZEC",
+    "notional_usd": 469.05,
+    "opened_at": "2026-08-21T21:55:03.840137+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ZEC/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "ZECUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 129.62% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
