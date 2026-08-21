@@ -90,15 +90,15 @@
     "base_symbol": "INJ",
     "notional_usd": 724.26,
     "opened_at": "2026-08-19T20:14:50.568932+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T08:05:32.863803+00:00",
     "legs": {
       "exchange": "Injective",
       "contract": "INJ/USDC PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 93.40% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 93.40% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.48
   },
   {
     "id": "179866bb",
@@ -878,16 +878,16 @@
     "base_symbol": "FARTCOIN",
     "notional_usd": 1396.93,
     "opened_at": "2026-08-20T20:01:40.750768+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T08:05:32.863803+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "FARTCOINUSDT",
       "long_exchange": "Backpack",
       "long_contract": "FARTCOIN_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 80.63% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 80.63% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.13
   },
   {
     "id": "68909900",
@@ -980,16 +980,16 @@
     "base_symbol": "ARB",
     "notional_usd": 1102.1,
     "opened_at": "2026-08-20T23:56:27.043123+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T08:05:32.863803+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "ARB/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "ARB"
     },
-    "notes": "Bot自動エントリー: APR 68.02% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 68.02% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.41
   },
   {
     "id": "120b793e",
@@ -1065,15 +1065,83 @@
     "base_symbol": "SOL",
     "notional_usd": 407.88,
     "opened_at": "2026-08-21T05:21:54.349621+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T08:05:32.863803+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "SOL/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "SOLUSDT"
     },
-    "notes": "Bot自動エントリー: APR 53.65% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 53.65% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.76
+  },
+  {
+    "id": "83e8f15e",
+    "type": "spread",
+    "base_symbol": "FARTCOIN",
+    "notional_usd": 2642.68,
+    "opened_at": "2026-08-21T08:05:32.863803+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "FARTCOIN",
+      "long_exchange": "Backpack",
+      "long_contract": "FARTCOIN_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 102.88% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "67e6fd6c",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 867.6,
+    "opened_at": "2026-08-21T08:05:32.863803+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "VVV/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "VVV_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 51.06% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "64b44f7a",
+    "type": "spread",
+    "base_symbol": "ASTER",
+    "notional_usd": 848.38,
+    "opened_at": "2026-08-21T08:05:32.863803+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ASTER/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "ASTERUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 20.87% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "09f0442c",
+    "type": "spread",
+    "base_symbol": "BTC",
+    "notional_usd": 3000.2,
+    "opened_at": "2026-08-21T08:05:32.863803+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "BTCU",
+      "long_exchange": "Aster",
+      "long_contract": "BTCUSD1"
+    },
+    "notes": "Bot自動エントリー: APR 14.91% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
