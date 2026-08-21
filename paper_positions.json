@@ -1624,16 +1624,16 @@
     "base_symbol": "JTO",
     "notional_usd": 491.03,
     "opened_at": "2026-08-21T22:56:43.156426+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T23:53:13.919032+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "JTO_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "JTOUSDT"
     },
-    "notes": "Bot自動エントリー: APR 59.65% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 59.65% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.9
   },
   {
     "id": "d8aaf615",
@@ -1665,6 +1665,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 18.18% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "973d1e6e",
+    "type": "spread",
+    "base_symbol": "MNT",
+    "notional_usd": 879.48,
+    "opened_at": "2026-08-21T23:53:13.919032+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MNT/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "MNT_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 272.52% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
