@@ -73,16 +73,16 @@
     "base_symbol": "CELO",
     "notional_usd": 495.71,
     "opened_at": "2026-08-19T20:14:50.568932+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T03:32:45.480379+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "CELO",
       "long_exchange": "Injective",
       "long_contract": "CELO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 155.18% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 155.18% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.96
   },
   {
     "id": "27df6708",
@@ -912,16 +912,16 @@
     "base_symbol": "EDGE",
     "notional_usd": 302.33,
     "opened_at": "2026-08-20T21:05:10.320022+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-21T03:32:45.480379+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "EDGE_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "EDGEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 93.10% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 93.10% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.56
   },
   {
     "id": "c2583aed",
@@ -1006,6 +1006,40 @@
       "long_contract": "ZORA_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 62.23% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5a8dee35",
+    "type": "spread",
+    "base_symbol": "TRUMP",
+    "notional_usd": 202.44,
+    "opened_at": "2026-08-21T03:32:45.480379+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "TRUMP",
+      "long_exchange": "Injective",
+      "long_contract": "TRUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 122.94% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "1f4cd8ab",
+    "type": "spread",
+    "base_symbol": "HEMI",
+    "notional_usd": 298.0,
+    "opened_at": "2026-08-21T03:32:45.480379+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "HEMIUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "HEMI"
+    },
+    "notes": "Bot自動エントリー: APR 51.77% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
