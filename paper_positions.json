@@ -2028,16 +2028,16 @@
     "base_symbol": "ZEC",
     "notional_usd": 1279.34,
     "opened_at": "2026-08-22T14:53:14.414681+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T17:46:04.598673+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ZEC_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "ZECUSDT"
     },
-    "notes": "Bot自動エントリー: APR 43.54% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 43.54% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.25
   },
   {
     "id": "1a888454",
@@ -2113,16 +2113,16 @@
     "base_symbol": "PENDLE",
     "notional_usd": 612.26,
     "opened_at": "2026-08-22T16:56:18.242147+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T17:46:04.598673+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "PENDLE_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "PENDLE/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 232.47% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 232.47% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.19
   },
   {
     "id": "6e257096",
@@ -2139,6 +2139,40 @@
       "long_contract": "CASHCATUSDT"
     },
     "notes": "Bot自動エントリー: APR 86.53% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b996c561",
+    "type": "spread",
+    "base_symbol": "MET",
+    "notional_usd": 1657.7,
+    "opened_at": "2026-08-22T17:46:04.598673+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "MET_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "METUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 76.38% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "09e8eccc",
+    "type": "spread",
+    "base_symbol": "EDGE",
+    "notional_usd": 207.24,
+    "opened_at": "2026-08-22T17:46:04.598673+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "EDGE_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "EDGEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 65.73% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
