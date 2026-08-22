@@ -2130,16 +2130,16 @@
     "base_symbol": "CASHCAT",
     "notional_usd": 1915.79,
     "opened_at": "2026-08-22T16:56:18.242147+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T22:53:03.492380+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "CASHCAT",
       "long_exchange": "Aster",
       "long_contract": "CASHCATUSDT"
     },
-    "notes": "Bot自動エントリー: APR 86.53% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 86.53% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.49
   },
   {
     "id": "b996c561",
@@ -2248,15 +2248,49 @@
     "base_symbol": "MON",
     "notional_usd": 316.4,
     "opened_at": "2026-08-22T21:46:32.739880+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T22:53:03.492380+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "MON_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "MONUSDT"
     },
-    "notes": "Bot自動エントリー: APR 26.89% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 26.89% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.57
+  },
+  {
+    "id": "1bfad3a8",
+    "type": "spread",
+    "base_symbol": "KAITO",
+    "notional_usd": 1915.79,
+    "opened_at": "2026-08-22T22:53:03.492380+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "KAITO",
+      "long_exchange": "Aster",
+      "long_contract": "KAITOUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 87.48% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e904ec0e",
+    "type": "spread",
+    "base_symbol": "EDGE",
+    "notional_usd": 206.35,
+    "opened_at": "2026-08-22T22:53:03.492380+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "EDGE_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "EDGEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 70.26% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
