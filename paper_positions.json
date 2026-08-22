@@ -1978,16 +1978,16 @@
     "base_symbol": "PENDLE",
     "notional_usd": 1915.79,
     "opened_at": "2026-08-22T13:45:21.715729+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T16:56:18.242147+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PENDLE",
       "long_exchange": "Injective",
       "long_contract": "PENDLE/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 231.33% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 231.33% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.26
   },
   {
     "id": "febdf6fa",
@@ -2045,16 +2045,16 @@
     "base_symbol": "XRP",
     "notional_usd": 1473.23,
     "opened_at": "2026-08-22T14:53:14.414681+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T16:56:18.242147+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "XRP/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "XRPUSDT"
     },
-    "notes": "Bot自動エントリー: APR 37.31% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 37.31% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.16
   },
   {
     "id": "54d9818a",
@@ -2105,6 +2105,40 @@
       "long_contract": "NEAR/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 30.75% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "504d74de",
+    "type": "spread",
+    "base_symbol": "PENDLE",
+    "notional_usd": 612.26,
+    "opened_at": "2026-08-22T16:56:18.242147+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "PENDLE_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "PENDLE/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 232.47% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6e257096",
+    "type": "spread",
+    "base_symbol": "CASHCAT",
+    "notional_usd": 1915.79,
+    "opened_at": "2026-08-22T16:56:18.242147+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "CASHCAT",
+      "long_exchange": "Aster",
+      "long_contract": "CASHCATUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 86.53% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
