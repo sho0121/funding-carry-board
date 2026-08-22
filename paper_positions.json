@@ -1758,16 +1758,16 @@
     "base_symbol": "XMR",
     "notional_usd": 977.91,
     "opened_at": "2026-08-22T07:47:27.948598+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T09:04:48.066440+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "XMR",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 233.88% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 233.88% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.27
   },
   {
     "id": "79f2c3f3",
@@ -1791,15 +1791,49 @@
     "base_symbol": "JTO",
     "notional_usd": 1726.61,
     "opened_at": "2026-08-22T07:47:27.948598+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T09:04:48.066440+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "JTO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "JTO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 46.98% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 46.98% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.96
+  },
+  {
+    "id": "b7071459",
+    "type": "spread",
+    "base_symbol": "XMR",
+    "notional_usd": 2321.05,
+    "opened_at": "2026-08-22T09:04:48.066440+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "XMRUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "XMR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 180.65% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "0c860f43",
+    "type": "spread",
+    "base_symbol": "CASHCAT",
+    "notional_usd": 977.91,
+    "opened_at": "2026-08-22T09:04:48.066440+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "CASHCAT",
+      "long_exchange": "Aster",
+      "long_contract": "CASHCATUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 83.77% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
