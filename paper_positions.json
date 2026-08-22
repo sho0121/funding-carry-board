@@ -2198,15 +2198,32 @@
     "base_symbol": "XRP",
     "notional_usd": 899.94,
     "opened_at": "2026-08-22T19:04:26.210162+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T20:54:06.395273+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "XRP/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "XRPUSDT"
     },
-    "notes": "Bot自動エントリー: APR 39.51% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 39.51% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.8
+  },
+  {
+    "id": "629eeb1f",
+    "type": "spread",
+    "base_symbol": "MOVE",
+    "notional_usd": 583.54,
+    "opened_at": "2026-08-22T20:54:06.395273+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MOVE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MOVEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 73.42% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
