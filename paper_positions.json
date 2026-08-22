@@ -2096,16 +2096,16 @@
     "base_symbol": "NEAR",
     "notional_usd": 425.94,
     "opened_at": "2026-08-22T15:46:30.425397+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T21:46:32.739880+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "NEAR_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "NEAR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 30.75% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 30.75% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.45
   },
   {
     "id": "504d74de",
@@ -2181,16 +2181,16 @@
     "base_symbol": "ENA",
     "notional_usd": 233.9,
     "opened_at": "2026-08-22T19:04:26.210162+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T21:46:32.739880+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ENA_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ENA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 50.22% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 50.22% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.39
   },
   {
     "id": "13fd6feb",
@@ -2224,6 +2224,39 @@
       "long_contract": "MOVEUSDT"
     },
     "notes": "Bot自動エントリー: APR 73.42% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "cfde0920",
+    "type": "carry",
+    "base_symbol": "UNI",
+    "notional_usd": 313.79,
+    "opened_at": "2026-08-22T21:46:32.739880+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "UNI_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 25.31% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "36411381",
+    "type": "spread",
+    "base_symbol": "MON",
+    "notional_usd": 316.4,
+    "opened_at": "2026-08-22T21:46:32.739880+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "MON_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MONUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 26.89% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
