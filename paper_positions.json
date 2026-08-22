@@ -2079,16 +2079,16 @@
     "base_symbol": "MOVE",
     "notional_usd": 612.26,
     "opened_at": "2026-08-22T15:46:30.425397+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T19:04:26.210162+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MOVE/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "MOVEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 38.16% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 38.16% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.08
   },
   {
     "id": "c2d480c9",
@@ -2164,15 +2164,49 @@
     "base_symbol": "EDGE",
     "notional_usd": 207.24,
     "opened_at": "2026-08-22T17:46:04.598673+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-22T19:04:26.210162+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "EDGE_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "EDGEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 65.73% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 65.73% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.39
+  },
+  {
+    "id": "262c1281",
+    "type": "spread",
+    "base_symbol": "ENA",
+    "notional_usd": 233.9,
+    "opened_at": "2026-08-22T19:04:26.210162+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ENA_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "ENA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 50.22% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "13fd6feb",
+    "type": "spread",
+    "base_symbol": "XRP",
+    "notional_usd": 899.94,
+    "opened_at": "2026-08-22T19:04:26.210162+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "XRP/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "XRPUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 39.51% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
