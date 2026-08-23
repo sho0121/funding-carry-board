@@ -724,16 +724,16 @@
     "base_symbol": "SUI",
     "notional_usd": 1119.72,
     "opened_at": "2026-08-23T15:02:26.009256+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T22:58:05.674368+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 122.80% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 122.80% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.48
   },
   {
     "id": "44358271",
@@ -962,15 +962,49 @@
     "base_symbol": "XMR",
     "notional_usd": 1746.34,
     "opened_at": "2026-08-23T21:50:34.515636+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T22:58:05.674368+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "XMR_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 109.00% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 109.00% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.48
+  },
+  {
+    "id": "6a86e54b",
+    "type": "spread",
+    "base_symbol": "XMR",
+    "notional_usd": 1119.72,
+    "opened_at": "2026-08-23T22:58:05.674368+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "XMR",
+      "long_exchange": "Injective",
+      "long_contract": "XMR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 129.87% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9d8e2b94",
+    "type": "spread",
+    "base_symbol": "ZEC",
+    "notional_usd": 852.27,
+    "opened_at": "2026-08-23T22:58:05.674368+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ZEC_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "ZEC/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 88.10% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
