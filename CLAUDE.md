@@ -66,16 +66,27 @@
   実出来高($20,000以上)を検証してから表示するため(他取引所より広めの検証範囲)、
   「実出来高で検証済みのInjectiveデータ=実質的にHelixで取引可能な銘柄」という前提で
   表示名を"Helix"としている。プラス・マイナス両方のfundingを絶対値上位15件表示する
-- **edgeX/dYdX/ApeX追加**: いずれも差分スキャナー(`funding_spread_scanner.py`)にのみ
-  追加。spot取引が無いためキャリー側(`multi_exchange_arbitrage.py`)には非対応。
+- **edgeX/dYdX/ApeX/Raydium追加**: いずれも差分スキャナー(`funding_spread_scanner.py`)
+  にのみ追加。spot取引が無いためキャリー側(`multi_exchange_arbitrage.py`)には非対応。
   edgeXは株式/コモディティ連動の合成perp(AAPL/XAU等)も扱っており、仮想通貨限定
   ではない点に注意。edgeX/ApeXはbulk取得APIが無く契約ごとに呼ぶ必要があり取得に
   1分前後かかる。dYdXは1回のAPI呼び出しで全銘柄取得できる(bulk対応)
-- **見送った取引所**: Raydium/Uniswap(perp非対応)、PancakeSwap Perps(Aster基盤の
-  重複)、Vertex/Drift/RabbitX(安定した公開APIエンドポイントを確認できず)、
-  Variational(2026年時点でtrading API未公開)、GMX(周期的fundingではなく建玉
-  不均衡ベースの借入手数料方式で既存スキーマに不適合)。確実な情報が得られれば
-  再検討する
+- **Raydium = Orderly Network白ラベル**: Raydium Perps(perps.raydium.io)は独自の
+  板ではなく、Orderly Networkという複数フロントエンド共有CLOB基盤の白ラベル展開。
+  Raydium固有の市場一覧を返す公開APIは存在せず(Raydium側の市場データはWebSocket
+  配信のみで、通常のネットワーク監視では捕捉できないことを実機調査で確認済み)、
+  共有API(`api.orderly.org`)は全フロントエンド分の市場をまとめて返す。ただし
+  symbol命名規則が標準形式("PERP_BASE_USDC" 80件)とブローカー専用形式
+  ("PERP_BASE_USDC_ブローカー名" 57件、mythos/alpix/fastx等の他フロントエンド
+  限定の株式・合成資産銘柄)に綺麗に分かれており、実機のRaydium UIに表示される
+  銘柄(ETH/BTC/SOL/HYPE等)が全て標準形式側に一致することを確認済みのため、
+  標準形式のみをRaydium向けとして`fetch_raydium_perps()`(funding_spread_scanner.py)
+  で扱っている。ブローカー専用形式は除外
+- **見送った取引所**: Uniswap(perp非対応)、PancakeSwap Perps(Asterのオーダーブック
+  基盤をそのまま使っており重複。2026年時点で改めて確認済み)、Vertex/Drift/RabbitX
+  (安定した公開APIエンドポイントを確認できず)、Variational(2026年時点でtrading
+  API未公開)、GMX(周期的fundingではなく建玉不均衡ベースの借入手数料方式で既存
+  スキーマに不適合)。確実な情報が得られれば再検討する
 
 ## AI社員(サブエージェント, `.claude/agents/`)
 

@@ -369,6 +369,57 @@ def fetch_apex_perps() -> list[dict]:
     return rows
 
 
+ORDERLY_INFO_API = "https://api.orderly.org/v1/public/info"
+ORDERLY_QUERY_API = "https://api.orderly.org/v1/public/query"
+
+
+def fetch_raydium_perps() -> list[dict]:
+    """Raydium Perps(perps.raydium.io)はOrderly Networkの共有CLOBを白ラベル
+    展開したもので、Raydium固有の市場一覧を返すAPIは存在しない(ブラウザでの
+    実機調査でもWebSocket経由の配信のみでREST捕捉不可と確認済み)。ただし
+    /v1/public/info のsymbol命名規則を調べたところ、"PERP_{BASE}_USDC" という
+    標準3パート形式(ちょうど80件)と、"PERP_{BASE}_USDC_{broker}"という
+    ブローカー専用4パート形式(mythos/alpix/fastx等、他フロントエンド限定の
+    株式・合成資産銘柄)に綺麗に分かれている。Raydiumの実UI(perps.raydium.io)で
+    実際に選択できた12銘柄(ETH/BTC/SOL/HYPE/MEGA/ORDER/MON/EDGE/M/PENGU/MERL/
+    PUMP)を照合したところ全て標準3パート形式側に一致したため、3パート形式のみを
+    Raydium向けとして扱う(ブローカー専用4パート形式は除外)。"""
+    info = _get_json(ORDERLY_INFO_API)
+    funding_periods = {}
+    for row in info["data"]["rows"]:
+        symbol = row["symbol"]
+        if row.get("status") != "ACTIVE":
+            continue
+        if len(symbol.split("_")) != 3:
+            continue  # ブローカー専用銘柄(_mythos等)はRaydiumで選択できないため除外
+        funding_periods[symbol] = row["funding_period"]
+
+    summary = _get_json(ORDERLY_QUERY_API, "POST", {"type": "marketSummary"})
+    rows = []
+    for m in summary["data"]["markets"]:
+        symbol = m["symbol"]
+        period_hours = funding_periods.get(symbol)
+        if period_hours is None:
+            continue
+        funding_rate = m.get("last_funding_rate")
+        mark_price = m.get("mark_price")
+        if funding_rate is None or mark_price is None:
+            continue
+        volume = m.get("24h_amount")
+        rows.append(
+            {
+                "exchange": "Raydium",
+                "base_symbol": symbol.split("_")[1],
+                "contract_symbol": symbol,
+                "quote_symbol": "USDC",
+                "funding_apr_pct": float(funding_rate) * (365 * 24 / period_hours) * 100,
+                "mark_price": float(mark_price),
+                "volume_24h_usd": float(volume) if volume is not None else None,
+            }
+        )
+    return rows
+
+
 FETCHERS = {
     "Hyperliquid": fetch_hyperliquid_perps,
     "Aster": fetch_aster_perps,
@@ -377,6 +428,7 @@ FETCHERS = {
     "edgeX": fetch_edgex_perps,
     "dYdX": fetch_dydx_perps,
     "ApeX": fetch_apex_perps,
+    "Raydium": fetch_raydium_perps,
 }
 
 
@@ -672,7 +724,7 @@ def main():
     parser.add_argument("-o", "--output", default=None)
     parser.add_argument("--min-liquidity-usd", type=float, default=20000.0)
     parser.add_argument(
-        "--exchanges", default="Hyperliquid,Aster,Backpack,Injective,edgeX,dYdX,ApeX"
+        "--exchanges", default="Hyperliquid,Aster,Backpack,Injective,edgeX,dYdX,ApeX,Raydium"
     )
     args = parser.parse_args()
 

@@ -47,7 +47,7 @@ MIN_LIQUIDITY_USD = 20000.0
 CARRY_EXCHANGES = ["hyperliquid", "aster", "backpack", "injective"]
 CARRY_EXCHANGE_LABELS = ["Hyperliquid", "Aster", "Backpack", "Injective"]
 # 差分(perp対perp)側はperpのみの取引所(edgeX)も対象にできる
-SPREAD_EXCHANGE_LABELS = ["Hyperliquid", "Aster", "Backpack", "Injective", "edgeX", "dYdX", "ApeX"]
+SPREAD_EXCHANGE_LABELS = ["Hyperliquid", "Aster", "Backpack", "Injective", "edgeX", "dYdX", "ApeX", "Raydium"]
 
 HTML_PATH = "hyperliquid_funding_dashboard.html"
 

@@ -1,16 +1,23 @@
 # Funding Carry Board — 仮想通貨アビトラ事業部
 
-Hyperliquid / Aster / Backpack / Injective / edgeX / dYdX / ApeX を対象に、
+Hyperliquid / Aster / Backpack / Injective / edgeX / dYdX / ApeX / Raydium を対象に、
 ファンディングレート裁定(spot+perpキャリー、perp対perp差分)の候補を自動収集し、
 リスク調整後にランキングするダッシュボード。毎時 GitHub Actions で自動更新される。
 キャリー(spot+perp)側はspot取引のある Hyperliquid/Aster/Backpack/Injective の4つ、
-差分(perp対perp)側はperpのみの edgeX/dYdX/ApeX も含めた7取引所が対象。
+差分(perp対perp)側はperpのみの edgeX/dYdX/ApeX/Raydium も含めた8取引所が対象。
 
-**検討したが見送った取引所**: Raydium・Uniswapはperp自体を扱っていない、PancakeSwap
-PerpsはAsterのオーダーブック基盤をそのまま使っており重複、Vertex/Drift/RabbitXは
-安定した公開APIのドメインを確認できず、Variationalは2026年時点でtrading API未公開、
-GMXは周期的fundingではなく建玉不均衡ベースの借入手数料方式で既存スキーマに合わない
-ため対象外(将来、確実な情報が得られれば追加検討)。
+**Raydiumについて**: Raydium PerpsはOrderly Networkという複数フロントエンド共有の
+CLOB基盤を白ラベル展開したもので、Raydium固有の市場一覧を返す公開APIは存在しない。
+共有APIのsymbol命名規則(標準形式"PERP_BASE_USDC" 80件 / ブローカー専用形式
+"PERP_BASE_USDC_ブローカー名" 57件)を利用し、標準形式のみをRaydium向けとして扱う
+(実機のRaydium UIに表示される銘柄と照合済み)。
+
+**検討したが見送った取引所**: Uniswapはperp自体を扱っていない、PancakeSwap Perpsは
+Asterのオーダーブック基盤をそのまま使っており重複(2026年時点で改めて確認)、
+Vertex/Drift/RabbitXは安定した公開APIのドメインを確認できず、Variationalは
+2026年時点でtrading API未公開、GMXは周期的fundingではなく建玉不均衡ベースの
+借入手数料方式で既存スキーマに合わないため対象外(将来、確実な情報が得られれば
+追加検討)。
 
 2つの事業部で構成される:
 - **ファンディング裁定事業部**: 上記のファンディングレート裁定を実運用・自動収集する
