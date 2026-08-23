@@ -2519,16 +2519,16 @@
     "base_symbol": "ZRO",
     "notional_usd": 1535.01,
     "opened_at": "2026-08-23T10:55:35.346747+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T11:45:49.391331+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "ZRO/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "ZROUSDT"
     },
-    "notes": "Bot自動エントリー: APR 50.74% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 50.74% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.03
   },
   {
     "id": "a2f79f60",
@@ -2536,15 +2536,49 @@
     "base_symbol": "ENA",
     "notional_usd": 250.53,
     "opened_at": "2026-08-23T10:55:35.346747+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T11:45:49.391331+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ENA_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "ENAUSDT"
     },
-    "notes": "Bot自動エントリー: APR 30.56% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 30.56% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.47
+  },
+  {
+    "id": "08af707c",
+    "type": "spread",
+    "base_symbol": "ENA",
+    "notional_usd": 454.04,
+    "opened_at": "2026-08-23T11:45:49.391331+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ENA_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "ENA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 100.26% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "46107a50",
+    "type": "spread",
+    "base_symbol": "ZEC",
+    "notional_usd": 859.48,
+    "opened_at": "2026-08-23T11:45:49.391331+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ZEC_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "ZECUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 64.45% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
