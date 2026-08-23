@@ -4,13 +4,16 @@
 
 risk_manager.py の「リスク調整後ランキング」(裁定ペアのcomposite_scoreによる
 ランキング)とは別物 ── こちらは単純に「今どの取引所のどの銘柄のfundingレートが
-高いか」を銘柄単位でそのまま見せる生データビュー。
+高い(または低い)か」を銘柄単位でそのまま見せる生データビュー。プラス・マイナス
+両方の絶対値上位を表示する(マイナスのfundingはロング側が受け取れる機会を示す)。
 
-Hyperliquid/Aster/Backpack/edgeXは取得時点で24h出来高が判明しているためそのまま
-最小流動性でフィルタできるが、Injectiveは瞬間値取得時点では出来高が不明なため、
-瞬間APR上位 INJECTIVE_VERIFY_TOP_N 件だけ実際の約定履歴から出来高を検証する
-(全銘柄検証は既にfunding_spread_scanner.pyの差分スキャナーが行っており、ここで
-重複して全件検証するのはコストが高すぎるため)。
+表示名について: Injectiveのデータ取得元(Indexer API)には「Helix採用済みか」を示す
+フラグが無く、チェーン上の全市場を無差別に返す。このモジュールは実際の約定履歴で
+出来高を検証した銘柄だけを残しており、これは実質的に「Helixで取引可能な銘柄」への
+最も確度の高い近似(実機検証済み: AR/USDC PERPはこの検証で弾かれ、実際にHelixの
+検索にも出てこないことを確認済み)。そのため表示名は "Injective" ではなく "Helix"
+としている(データ取得元のAPI自体は変わらず、Helix専用の別APIが存在するわけではない
+点に注意)。この事情から、他の取引所より検証範囲を広めに取っている。
 """
 
 from __future__ import annotations
@@ -24,24 +27,27 @@ from funding_spread_scanner import FETCHERS, fetch_injective_24h_volume_usd
 
 MIN_LIQUIDITY_USD = 20000.0
 TOP_N = 15
-INJECTIVE_VERIFY_TOP_N = 20
+HELIX_VERIFY_TOP_N = 40  # Helix名義で表示するため、他取引所より広めに実出来高を検証する
+
+DISPLAY_NAME_OVERRIDES = {"Injective": "Helix"}
 
 
 def _rank_exchange(exchange: str, rows: list[dict]) -> list[dict]:
-    positive = [r for r in rows if r["funding_apr_pct"] > 0]
-    positive.sort(key=lambda r: r["funding_apr_pct"], reverse=True)
+    """funding_apr_pctの絶対値が大きい順(プラス・マイナス両方)に上位を返す。"""
+    nonzero = [r for r in rows if r["funding_apr_pct"] != 0]
+    nonzero.sort(key=lambda r: abs(r["funding_apr_pct"]), reverse=True)
 
     if exchange == "Injective":
         verified = []
-        for r in positive[:INJECTIVE_VERIFY_TOP_N]:
+        for r in nonzero[:HELIX_VERIFY_TOP_N]:
             volume, complete = fetch_injective_24h_volume_usd(r["contract_symbol"])
             if volume is not None and complete and volume >= MIN_LIQUIDITY_USD:
                 verified.append({**r, "volume_24h_usd": round(volume, 2)})
-        verified.sort(key=lambda r: r["funding_apr_pct"], reverse=True)
+        verified.sort(key=lambda r: abs(r["funding_apr_pct"]), reverse=True)
         return verified[:TOP_N]
 
     liquid = [
-        r for r in positive if r["volume_24h_usd"] is not None and r["volume_24h_usd"] >= MIN_LIQUIDITY_USD
+        r for r in nonzero if r["volume_24h_usd"] is not None and r["volume_24h_usd"] >= MIN_LIQUIDITY_USD
     ]
     return liquid[:TOP_N]
 
@@ -49,15 +55,16 @@ def _rank_exchange(exchange: str, rows: list[dict]) -> list[dict]:
 def build_exchange_ranking_payload() -> dict:
     exchanges_data = {}
     for exchange, fetcher in FETCHERS.items():
+        display_name = DISPLAY_NAME_OVERRIDES.get(exchange, exchange)
         try:
             rows = fetcher()
         except Exception as e:
-            exchanges_data[exchange] = {"error": str(e), "total_positive": 0, "top": []}
+            exchanges_data[display_name] = {"error": str(e), "total_nonzero": 0, "top": []}
             continue
 
         top = _rank_exchange(exchange, rows)
-        exchanges_data[exchange] = {
-            "total_positive": sum(1 for r in rows if r["funding_apr_pct"] > 0),
+        exchanges_data[display_name] = {
+            "total_nonzero": sum(1 for r in rows if r["funding_apr_pct"] != 0),
             "top": [
                 {
                     "base_symbol": r["base_symbol"],
@@ -72,7 +79,7 @@ def build_exchange_ranking_payload() -> dict:
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "min_liquidity_usd": MIN_LIQUIDITY_USD,
-        "injective_verify_top_n": INJECTIVE_VERIFY_TOP_N,
+        "helix_verify_top_n": HELIX_VERIFY_TOP_N,
         "exchanges": exchanges_data,
     }
 
@@ -90,7 +97,7 @@ def main():
         if "error" in data:
             print(f"{exchange}: 取得失敗 ({data['error']})", file=sys.stderr)
             continue
-        print(f"{exchange}: プラス{data['total_positive']}件中、上位{len(data['top'])}件を検証済み表示", file=sys.stderr)
+        print(f"{exchange}: 非ゼロ{data['total_nonzero']}件中、上位{len(data['top'])}件を検証済み表示", file=sys.stderr)
         for r in data["top"][:5]:
             print(f"  {r['base_symbol']} APR {r['funding_apr_pct']:.2f}%", file=sys.stderr)
 

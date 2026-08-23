@@ -59,6 +59,13 @@
 - **Injective = Helixではない**: Injectiveはブロックチェーン本体(Layer1)、Helixは
   その上に構築された公式・最大手のトレーディングフロントエンド。誰でも無許可で
   Injective上に市場を作れるため、Helix以外の(または非採用の)市場も存在しうる
+- **`exchange_funding_ranking.py`(取引所別ランキング)での表示名は"Helix"**:
+  Helix専用の公開APIは存在しない(Helixの実データはWebSocket/Worker経由と見られ、
+  通常のネットワーク監視では捕捉できないことを実機調査で確認済み)ため、データ取得元は
+  引き続きInjectiveのIndexer APIのみ。ただしこのモジュールは絶対値上位40件について
+  実出来高($20,000以上)を検証してから表示するため(他取引所より広めの検証範囲)、
+  「実出来高で検証済みのInjectiveデータ=実質的にHelixで取引可能な銘柄」という前提で
+  表示名を"Helix"としている。プラス・マイナス両方のfundingを絶対値上位15件表示する
 - **edgeX/dYdX/ApeX追加**: いずれも差分スキャナー(`funding_spread_scanner.py`)にのみ
   追加。spot取引が無いためキャリー側(`multi_exchange_arbitrage.py`)には非対応。
   edgeXは株式/コモディティ連動の合成perp(AAPL/XAU等)も扱っており、仮想通貨限定
