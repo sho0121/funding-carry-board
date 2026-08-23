@@ -18,7 +18,8 @@
 | 「Botの成績どう?」「ペーパートレードの結果は?」 | `python3 paper_bot.py status`(オープン中)・`summary`(確定+含み+勝率)を実行して回答。**実弾は一切使っていないシミュレーションである旨を必ず明記する** |
 | 「新しい儲け方(エッジ)を探して」「他に何かエッジはないか」 | `edge_playbook.md` を確認した上で、新規の発見・分析が必要なら `edge-researcher` エージェントに委任する。既知エッジの実行可否は `risk-manager` に橋渡しする |
 | 「このエッジは検証されてる?」「新規上場あった?」 | まず `edge_playbook.md`(検証状況)・`edge_signals.json`(直近の自動検知結果。無ければ `python3 edge_watch.py` で更新)を確認 |
-| 「ダッシュボード更新して」 | `python3 generate_dashboard.py` を実行(carry/spread/ranking/intel/team/paperbot/edgeの7データを再取得しHTMLに埋め込む) |
+| 「今どの取引所のどの銘柄のfundingが高い?」「取引所ごとのランキング見せて」 | `exchange_funding_ranking.json`(無ければ `python3 exchange_funding_ranking.py` で更新)を確認。**これは裁定ペアのランキングではなく単一銘柄のfundingをそのまま並べたもの**である点をrisk_manager由来のランキングと混同しないこと |
+| 「ダッシュボード更新して」 | `python3 generate_dashboard.py` を実行(carry/spread/ranking/intel/team/paperbot/edge/exchangerankingの8データを再取得しHTMLに埋め込む。edgeX追加とInjective全件検証化により数分〜十数分かかる場合がある) |
 
 いずれも投資助言ではなく裁定機会・損益の情報提供であることを踏まえた回答をする。
 数値は必ず実行結果に基づき、推測で答えない。
@@ -51,7 +52,13 @@
   Helixの検索には出てこないことを実機検証で確認済み、2026-08-20)。APIに「Helix採用
   済みか」を示す明示的なフラグが無いため、実出来高が閾値($20,000)未満かどうかを
   代理指標として使い、該当行は各スキャナーのexcludedリストに回している。Injective
-  関連の数値(特に極端なAPR)をユーザーに伝える際は、この限界を踏まえること
+  関連の数値(特に極端なAPR)をユーザーに伝える際は、この限界を踏まえること。
+  2026-08-20時点で `funding_spread_scanner.py` は出来高不明な行を全件検証するよう
+  修正済み(以前は上位30件のみで下位にゴースト市場が残っていた)
+- **edgeX追加**: 差分スキャナー(`funding_spread_scanner.py`)にのみ追加。spot取引が
+  無いためキャリー側(`multi_exchange_arbitrage.py`)には非対応。株式/コモディティ
+  連動の合成perp(AAPL/XAU等)も扱っており、仮想通貨限定ではない点に注意。bulk取得
+  APIが無く契約ごとに呼ぶ必要があるため(157契約)、取得に1分前後かかる
 
 ## AI社員(サブエージェント, `.claude/agents/`)
 

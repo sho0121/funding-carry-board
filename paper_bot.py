@@ -312,10 +312,10 @@ def cmd_run(args) -> None:
     from multi_exchange_arbitrage import build_combined_table
     from funding_spread_scanner import build_spread_table
 
-    exchanges_lower = ["hyperliquid", "aster", "backpack", "injective"]
-    exchanges_label = ["Hyperliquid", "Aster", "Backpack", "Injective"]
-    carry_rows, _, _ = build_combined_table(10000.0, 20000.0, exchanges_lower)
-    spread_rows, _ = build_spread_table(20000.0, exchanges_label)
+    carry_exchanges = ["hyperliquid", "aster", "backpack", "injective"]  # spotが無いedgeXは対象外
+    spread_exchanges = ["Hyperliquid", "Aster", "Backpack", "Injective", "edgeX"]
+    carry_rows, _, _ = build_combined_table(10000.0, 20000.0, carry_exchanges)
+    spread_rows, _ = build_spread_table(20000.0, spread_exchanges)
 
     summary = run_cycle(carry_rows, spread_rows, args.capital_usd)
     print(

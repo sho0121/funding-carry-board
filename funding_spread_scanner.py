@@ -16,10 +16,13 @@ spot を一切使わず、無期限先物同士を逆方向に建てて (両脚�
      その中でショート・ロングを組む。送金リスクは無いが、決済通貨自体の
      デペッグリスクがある。
 
-対象取引所: Hyperliquid, Aster, Backpack, Injective。Injective は瞬間値スクリーニング
-段階では出来高不明のまま候補に残すが、3日実績検証の対象になった行(上位候補)については
-約定履歴 (/api/exchange/derivative/v1/trades) から実際の24h出来高を遡って計算し補完する。
-補完の結果、実出来高が --min-liquidity-usd 未満と判明した行は excluded に回す。
+対象取引所: Hyperliquid, Aster, Backpack, Injective, edgeX。Injective は瞬間値
+スクリーニング段階では出来高不明のまま候補に残すが、出来高不明な行は(実際に取引可能な
+上位N件に加えて)**全件**、約定履歴 (/api/exchange/derivative/v1/trades) から実際の
+24h出来高を遡って計算し補完する。補完の結果、実出来高が --min-liquidity-usd 未満と
+判明した行は excluded に回す。一部だけ検証すると、検証対象外の下位候補に実在しない
+ゴースト市場が紛れ込んだまま表示され続けてしまうため、正確性を優先して全件検証する
+(GitHub Actionsに実行時間の制約は無い)。
 
 Injectiveのチェーン(Exchange module)は誰でも無許可でデリバティブ市場を作成できるため、
 このAPI (sentry.exchange.grpc-web.injective.network) はHelix(公式フロントエンド)が
@@ -237,11 +240,62 @@ def fetch_injective_24h_volume_usd(contract_symbol: str) -> tuple[float | None, 
     return volume, complete
 
 
+EDGEX_API = "https://edgex-prod-v2.edgex.exchange"
+
+
+def fetch_edgex_perps() -> list[dict]:
+    """契約一覧はメタデータAPIで一括取得できるが、funding/価格/出来高のbulk取得
+    エンドポイントが見つからず契約ごとに呼ぶ必要がある(Injectiveと同様のパターン)。
+    edgeXはperpのみでspot取引が無いため、キャリー(spot+perp)側には登録しない。"""
+    meta = _get_json(f"{EDGEX_API}/api/v2/public/meta/getMetaData")
+    contracts = meta["data"]["contractList"]
+
+    rows = []
+    for c in contracts:
+        if not c.get("enableTrade"):
+            continue
+        contract_id = c["contractId"]
+        name = c["contractName"]
+        interval_min = float(c.get("fundingRateIntervalMin") or 240)
+
+        try:
+            ticker_list = _get_json(
+                f"{EDGEX_API}/api/v2/public/quote/getTicker?contractId={contract_id}"
+            ).get("data") or []
+        except Exception:
+            continue
+        if not ticker_list:
+            continue
+        ticker = ticker_list[0]
+
+        funding_rate = ticker.get("fundingRate")
+        mark_price = ticker.get("markPrice") or ticker.get("lastPrice")
+        if funding_rate is None or mark_price is None:
+            continue
+        volume = ticker.get("value")
+        periods_per_year = (365 * 24 * 60) / interval_min
+        base = name[:-4] if name.endswith("USDC") else name  # 全契約USDC建てのため末尾を除去
+
+        rows.append(
+            {
+                "exchange": "edgeX",
+                "base_symbol": base,
+                "contract_symbol": name,
+                "quote_symbol": "USDC",
+                "funding_apr_pct": float(funding_rate) * periods_per_year * 100,
+                "mark_price": float(mark_price),
+                "volume_24h_usd": float(volume) if volume is not None else None,
+            }
+        )
+    return rows
+
+
 FETCHERS = {
     "Hyperliquid": fetch_hyperliquid_perps,
     "Aster": fetch_aster_perps,
     "Backpack": fetch_backpack_perps,
     "Injective": fetch_injective_perps,
+    "edgeX": fetch_edgex_perps,
 }
 
 
@@ -407,18 +461,18 @@ def build_spread_table(
                 }
             )
 
-    # まず瞬間値で足切りし、上位候補だけ3日実績平均で検証する。
-    # 出来高不明(参考情報, 主にInjective絡み)の行が瞬間値の極端さで
-    # 上位を占めがちなので、実際に取引可能な行 (両脚とも出来高判明) を
-    # 優先して検証枠に回す。
+    # 出来高判明済み(tradable)の行はAPR上位N件だけ3日実績を検証すれば十分だが、
+    # 出来高不明(参考情報、主にInjective絡み)の行は「本当に実在・取引可能か」を
+    # 確定させる必要があるため全件検証する。一部だけ検証すると、キャップ外に
+    # 実在しないゴースト市場が紛れ込んだまま表示されてしまう(実際に発生していた)。
+    # GitHub Actionsに実行時間の制約は無いため、正確性を優先し全件検証する。
     rows.sort(key=lambda r: r["net_apr_now_pct"], reverse=True)
     tradable_rows = [
         r for r in rows if r["short_volume_24h_usd"] is not None and r["long_volume_24h_usd"] is not None
     ]
     reference_rows = [r for r in rows if r["short_volume_24h_usd"] is None or r["long_volume_24h_usd"] is None]
 
-    REFERENCE_VERIFY_CAP = 30  # Injectiveのfunding履歴・出来高取得に対応したため引き上げた
-    to_verify = tradable_rows[:TOP_N_TO_VERIFY] + reference_rows[:REFERENCE_VERIFY_CAP]
+    to_verify = tradable_rows[:TOP_N_TO_VERIFY] + reference_rows
     verify_ids = {id(r) for r in to_verify}
     rest = [r for r in rows if id(r) not in verify_ids]
 
@@ -537,7 +591,7 @@ def main():
     parser.add_argument("-o", "--output", default=None)
     parser.add_argument("--min-liquidity-usd", type=float, default=20000.0)
     parser.add_argument(
-        "--exchanges", default="Hyperliquid,Aster,Backpack,Injective"
+        "--exchanges", default="Hyperliquid,Aster,Backpack,Injective,edgeX"
     )
     args = parser.parse_args()
 

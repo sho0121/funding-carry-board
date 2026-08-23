@@ -1,8 +1,10 @@
 # Funding Carry Board — 仮想通貨アビトラ事業部
 
-Hyperliquid / Aster / Backpack / Injective を対象に、ファンディングレート裁定
+Hyperliquid / Aster / Backpack / Injective / edgeX を対象に、ファンディングレート裁定
 (spot+perpキャリー、perp対perp差分)の候補を自動収集し、リスク調整後にランキングする
-ダッシュボード。毎時 GitHub Actions で自動更新される。
+ダッシュボード。毎時 GitHub Actions で自動更新される。キャリー(spot+perp)側は
+spot取引のある Hyperliquid/Aster/Backpack/Injective の4つ、差分(perp対perp)側は
+perpのみの edgeX も含めた5取引所が対象。
 
 2つの事業部で構成される:
 - **ファンディング裁定事業部**: 上記のファンディングレート裁定を実運用・自動収集する
@@ -34,11 +36,11 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
                                      (トレンド銘柄)を認証不要APIから収集
                         │
                         ▼
-        generate_dashboard.py → hyperliquid_funding_dashboard.html (5タブ)
+        generate_dashboard.py → hyperliquid_funding_dashboard.html (6タブ)
                                    🏆 推奨ランキング / ファンディングキャリー /
                                    Perp差分スキャナー / 📰 市場インテリジェンス
                                    (🧪 エッジ・ラボの自動監視シグナルも同タブ内) /
-                                   🤖 ペーパートレードBot
+                                   🤖 ペーパートレードBot / 📊 取引所別ランキング
                         │
                         ├─ paper_bot.py … 実際の発注はせず、推奨ポジションを「発注した
                         │  と仮定」してportfolio.pyと同じ損益計算ロジックで検証する
@@ -48,6 +50,9 @@ Hyperliquid / Aster / Backpack / Injective を対象に、ファンディング�
                         │  価格乖離検知)。認証不要データのみ・edge_playbook.mdの検証
                         │  状況サマリーも添える(edge_watch_snapshot.jsonは差分検知の
                         │  基準として永続化が必要なため公開・git管理)
+                        ├─ exchange_funding_ranking.py … 取引所ごとに単一銘柄の
+                        │  fundingレートをそのまま並べた生データランキング
+                        │  (risk_manager.pyの裁定ペアランキングとは別物)
                         └─ daily_report.py → reports/YYYY-MM-DD.md (日次サマリー)
 
 edge_playbook.md … クリプト全般の「稼ぐためのエッジ」のカタログ(ファンディング/
@@ -98,6 +103,7 @@ HTMLと `paper_positions.json` を自動コミットする。この経路は純P
   し、portfolio.pyと同じロジックで損益検証するペーパートレードBot(公開・毎時自動更新)
 - `edge_watch.py` : エッジ・ラボの自動監視(新規上場検知・異常な価格乖離検知)
 - `edge_playbook.md` : クリプト全般のエッジのカタログ(仕組み・必要データ・検証状況)
+- `exchange_funding_ranking.py` : 取引所別の生fundingレートランキング
 
 ## ローカル実行
 
@@ -111,6 +117,7 @@ python3 portfolio.py summary    # 確定+含み損益の集計
 python3 paper_bot.py run        # ペーパートレードBotを1サイクル実行(実弾なし)
 python3 paper_bot.py summary    # Botの成績(確定+含み損益、勝率)を表示
 python3 edge_watch.py           # 新規上場検知・異常ベーシス検知を単独実行
+python3 exchange_funding_ranking.py  # 取引所別fundingレートランキングを単独実行
 ```
 
 ## ロードマップ

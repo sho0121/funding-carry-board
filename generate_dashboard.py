@@ -2,7 +2,7 @@
 """
 Funding Carry Board ダッシュボード(hyperliquid_funding_dashboard.html)のデータを
 再取得し、埋め込み JSON (DATA / SPREAD_DATA / RANKING_DATA / INTEL_DATA / TEAM_DATA /
-PAPER_BOT_DATA / EDGE_DATA) を最新の値に差し替える。
+PAPER_BOT_DATA / EDGE_DATA / EXCHANGE_RANKING_DATA) を最新の値に差し替える。
 
 スケジュール実行 (毎時) から呼ばれることを想定:
   1. multi_exchange_arbitrage.build_combined_table() で spot/perp キャリー候補を取得
@@ -17,9 +17,11 @@ PAPER_BOT_DATA / EDGE_DATA) を最新の値に差し替える。
      シミュレーションのみで実金額を含まないため公開・git管理してよい)
   7. edge_watch.fetch_edge_signals() で「エッジ・ラボ」事業部の自動監視(新規上場検知・
      異常ベーシス検知)を実行し、edge_playbook.md の検証状況サマリーも添える
-  8. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等7つの定数を
+  8. exchange_funding_ranking.build_exchange_ranking_payload() で取引所別の生の
+     ファンディングレートランキング(risk_manager.pyの裁定ペアランキングとは別物)を算出
+  9. hyperliquid_funding_dashboard.html 内の `const DATA = {...};` 等8つの定数を
      正規表現で丸ごと置換する
-  9. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
+  10. 更新済み HTML を書き戻す (Artifact への再公開は呼び出し側で行う)
 """
 
 import json
@@ -33,6 +35,7 @@ from funding_spread_scanner import build_spread_table
 from risk_manager import TOTAL_CAPITAL_USD, score_and_rank
 from market_intel import fetch_market_intel
 from paper_bot import run_cycle as run_paper_bot_cycle
+from exchange_funding_ranking import build_exchange_ranking_payload
 from edge_watch import fetch_edge_signals
 
 EDGE_PLAYBOOK_PATH = "edge_playbook.md"
@@ -40,19 +43,22 @@ EDGE_PLAYBOOK_STATUSES = ["自社データで検証済み", "文献ベース", "
 
 NOTIONAL_USD = 10000.0
 MIN_LIQUIDITY_USD = 20000.0
-EXCHANGES = ["hyperliquid", "aster", "backpack", "injective"]
-EXCHANGE_LABELS = ["Hyperliquid", "Aster", "Backpack", "Injective"]
+# キャリー(spot+perp)側はspot取引が無い取引所を含められない
+CARRY_EXCHANGES = ["hyperliquid", "aster", "backpack", "injective"]
+CARRY_EXCHANGE_LABELS = ["Hyperliquid", "Aster", "Backpack", "Injective"]
+# 差分(perp対perp)側はperpのみの取引所(edgeX)も対象にできる
+SPREAD_EXCHANGE_LABELS = ["Hyperliquid", "Aster", "Backpack", "Injective", "edgeX"]
 
 HTML_PATH = "hyperliquid_funding_dashboard.html"
 
 
 def build_carry_payload() -> dict:
-    rows, excluded, errors = build_combined_table(NOTIONAL_USD, MIN_LIQUIDITY_USD, EXCHANGES)
+    rows, excluded, errors = build_combined_table(NOTIONAL_USD, MIN_LIQUIDITY_USD, CARRY_EXCHANGES)
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "notional_usd": NOTIONAL_USD,
         "min_liquidity_usd": MIN_LIQUIDITY_USD,
-        "exchanges": EXCHANGE_LABELS,
+        "exchanges": CARRY_EXCHANGE_LABELS,
         "rows": rows,
         "excluded": [
             {
@@ -69,11 +75,11 @@ def build_carry_payload() -> dict:
 
 
 def build_spread_payload() -> dict:
-    rows, excluded = build_spread_table(MIN_LIQUIDITY_USD, EXCHANGE_LABELS)
+    rows, excluded = build_spread_table(MIN_LIQUIDITY_USD, SPREAD_EXCHANGE_LABELS)
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "min_liquidity_usd": MIN_LIQUIDITY_USD,
-        "exchanges": EXCHANGE_LABELS,
+        "exchanges": SPREAD_EXCHANGE_LABELS,
         "rows": rows,
         "excluded": [
             {
@@ -233,6 +239,12 @@ def main():
         f"異常ベーシス{len(edge_payload['extreme_basis'])}件",
         file=sys.stderr,
     )
+
+    print("取引所別ファンディングレートランキング算出中...", file=sys.stderr)
+    exchange_ranking_payload = build_exchange_ranking_payload()
+    html = inject(html, "EXCHANGE_RANKING_DATA", exchange_ranking_payload)
+    for exchange, data in exchange_ranking_payload["exchanges"].items():
+        print(f"  -> {exchange}: {len(data.get('top', []))}件", file=sys.stderr)
 
     with open(HTML_PATH, "w", encoding="utf-8") as f:
         f.write(html)
