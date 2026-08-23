@@ -575,16 +575,16 @@
     "base_symbol": "AAVE",
     "notional_usd": 1119.72,
     "opened_at": "2026-08-23T11:57:17.199263+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T15:02:26.009256+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "AAVE",
       "long_exchange": "Injective",
       "long_contract": "AAVE/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 137.09% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 137.09% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.66
   },
   {
     "id": "3624010e",
@@ -716,6 +716,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 71.22% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7fc8a309",
+    "type": "spread",
+    "base_symbol": "SUI",
+    "notional_usd": 1119.72,
+    "opened_at": "2026-08-23T15:02:26.009256+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "SUI",
+      "long_exchange": "Injective",
+      "long_contract": "SUI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 122.80% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
