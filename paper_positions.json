@@ -524,16 +524,16 @@
     "base_symbol": "MOVE",
     "notional_usd": 775.28,
     "opened_at": "2026-08-23T11:57:17.199263+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T17:50:32.321690+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MOVE/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "MOVEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 310.10% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 310.10% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.32
   },
   {
     "id": "59ec9ad1",
@@ -818,6 +818,23 @@
       "long_contract": "JTO/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 81.48% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a05cfcb2",
+    "type": "spread",
+    "base_symbol": "PUMP",
+    "notional_usd": 2109.23,
+    "opened_at": "2026-08-23T17:50:32.321690+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "PUMPUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "PUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 31.53% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
