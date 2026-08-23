@@ -945,15 +945,32 @@
     "base_symbol": "ENA",
     "notional_usd": 807.73,
     "opened_at": "2026-08-23T20:58:49.200657+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T21:50:34.515636+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ENA_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ENA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 110.53% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 110.53% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.61
+  },
+  {
+    "id": "37ada1ad",
+    "type": "spread",
+    "base_symbol": "XMR",
+    "notional_usd": 1746.34,
+    "opened_at": "2026-08-23T21:50:34.515636+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "XMR_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "XMR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 109.00% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
