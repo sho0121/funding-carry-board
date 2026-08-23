@@ -843,16 +843,16 @@
     "base_symbol": "MOVE",
     "notional_usd": 546.12,
     "opened_at": "2026-08-23T19:09:27.233690+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T20:58:49.200657+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MOVE/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MOVE"
     },
-    "notes": "Bot自動エントリー: APR 280.95% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 280.95% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.92
   },
   {
     "id": "573985eb",
@@ -877,16 +877,16 @@
     "base_symbol": "ENA",
     "notional_usd": 148.99,
     "opened_at": "2026-08-23T19:09:27.233690+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T20:58:49.200657+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ENA",
       "long_exchange": "Injective",
       "long_contract": "ENA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 122.25% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 122.25% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.29
   },
   {
     "id": "b858af51",
@@ -894,15 +894,66 @@
     "base_symbol": "WIF",
     "notional_usd": 915.6,
     "opened_at": "2026-08-23T19:09:27.233690+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T20:58:49.200657+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "WIF_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "WIF/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 80.47% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 80.47% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.82
+  },
+  {
+    "id": "a618113c",
+    "type": "spread",
+    "base_symbol": "MOVE",
+    "notional_usd": 546.12,
+    "opened_at": "2026-08-23T20:58:49.200657+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MOVE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MOVEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 353.00% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "429203d8",
+    "type": "spread",
+    "base_symbol": "PENDLE",
+    "notional_usd": 695.11,
+    "opened_at": "2026-08-23T20:58:49.200657+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PENDLE",
+      "long_exchange": "Injective",
+      "long_contract": "PENDLE/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 195.29% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "30044900",
+    "type": "spread",
+    "base_symbol": "ENA",
+    "notional_usd": 807.73,
+    "opened_at": "2026-08-23T20:58:49.200657+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ENA_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "ENA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 110.53% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
