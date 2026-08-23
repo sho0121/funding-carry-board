@@ -2282,16 +2282,16 @@
     "base_symbol": "EDGE",
     "notional_usd": 206.35,
     "opened_at": "2026-08-22T22:53:03.492380+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T03:33:19.333706+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "EDGE_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "EDGEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 70.26% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 70.26% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.38
   },
   {
     "id": "7aaa0107",
@@ -2341,6 +2341,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 16.58% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "1ba0dbca",
+    "type": "spread",
+    "base_symbol": "OP",
+    "notional_usd": 206.35,
+    "opened_at": "2026-08-23T03:33:19.333706+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "OP/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "OP_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 36.18% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
