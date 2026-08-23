@@ -778,15 +778,15 @@
     "base_symbol": "PAXG",
     "notional_usd": 352.13,
     "opened_at": "2026-08-20T16:05:52.870495+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T05:18:42.436080+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "PAXG_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 10.88% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 10.88% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.06
   },
   {
     "id": "0ad08467",
@@ -2349,15 +2349,49 @@
     "base_symbol": "OP",
     "notional_usd": 206.35,
     "opened_at": "2026-08-23T03:33:19.333706+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-23T05:18:42.436080+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "OP/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "OP_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 36.18% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 36.18% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.39
+  },
+  {
+    "id": "1f24aed6",
+    "type": "spread",
+    "base_symbol": "MET",
+    "notional_usd": 558.48,
+    "opened_at": "2026-08-23T05:18:42.436080+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "MET_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "METUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 105.25% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3bc10267",
+    "type": "spread",
+    "base_symbol": "ZRO",
+    "notional_usd": 889.69,
+    "opened_at": "2026-08-23T05:18:42.436080+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ZRO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "ZROUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 33.38% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
