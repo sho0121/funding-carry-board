@@ -313,7 +313,7 @@ def cmd_run(args) -> None:
     from funding_spread_scanner import build_spread_table
 
     carry_exchanges = ["hyperliquid", "aster", "backpack", "injective"]  # spotが無いedgeXは対象外
-    spread_exchanges = ["Hyperliquid", "Aster", "Backpack", "Injective", "edgeX"]
+    spread_exchanges = ["Hyperliquid", "Aster", "Backpack", "Injective", "edgeX", "dYdX", "ApeX"]
     carry_rows, _, _ = build_combined_table(10000.0, 20000.0, carry_exchanges)
     spread_rows, _ = build_spread_table(20000.0, spread_exchanges)
 

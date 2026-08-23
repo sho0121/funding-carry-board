@@ -16,7 +16,7 @@ spot を一切使わず、無期限先物同士を逆方向に建てて (両脚�
      その中でショート・ロングを組む。送金リスクは無いが、決済通貨自体の
      デペッグリスクがある。
 
-対象取引所: Hyperliquid, Aster, Backpack, Injective, edgeX。Injective は瞬間値
+対象取引所: Hyperliquid, Aster, Backpack, Injective, edgeX, dYdX, ApeX。Injective は瞬間値
 スクリーニング段階では出来高不明のまま候補に残すが、出来高不明な行は(実際に取引可能な
 上位N件に加えて)**全件**、約定履歴 (/api/exchange/derivative/v1/trades) から実際の
 24h出来高を遡って計算し補完する。補完の結果、実出来高が --min-liquidity-usd 未満と
@@ -290,12 +290,93 @@ def fetch_edgex_perps() -> list[dict]:
     return rows
 
 
+DYDX_API = "https://indexer.dydx.trade/v4"
+
+
+def fetch_dydx_perps() -> list[dict]:
+    """他のbulk系取引所(Hyperliquid/Aster/Backpack)と同様、1回のAPI呼び出しで
+    全銘柄を取得できる。fundingは1時間ごとのfunding-tick epochで決まる
+    (dYdX v4ドキュメントで確認済み)。dYdXはperpのみでspot取引が無いため、
+    キャリー(spot+perp)側には登録しない。"""
+    data = _get_json(f"{DYDX_API}/perpetualMarkets")
+    rows = []
+    for ticker, m in (data.get("markets") or {}).items():
+        if m.get("status") != "ACTIVE":
+            continue
+        funding_rate = m.get("nextFundingRate")
+        oracle_price = m.get("oraclePrice")
+        if funding_rate is None or oracle_price is None:
+            continue
+        volume = m.get("volume24H")
+        rows.append(
+            {
+                "exchange": "dYdX",
+                "base_symbol": ticker.split("-")[0],
+                "contract_symbol": ticker,
+                "quote_symbol": "USD",
+                "funding_apr_pct": float(funding_rate) * (365 * 24) * 100,
+                "mark_price": float(oracle_price),
+                "volume_24h_usd": float(volume) if volume is not None else None,
+            }
+        )
+    return rows
+
+
+APEX_API = "https://omni.apex.exchange/api/v3"
+
+
+def fetch_apex_perps() -> list[dict]:
+    """契約一覧はメタデータAPIで一括取得できるが、funding/価格/出来高のbulk取得
+    エンドポイントが見つからず契約ごとに呼ぶ必要がある(edgeX/Injectiveと同様の
+    パターン)。fundingは1時間ごとと確認済み。ApeXはperpのみでspot取引が無いため、
+    キャリー(spot+perp)側には登録しない。"""
+    meta = _get_json(f"{APEX_API}/symbols")
+    contracts = meta["data"]["contractConfig"]["perpetualContract"]
+
+    rows = []
+    for c in contracts:
+        if not c.get("enableTrade"):
+            continue
+        symbol = c["symbol"]  # 例: "BTC-USDT"
+        ticker_symbol = symbol.replace("-", "")  # tickerエンドポイントはダッシュ無し表記
+        base = c.get("baseTokenId") or symbol.split("-")[0]
+
+        try:
+            ticker_list = _get_json(f"{APEX_API}/ticker?symbol={ticker_symbol}").get("data") or []
+        except Exception:
+            continue
+        if not ticker_list:
+            continue
+        t = ticker_list[0]
+
+        funding_rate = t.get("fundingRate")
+        mark_price = t.get("markPrice") or t.get("lastPrice")
+        if funding_rate is None or mark_price is None:
+            continue
+        volume = t.get("turnover24h")
+
+        rows.append(
+            {
+                "exchange": "ApeX",
+                "base_symbol": base,
+                "contract_symbol": symbol,
+                "quote_symbol": c.get("settleAssetId", "USDT"),
+                "funding_apr_pct": float(funding_rate) * (365 * 24) * 100,
+                "mark_price": float(mark_price),
+                "volume_24h_usd": float(volume) if volume is not None else None,
+            }
+        )
+    return rows
+
+
 FETCHERS = {
     "Hyperliquid": fetch_hyperliquid_perps,
     "Aster": fetch_aster_perps,
     "Backpack": fetch_backpack_perps,
     "Injective": fetch_injective_perps,
     "edgeX": fetch_edgex_perps,
+    "dYdX": fetch_dydx_perps,
+    "ApeX": fetch_apex_perps,
 }
 
 
@@ -591,7 +672,7 @@ def main():
     parser.add_argument("-o", "--output", default=None)
     parser.add_argument("--min-liquidity-usd", type=float, default=20000.0)
     parser.add_argument(
-        "--exchanges", default="Hyperliquid,Aster,Backpack,Injective,edgeX"
+        "--exchanges", default="Hyperliquid,Aster,Backpack,Injective,edgeX,dYdX,ApeX"
     )
     args = parser.parse_args()
 

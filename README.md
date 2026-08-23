@@ -1,10 +1,16 @@
 # Funding Carry Board — 仮想通貨アビトラ事業部
 
-Hyperliquid / Aster / Backpack / Injective / edgeX を対象に、ファンディングレート裁定
-(spot+perpキャリー、perp対perp差分)の候補を自動収集し、リスク調整後にランキングする
-ダッシュボード。毎時 GitHub Actions で自動更新される。キャリー(spot+perp)側は
-spot取引のある Hyperliquid/Aster/Backpack/Injective の4つ、差分(perp対perp)側は
-perpのみの edgeX も含めた5取引所が対象。
+Hyperliquid / Aster / Backpack / Injective / edgeX / dYdX / ApeX を対象に、
+ファンディングレート裁定(spot+perpキャリー、perp対perp差分)の候補を自動収集し、
+リスク調整後にランキングするダッシュボード。毎時 GitHub Actions で自動更新される。
+キャリー(spot+perp)側はspot取引のある Hyperliquid/Aster/Backpack/Injective の4つ、
+差分(perp対perp)側はperpのみの edgeX/dYdX/ApeX も含めた7取引所が対象。
+
+**検討したが見送った取引所**: Raydium・Uniswapはperp自体を扱っていない、PancakeSwap
+PerpsはAsterのオーダーブック基盤をそのまま使っており重複、Vertex/Drift/RabbitXは
+安定した公開APIのドメインを確認できず、Variationalは2026年時点でtrading API未公開、
+GMXは周期的fundingではなく建玉不均衡ベースの借入手数料方式で既存スキーマに合わない
+ため対象外(将来、確実な情報が得られれば追加検討)。
 
 2つの事業部で構成される:
 - **ファンディング裁定事業部**: 上記のファンディングレート裁定を実運用・自動収集する
@@ -57,7 +63,11 @@ perpのみの edgeX も含めた5取引所が対象。
 
 edge_playbook.md … クリプト全般の「稼ぐためのエッジ」のカタログ(ファンディング/
                     ベーシス系に限らない)。仕組み・必要データ・検証状況を記録する
-                    生きたドキュメント。edge-researcherサブエージェントが更新する
+                    生きたドキュメント。edge-researcherサブエージェントが更新する。
+                    「2-2. エアドロップ/ポイント制度ファーミング」セクションのみ、
+                    毎日 JST 8:00 にクラウドルーティン(daily-airdrop-edge-research)が
+                    WebSearchで自動調査・更新・pushする(claude.ai/code/routines で
+                    実行履歴を確認できる)
 
 portfolio.py … 実際に建てたポジションを記録し、各取引所の公開funding履歴APIから
                実績のP&Lを自動計算する(独立したローカル専用の収益管理台帳。

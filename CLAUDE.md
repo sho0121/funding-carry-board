@@ -18,6 +18,7 @@
 | 「Botの成績どう?」「ペーパートレードの結果は?」 | `python3 paper_bot.py status`(オープン中)・`summary`(確定+含み+勝率)を実行して回答。**実弾は一切使っていないシミュレーションである旨を必ず明記する** |
 | 「新しい儲け方(エッジ)を探して」「他に何かエッジはないか」 | `edge_playbook.md` を確認した上で、新規の発見・分析が必要なら `edge-researcher` エージェントに委任する。既知エッジの実行可否は `risk-manager` に橋渡しする |
 | 「このエッジは検証されてる?」「新規上場あった?」 | まず `edge_playbook.md`(検証状況)・`edge_signals.json`(直近の自動検知結果。無ければ `python3 edge_watch.py` で更新)を確認 |
+| 「エアドロップ情報ある?」「今日のエアドロップ調査結果は?」 | `edge_playbook.md` の「2-2. エアドロップ/ポイント制度ファーミング」セクションを確認(毎日JST8:00にクラウドルーティン`daily-airdrop-edge-research`がWebSearchで自動更新している。実行履歴は claude.ai/code/routines で確認可能、このセッションからは直接見えない) |
 | 「今どの取引所のどの銘柄のfundingが高い?」「取引所ごとのランキング見せて」 | `exchange_funding_ranking.json`(無ければ `python3 exchange_funding_ranking.py` で更新)を確認。**これは裁定ペアのランキングではなく単一銘柄のfundingをそのまま並べたもの**である点をrisk_manager由来のランキングと混同しないこと |
 | 「ダッシュボード更新して」 | `python3 generate_dashboard.py` を実行(carry/spread/ranking/intel/team/paperbot/edge/exchangerankingの8データを再取得しHTMLに埋め込む。edgeX追加とInjective全件検証化により数分〜十数分かかる場合がある) |
 
@@ -55,10 +56,19 @@
   関連の数値(特に極端なAPR)をユーザーに伝える際は、この限界を踏まえること。
   2026-08-20時点で `funding_spread_scanner.py` は出来高不明な行を全件検証するよう
   修正済み(以前は上位30件のみで下位にゴースト市場が残っていた)
-- **edgeX追加**: 差分スキャナー(`funding_spread_scanner.py`)にのみ追加。spot取引が
-  無いためキャリー側(`multi_exchange_arbitrage.py`)には非対応。株式/コモディティ
-  連動の合成perp(AAPL/XAU等)も扱っており、仮想通貨限定ではない点に注意。bulk取得
-  APIが無く契約ごとに呼ぶ必要があるため(157契約)、取得に1分前後かかる
+- **Injective = Helixではない**: Injectiveはブロックチェーン本体(Layer1)、Helixは
+  その上に構築された公式・最大手のトレーディングフロントエンド。誰でも無許可で
+  Injective上に市場を作れるため、Helix以外の(または非採用の)市場も存在しうる
+- **edgeX/dYdX/ApeX追加**: いずれも差分スキャナー(`funding_spread_scanner.py`)にのみ
+  追加。spot取引が無いためキャリー側(`multi_exchange_arbitrage.py`)には非対応。
+  edgeXは株式/コモディティ連動の合成perp(AAPL/XAU等)も扱っており、仮想通貨限定
+  ではない点に注意。edgeX/ApeXはbulk取得APIが無く契約ごとに呼ぶ必要があり取得に
+  1分前後かかる。dYdXは1回のAPI呼び出しで全銘柄取得できる(bulk対応)
+- **見送った取引所**: Raydium/Uniswap(perp非対応)、PancakeSwap Perps(Aster基盤の
+  重複)、Vertex/Drift/RabbitX(安定した公開APIエンドポイントを確認できず)、
+  Variational(2026年時点でtrading API未公開)、GMX(周期的fundingではなく建玉
+  不均衡ベースの借入手数料方式で既存スキーマに不適合)。確実な情報が得られれば
+  再検討する
 
 ## AI社員(サブエージェント, `.claude/agents/`)
 
