@@ -206,15 +206,15 @@
     "base_symbol": "MON",
     "notional_usd": 272.55,
     "opened_at": "2026-08-19T20:14:50.568932+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-25T19:52:05.084152+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "MON_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 18.90% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 18.90% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.23
   },
   {
     "id": "c8eb4286",
@@ -1834,6 +1834,22 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "32fa4e59",
+    "type": "carry",
+    "base_symbol": "BTC",
+    "notional_usd": 272.55,
+    "opened_at": "2026-08-25T19:52:05.084152+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "BTC_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 11.39% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
