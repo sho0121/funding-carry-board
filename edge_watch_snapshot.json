@@ -535,6 +535,7 @@
     "PENDLEUSDT",
     "PENGUINUSDT",
     "PENGUUSDT",
+    "PEOPLEUSDT",
     "PHAUSDT",
     "PIEVERSEUSDT",
     "PIPPINUSDT",
@@ -643,6 +644,7 @@
     "THEUSDT",
     "TIAUSDT",
     "TLMUSDT",
+    "TMXUSDT",
     "TNSRUSDT",
     "TOSHIUSDT",
     "TOWNSUSDT",
@@ -1130,6 +1132,7 @@
     "CXMTUSDC",
     "CYSUSDC",
     "DELLUSDC",
+    "DJTUSDC",
     "DOGEUSDC",
     "DOTUSDC",
     "DRAMUSDC",
@@ -1170,6 +1173,7 @@
     "METAUSDC",
     "MINIMAXUSDC",
     "MONUSDC",
+    "MRNAUSDC",
     "MRVLUSDC",
     "MSFTUSDC",
     "MSTRUSDC",
@@ -1248,7 +1252,8 @@
     "ZAMAUSDC",
     "ZECUSDC",
     "ZHIPUUSDC",
-    "ZHONGJIUSDC"
+    "ZHONGJIUSDC",
+    "ZROUSDC"
   ],
   "dYdX": [
     "1INCH-USD",
