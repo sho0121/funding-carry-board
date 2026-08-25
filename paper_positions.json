@@ -658,15 +658,15 @@
     "base_symbol": "PUMP",
     "notional_usd": 358.43,
     "opened_at": "2026-08-23T11:57:17.199263+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-25T05:56:16.494578+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "PUMP_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 16.08% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 16.08% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.66
   },
   {
     "id": "9f590e24",
@@ -1538,16 +1538,16 @@
     "base_symbol": "SAND",
     "notional_usd": 746.32,
     "opened_at": "2026-08-25T03:23:03.351698+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-25T05:56:16.494578+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "SAND/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "SANDUSDT"
     },
-    "notes": "Bot自動エントリー: APR 138.79% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 138.79% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.89
   },
   {
     "id": "00a8d1d3",
@@ -1555,16 +1555,16 @@
     "base_symbol": "MET",
     "notional_usd": 531.93,
     "opened_at": "2026-08-25T03:23:03.351698+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-25T05:56:16.494578+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "MET_USDC_PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MET"
     },
-    "notes": "Bot自動エントリー: APR 116.60% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 116.60% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.97
   },
   {
     "id": "c8863ccf",
@@ -1581,6 +1581,57 @@
       "long_contract": "NEAR/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 71.78% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "febd01c3",
+    "type": "spread",
+    "base_symbol": "MET",
+    "notional_usd": 220.35,
+    "opened_at": "2026-08-25T05:56:16.494578+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "MET_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "METUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 133.87% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f5c79f43",
+    "type": "spread",
+    "base_symbol": "SAND",
+    "notional_usd": 531.93,
+    "opened_at": "2026-08-25T05:56:16.494578+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SAND/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "SAND"
+    },
+    "notes": "Bot自動エントリー: APR 118.19% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ae67bdeb",
+    "type": "spread",
+    "base_symbol": "TRUMP",
+    "notional_usd": 214.39,
+    "opened_at": "2026-08-25T05:56:16.494578+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TRUMP/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "TRUMPUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 51.99% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
