@@ -2571,16 +2571,16 @@
     "base_symbol": "CHZ",
     "notional_usd": 71.35,
     "opened_at": "2026-08-29T01:09:54.825564+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-29T09:10:29.372815+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "CHZUSDT",
       "long_exchange": "Injective",
       "long_contract": "CHZ/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 13.36% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 13.36% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.13
   },
   {
     "id": "7591a28f",
@@ -2723,15 +2723,49 @@
     "base_symbol": "SEI",
     "notional_usd": 601.59,
     "opened_at": "2026-08-29T08:09:51.142715+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-29T09:10:29.372815+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SEIUSDT",
       "long_exchange": "Injective",
       "long_contract": "SEI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 121.42% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 121.42% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.25
+  },
+  {
+    "id": "e9a3ade8",
+    "type": "spread",
+    "base_symbol": "ARB",
+    "notional_usd": 580.56,
+    "opened_at": "2026-08-29T09:10:29.372815+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "ARBUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "ARB/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 245.64% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ca7a09fc",
+    "type": "spread",
+    "base_symbol": "AERO",
+    "notional_usd": 931.03,
+    "opened_at": "2026-08-29T09:10:29.372815+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "AERO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "AEROUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 198.11% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
