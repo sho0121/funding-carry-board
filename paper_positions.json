@@ -2503,16 +2503,16 @@
     "base_symbol": "XMR",
     "notional_usd": 965.29,
     "opened_at": "2026-08-29T00:10:12.869466+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-29T01:09:54.825564+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "XMR_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 115.92% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 115.92% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.77
   },
   {
     "id": "d524ade2",
@@ -2520,15 +2520,66 @@
     "base_symbol": "DEXE",
     "notional_usd": 71.35,
     "opened_at": "2026-08-29T00:10:12.869466+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-29T01:09:54.825564+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "DEXE/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "DEXEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 28.30% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 28.30% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.14
+  },
+  {
+    "id": "ac852f39",
+    "type": "spread",
+    "base_symbol": "WIF",
+    "notional_usd": 406.85,
+    "opened_at": "2026-08-29T01:09:54.825564+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WIF/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "WIF_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 68.82% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "69a5fbc6",
+    "type": "spread",
+    "base_symbol": "TRUMP",
+    "notional_usd": 558.44,
+    "opened_at": "2026-08-29T01:09:54.825564+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TRUMP/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "TRUMP_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 67.81% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ebc7f29f",
+    "type": "spread",
+    "base_symbol": "CHZ",
+    "notional_usd": 71.35,
+    "opened_at": "2026-08-29T01:09:54.825564+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "CHZUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "CHZ/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 13.36% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
