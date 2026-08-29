@@ -2706,15 +2706,32 @@
     "base_symbol": "XMR",
     "notional_usd": 1009.74,
     "opened_at": "2026-08-29T07:10:13.797528+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-29T08:09:51.142715+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "XMR_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 115.90% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 115.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.88
+  },
+  {
+    "id": "f68435ab",
+    "type": "spread",
+    "base_symbol": "SEI",
+    "notional_usd": 601.59,
+    "opened_at": "2026-08-29T08:09:51.142715+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SEIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SEI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 121.42% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
