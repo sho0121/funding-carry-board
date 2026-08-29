@@ -2791,16 +2791,16 @@
     "base_symbol": "PUMP",
     "notional_usd": 426.12,
     "opened_at": "2026-08-29T10:10:53.587602+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-29T13:10:28.161011+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "PUMP/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "PUMP_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 124.60% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 124.60% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.7
   },
   {
     "id": "a98f40df",
@@ -2817,6 +2817,23 @@
       "long_contract": "ARB/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 245.05% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6d90fefd",
+    "type": "spread",
+    "base_symbol": "SAND",
+    "notional_usd": 341.23,
+    "opened_at": "2026-08-29T13:10:28.161011+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SAND/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "SANDUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 155.65% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
