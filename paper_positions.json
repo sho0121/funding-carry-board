@@ -3485,15 +3485,32 @@
     "base_symbol": "WLFI",
     "notional_usd": 733.4,
     "opened_at": "2026-08-30T05:10:02.785427+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T08:09:49.706124+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "WLFIUSDT",
       "long_exchange": "Injective",
       "long_contract": "WLFI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 55.27% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 55.27% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.88
+  },
+  {
+    "id": "c3b0473e",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 2611.02,
+    "opened_at": "2026-08-30T08:09:49.706124+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SKRUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 255.78% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
