@@ -3774,16 +3774,16 @@
     "base_symbol": "WIF",
     "notional_usd": 440.35,
     "opened_at": "2026-08-30T17:10:21.451975+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T19:10:48.838550+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "WIF/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "WIF_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 64.88% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 64.88% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.87
   },
   {
     "id": "19fe6646",
@@ -3800,6 +3800,23 @@
       "long_contract": "WLFI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 96.50% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9ef12881",
+    "type": "spread",
+    "base_symbol": "KAITO",
+    "notional_usd": 325.22,
+    "opened_at": "2026-08-30T19:10:48.838550+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "KAITO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "KAITOUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 185.31% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
