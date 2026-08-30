@@ -3757,16 +3757,16 @@
     "base_symbol": "OP",
     "notional_usd": 275.51,
     "opened_at": "2026-08-30T17:10:21.451975+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T18:09:56.732948+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "OPUSDT",
       "long_exchange": "Injective",
       "long_contract": "OP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 146.97% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 146.97% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.55
   },
   {
     "id": "3d889c1a",
@@ -3783,6 +3783,23 @@
       "long_contract": "WIF_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 64.88% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "19fe6646",
+    "type": "spread",
+    "base_symbol": "WLFI",
+    "notional_usd": 1300.09,
+    "opened_at": "2026-08-30T18:09:56.732948+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "WLFIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "WLFI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 96.50% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
