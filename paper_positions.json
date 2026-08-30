@@ -3029,16 +3029,16 @@
     "base_symbol": "SAND",
     "notional_usd": 373.91,
     "opened_at": "2026-08-29T18:10:17.585476+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T01:10:19.933260+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "SAND/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "SANDUSDT"
     },
-    "notes": "Bot自動エントリー: APR 157.21% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 157.21% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.21
   },
   {
     "id": "8a12180f",
@@ -3165,16 +3165,16 @@
     "base_symbol": "HYPE",
     "notional_usd": 713.15,
     "opened_at": "2026-08-29T20:10:38.917714+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T01:10:19.933260+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "HYPE_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 55.21% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 55.21% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.12
   },
   {
     "id": "94c12de7",
@@ -3284,16 +3284,16 @@
     "base_symbol": "KAITO",
     "notional_usd": 1065.06,
     "opened_at": "2026-08-29T23:14:35.302696+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T01:10:19.933260+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "KAITO/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "KAITOUSDT"
     },
-    "notes": "Bot自動エントリー: APR 141.98% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 141.98% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.02
   },
   {
     "id": "a92a86f8",
@@ -3326,6 +3326,56 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 49.17% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "24dbebb9",
+    "type": "carry",
+    "base_symbol": "BLESS",
+    "notional_usd": 422.86,
+    "opened_at": "2026-08-30T01:10:19.933260+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "BLESSUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 41.39% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "603eff83",
+    "type": "spread",
+    "base_symbol": "DEXE",
+    "notional_usd": 593.65,
+    "opened_at": "2026-08-30T01:10:19.933260+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "DEXEUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "DEXE/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 41.88% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5a8e784e",
+    "type": "spread",
+    "base_symbol": "NEAR",
+    "notional_usd": 1874.79,
+    "opened_at": "2026-08-30T01:10:19.933260+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "NEAR_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "NEAR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 29.71% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
