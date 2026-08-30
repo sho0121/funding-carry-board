@@ -3859,15 +3859,32 @@
     "base_symbol": "VVV",
     "notional_usd": 1221.21,
     "opened_at": "2026-08-30T21:10:09.744015+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-30T23:10:10.765803+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "VVVUSDT",
       "long_exchange": "Injective",
       "long_contract": "VVV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 87.76% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 87.76% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.4
+  },
+  {
+    "id": "68052e44",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 1898.82,
+    "opened_at": "2026-08-30T23:10:10.765803+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SKRUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 377.74% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
