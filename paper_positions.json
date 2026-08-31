@@ -4045,15 +4045,15 @@
     "base_symbol": "INJ",
     "notional_usd": 552.39,
     "opened_at": "2026-08-31T05:10:13.624969+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T15:10:28.729526+00:00",
     "legs": {
       "exchange": "Injective",
       "contract": "INJ/USDC PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 42.26% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 42.26% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.23
   },
   {
     "id": "20c2690d",
@@ -4205,6 +4205,23 @@
       "long_contract": "PONSUSDT"
     },
     "notes": "Bot自動エントリー: APR 149.65% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ca7226a3",
+    "type": "spread",
+    "base_symbol": "ZORA",
+    "notional_usd": 1550.36,
+    "opened_at": "2026-08-31T15:10:28.729526+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "ZORAUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "ZORA_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 143.17% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
