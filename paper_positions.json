@@ -4416,16 +4416,16 @@
     "base_symbol": "OP",
     "notional_usd": 467.52,
     "opened_at": "2026-08-31T22:10:58.494991+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T23:09:55.735545+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "OPUSDT",
       "long_exchange": "Backpack",
       "long_contract": "OP_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 75.35% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 75.35% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.9
   },
   {
     "id": "b944b777",
@@ -4433,15 +4433,49 @@
     "base_symbol": "WLFI",
     "notional_usd": 675.74,
     "opened_at": "2026-08-31T22:10:58.494991+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T23:09:55.735545+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "WLFI",
       "long_exchange": "Backpack",
       "long_contract": "WLFI_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 73.90% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 73.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.32
+  },
+  {
+    "id": "90ecafa2",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 675.74,
+    "opened_at": "2026-08-31T23:09:55.735545+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PONS",
+      "long_exchange": "Aster",
+      "long_contract": "PONSUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 233.00% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a41f2978",
+    "type": "spread",
+    "base_symbol": "INJ",
+    "notional_usd": 1290.65,
+    "opened_at": "2026-08-31T23:09:55.735545+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "INJ/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "INJUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 51.47% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
