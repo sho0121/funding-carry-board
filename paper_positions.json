@@ -3334,15 +3334,15 @@
     "base_symbol": "BLESS",
     "notional_usd": 422.86,
     "opened_at": "2026-08-30T01:10:19.933260+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T14:11:11.242434+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "BLESSUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 41.39% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 41.39% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.11
   },
   {
     "id": "603eff83",
@@ -4188,6 +4188,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 44.85% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7394fc5c",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 998.94,
+    "opened_at": "2026-08-31T14:11:11.242434+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PONS",
+      "long_exchange": "Aster",
+      "long_contract": "PONSUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 149.65% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
