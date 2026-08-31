@@ -4078,15 +4078,32 @@
     "base_symbol": "SKR",
     "notional_usd": 3000.2,
     "opened_at": "2026-08-31T07:10:27.896396+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T08:11:29.353559+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SKRUSDT",
       "long_exchange": "Backpack",
       "long_contract": "SKR_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 284.54% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 284.54% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -4.55
+  },
+  {
+    "id": "f781a932",
+    "type": "spread",
+    "base_symbol": "MNT",
+    "notional_usd": 1196.79,
+    "opened_at": "2026-08-31T08:11:29.353559+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "MNT_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "MNT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 289.47% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
