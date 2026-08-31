@@ -4213,15 +4213,32 @@
     "base_symbol": "ZORA",
     "notional_usd": 1550.36,
     "opened_at": "2026-08-31T15:10:28.729526+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T16:09:32.507839+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "ZORAUSDT",
       "long_exchange": "Backpack",
       "long_contract": "ZORA_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 143.17% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 143.17% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -11.74
+  },
+  {
+    "id": "c06e4e1b",
+    "type": "spread",
+    "base_symbol": "OP",
+    "notional_usd": 513.71,
+    "opened_at": "2026-08-31T16:09:32.507839+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "OPUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "OP_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 75.48% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
