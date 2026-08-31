@@ -3706,16 +3706,16 @@
     "base_symbol": "ARB",
     "notional_usd": 1854.16,
     "opened_at": "2026-08-30T16:10:32.891087+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T10:10:53.859400+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ARB",
       "long_exchange": "Injective",
       "long_contract": "ARB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 237.55% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 237.55% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.83
   },
   {
     "id": "550ae064",
@@ -4104,6 +4104,23 @@
       "long_contract": "MNT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 289.47% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f85b8138",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 1870.88,
+    "opened_at": "2026-08-31T10:10:53.859400+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SKRUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 254.10% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
