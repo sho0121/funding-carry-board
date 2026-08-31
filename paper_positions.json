@@ -4196,16 +4196,16 @@
     "base_symbol": "PONS",
     "notional_usd": 998.94,
     "opened_at": "2026-08-31T14:11:11.242434+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T17:10:38.903031+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PONS",
       "long_exchange": "Aster",
       "long_contract": "PONSUSDT"
     },
-    "notes": "Bot自動エントリー: APR 149.65% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 149.65% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.42
   },
   {
     "id": "ca7226a3",
@@ -4230,15 +4230,49 @@
     "base_symbol": "OP",
     "notional_usd": 513.71,
     "opened_at": "2026-08-31T16:09:32.507839+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-08-31T17:10:38.903031+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "OPUSDT",
       "long_exchange": "Backpack",
       "long_contract": "OP_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 75.48% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 75.48% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.98
+  },
+  {
+    "id": "c49f8210",
+    "type": "spread",
+    "base_symbol": "ETC",
+    "notional_usd": 323.2,
+    "opened_at": "2026-08-31T17:10:38.903031+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ETC/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "ETC"
+    },
+    "notes": "Bot自動エントリー: APR 79.04% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8375db70",
+    "type": "spread",
+    "base_symbol": "TRUMP",
+    "notional_usd": 370.55,
+    "opened_at": "2026-08-31T17:10:38.903031+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "TRUMP_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "TRUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 66.51% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
