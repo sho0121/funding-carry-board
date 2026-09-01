@@ -4856,16 +4856,16 @@
     "base_symbol": "GRAM",
     "notional_usd": 204.75,
     "opened_at": "2026-09-01T16:42:34.956600+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-01T17:13:27.013206+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "GRAM",
       "long_exchange": "Injective",
       "long_contract": "GRAM/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 125.00% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 125.00% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.37
   },
   {
     "id": "a15b9d01",
@@ -4881,6 +4881,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 21.64% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a6489c98",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 204.75,
+    "opened_at": "2026-09-01T17:13:27.013206+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PONS",
+      "long_exchange": "Aster",
+      "long_contract": "PONSUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 148.34% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
