@@ -4620,16 +4620,16 @@
     "base_symbol": "GRAM",
     "notional_usd": 1966.39,
     "opened_at": "2026-09-01T08:12:49.144914+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-01T10:13:45.706430+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "GRAMUSDT",
       "long_exchange": "Injective",
       "long_contract": "GRAM/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 102.36% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 102.36% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.83
   },
   {
     "id": "2bb09adb",
@@ -4654,15 +4654,49 @@
     "base_symbol": "ARB",
     "notional_usd": 200.95,
     "opened_at": "2026-09-01T09:12:53.317742+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-01T10:13:45.706430+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ARB",
       "long_exchange": "Injective",
       "long_contract": "ARB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 224.09% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 224.09% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.33
+  },
+  {
+    "id": "c68d125f",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 1966.39,
+    "opened_at": "2026-09-01T10:13:45.706430+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SKRUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 249.63% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "4bfd9b85",
+    "type": "spread",
+    "base_symbol": "GRAM",
+    "notional_usd": 998.94,
+    "opened_at": "2026-09-01T10:13:45.706430+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "GRAM",
+      "long_exchange": "Injective",
+      "long_contract": "GRAM/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 110.94% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
