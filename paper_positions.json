@@ -4450,16 +4450,16 @@
     "base_symbol": "PONS",
     "notional_usd": 675.74,
     "opened_at": "2026-08-31T23:09:55.735545+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-01T05:12:47.999383+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PONS",
       "long_exchange": "Aster",
       "long_contract": "PONSUSDT"
     },
-    "notes": "Bot自動エントリー: APR 233.00% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 233.00% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.97
   },
   {
     "id": "a41f2978",
@@ -4544,6 +4544,23 @@
       "long_contract": "AVAX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 51.43% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "413d5569",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 675.74,
+    "opened_at": "2026-09-01T05:12:47.999383+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SKRUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 235.25% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
