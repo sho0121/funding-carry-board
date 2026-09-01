@@ -4756,16 +4756,16 @@
     "base_symbol": "TRUMP",
     "notional_usd": 260.9,
     "opened_at": "2026-09-01T13:13:37.798253+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-01T14:14:14.442858+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "TRUMP_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "TRUMP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 93.49% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 93.49% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.47
   },
   {
     "id": "07dcd052",
@@ -4782,6 +4782,22 @@
       "long_contract": "0GUSDT"
     },
     "notes": "Bot自動エントリー: APR 55.27% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6fc56059",
+    "type": "carry",
+    "base_symbol": "AIW3",
+    "notional_usd": 403.35,
+    "opened_at": "2026-09-01T14:14:14.442858+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "AIW3USDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 330.01% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
