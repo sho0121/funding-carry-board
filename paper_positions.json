@@ -4839,16 +4839,16 @@
     "base_symbol": "ETH",
     "notional_usd": 794.19,
     "opened_at": "2026-09-01T15:12:35.113906+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-02T01:12:19.121605+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ETH",
       "long_exchange": "Injective",
       "long_contract": "ETH/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 78.44% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 78.44% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.4
   },
   {
     "id": "4a94d0e3",
@@ -4957,15 +4957,49 @@
     "base_symbol": "SKR",
     "notional_usd": 1277.86,
     "opened_at": "2026-09-02T00:16:56.921956+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-02T01:12:19.121605+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SKRUSDT",
       "long_exchange": "Backpack",
       "long_contract": "SKR_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 228.11% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 228.11% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.44
+  },
+  {
+    "id": "8fa6985c",
+    "type": "spread",
+    "base_symbol": "PUMP",
+    "notional_usd": 330.32,
+    "opened_at": "2026-09-02T01:12:19.121605+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PUMP",
+      "long_exchange": "Injective",
+      "long_contract": "PUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 101.50% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5d838fb1",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 668.62,
+    "opened_at": "2026-09-02T01:12:19.121605+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PONS",
+      "long_exchange": "Aster",
+      "long_contract": "PONSUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 98.45% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
