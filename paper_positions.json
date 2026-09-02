@@ -4974,16 +4974,16 @@
     "base_symbol": "PUMP",
     "notional_usd": 330.32,
     "opened_at": "2026-09-02T01:12:19.121605+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-02T02:19:07.438246+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PUMP",
       "long_exchange": "Injective",
       "long_contract": "PUMP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 101.50% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 101.50% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.67
   },
   {
     "id": "5d838fb1",
@@ -5000,6 +5000,23 @@
       "long_contract": "PONSUSDT"
     },
     "notes": "Bot自動エントリー: APR 98.45% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d2ad4e7e",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 330.32,
+    "opened_at": "2026-09-02T02:19:07.438246+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "SKR",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 111.56% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
