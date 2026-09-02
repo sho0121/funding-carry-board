@@ -4873,15 +4873,15 @@
     "base_symbol": "MON",
     "notional_usd": 934.59,
     "opened_at": "2026-09-01T16:42:34.956600+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-02T09:14:35.014640+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "MON_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 21.64% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 21.64% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.48
   },
   {
     "id": "a6489c98",
@@ -5185,6 +5185,22 @@
       "long_contract": "MET"
     },
     "notes": "Bot自動エントリー: APR 79.91% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7b38b75b",
+    "type": "carry",
+    "base_symbol": "ETH",
+    "notional_usd": 934.59,
+    "opened_at": "2026-09-02T09:14:35.014640+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "ETH_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 10.74% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
