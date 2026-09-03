@@ -5344,16 +5344,16 @@
     "base_symbol": "SUI",
     "notional_usd": 507.09,
     "opened_at": "2026-09-03T10:14:54.584629+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-03T22:13:46.349616+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 179.61% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 179.61% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.38
   },
   {
     "id": "4f20d61d",
@@ -5412,16 +5412,16 @@
     "base_symbol": "STX",
     "notional_usd": 905.02,
     "opened_at": "2026-09-03T15:14:54.091298+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-03T22:13:46.349616+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 184.94% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 184.94% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.28
   },
   {
     "id": "46908c61",
@@ -5472,6 +5472,40 @@
       "long_contract": "TAO_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 200.56% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b6601542",
+    "type": "spread",
+    "base_symbol": "GRAM",
+    "notional_usd": 529.11,
+    "opened_at": "2026-09-03T22:13:46.349616+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "GRAM",
+      "long_exchange": "Injective",
+      "long_contract": "GRAM/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 113.10% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6d273ecf",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 1130.33,
+    "opened_at": "2026-09-03T22:13:46.349616+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "VVV",
+      "long_exchange": "Injective",
+      "long_contract": "VVV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 110.42% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
