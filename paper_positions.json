@@ -5327,16 +5327,16 @@
     "base_symbol": "KAITO",
     "notional_usd": 382.8,
     "opened_at": "2026-09-03T10:14:54.584629+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-03T11:13:37.185776+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "KAITO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "KAITO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 210.56% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 210.56% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.77
   },
   {
     "id": "ff61be62",
@@ -5353,6 +5353,23 @@
       "long_contract": "SUI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 179.61% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "4f20d61d",
+    "type": "spread",
+    "base_symbol": "STX",
+    "notional_usd": 429.87,
+    "opened_at": "2026-09-03T11:13:37.185776+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "STX",
+      "long_exchange": "Injective",
+      "long_contract": "STX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 190.16% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
