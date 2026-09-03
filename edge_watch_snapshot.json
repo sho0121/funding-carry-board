@@ -738,6 +738,7 @@
   "Backpack": [
     "0G_USDC_PERP",
     "2Z_USDC_PERP",
+    "AAPL.US_USDC_PERP",
     "AAVE_USDC_PERP",
     "ADA_USDC_PERP",
     "AERO_USDC_PERP",
@@ -778,6 +779,7 @@
     "MON_USDC_PERP",
     "MU.US_USDC_PERP",
     "NEAR_USDC_PERP",
+    "NVDA.US_USDC_PERP",
     "ONDO_USDC_PERP",
     "OP_USDC_PERP",
     "PAXG_USDC_PERP",
@@ -790,6 +792,7 @@
     "SKR_USDC_PERP",
     "SNDK.US_USDC_PERP",
     "SOL_USDC_PERP",
+    "SPCX.US_USDC_PERP",
     "SPY.US_USDC_PERP",
     "STABLE_USDC_PERP",
     "STRK_USDC_PERP",

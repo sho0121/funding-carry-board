@@ -5209,16 +5209,16 @@
     "base_symbol": "GRASS",
     "notional_usd": 722.48,
     "opened_at": "2026-09-02T10:14:33.207208+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-03T14:14:15.152445+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "GRASS",
       "long_exchange": "Injective",
       "long_contract": "GRASS/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 244.12% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 244.12% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.65
   },
   {
     "id": "b49eeb94",
@@ -5387,6 +5387,23 @@
       "long_contract": "SAND"
     },
     "notes": "Bot自動エントリー: APR 152.99% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7ae7d4e8",
+    "type": "spread",
+    "base_symbol": "KAITO",
+    "notional_usd": 490.43,
+    "opened_at": "2026-09-03T14:14:15.152445+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "KAITO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "KAITO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 224.11% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
