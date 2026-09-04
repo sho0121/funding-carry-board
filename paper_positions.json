@@ -5565,16 +5565,16 @@
     "base_symbol": "SKR",
     "notional_usd": 1130.33,
     "opened_at": "2026-09-04T03:13:54.149062+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T06:15:14.899014+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SKR",
       "long_exchange": "Backpack",
       "long_contract": "SKR_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 141.77% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 141.77% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.91
   },
   {
     "id": "9335234b",
@@ -5591,6 +5591,23 @@
       "long_contract": "TRX_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 95.16% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "784aaefd",
+    "type": "spread",
+    "base_symbol": "SKY",
+    "notional_usd": 269.22,
+    "opened_at": "2026-09-04T06:15:14.899014+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SKY/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "SKYUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 225.40% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
