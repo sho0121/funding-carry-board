@@ -5684,16 +5684,16 @@
     "base_symbol": "SEI",
     "notional_usd": 835.03,
     "opened_at": "2026-09-04T09:14:14.784086+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T10:13:32.583596+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SEI",
       "long_exchange": "Injective",
       "long_contract": "SEI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 102.89% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 102.89% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.55
   },
   {
     "id": "2978d149",
@@ -5701,15 +5701,49 @@
     "base_symbol": "RUNE",
     "notional_usd": 322.05,
     "opened_at": "2026-09-04T09:14:14.784086+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T10:13:32.583596+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "RUNE",
       "long_exchange": "Injective",
       "long_contract": "RUNE/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 61.90% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 61.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.64
+  },
+  {
+    "id": "41e7c52f",
+    "type": "spread",
+    "base_symbol": "CELO",
+    "notional_usd": 518.61,
+    "opened_at": "2026-09-04T10:13:32.583596+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "CELO",
+      "long_exchange": "Injective",
+      "long_contract": "CELO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 47.69% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "bc1b7ef5",
+    "type": "spread",
+    "base_symbol": "2Z",
+    "notional_usd": 241.94,
+    "opened_at": "2026-09-04T10:13:32.583596+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "2Z",
+      "long_exchange": "Backpack",
+      "long_contract": "2Z_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 39.64% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
