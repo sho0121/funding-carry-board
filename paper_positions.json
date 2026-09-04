@@ -5870,15 +5870,32 @@
     "base_symbol": "STX",
     "notional_usd": 609.57,
     "opened_at": "2026-09-04T16:14:06.436205+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T17:13:32.557998+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 200.07% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 200.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.17
+  },
+  {
+    "id": "13c08334",
+    "type": "spread",
+    "base_symbol": "GRASS",
+    "notional_usd": 609.57,
+    "opened_at": "2026-09-04T17:13:32.557998+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "GRASS",
+      "long_exchange": "Injective",
+      "long_contract": "GRASS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 171.51% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
