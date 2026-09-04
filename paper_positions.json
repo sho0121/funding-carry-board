@@ -5582,16 +5582,16 @@
     "base_symbol": "TRX",
     "notional_usd": 327.48,
     "opened_at": "2026-09-04T04:14:02.364774+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T07:12:35.780578+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TRX/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "TRX_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 95.16% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 95.16% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.52
   },
   {
     "id": "784aaefd",
@@ -5599,15 +5599,49 @@
     "base_symbol": "SKY",
     "notional_usd": 269.22,
     "opened_at": "2026-09-04T06:15:14.899014+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T07:12:35.780578+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "SKY/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "SKYUSDT"
     },
-    "notes": "Bot自動エントリー: APR 225.40% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 225.40% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.37
+  },
+  {
+    "id": "c4dc311a",
+    "type": "spread",
+    "base_symbol": "KAITO",
+    "notional_usd": 490.43,
+    "opened_at": "2026-09-04T07:12:35.780578+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "KAITO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "KAITO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 233.13% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6cecd423",
+    "type": "spread",
+    "base_symbol": "SKY",
+    "notional_usd": 691.34,
+    "opened_at": "2026-09-04T07:12:35.780578+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SKY/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "SKY"
+    },
+    "notes": "Bot自動エントリー: APR 211.09% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
