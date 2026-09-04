@@ -5786,16 +5786,16 @@
     "base_symbol": "SNX",
     "notional_usd": 379.66,
     "opened_at": "2026-09-04T12:14:49.834962+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-04T15:14:40.063420+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SNX",
       "long_exchange": "Injective",
       "long_contract": "SNX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 67.97% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 67.97% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.99
   },
   {
     "id": "7112a69e",
@@ -5845,6 +5845,23 @@
       "long_contract": "SKY"
     },
     "notes": "Bot自動エントリー: APR 252.41% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "0da0f922",
+    "type": "spread",
+    "base_symbol": "MEME",
+    "notional_usd": 379.66,
+    "opened_at": "2026-09-04T15:14:40.063420+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "MEMEUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "MEME"
+    },
+    "notes": "Bot自動エントリー: APR 258.38% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
