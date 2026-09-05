@@ -5921,16 +5921,16 @@
     "base_symbol": "ARB",
     "notional_usd": 205.24,
     "opened_at": "2026-09-04T23:13:31.938048+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T17:12:38.834388+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ARB",
       "long_exchange": "Injective",
       "long_contract": "ARB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 141.66% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 141.66% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.39
   },
   {
     "id": "96f60dc8",
@@ -6048,6 +6048,23 @@
       "long_contract": "MEME"
     },
     "notes": "Bot自動エントリー: APR 214.25% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "35dc8618",
+    "type": "spread",
+    "base_symbol": "STX",
+    "notional_usd": 205.24,
+    "opened_at": "2026-09-05T17:12:38.834388+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "STX",
+      "long_exchange": "Injective",
+      "long_contract": "STX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 225.89% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
