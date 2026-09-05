@@ -5938,16 +5938,16 @@
     "base_symbol": "MEME",
     "notional_usd": 783.99,
     "opened_at": "2026-09-05T00:17:16.000551+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T10:14:22.530290+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "MEMEUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "MEME"
     },
-    "notes": "Bot自動エントリー: APR 196.97% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 196.97% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.63
   },
   {
     "id": "937dd51b",
@@ -5997,6 +5997,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 26.91% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8fe511b1",
+    "type": "spread",
+    "base_symbol": "KAITO",
+    "notional_usd": 728.36,
+    "opened_at": "2026-09-05T10:14:22.530290+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "KAITO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "KAITO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 214.73% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
