@@ -5972,16 +5972,16 @@
     "base_symbol": "STX",
     "notional_usd": 864.93,
     "opened_at": "2026-09-05T05:12:19.737807+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T13:14:04.211237+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 184.14% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 184.14% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.93
   },
   {
     "id": "fbaf2577",
@@ -6031,6 +6031,23 @@
       "long_contract": "AVAX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 196.27% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "15bbeed8",
+    "type": "spread",
+    "base_symbol": "MEME",
+    "notional_usd": 864.93,
+    "opened_at": "2026-09-05T13:14:04.211237+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "MEMEUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "MEME"
+    },
+    "notes": "Bot自動エントリー: APR 214.25% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
