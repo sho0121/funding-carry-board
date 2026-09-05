@@ -6005,15 +6005,32 @@
     "base_symbol": "KAITO",
     "notional_usd": 728.36,
     "opened_at": "2026-09-05T10:14:22.530290+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T11:12:20.631553+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "KAITO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "KAITO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 214.73% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 214.73% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.48
+  },
+  {
+    "id": "47ee1cec",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 783.99,
+    "opened_at": "2026-09-05T11:12:20.631553+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AVAX",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 196.27% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
