@@ -5904,16 +5904,16 @@
     "base_symbol": "GRASS",
     "notional_usd": 1007.36,
     "opened_at": "2026-09-04T23:13:31.938048+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T00:17:16.000551+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "GRASSUSDT",
       "long_exchange": "Injective",
       "long_contract": "GRASS/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 147.65% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 147.65% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.0
   },
   {
     "id": "36584eb2",
@@ -5930,6 +5930,23 @@
       "long_contract": "ARB/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 141.66% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "96f60dc8",
+    "type": "spread",
+    "base_symbol": "MEME",
+    "notional_usd": 783.99,
+    "opened_at": "2026-09-05T00:17:16.000551+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "MEMEUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "MEME"
+    },
+    "notes": "Bot自動エントリー: APR 196.97% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
