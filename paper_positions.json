@@ -4012,15 +4012,15 @@
     "base_symbol": "ASTER",
     "notional_usd": 65.46,
     "opened_at": "2026-08-31T04:10:39.777770+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T04:14:01.915233+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "ASTERUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 19.83% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 19.83% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.0
   },
   {
     "id": "9b254a1a",
@@ -5947,6 +5947,23 @@
       "long_contract": "MEME"
     },
     "notes": "Bot自動エントリー: APR 196.97% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "937dd51b",
+    "type": "spread",
+    "base_symbol": "ORDI",
+    "notional_usd": 319.27,
+    "opened_at": "2026-09-05T04:14:01.915233+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ORDI/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "ORDIUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 84.63% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
