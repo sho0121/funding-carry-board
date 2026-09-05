@@ -6124,16 +6124,16 @@
     "base_symbol": "ARB",
     "notional_usd": 222.51,
     "opened_at": "2026-09-05T22:13:49.469792+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-05T23:13:25.912425+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ARB",
       "long_exchange": "Injective",
       "long_contract": "ARB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 189.89% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 189.89% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.44
   },
   {
     "id": "4729ac71",
@@ -6150,6 +6150,23 @@
       "long_contract": "CELO/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 145.46% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f4f6df46",
+    "type": "spread",
+    "base_symbol": "KAITO",
+    "notional_usd": 369.03,
+    "opened_at": "2026-09-05T23:13:25.912425+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "KAITO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "KAITO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 176.87% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
