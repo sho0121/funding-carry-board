@@ -6462,16 +6462,16 @@
     "base_symbol": "AVAX",
     "notional_usd": 1670.08,
     "opened_at": "2026-09-06T14:16:05.881369+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-06T19:12:06.489155+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "AVAX",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 347.14% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 347.14% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.83
   },
   {
     "id": "830eab67",
@@ -6607,6 +6607,23 @@
       "long_contract": "0G_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 61.48% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ab3c5efa",
+    "type": "spread",
+    "base_symbol": "BOME",
+    "notional_usd": 1670.08,
+    "opened_at": "2026-09-06T19:12:06.489155+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BOME",
+      "long_exchange": "Injective",
+      "long_contract": "BOME/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 229.42% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
