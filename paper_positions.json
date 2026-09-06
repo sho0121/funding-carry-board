@@ -6243,16 +6243,16 @@
     "base_symbol": "PONS",
     "notional_usd": 373.44,
     "opened_at": "2026-09-06T06:15:29.301168+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-06T09:14:30.555018+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "PONSUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "PONS"
     },
-    "notes": "Bot自動エントリー: APR 112.28% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 112.28% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.52
   },
   {
     "id": "a8ed1803",
@@ -6260,15 +6260,49 @@
     "base_symbol": "VVV",
     "notional_usd": 1819.39,
     "opened_at": "2026-09-06T07:14:25.335189+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-06T09:14:30.555018+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "VVVUSDT",
       "long_exchange": "Injective",
       "long_contract": "VVV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 248.58% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 248.58% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.21
+  },
+  {
+    "id": "ac26a9a6",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 1819.39,
+    "opened_at": "2026-09-06T09:14:30.555018+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "VVV",
+      "long_exchange": "Injective",
+      "long_contract": "VVV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 264.08% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "822176b4",
+    "type": "spread",
+    "base_symbol": "ZORA",
+    "notional_usd": 373.44,
+    "opened_at": "2026-09-06T09:14:30.555018+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZORA",
+      "long_exchange": "Backpack",
+      "long_contract": "ZORA_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 63.97% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
