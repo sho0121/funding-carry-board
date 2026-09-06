@@ -6158,15 +6158,32 @@
     "base_symbol": "KAITO",
     "notional_usd": 369.03,
     "opened_at": "2026-09-05T23:13:25.912425+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-06T01:13:55.550899+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "KAITO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "KAITO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 176.87% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 176.87% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.47
+  },
+  {
+    "id": "9b8fc396",
+    "type": "spread",
+    "base_symbol": "LDO",
+    "notional_usd": 1327.9,
+    "opened_at": "2026-09-06T01:13:55.550899+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "LDO",
+      "long_exchange": "Injective",
+      "long_contract": "LDO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 155.59% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
