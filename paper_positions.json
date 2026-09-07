@@ -6920,16 +6920,16 @@
     "base_symbol": "MEME",
     "notional_usd": 159.1,
     "opened_at": "2026-09-07T08:15:52.055627+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T09:14:02.328971+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MEME",
       "long_exchange": "Aster",
       "long_contract": "MEMEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 791.60% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 791.60% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.38
   },
   {
     "id": "04884664",
@@ -6946,6 +6946,23 @@
       "long_contract": "TRUMP/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 147.29% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "16c46a13",
+    "type": "spread",
+    "base_symbol": "MET",
+    "notional_usd": 209.12,
+    "opened_at": "2026-09-07T09:14:02.328971+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "MET_USDC_PERP",
+      "long_exchange": "Aster",
+      "long_contract": "METUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 90.71% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
