@@ -5989,15 +5989,15 @@
     "base_symbol": "4",
     "notional_usd": 595.21,
     "opened_at": "2026-09-05T05:12:19.737807+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T04:14:33.694678+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "4USDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 26.91% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 26.91% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.28
   },
   {
     "id": "8fe511b1",
@@ -6683,16 +6683,16 @@
     "base_symbol": "MEME",
     "notional_usd": 623.0,
     "opened_at": "2026-09-06T23:13:57.176396+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T04:14:33.694678+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MEME",
       "long_exchange": "Aster",
       "long_contract": "MEMEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 586.09% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 586.09% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 12.11
   },
   {
     "id": "d4771302",
@@ -6801,15 +6801,66 @@
     "base_symbol": "VVV",
     "notional_usd": 462.31,
     "opened_at": "2026-09-07T03:13:53.684801+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T04:14:33.694678+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "VVV",
       "long_exchange": "Injective",
       "long_contract": "VVV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 377.15% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 377.15% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.61
+  },
+  {
+    "id": "195bdf09",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 930.68,
+    "opened_at": "2026-09-07T04:14:33.694678+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "VVVUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "VVV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 386.86% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "61b42065",
+    "type": "spread",
+    "base_symbol": "STX",
+    "notional_usd": 926.21,
+    "opened_at": "2026-09-07T04:14:33.694678+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "STX",
+      "long_exchange": "Injective",
+      "long_contract": "STX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 375.62% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f0d68fd2",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 159.1,
+    "opened_at": "2026-09-07T04:14:33.694678+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "PONSUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "PONS"
+    },
+    "notes": "Bot自動エントリー: APR 109.59% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
