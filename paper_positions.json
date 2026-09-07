@@ -6767,16 +6767,16 @@
     "base_symbol": "BCH",
     "notional_usd": 1455.11,
     "opened_at": "2026-09-07T01:14:07.408093+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T19:12:31.280098+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "BCH",
       "long_exchange": "Injective",
       "long_contract": "BCH/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 253.57% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 253.57% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 11.22
   },
   {
     "id": "4a26ba2d",
@@ -7056,16 +7056,16 @@
     "base_symbol": "VVV",
     "notional_usd": 992.32,
     "opened_at": "2026-09-07T14:13:37.744845+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T19:12:31.280098+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "VVVUSDT",
       "long_exchange": "Injective",
       "long_contract": "VVV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 457.64% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 457.64% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.24
   },
   {
     "id": "a2c947e2",
@@ -7099,6 +7099,40 @@
       "long_contract": "CELO/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 379.21% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "af0b9296",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 2785.39,
+    "opened_at": "2026-09-07T19:12:31.280098+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "VVV",
+      "long_exchange": "Injective",
+      "long_contract": "VVV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 487.43% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5831a402",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 159.1,
+    "opened_at": "2026-09-07T19:12:31.280098+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "PONSUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "PONS"
+    },
+    "notes": "Bot自動エントリー: APR 119.74% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
