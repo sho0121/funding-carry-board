@@ -6971,16 +6971,16 @@
     "base_symbol": "VVV",
     "notional_usd": 1615.83,
     "opened_at": "2026-09-07T10:13:04.458561+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T14:13:37.744845+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "VVV",
       "long_exchange": "Injective",
       "long_contract": "VVV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 427.58% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 427.58% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.67
   },
   {
     "id": "9f1a0ad7",
@@ -7048,6 +7048,23 @@
       "long_contract": "BOME/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 301.72% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "15361d1a",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 992.32,
+    "opened_at": "2026-09-07T14:13:37.744845+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "VVVUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "VVV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 457.64% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
