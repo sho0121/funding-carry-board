@@ -6835,16 +6835,16 @@
     "base_symbol": "STX",
     "notional_usd": 926.21,
     "opened_at": "2026-09-07T04:14:33.694678+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T13:15:16.351819+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 375.62% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 375.62% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.29
   },
   {
     "id": "f0d68fd2",
@@ -7005,15 +7005,49 @@
     "base_symbol": "ZORA",
     "notional_usd": 159.1,
     "opened_at": "2026-09-07T12:17:15.118758+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T13:15:16.351819+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ZORA",
       "long_exchange": "Backpack",
       "long_contract": "ZORA_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 72.04% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 72.04% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.31
+  },
+  {
+    "id": "ce674916",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 618.75,
+    "opened_at": "2026-09-07T13:15:16.351819+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AVAX",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 440.49% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e82b97f4",
+    "type": "spread",
+    "base_symbol": "BOME",
+    "notional_usd": 307.46,
+    "opened_at": "2026-09-07T13:15:16.351819+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BOME",
+      "long_exchange": "Injective",
+      "long_contract": "BOME/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 301.72% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
