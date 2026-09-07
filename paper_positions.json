@@ -7073,15 +7073,32 @@
     "base_symbol": "WLFI",
     "notional_usd": 559.95,
     "opened_at": "2026-09-07T15:13:47.071063+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T16:13:42.188482+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "WLFI/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "WLFI"
     },
-    "notes": "Bot自動エントリー: APR 281.59% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 281.59% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.12
+  },
+  {
+    "id": "a133dea2",
+    "type": "spread",
+    "base_symbol": "CELO",
+    "notional_usd": 984.68,
+    "opened_at": "2026-09-07T16:13:42.188482+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "CELO",
+      "long_exchange": "Injective",
+      "long_contract": "CELO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 379.21% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
