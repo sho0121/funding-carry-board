@@ -6784,16 +6784,16 @@
     "base_symbol": "IMX",
     "notional_usd": 699.13,
     "opened_at": "2026-09-07T01:14:07.408093+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T12:17:15.118758+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "IMX",
       "long_exchange": "Injective",
       "long_contract": "IMX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 242.90% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 242.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.38
   },
   {
     "id": "e50c232a",
@@ -6954,16 +6954,16 @@
     "base_symbol": "MET",
     "notional_usd": 209.12,
     "opened_at": "2026-09-07T09:14:02.328971+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T12:17:15.118758+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "MET_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "METUSDT"
     },
-    "notes": "Bot自動エントリー: APR 90.71% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 90.71% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.31
   },
   {
     "id": "41ea63d7",
@@ -6980,6 +6980,40 @@
       "long_contract": "VVV/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 427.58% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9f1a0ad7",
+    "type": "spread",
+    "base_symbol": "CELO",
+    "notional_usd": 699.13,
+    "opened_at": "2026-09-07T12:17:15.118758+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "CELO",
+      "long_exchange": "Injective",
+      "long_contract": "CELO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 361.51% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "bb51a931",
+    "type": "spread",
+    "base_symbol": "ZORA",
+    "notional_usd": 159.1,
+    "opened_at": "2026-09-07T12:17:15.118758+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZORA",
+      "long_exchange": "Backpack",
+      "long_contract": "ZORA_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 72.04% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
