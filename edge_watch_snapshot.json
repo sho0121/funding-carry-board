@@ -635,6 +635,7 @@
     "STGUSDT",
     "STONKBROKERUSDT",
     "STONKSUSDT",
+    "STONKUSDT",
     "STOUSDT",
     "STRCUSDT",
     "STRKUSDT",
@@ -1283,7 +1284,8 @@
     "ZECUSDC",
     "ZHIPUUSDC",
     "ZHONGJIUSDC",
-    "ZROUSDC"
+    "ZROUSDC",
+    "哈基米USDC"
   ],
   "dYdX": [
     "1INCH-USD",
