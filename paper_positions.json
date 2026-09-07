@@ -5143,15 +5143,15 @@
     "base_symbol": "BTC",
     "notional_usd": 1096.07,
     "opened_at": "2026-09-02T05:12:29.780047+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T00:18:10.956906+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "BTCUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 8.63% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 8.63% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.55
   },
   {
     "id": "4f7b88e5",
@@ -6666,16 +6666,16 @@
     "base_symbol": "VVV",
     "notional_usd": 1121.28,
     "opened_at": "2026-09-06T21:13:56.656350+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-07T00:18:10.956906+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "VVVUSDT",
       "long_exchange": "Injective",
       "long_contract": "VVV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 339.98% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 339.98% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.01
   },
   {
     "id": "afb6e6b8",
@@ -6709,6 +6709,39 @@
       "long_contract": "STX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 343.62% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b08422ae",
+    "type": "spread",
+    "base_symbol": "HYPE",
+    "notional_usd": 1394.58,
+    "opened_at": "2026-09-07T00:18:10.956906+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "HYPE/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "HYPE_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 204.24% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "148ac82b",
+    "type": "carry",
+    "base_symbol": "ZEC",
+    "notional_usd": 937.52,
+    "opened_at": "2026-09-07T00:18:10.956906+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "ZEC_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 15.21% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
