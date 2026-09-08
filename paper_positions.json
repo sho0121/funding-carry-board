@@ -7277,16 +7277,16 @@
     "base_symbol": "BCH",
     "notional_usd": 700.29,
     "opened_at": "2026-09-08T01:13:28.778188+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-08T06:14:47.037444+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "BCH",
       "long_exchange": "Injective",
       "long_contract": "BCH/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 387.57% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 387.57% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.37
   },
   {
     "id": "a55c22c9",
@@ -7439,6 +7439,23 @@
       "long_contract": "MNT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 206.34% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d628d517",
+    "type": "spread",
+    "base_symbol": "BCH",
+    "notional_usd": 699.31,
+    "opened_at": "2026-09-08T06:14:47.037444+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "BCHUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "BCH/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 364.28% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
