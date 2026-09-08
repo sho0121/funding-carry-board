@@ -7804,15 +7804,32 @@
     "base_symbol": "HYPE",
     "notional_usd": 344.51,
     "opened_at": "2026-09-08T16:15:57.850542+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-08T17:14:48.201161+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "HYPE"
     },
-    "notes": "Bot自動エントリー: APR 272.58% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 272.58% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.69
+  },
+  {
+    "id": "abd5d424",
+    "type": "spread",
+    "base_symbol": "MEME",
+    "notional_usd": 344.51,
+    "opened_at": "2026-09-08T17:14:48.201161+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "MEME",
+      "long_exchange": "Aster",
+      "long_contract": "MEMEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 713.78% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
