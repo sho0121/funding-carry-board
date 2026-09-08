@@ -7345,15 +7345,32 @@
     "base_symbol": "MNT",
     "notional_usd": 604.83,
     "opened_at": "2026-09-08T02:14:35.605772+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-08T03:14:12.846628+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MNT",
       "long_exchange": "Injective",
       "long_contract": "MNT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 208.20% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 208.20% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.27
+  },
+  {
+    "id": "3d91e775",
+    "type": "spread",
+    "base_symbol": "WLFI",
+    "notional_usd": 228.02,
+    "opened_at": "2026-09-08T03:14:12.846628+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WLFI/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "WLFI_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 340.85% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
