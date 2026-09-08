@@ -7379,16 +7379,16 @@
     "base_symbol": "HYPE",
     "notional_usd": 1339.69,
     "opened_at": "2026-09-08T04:13:05.815410+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-08T05:13:56.357940+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "HYPE_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 308.75% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 308.75% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.69
   },
   {
     "id": "9f3f7b1f",
@@ -7396,15 +7396,49 @@
     "base_symbol": "SNX",
     "notional_usd": 562.87,
     "opened_at": "2026-09-08T04:13:05.815410+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-08T05:13:56.357940+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "SNX/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "SNX"
     },
-    "notes": "Bot自動エントリー: APR 212.07% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 212.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.13
+  },
+  {
+    "id": "6013c3e7",
+    "type": "spread",
+    "base_symbol": "ZRO",
+    "notional_usd": 677.93,
+    "opened_at": "2026-09-08T05:13:56.357940+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZRO",
+      "long_exchange": "Injective",
+      "long_contract": "ZRO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 213.96% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8392581d",
+    "type": "spread",
+    "base_symbol": "MNT",
+    "notional_usd": 982.98,
+    "opened_at": "2026-09-08T05:13:56.357940+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "MNT",
+      "long_exchange": "Injective",
+      "long_contract": "MNT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 206.34% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
