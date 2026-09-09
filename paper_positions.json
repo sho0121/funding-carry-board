@@ -8906,16 +8906,16 @@
     "base_symbol": "HYPE",
     "notional_usd": 1669.2,
     "opened_at": "2026-09-09T17:15:38.510891+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T18:16:13.307846+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "HYPEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 200.83% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 200.83% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.11
   },
   {
     "id": "88896bce",
@@ -8923,15 +8923,49 @@
     "base_symbol": "ZRO",
     "notional_usd": 1002.42,
     "opened_at": "2026-09-09T17:15:38.510891+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T18:16:13.307846+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ZRO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ZRO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 119.91% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 119.91% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.07
+  },
+  {
+    "id": "0f405435",
+    "type": "spread",
+    "base_symbol": "PUMP",
+    "notional_usd": 429.36,
+    "opened_at": "2026-09-09T18:16:13.307846+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PUMP",
+      "long_exchange": "Injective",
+      "long_contract": "PUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 166.14% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "0a0864a9",
+    "type": "spread",
+    "base_symbol": "TAO",
+    "notional_usd": 1192.43,
+    "opened_at": "2026-09-09T18:16:13.307846+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TAO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "TAO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 117.44% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
