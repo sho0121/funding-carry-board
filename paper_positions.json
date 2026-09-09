@@ -9159,16 +9159,16 @@
     "base_symbol": "AVAX",
     "notional_usd": 580.9,
     "opened_at": "2026-09-09T22:14:20.566823+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T23:14:33.876354+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "AVAXUSDT",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 273.69% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 273.69% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.05
   },
   {
     "id": "ab7891de",
@@ -9202,6 +9202,23 @@
       "long_contract": "WIF"
     },
     "notes": "Bot自動エントリー: APR 68.83% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5b710c4d",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 579.84,
+    "opened_at": "2026-09-09T23:14:33.876354+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AVAX",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 271.11% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
