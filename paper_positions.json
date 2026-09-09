@@ -8314,15 +8314,32 @@
     "base_symbol": "ZRO",
     "notional_usd": 792.69,
     "opened_at": "2026-09-09T04:14:10.796246+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T05:13:00.670614+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ZRO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ZRO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 151.75% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 151.75% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.6
+  },
+  {
+    "id": "103c8b0b",
+    "type": "spread",
+    "base_symbol": "TRUMP",
+    "notional_usd": 1325.37,
+    "opened_at": "2026-09-09T05:13:00.670614+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "TRUMP_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "TRUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 133.24% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
