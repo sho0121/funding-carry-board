@@ -8788,16 +8788,16 @@
     "base_symbol": "S",
     "notional_usd": 1123.44,
     "opened_at": "2026-09-09T13:14:42.355895+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T14:16:14.980446+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "S",
       "long_exchange": "Backpack",
       "long_contract": "S_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 60.90% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 60.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.25
   },
   {
     "id": "f8c2eef7",
@@ -8814,6 +8814,22 @@
       "long_contract": "ZORAUSDT"
     },
     "notes": "Bot自動エントリー: APR 38.13% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8f6ef8b1",
+    "type": "carry",
+    "base_symbol": "FORM",
+    "notional_usd": 1115.43,
+    "opened_at": "2026-09-09T14:16:14.980446+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "FORMUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 16.66% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
