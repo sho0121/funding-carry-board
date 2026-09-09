@@ -8838,16 +8838,16 @@
     "base_symbol": "AVAX",
     "notional_usd": 1253.6,
     "opened_at": "2026-09-09T15:16:22.729347+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T22:14:20.566823+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "AVAX",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 300.95% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 300.95% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.66
   },
   {
     "id": "fcb14716",
@@ -9125,16 +9125,16 @@
     "base_symbol": "HYPE",
     "notional_usd": 1658.33,
     "opened_at": "2026-09-09T21:13:04.529591+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T22:14:20.566823+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "HYPE"
     },
-    "notes": "Bot自動エントリー: APR 175.19% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 175.19% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.1
   },
   {
     "id": "672fc873",
@@ -9142,15 +9142,66 @@
     "base_symbol": "TRUMP",
     "notional_usd": 609.9,
     "opened_at": "2026-09-09T21:13:04.529591+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T22:14:20.566823+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "TRUMP_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "TRUMP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 129.67% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 129.67% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.12
+  },
+  {
+    "id": "4e2b5e23",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 580.9,
+    "opened_at": "2026-09-09T22:14:20.566823+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "AVAXUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 273.69% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ab7891de",
+    "type": "spread",
+    "base_symbol": "GMX",
+    "notional_usd": 1516.49,
+    "opened_at": "2026-09-09T22:14:20.566823+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "GMX",
+      "long_exchange": "Injective",
+      "long_contract": "GMX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 75.75% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5fff1a0a",
+    "type": "spread",
+    "base_symbol": "WIF",
+    "notional_usd": 508.33,
+    "opened_at": "2026-09-09T22:14:20.566823+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WIF/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "WIF"
+    },
+    "notes": "Bot自動エントリー: APR 68.83% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
