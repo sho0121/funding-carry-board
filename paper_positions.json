@@ -8093,16 +8093,16 @@
     "base_symbol": "ZRO",
     "notional_usd": 794.38,
     "opened_at": "2026-09-09T00:19:18.081622+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T01:13:14.569449+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ZRO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ZRO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 160.49% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 160.49% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.52
   },
   {
     "id": "11f27823",
@@ -8136,6 +8136,23 @@
       "long_contract": "HEMI"
     },
     "notes": "Bot自動エントリー: APR 120.39% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7f8cc682",
+    "type": "spread",
+    "base_symbol": "VVV",
+    "notional_usd": 794.38,
+    "opened_at": "2026-09-09T01:13:14.569449+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "VVVUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "VVV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 410.24% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
