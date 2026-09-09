@@ -5127,15 +5127,15 @@
     "base_symbol": "SOL",
     "notional_usd": 278.92,
     "opened_at": "2026-09-02T05:12:29.780047+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T06:16:49.537396+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "SOL_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.01
   },
   {
     "id": "49491248",
@@ -8178,16 +8178,16 @@
     "base_symbol": "XMR",
     "notional_usd": 249.99,
     "opened_at": "2026-09-09T02:14:07.492309+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-09T06:16:49.537396+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "XMRUSDT",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 94.22% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 94.22% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.42
   },
   {
     "id": "3cea91d9",
@@ -8340,6 +8340,40 @@
       "long_contract": "TRUMP/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 133.24% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "58696535",
+    "type": "spread",
+    "base_symbol": "ZRO",
+    "notional_usd": 791.87,
+    "opened_at": "2026-09-09T06:16:49.537396+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZRO",
+      "long_exchange": "Injective",
+      "long_contract": "ZRO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 144.06% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "11f8a13f",
+    "type": "spread",
+    "base_symbol": "S",
+    "notional_usd": 1057.06,
+    "opened_at": "2026-09-09T06:16:49.537396+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "S",
+      "long_exchange": "Backpack",
+      "long_contract": "S_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 66.52% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
