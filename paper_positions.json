@@ -9736,15 +9736,32 @@
     "base_symbol": "STX",
     "notional_usd": 222.14,
     "opened_at": "2026-09-10T19:14:08.249514+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T20:15:21.409165+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 247.12% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 247.12% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.3
+  },
+  {
+    "id": "63e3a26a",
+    "type": "spread",
+    "base_symbol": "CHZ",
+    "notional_usd": 214.83,
+    "opened_at": "2026-09-10T20:15:21.409165+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "CHZ/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "CHZUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 113.17% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
