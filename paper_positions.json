@@ -8568,16 +8568,16 @@
     "base_symbol": "MET",
     "notional_usd": 377.27,
     "opened_at": "2026-09-09T10:13:38.268293+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T00:17:30.229335+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "MET_USDC_PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MET"
     },
-    "notes": "Bot自動エントリー: APR 55.94% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 55.94% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.23
   },
   {
     "id": "f67db82e",
@@ -9193,16 +9193,16 @@
     "base_symbol": "WIF",
     "notional_usd": 508.33,
     "opened_at": "2026-09-09T22:14:20.566823+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T00:17:30.229335+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "WIF/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "WIF"
     },
-    "notes": "Bot自動エントリー: APR 68.83% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 68.83% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.9
   },
   {
     "id": "5b710c4d",
@@ -9219,6 +9219,40 @@
       "long_contract": "AVAX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 271.11% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "794591fe",
+    "type": "spread",
+    "base_symbol": "HYPE",
+    "notional_usd": 1425.5,
+    "opened_at": "2026-09-10T00:17:30.229335+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "HYPE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "HYPEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 160.22% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f2600687",
+    "type": "spread",
+    "base_symbol": "AVNT",
+    "notional_usd": 243.2,
+    "opened_at": "2026-09-10T00:17:30.229335+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AVNT",
+      "long_exchange": "Backpack",
+      "long_contract": "AVNT_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 42.86% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
