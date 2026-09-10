@@ -9770,16 +9770,16 @@
     "base_symbol": "STX",
     "notional_usd": 1262.32,
     "opened_at": "2026-09-10T21:14:08.487293+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T22:15:07.925547+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 244.47% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 244.47% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.25
   },
   {
     "id": "3b6bc390",
@@ -9813,6 +9813,23 @@
       "long_contract": "SEI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 155.69% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7af6af5b",
+    "type": "spread",
+    "base_symbol": "USUAL",
+    "notional_usd": 334.94,
+    "opened_at": "2026-09-10T22:15:07.925547+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "USUAL/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "USUAL"
+    },
+    "notes": "Bot自動エントリー: APR 129.00% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
