@@ -8263,16 +8263,16 @@
     "base_symbol": "BSV",
     "notional_usd": 346.8,
     "opened_at": "2026-09-09T03:13:00.974996+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T08:15:28.686008+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "BSV",
       "long_exchange": "Injective",
       "long_contract": "BSV/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 57.98% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 57.98% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.59
   },
   {
     "id": "cc627eb9",
@@ -9380,16 +9380,16 @@
     "base_symbol": "MEME",
     "notional_usd": 1217.71,
     "opened_at": "2026-09-10T05:13:29.417630+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T08:15:28.686008+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "MEMEUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "MEME"
     },
-    "notes": "Bot自動エントリー: APR 295.69% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 295.69% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.27
   },
   {
     "id": "3cd7fb17",
@@ -9457,6 +9457,40 @@
       "long_contract": "USUAL"
     },
     "notes": "Bot自動エントリー: APR 107.07% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b4539559",
+    "type": "spread",
+    "base_symbol": "HYPE",
+    "notional_usd": 1564.51,
+    "opened_at": "2026-09-10T08:15:28.686008+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "HYPE/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "HYPE"
+    },
+    "notes": "Bot自動エントリー: APR 123.02% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7377e415",
+    "type": "spread",
+    "base_symbol": "XMR",
+    "notional_usd": 1382.32,
+    "opened_at": "2026-09-10T08:15:28.686008+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "XMRUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "XMR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 75.42% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
