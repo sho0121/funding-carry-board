@@ -9618,16 +9618,16 @@
     "base_symbol": "XMR",
     "notional_usd": 1177.12,
     "opened_at": "2026-09-10T11:15:13.788554+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T13:14:23.753613+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "XMR",
       "long_exchange": "Injective",
       "long_contract": "XMR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 64.78% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 64.78% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.1
   },
   {
     "id": "ed34dac4",
@@ -9660,6 +9660,23 @@
       "long_contract": "XPD/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 37.70% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "23bc3b22",
+    "type": "spread",
+    "base_symbol": "MEME",
+    "notional_usd": 1177.12,
+    "opened_at": "2026-09-10T13:14:23.753613+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "MEMEUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "MEME"
+    },
+    "notes": "Bot自動エントリー: APR 285.86% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
