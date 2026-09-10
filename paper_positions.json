@@ -9295,16 +9295,16 @@
     "base_symbol": "MET",
     "notional_usd": 220.88,
     "opened_at": "2026-09-10T01:14:41.648944+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T06:16:20.758979+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "MET_USDC_PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MET"
     },
-    "notes": "Bot自動エントリー: APR 78.96% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 78.96% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.32
   },
   {
     "id": "7655243b",
@@ -9397,15 +9397,49 @@
     "base_symbol": "HYPE",
     "notional_usd": 1652.35,
     "opened_at": "2026-09-10T05:13:29.417630+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-10T06:16:20.758979+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "HYPE_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 140.75% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 140.75% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.05
+  },
+  {
+    "id": "29b40ed5",
+    "type": "spread",
+    "base_symbol": "BCH",
+    "notional_usd": 220.88,
+    "opened_at": "2026-09-10T06:16:20.758979+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BCH",
+      "long_exchange": "Injective",
+      "long_contract": "BCH/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 113.90% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "2aabbc1e",
+    "type": "spread",
+    "base_symbol": "WIF",
+    "notional_usd": 508.3,
+    "opened_at": "2026-09-10T06:16:20.758979+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WIF/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "WIF_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 78.74% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
