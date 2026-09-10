@@ -1133,6 +1133,7 @@
     "1000AKEUSDC",
     "1000PEPEUSDC",
     "1000RATSUSDC",
+    "4STOCKUSDC",
     "AAOIUSDC",
     "AAPLUSDC",
     "AAVEUSDC",
@@ -1300,7 +1301,8 @@
     "ZHIPUUSDC",
     "ZHONGJIUSDC",
     "ZROUSDC",
-    "哈基米USDC"
+    "哈基米USDC",
+    "牛来USDC"
   ],
   "dYdX": [
     "1INCH-USD",
