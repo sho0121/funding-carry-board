@@ -9957,15 +9957,32 @@
     "base_symbol": "PUMP",
     "notional_usd": 472.17,
     "opened_at": "2026-09-11T04:15:35.751911+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T06:17:22.670767+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PUMP",
       "long_exchange": "Injective",
       "long_contract": "PUMP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 82.67% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 82.67% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.82
+  },
+  {
+    "id": "b86f8177",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 547.66,
+    "opened_at": "2026-09-11T06:17:22.670767+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AVAX",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 225.28% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
