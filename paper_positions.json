@@ -10160,16 +10160,16 @@
     "base_symbol": "HYPE",
     "notional_usd": 1537.33,
     "opened_at": "2026-09-11T15:15:05.249221+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T20:13:35.421809+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "HYPE_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 119.41% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 119.41% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.4
   },
   {
     "id": "1ced76af",
@@ -10211,16 +10211,16 @@
     "base_symbol": "TAO",
     "notional_usd": 389.8,
     "opened_at": "2026-09-11T17:13:53.066877+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T20:13:35.421809+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "TAO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 105.34% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 105.34% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.52
   },
   {
     "id": "9b3b32a1",
@@ -10271,6 +10271,40 @@
       "long_contract": "HBAR/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 121.04% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f29e6d43",
+    "type": "spread",
+    "base_symbol": "BLUR",
+    "notional_usd": 363.8,
+    "opened_at": "2026-09-11T20:13:35.421809+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BLUR/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "BLURUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 134.04% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8eb8f8fb",
+    "type": "spread",
+    "base_symbol": "DEXE",
+    "notional_usd": 285.81,
+    "opened_at": "2026-09-11T20:13:35.421809+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "DEXE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "DEXEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 117.79% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
