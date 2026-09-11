@@ -9940,15 +9940,32 @@
     "base_symbol": "TAO",
     "notional_usd": 1077.88,
     "opened_at": "2026-09-11T03:15:02.279275+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T04:15:35.751911+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "TAO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 102.55% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 102.55% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.9
+  },
+  {
+    "id": "285a7e4c",
+    "type": "spread",
+    "base_symbol": "PUMP",
+    "notional_usd": 472.17,
+    "opened_at": "2026-09-11T04:15:35.751911+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PUMP",
+      "long_exchange": "Injective",
+      "long_contract": "PUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 82.67% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
