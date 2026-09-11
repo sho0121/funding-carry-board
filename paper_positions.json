@@ -10109,15 +10109,32 @@
     "base_symbol": "WIF",
     "notional_usd": 750.69,
     "opened_at": "2026-09-11T12:15:43.394071+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T13:14:11.909769+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "WIF/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "WIF"
     },
-    "notes": "Bot自動エントリー: APR 84.25% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 84.25% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.41
+  },
+  {
+    "id": "fee57fc2",
+    "type": "spread",
+    "base_symbol": "STX",
+    "notional_usd": 750.69,
+    "opened_at": "2026-09-11T13:14:11.909769+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "STX",
+      "long_exchange": "Injective",
+      "long_contract": "STX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 272.96% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
