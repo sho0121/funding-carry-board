@@ -9787,16 +9787,16 @@
     "base_symbol": "AVAX",
     "notional_usd": 827.83,
     "opened_at": "2026-09-10T21:14:08.487293+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T02:15:34.702145+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "AVAXUSDT",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 225.53% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 225.53% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.05
   },
   {
     "id": "6ebb6be5",
@@ -9889,15 +9889,49 @@
     "base_symbol": "IO",
     "notional_usd": 750.7,
     "opened_at": "2026-09-11T01:15:27.747152+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T02:15:34.702145+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "IO",
       "long_exchange": "Injective",
       "long_contract": "IO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 98.68% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 98.68% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.51
+  },
+  {
+    "id": "88cfeca8",
+    "type": "spread",
+    "base_symbol": "CHZ",
+    "notional_usd": 341.61,
+    "opened_at": "2026-09-11T02:15:34.702145+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "CHZ/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "CHZUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 126.42% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "1a664717",
+    "type": "spread",
+    "base_symbol": "WIF",
+    "notional_usd": 839.34,
+    "opened_at": "2026-09-11T02:15:34.702145+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WIF/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "WIF_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 77.14% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
