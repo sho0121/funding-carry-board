@@ -10177,16 +10177,16 @@
     "base_symbol": "STX",
     "notional_usd": 738.3,
     "opened_at": "2026-09-11T16:14:38.427403+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T17:13:53.066877+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "STX",
       "long_exchange": "Injective",
       "long_contract": "STX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 271.61% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 271.61% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.22
   },
   {
     "id": "94a8402e",
@@ -10194,15 +10194,49 @@
     "base_symbol": "AVAX",
     "notional_usd": 979.45,
     "opened_at": "2026-09-11T16:14:38.427403+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T17:13:53.066877+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "AVAX",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 231.84% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 231.84% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.48
+  },
+  {
+    "id": "ff85cacc",
+    "type": "spread",
+    "base_symbol": "TAO",
+    "notional_usd": 389.8,
+    "opened_at": "2026-09-11T17:13:53.066877+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TAO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "TAO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 105.34% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9b3b32a1",
+    "type": "spread",
+    "base_symbol": "WIF",
+    "notional_usd": 440.53,
+    "opened_at": "2026-09-11T17:13:53.066877+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WIF/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "WIF"
+    },
+    "notes": "Bot自動エントリー: APR 92.86% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
