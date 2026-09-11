@@ -10042,16 +10042,16 @@
     "base_symbol": "XPD",
     "notional_usd": 203.78,
     "opened_at": "2026-09-11T08:14:43.431509+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T18:13:40.723857+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "XPDUSDT",
       "long_exchange": "Injective",
       "long_contract": "XPD/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 34.59% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 34.59% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.32
   },
   {
     "id": "dc8a59ce",
@@ -10237,6 +10237,23 @@
       "long_contract": "WIF"
     },
     "notes": "Bot自動エントリー: APR 92.86% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f524dab3",
+    "type": "spread",
+    "base_symbol": "STX",
+    "notional_usd": 737.05,
+    "opened_at": "2026-09-11T18:13:40.723857+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "STX",
+      "long_exchange": "Injective",
+      "long_contract": "STX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 265.39% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
