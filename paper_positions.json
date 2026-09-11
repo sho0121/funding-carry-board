@@ -9906,16 +9906,16 @@
     "base_symbol": "CHZ",
     "notional_usd": 341.61,
     "opened_at": "2026-09-11T02:15:34.702145+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T08:14:43.431509+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "CHZ/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "CHZUSDT"
     },
-    "notes": "Bot自動エントリー: APR 126.42% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 126.42% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.36
   },
   {
     "id": "1a664717",
@@ -10008,16 +10008,16 @@
     "base_symbol": "TRUMP",
     "notional_usd": 582.61,
     "opened_at": "2026-09-11T07:17:27.427214+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T08:14:43.431509+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "TRUMP_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "TRUMP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 97.07% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 97.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.17
   },
   {
     "id": "48235422",
@@ -10034,6 +10034,40 @@
       "long_contract": "SKR"
     },
     "notes": "Bot自動エントリー: APR 59.66% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "79613d6c",
+    "type": "spread",
+    "base_symbol": "XPD",
+    "notional_usd": 203.78,
+    "opened_at": "2026-09-11T08:14:43.431509+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "XPDUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "XPD/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 34.59% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "dc8a59ce",
+    "type": "spread",
+    "base_symbol": "COST",
+    "notional_usd": 227.02,
+    "opened_at": "2026-09-11T08:14:43.431509+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "COST/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "COSTUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 14.71% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
