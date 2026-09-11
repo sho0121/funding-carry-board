@@ -9635,15 +9635,15 @@
     "base_symbol": "LAB",
     "notional_usd": 229.05,
     "opened_at": "2026-09-10T12:17:03.376769+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T07:17:27.427214+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "LABUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 44.54% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 44.54% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.18
   },
   {
     "id": "6f19c7e5",
@@ -9872,16 +9872,16 @@
     "base_symbol": "MEME",
     "notional_usd": 594.35,
     "opened_at": "2026-09-11T01:15:27.747152+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T07:17:27.427214+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "MEMEUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "MEME"
     },
-    "notes": "Bot自動エントリー: APR 290.68% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 290.68% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.15
   },
   {
     "id": "b454ec80",
@@ -9974,15 +9974,66 @@
     "base_symbol": "AVAX",
     "notional_usd": 547.66,
     "opened_at": "2026-09-11T06:17:22.670767+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-11T07:17:27.427214+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "AVAX",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 225.28% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 225.28% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.01
+  },
+  {
+    "id": "975e2a53",
+    "type": "spread",
+    "base_symbol": "IO",
+    "notional_usd": 750.69,
+    "opened_at": "2026-09-11T07:17:27.427214+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "IO",
+      "long_exchange": "Injective",
+      "long_contract": "IO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 97.99% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "30f88be2",
+    "type": "spread",
+    "base_symbol": "TRUMP",
+    "notional_usd": 582.61,
+    "opened_at": "2026-09-11T07:17:27.427214+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "TRUMP_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "TRUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 97.07% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "48235422",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 1469.16,
+    "opened_at": "2026-09-11T07:17:27.427214+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "SKR_USDC_PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "SKR"
+    },
+    "notes": "Bot自動エントリー: APR 59.66% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
