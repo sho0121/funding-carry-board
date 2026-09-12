@@ -10483,16 +10483,16 @@
     "base_symbol": "MORPHO",
     "notional_usd": 566.54,
     "opened_at": "2026-09-12T04:13:59.895844+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-12T07:13:30.943078+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MORPHO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MORPHO"
     },
-    "notes": "Bot自動エントリー: APR 129.04% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 129.04% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.09
   },
   {
     "id": "320b007e",
@@ -10517,15 +10517,49 @@
     "base_symbol": "BLUR",
     "notional_usd": 323.59,
     "opened_at": "2026-09-12T06:13:58.723163+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-12T07:13:30.943078+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BLUR/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "BLURUSDT"
     },
-    "notes": "Bot自動エントリー: APR 162.42% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 162.42% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.65
+  },
+  {
+    "id": "ffb694f6",
+    "type": "spread",
+    "base_symbol": "MORPHO",
+    "notional_usd": 405.08,
+    "opened_at": "2026-09-12T07:13:30.943078+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MORPHO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MORPHOUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 167.62% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "cc5ff41b",
+    "type": "spread",
+    "base_symbol": "BLUR",
+    "notional_usd": 376.4,
+    "opened_at": "2026-09-12T07:13:30.943078+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BLUR/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "BLUR"
+    },
+    "notes": "Bot自動エントリー: APR 143.57% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
