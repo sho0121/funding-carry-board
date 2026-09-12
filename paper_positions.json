@@ -10891,16 +10891,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 1273.01,
     "opened_at": "2026-09-12T18:14:51.447554+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-12T20:12:27.061385+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "VIRTUAL/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "VIRTUAL_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 128.20% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 128.20% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.9
   },
   {
     "id": "2d830b80",
@@ -10932,6 +10932,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 12.61% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "c4852baf",
+    "type": "spread",
+    "base_symbol": "HYPE",
+    "notional_usd": 1273.01,
+    "opened_at": "2026-09-12T20:12:27.061385+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "HYPE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "HYPEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 132.89% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
