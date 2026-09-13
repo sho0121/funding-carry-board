@@ -10806,16 +10806,16 @@
     "base_symbol": "UNI",
     "notional_usd": 1705.23,
     "opened_at": "2026-09-12T15:12:14.215312+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T09:39:57.156228+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "UNI",
       "long_exchange": "Injective",
       "long_contract": "UNI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 177.61% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 177.61% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 8.03
   },
   {
     "id": "b603c89a",
@@ -11194,16 +11194,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 806.81,
     "opened_at": "2026-09-13T08:14:08.796098+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T09:39:57.156228+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "VIRTUAL/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "VIRTUAL_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 162.06% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 162.06% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.29
   },
   {
     "id": "87812fd9",
@@ -11220,6 +11220,40 @@
       "long_contract": "BNB/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 85.66% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9c9da8c4",
+    "type": "spread",
+    "base_symbol": "BLUR",
+    "notional_usd": 297.61,
+    "opened_at": "2026-09-13T09:39:57.156228+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BLUR/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "BLURUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 255.30% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "1451d5d5",
+    "type": "spread",
+    "base_symbol": "UNI",
+    "notional_usd": 2214.43,
+    "opened_at": "2026-09-13T09:39:57.156228+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "UNIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "UNI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 254.51% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
