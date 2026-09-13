@@ -11500,16 +11500,16 @@
     "base_symbol": "UNI",
     "notional_usd": 2759.28,
     "opened_at": "2026-09-13T17:13:24.681106+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T18:14:20.300142+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "UNI_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "UNI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 256.10% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 256.10% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -4.94
   },
   {
     "id": "fb47f7d4",
@@ -11526,6 +11526,23 @@
       "long_contract": "SKR"
     },
     "notes": "Bot自動エントリー: APR 26.37% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "cb7f8b1a",
+    "type": "spread",
+    "base_symbol": "UNI",
+    "notional_usd": 827.64,
+    "opened_at": "2026-09-13T18:14:20.300142+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "UNI",
+      "long_exchange": "Injective",
+      "long_contract": "UNI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 251.03% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
