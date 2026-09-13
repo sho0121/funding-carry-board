@@ -11058,16 +11058,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 1280.27,
     "opened_at": "2026-09-13T03:14:38.379378+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T07:13:41.787387+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "VIRTUAL/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "VIRTUAL_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 149.11% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 149.11% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.51
   },
   {
     "id": "aade1754",
@@ -11143,15 +11143,49 @@
     "base_symbol": "AVAX",
     "notional_usd": 137.73,
     "opened_at": "2026-09-13T06:16:15.205646+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T07:13:41.787387+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "AVAXUSDT",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 134.11% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 134.11% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.28
+  },
+  {
+    "id": "8da43bfe",
+    "type": "spread",
+    "base_symbol": "BLUR",
+    "notional_usd": 266.18,
+    "opened_at": "2026-09-13T07:13:41.787387+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BLUR/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "BLURUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 249.21% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6a7b37a9",
+    "type": "spread",
+    "base_symbol": "HYPE",
+    "notional_usd": 1151.82,
+    "opened_at": "2026-09-13T07:13:41.787387+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "HYPE/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "HYPE_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 154.12% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
