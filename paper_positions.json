@@ -11092,16 +11092,16 @@
     "base_symbol": "BLUR",
     "notional_usd": 230.52,
     "opened_at": "2026-09-13T04:14:14.161306+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T06:16:15.205646+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BLUR/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "BLURUSDT"
     },
-    "notes": "Bot自動エントリー: APR 226.20% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 226.20% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.32
   },
   {
     "id": "9d5330fc",
@@ -11109,15 +11109,49 @@
     "base_symbol": "HYPE",
     "notional_usd": 379.83,
     "opened_at": "2026-09-13T04:14:14.161306+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T06:16:15.205646+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "HYPE/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "HYPE_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 151.93% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 151.93% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.6
+  },
+  {
+    "id": "1de7dbdc",
+    "type": "spread",
+    "base_symbol": "TAO",
+    "notional_usd": 472.62,
+    "opened_at": "2026-09-13T06:16:15.205646+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TAO/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "TAO_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 148.89% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7d7943da",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 137.73,
+    "opened_at": "2026-09-13T06:16:15.205646+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "AVAXUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 134.11% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
