@@ -11483,16 +11483,16 @@
     "base_symbol": "TAO",
     "notional_usd": 501.77,
     "opened_at": "2026-09-13T16:14:16.350911+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T19:12:51.958391+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "TAO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 159.20% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 159.20% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.74
   },
   {
     "id": "048c4333",
@@ -11534,15 +11534,49 @@
     "base_symbol": "UNI",
     "notional_usd": 827.64,
     "opened_at": "2026-09-13T18:14:20.300142+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-13T19:12:51.958391+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "UNI",
       "long_exchange": "Injective",
       "long_contract": "UNI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 251.03% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 251.03% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.68
+  },
+  {
+    "id": "793aa10b",
+    "type": "spread",
+    "base_symbol": "VIRTUAL",
+    "notional_usd": 827.64,
+    "opened_at": "2026-09-13T19:12:51.958391+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "VIRTUAL/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "VIRTUAL"
+    },
+    "notes": "Bot自動エントリー: APR 179.87% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a4f2888c",
+    "type": "spread",
+    "base_symbol": "HYPE",
+    "notional_usd": 2440.16,
+    "opened_at": "2026-09-13T19:12:51.958391+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "HYPE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "HYPEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 146.64% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
