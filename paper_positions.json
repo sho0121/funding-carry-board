@@ -11619,16 +11619,16 @@
     "base_symbol": "BNB",
     "notional_usd": 906.45,
     "opened_at": "2026-09-13T22:12:41.306284+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T03:14:12.510173+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "BNB_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "BNB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 105.29% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 105.29% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.19
   },
   {
     "id": "0ae15162",
@@ -11686,16 +11686,16 @@
     "base_symbol": "TAO",
     "notional_usd": 601.13,
     "opened_at": "2026-09-14T00:15:25.889809+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T03:14:12.510173+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "TAO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 165.70% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 165.70% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.86
   },
   {
     "id": "d7f606fa",
@@ -11720,16 +11720,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 393.7,
     "opened_at": "2026-09-14T01:13:52.322128+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T03:14:12.510173+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "VIRTUAL/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "VIRTUAL_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 214.66% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 214.66% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.53
   },
   {
     "id": "e91481c2",
@@ -11763,6 +11763,39 @@
       "long_contract": "ARB/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 155.68% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6b18a0d3",
+    "type": "spread",
+    "base_symbol": "ZRO",
+    "notional_usd": 1901.28,
+    "opened_at": "2026-09-14T03:14:12.510173+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ZRO_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "ZRO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 14.04% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ce1890b3",
+    "type": "carry",
+    "base_symbol": "MU.US",
+    "notional_usd": 1048.89,
+    "opened_at": "2026-09-14T03:14:12.510173+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "MU.US_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 11.66% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
