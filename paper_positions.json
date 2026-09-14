@@ -11904,16 +11904,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 310.88,
     "opened_at": "2026-09-14T10:15:04.091612+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T11:12:57.441432+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "VIRTUAL/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "VIRTUAL_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 257.16% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 257.16% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.49
   },
   {
     "id": "2f6d2a8f",
@@ -11930,6 +11930,23 @@
       "long_contract": "SUI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 198.39% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "caccdfae",
+    "type": "spread",
+    "base_symbol": "TAO",
+    "notional_usd": 1637.07,
+    "opened_at": "2026-09-14T11:12:57.441432+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TAO/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "TAO"
+    },
+    "notes": "Bot自動エントリー: APR 149.78% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
