@@ -11771,16 +11771,16 @@
     "base_symbol": "ZRO",
     "notional_usd": 1901.28,
     "opened_at": "2026-09-14T03:14:12.510173+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T08:13:32.258399+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ZRO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ZRO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 14.04% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 14.04% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.05
   },
   {
     "id": "ce1890b3",
@@ -11846,6 +11846,22 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9a178fac",
+    "type": "carry",
+    "base_symbol": "SOL",
+    "notional_usd": 1901.28,
+    "opened_at": "2026-09-14T08:13:32.258399+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "SOL_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 9.97% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
