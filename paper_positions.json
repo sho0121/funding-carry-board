@@ -11804,16 +11804,16 @@
     "base_symbol": "SUI",
     "notional_usd": 1162.73,
     "opened_at": "2026-09-14T06:15:39.705009+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T09:14:57.600760+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 192.62% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 192.62% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.58
   },
   {
     "id": "2a474888",
@@ -11821,16 +11821,16 @@
     "base_symbol": "TAO",
     "notional_usd": 1523.0,
     "opened_at": "2026-09-14T06:15:39.705009+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-14T09:14:57.600760+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "TAO"
     },
-    "notes": "Bot自動エントリー: APR 146.17% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 146.17% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.24
   },
   {
     "id": "e533cdc2",
@@ -11862,6 +11862,40 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 9.97% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "afadcbd5",
+    "type": "spread",
+    "base_symbol": "HBAR",
+    "notional_usd": 834.23,
+    "opened_at": "2026-09-14T09:14:57.600760+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "HBAR",
+      "long_exchange": "Injective",
+      "long_contract": "HBAR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 226.74% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "76f22264",
+    "type": "spread",
+    "base_symbol": "ARB",
+    "notional_usd": 1260.74,
+    "opened_at": "2026-09-14T09:14:57.600760+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ARB",
+      "long_exchange": "Injective",
+      "long_contract": "ARB/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 171.24% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
