@@ -12005,16 +12005,16 @@
     "base_symbol": "GMX",
     "notional_usd": 1234.87,
     "opened_at": "2026-09-15T00:16:17.275137+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-15T18:13:44.292371+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "GMX",
       "long_exchange": "Injective",
       "long_contract": "GMX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 447.67% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 447.67% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.71
   },
   {
     "id": "94c3ef31",
@@ -12065,6 +12065,23 @@
       "long_contract": "MORPHO"
     },
     "notes": "Bot自動エントリー: APR 306.45% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "17590fef",
+    "type": "spread",
+    "base_symbol": "POPCAT",
+    "notional_usd": 638.45,
+    "opened_at": "2026-09-15T18:13:44.292371+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "POPCAT",
+      "long_exchange": "Injective",
+      "long_contract": "POPCAT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 257.26% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
