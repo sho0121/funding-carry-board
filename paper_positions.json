@@ -12090,15 +12090,32 @@
     "base_symbol": "SEI",
     "notional_usd": 827.7,
     "opened_at": "2026-09-15T19:14:27.635038+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-15T22:12:43.892518+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SEI",
       "long_exchange": "Injective",
       "long_contract": "SEI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 150.55% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 150.55% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.18
+  },
+  {
+    "id": "76b67e7b",
+    "type": "spread",
+    "base_symbol": "HBAR",
+    "notional_usd": 389.49,
+    "opened_at": "2026-09-15T22:12:43.892518+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "HBAR",
+      "long_exchange": "Injective",
+      "long_contract": "HBAR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 226.79% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
