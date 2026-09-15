@@ -11988,15 +11988,32 @@
     "base_symbol": "TAO",
     "notional_usd": 310.88,
     "opened_at": "2026-09-14T14:15:45.770964+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-15T00:16:17.275137+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "TAO_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 171.74% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 171.74% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.08
+  },
+  {
+    "id": "a20f10f1",
+    "type": "spread",
+    "base_symbol": "GMX",
+    "notional_usd": 1234.87,
+    "opened_at": "2026-09-15T00:16:17.275137+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "GMX",
+      "long_exchange": "Injective",
+      "long_contract": "GMX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 447.67% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
