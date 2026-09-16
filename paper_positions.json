@@ -12141,16 +12141,16 @@
     "base_symbol": "SUI",
     "notional_usd": 449.31,
     "opened_at": "2026-09-16T02:14:12.484518+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T06:15:19.760058+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 193.55% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 193.55% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.53
   },
   {
     "id": "e6be384a",
@@ -12201,6 +12201,23 @@
       "long_contract": "HBAR/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 225.01% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "143887bc",
+    "type": "spread",
+    "base_symbol": "SUI",
+    "notional_usd": 449.23,
+    "opened_at": "2026-09-16T06:15:19.760058+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SUIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SUI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 192.15% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
