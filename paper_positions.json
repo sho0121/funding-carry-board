@@ -12277,16 +12277,16 @@
     "base_symbol": "SEI",
     "notional_usd": 674.23,
     "opened_at": "2026-09-16T10:14:44.124356+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T18:16:58.124495+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SEIUSDT",
       "long_exchange": "Injective",
       "long_contract": "SEI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 149.59% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 149.59% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.46
   },
   {
     "id": "d755d10c",
@@ -12404,6 +12404,23 @@
       "long_contract": "ARB/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 181.57% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "58354be2",
+    "type": "spread",
+    "base_symbol": "MORPHO",
+    "notional_usd": 367.09,
+    "opened_at": "2026-09-16T18:16:58.124495+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MORPHO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MORPHOUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 263.68% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
