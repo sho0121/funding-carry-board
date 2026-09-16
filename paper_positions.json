@@ -12361,16 +12361,16 @@
     "base_symbol": "SUI",
     "notional_usd": 447.8,
     "opened_at": "2026-09-16T16:14:52.647730+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T19:14:38.811735+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 189.03% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 189.03% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.64
   },
   {
     "id": "311ee28d",
@@ -12378,16 +12378,16 @@
     "base_symbol": "ZEC",
     "notional_usd": 338.58,
     "opened_at": "2026-09-16T16:14:52.647730+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T19:14:38.811735+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ZEC",
       "long_exchange": "Injective",
       "long_contract": "ZEC/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 123.17% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 123.17% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.46
   },
   {
     "id": "8dbe72aa",
@@ -12421,6 +12421,40 @@
       "long_contract": "MORPHOUSDT"
     },
     "notes": "Bot自動エントリー: APR 263.68% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "339d7ad2",
+    "type": "spread",
+    "base_symbol": "SUI",
+    "notional_usd": 981.63,
+    "opened_at": "2026-09-16T19:14:38.811735+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SUIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SUI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 188.06% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9a06b240",
+    "type": "spread",
+    "base_symbol": "POPCAT",
+    "notional_usd": 705.85,
+    "opened_at": "2026-09-16T19:14:38.811735+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "POPCAT",
+      "long_exchange": "Injective",
+      "long_contract": "POPCAT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 164.64% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
