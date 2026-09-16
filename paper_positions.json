@@ -12327,15 +12327,32 @@
     "base_symbol": "ZEC",
     "notional_usd": 420.62,
     "opened_at": "2026-09-16T14:15:45.533541+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T15:13:59.054721+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ZEC",
       "long_exchange": "Injective",
       "long_contract": "ZEC/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 118.56% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 118.56% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.74
+  },
+  {
+    "id": "f4bee376",
+    "type": "spread",
+    "base_symbol": "GMX",
+    "notional_usd": 570.84,
+    "opened_at": "2026-09-16T15:13:59.054721+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "GMX",
+      "long_exchange": "Injective",
+      "long_contract": "GMX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 331.83% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
