@@ -12260,16 +12260,16 @@
     "base_symbol": "SUI",
     "notional_usd": 449.14,
     "opened_at": "2026-09-16T10:14:44.124356+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T11:13:53.233595+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SUIUSDT",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 191.18% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 191.18% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.81
   },
   {
     "id": "a372fd67",
@@ -12286,6 +12286,22 @@
       "long_contract": "SEI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 149.59% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d755d10c",
+    "type": "carry",
+    "base_symbol": "AIW3",
+    "notional_usd": 293.26,
+    "opened_at": "2026-09-16T11:13:53.233595+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "AIW3USDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 387.29% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
