@@ -12395,16 +12395,16 @@
     "base_symbol": "ARB",
     "notional_usd": 797.27,
     "opened_at": "2026-09-16T17:13:16.800306+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T20:15:58.510796+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ARB",
       "long_exchange": "Injective",
       "long_contract": "ARB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 181.57% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 181.57% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.11
   },
   {
     "id": "58354be2",
@@ -12455,6 +12455,23 @@
       "long_contract": "POPCAT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 164.64% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a3efa4ee",
+    "type": "spread",
+    "base_symbol": "ZEC",
+    "notional_usd": 2079.79,
+    "opened_at": "2026-09-16T20:15:58.510796+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZEC",
+      "long_exchange": "Injective",
+      "long_contract": "ZEC/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 134.33% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
