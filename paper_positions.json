@@ -12480,16 +12480,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 772.77,
     "opened_at": "2026-09-16T22:14:06.802991+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T23:14:15.441157+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "VIRTUAL/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "VIRTUAL_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 275.14% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 275.14% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.54
   },
   {
     "id": "e7f400f7",
@@ -12497,15 +12497,49 @@
     "base_symbol": "SEI",
     "notional_usd": 587.0,
     "opened_at": "2026-09-16T22:14:06.802991+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T23:14:15.441157+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "SEI_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "SEI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 136.27% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 136.27% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.07
+  },
+  {
+    "id": "3e012cd7",
+    "type": "spread",
+    "base_symbol": "SEI",
+    "notional_usd": 709.12,
+    "opened_at": "2026-09-16T23:14:15.441157+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "SEI",
+      "long_exchange": "Injective",
+      "long_contract": "SEI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 139.64% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "618935cd",
+    "type": "spread",
+    "base_symbol": "USELESS",
+    "notional_usd": 327.63,
+    "opened_at": "2026-09-16T23:14:15.441157+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USELESS",
+      "long_exchange": "Injective",
+      "long_contract": "USELESS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 103.01% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
