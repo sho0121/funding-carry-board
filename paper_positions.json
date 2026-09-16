@@ -12158,15 +12158,32 @@
     "base_symbol": "ARB",
     "notional_usd": 752.29,
     "opened_at": "2026-09-16T02:14:12.484518+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-16T04:13:55.582911+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ARB",
       "long_exchange": "Injective",
       "long_contract": "ARB/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 187.52% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 187.52% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.51
+  },
+  {
+    "id": "0fd0a438",
+    "type": "spread",
+    "base_symbol": "SEI",
+    "notional_usd": 1254.77,
+    "opened_at": "2026-09-16T04:13:55.582911+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "SEI_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "SEI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 137.54% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
