@@ -12751,16 +12751,16 @@
     "base_symbol": "SUI",
     "notional_usd": 908.37,
     "opened_at": "2026-09-18T02:45:43.810913+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-18T12:43:25.700447+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 172.52% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 172.52% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.16
   },
   {
     "id": "507c1d24",
@@ -12785,16 +12785,16 @@
     "base_symbol": "TAO",
     "notional_usd": 1212.63,
     "opened_at": "2026-09-18T07:59:02.587016+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-18T12:43:25.700447+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TAO/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "TAOUSDT"
     },
-    "notes": "Bot自動エントリー: APR 151.99% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 151.99% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.13
   },
   {
     "id": "e45852aa",
@@ -12811,6 +12811,40 @@
       "long_contract": "ONDO/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 149.65% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "882d3653",
+    "type": "spread",
+    "base_symbol": "LDO",
+    "notional_usd": 977.46,
+    "opened_at": "2026-09-18T12:43:25.700447+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "LDO",
+      "long_exchange": "Injective",
+      "long_contract": "LDO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 122.58% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a63334ac",
+    "type": "spread",
+    "base_symbol": "SEI",
+    "notional_usd": 376.16,
+    "opened_at": "2026-09-18T12:43:25.700447+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "SEI_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "SEI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 120.02% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
