@@ -6430,15 +6430,15 @@
     "base_symbol": "FARTCOIN",
     "notional_usd": 1145.02,
     "opened_at": "2026-09-06T13:14:23.874095+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-20T14:32:38.088300+00:00",
     "legs": {
       "exchange": "Hyperliquid",
       "contract": "FARTCOIN",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 39.28% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 39.28% / リスク倍率 1.00 / 自動クローズ: 最大保有期間(14日)に到達",
+    "realized_pnl_usd": 6.24
   },
   {
     "id": "66702b00",
@@ -12294,15 +12294,15 @@
     "base_symbol": "AIW3",
     "notional_usd": 293.26,
     "opened_at": "2026-09-16T11:13:53.233595+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-20T14:32:38.088300+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "AIW3USDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 387.29% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 387.29% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.95
   },
   {
     "id": "ff381549",
@@ -12870,16 +12870,16 @@
     "base_symbol": "SUI",
     "notional_usd": 419.4,
     "opened_at": "2026-09-18T17:00:00.128827+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-20T14:32:38.088300+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 165.52% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 165.52% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.13
   },
   {
     "id": "7bb137db",
@@ -13233,6 +13233,57 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 39.20% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "08849c50",
+    "type": "spread",
+    "base_symbol": "ONDO",
+    "notional_usd": 619.37,
+    "opened_at": "2026-09-20T14:32:38.088300+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ONDO",
+      "long_exchange": "Injective",
+      "long_contract": "ONDO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 230.40% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8782835f",
+    "type": "spread",
+    "base_symbol": "SEI",
+    "notional_usd": 573.11,
+    "opened_at": "2026-09-20T14:32:38.088300+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "SEI_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "SEI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 123.52% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b2d92ac8",
+    "type": "spread",
+    "base_symbol": "PUMP",
+    "notional_usd": 257.39,
+    "opened_at": "2026-09-20T14:32:38.088300+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PUMP",
+      "long_exchange": "Injective",
+      "long_contract": "PUMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 77.92% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
