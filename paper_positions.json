@@ -12954,16 +12954,16 @@
     "base_symbol": "ONDO",
     "notional_usd": 885.02,
     "opened_at": "2026-09-19T05:29:49.315017+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-20T00:40:23.205980+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ONDO",
       "long_exchange": "Injective",
       "long_contract": "ONDO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 186.93% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 186.93% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 4.98
   },
   {
     "id": "6bda0bea",
@@ -13073,16 +13073,16 @@
     "base_symbol": "POPCAT",
     "notional_usd": 615.34,
     "opened_at": "2026-09-19T17:47:09.211973+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-20T00:40:23.205980+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "POPCAT",
       "long_exchange": "Injective",
       "long_contract": "POPCAT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 222.54% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 222.54% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.98
   },
   {
     "id": "b653d202",
@@ -13149,6 +13149,40 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 57.80% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b023cc98",
+    "type": "spread",
+    "base_symbol": "ARB",
+    "notional_usd": 953.81,
+    "opened_at": "2026-09-20T00:40:23.205980+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ARB",
+      "long_exchange": "Injective",
+      "long_contract": "ARB/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 196.99% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "1ec57bb0",
+    "type": "spread",
+    "base_symbol": "XMR",
+    "notional_usd": 573.11,
+    "opened_at": "2026-09-20T00:40:23.205980+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "XMR_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "XMR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 120.73% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
