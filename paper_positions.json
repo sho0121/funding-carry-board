@@ -13493,16 +13493,16 @@
     "base_symbol": "MANTA",
     "notional_usd": 772.34,
     "opened_at": "2026-09-21T17:45:44.599437+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-21T21:40:50.795341+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MANTA",
       "long_exchange": "Injective",
       "long_contract": "MANTA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 210.12% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 210.12% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.12
   },
   {
     "id": "69771603",
@@ -13519,6 +13519,23 @@
       "long_contract": "APT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 130.52% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "37ee286f",
+    "type": "spread",
+    "base_symbol": "JUP",
+    "notional_usd": 1015.25,
+    "opened_at": "2026-09-21T21:40:50.795341+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "JUP",
+      "long_exchange": "Injective",
+      "long_contract": "JUP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 218.67% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
