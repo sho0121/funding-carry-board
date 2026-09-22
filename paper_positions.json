@@ -13409,16 +13409,16 @@
     "base_symbol": "SUI",
     "notional_usd": 2825.53,
     "opened_at": "2026-09-21T05:53:13.231630+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-22T22:43:01.804011+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUI",
       "long_exchange": "Injective",
       "long_contract": "SUI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 183.15% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 183.15% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 48.89
   },
   {
     "id": "cde3a87f",
@@ -13561,15 +13561,49 @@
     "base_symbol": "GMX",
     "notional_usd": 1015.25,
     "opened_at": "2026-09-22T19:35:57.826319+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-22T22:43:01.804011+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "GMX",
       "long_exchange": "Injective",
       "long_contract": "GMX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 460.52% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 460.52% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.34
+  },
+  {
+    "id": "4b9c1438",
+    "type": "spread",
+    "base_symbol": "USUAL",
+    "notional_usd": 1754.5,
+    "opened_at": "2026-09-22T22:43:01.804011+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USUAL",
+      "long_exchange": "Injective",
+      "long_contract": "USUAL/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 421.08% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a6d63c76",
+    "type": "spread",
+    "base_symbol": "POPCAT",
+    "notional_usd": 1310.48,
+    "opened_at": "2026-09-22T22:43:01.804011+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "POPCAT",
+      "long_exchange": "Injective",
+      "long_contract": "POPCAT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 419.84% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
