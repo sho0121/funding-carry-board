@@ -8653,15 +8653,15 @@
     "base_symbol": "PURR",
     "notional_usd": 471.32,
     "opened_at": "2026-09-09T11:14:57.551629+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-23T13:19:01.253354+00:00",
     "legs": {
       "exchange": "Hyperliquid",
       "contract": "PURR",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 37.85% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 37.85% / リスク倍率 1.00 / 自動クローズ: 最大保有期間(14日)に到達",
+    "realized_pnl_usd": 8.14
   },
   {
     "id": "bf571e55",
@@ -13510,16 +13510,16 @@
     "base_symbol": "APT",
     "notional_usd": 861.17,
     "opened_at": "2026-09-21T17:45:44.599437+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-23T13:19:01.253354+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "APT",
       "long_exchange": "Injective",
       "long_contract": "APT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 130.52% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 130.52% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.16
   },
   {
     "id": "37ee286f",
@@ -13604,6 +13604,40 @@
       "long_contract": "POPCAT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 419.84% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a7b80169",
+    "type": "spread",
+    "base_symbol": "BERA",
+    "notional_usd": 377.3,
+    "opened_at": "2026-09-23T13:19:01.253354+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BERA",
+      "long_exchange": "Injective",
+      "long_contract": "BERA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 361.40% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "edae91fc",
+    "type": "spread",
+    "base_symbol": "CELO",
+    "notional_usd": 664.17,
+    "opened_at": "2026-09-23T13:19:01.253354+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "CELO/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "CELO"
+    },
+    "notes": "Bot自動エントリー: APR 286.53% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
