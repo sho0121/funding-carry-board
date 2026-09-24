@@ -13292,15 +13292,15 @@
     "base_symbol": "AIW3",
     "notional_usd": 508.39,
     "opened_at": "2026-09-20T18:00:22.672692+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-24T15:45:25.441069+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "AIW3USDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 294.65% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 294.65% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.8
   },
   {
     "id": "cef8da54",
@@ -13731,14 +13731,47 @@
     "base_symbol": "VERONA",
     "notional_usd": 464.13,
     "opened_at": "2026-09-24T05:51:01.626422+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-24T15:45:25.441069+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "VERONAUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 108.33% / リスク倍率 1.00",
+    "notes": "Bot自動エントリー: APR 108.33% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.4
+  },
+  {
+    "id": "d9c6693d",
+    "type": "spread",
+    "base_symbol": "DYDX",
+    "notional_usd": 50.69,
+    "opened_at": "2026-09-24T15:45:25.441069+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "DYDX",
+      "long_exchange": "Injective",
+      "long_contract": "DYDX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 324.01% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "31be3758",
+    "type": "carry",
+    "base_symbol": "PURR",
+    "notional_usd": 1114.75,
+    "opened_at": "2026-09-24T15:45:25.441069+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Hyperliquid",
+      "contract": "PURR",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 87.16% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
