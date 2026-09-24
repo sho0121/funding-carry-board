@@ -13680,16 +13680,16 @@
     "base_symbol": "DYDX",
     "notional_usd": 395.0,
     "opened_at": "2026-09-23T22:03:07.490304+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-24T00:19:35.556967+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "DYDX",
       "long_exchange": "Injective",
       "long_contract": "DYDX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 263.26% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 263.26% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.37
   },
   {
     "id": "7fd3d67d",
@@ -13706,6 +13706,23 @@
       "long_contract": "MEME"
     },
     "notes": "Bot自動エントリー: APR 196.86% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f8ecec8b",
+    "type": "spread",
+    "base_symbol": "IO",
+    "notional_usd": 665.33,
+    "opened_at": "2026-09-24T00:19:35.556967+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "IO",
+      "long_exchange": "Injective",
+      "long_contract": "IO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 195.99% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
