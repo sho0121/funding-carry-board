@@ -13595,16 +13595,16 @@
     "base_symbol": "POPCAT",
     "notional_usd": 1310.48,
     "opened_at": "2026-09-22T22:43:01.804011+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-24T19:47:41.788665+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "POPCAT",
       "long_exchange": "Injective",
       "long_contract": "POPCAT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 419.84% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 419.84% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.28
   },
   {
     "id": "a7b80169",
@@ -13772,6 +13772,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 87.16% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "82314900",
+    "type": "spread",
+    "base_symbol": "MANTA",
+    "notional_usd": 940.72,
+    "opened_at": "2026-09-24T19:47:41.788665+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "MANTA",
+      "long_exchange": "Injective",
+      "long_contract": "MANTA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 342.16% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
