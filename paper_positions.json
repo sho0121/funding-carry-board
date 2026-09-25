@@ -13747,16 +13747,16 @@
     "base_symbol": "DYDX",
     "notional_usd": 50.69,
     "opened_at": "2026-09-24T15:45:25.441069+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-25T21:04:33.112044+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "DYDX",
       "long_exchange": "Injective",
       "long_contract": "DYDX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 324.01% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 324.01% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.02
   },
   {
     "id": "31be3758",
@@ -13857,6 +13857,23 @@
       "long_contract": "RENDER/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 335.81% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e3e902f3",
+    "type": "spread",
+    "base_symbol": "MANTA",
+    "notional_usd": 999.66,
+    "opened_at": "2026-09-25T21:04:33.112044+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "MANTA",
+      "long_exchange": "Injective",
+      "long_contract": "MANTA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 236.95% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
