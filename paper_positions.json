@@ -13578,16 +13578,16 @@
     "base_symbol": "USUAL",
     "notional_usd": 1754.5,
     "opened_at": "2026-09-22T22:43:01.804011+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-25T17:49:29.724420+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "USUAL",
       "long_exchange": "Injective",
       "long_contract": "USUAL/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 421.08% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 421.08% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.49
   },
   {
     "id": "a6d63c76",
@@ -13840,6 +13840,23 @@
       "long_contract": "GMX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 160.67% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3d20a30b",
+    "type": "spread",
+    "base_symbol": "RENDER",
+    "notional_usd": 1460.52,
+    "opened_at": "2026-09-25T17:49:29.724420+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "RENDER",
+      "long_exchange": "Injective",
+      "long_contract": "RENDER/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 335.81% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
