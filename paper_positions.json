@@ -13848,16 +13848,16 @@
     "base_symbol": "RENDER",
     "notional_usd": 1460.52,
     "opened_at": "2026-09-25T17:49:29.724420+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-26T03:05:14.443728+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "RENDER",
       "long_exchange": "Injective",
       "long_contract": "RENDER/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 335.81% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 335.81% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.7
   },
   {
     "id": "e3e902f3",
@@ -13874,6 +13874,23 @@
       "long_contract": "MANTA/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 236.95% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b2043cd8",
+    "type": "spread",
+    "base_symbol": "ETC",
+    "notional_usd": 329.99,
+    "opened_at": "2026-09-26T03:05:14.443728+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ETC",
+      "long_exchange": "Injective",
+      "long_contract": "ETC/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 117.18% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
