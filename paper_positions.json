@@ -13865,16 +13865,16 @@
     "base_symbol": "MANTA",
     "notional_usd": 999.66,
     "opened_at": "2026-09-25T21:04:33.112044+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-26T13:40:24.086952+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MANTA",
       "long_exchange": "Injective",
       "long_contract": "MANTA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 236.95% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 236.95% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.0
   },
   {
     "id": "b2043cd8",
@@ -13882,16 +13882,16 @@
     "base_symbol": "ETC",
     "notional_usd": 329.99,
     "opened_at": "2026-09-26T03:05:14.443728+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-26T13:40:24.086952+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ETC",
       "long_exchange": "Injective",
       "long_contract": "ETC/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 117.18% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 117.18% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.4
   },
   {
     "id": "28c709ec",
@@ -13908,6 +13908,39 @@
       "long_contract": "INJ"
     },
     "notes": "Bot自動エントリー: APR 110.69% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "c8467bca",
+    "type": "spread",
+    "base_symbol": "SUI",
+    "notional_usd": 1329.65,
+    "opened_at": "2026-09-26T13:40:24.086952+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "SUI",
+      "long_exchange": "Injective",
+      "long_contract": "SUI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 230.59% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9b408aad",
+    "type": "carry",
+    "base_symbol": "FORM",
+    "notional_usd": 328.98,
+    "opened_at": "2026-09-26T13:40:24.086952+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "FORMUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
