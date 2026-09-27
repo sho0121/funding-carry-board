@@ -14119,16 +14119,16 @@
     "base_symbol": "GRAM",
     "notional_usd": 63.91,
     "opened_at": "2026-09-27T03:10:07.530288+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T18:58:19.247114+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "GRAM_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "GRAM/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 110.90% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 110.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.03
   },
   {
     "id": "b8bc5ef8",
@@ -14212,6 +14212,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 22.78% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f3aa85c1",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 63.91,
+    "opened_at": "2026-09-27T18:58:19.247114+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "PONSUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "PONS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 163.02% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
