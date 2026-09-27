@@ -11838,15 +11838,15 @@
     "base_symbol": "USD1",
     "notional_usd": 205.49,
     "opened_at": "2026-09-14T06:15:39.705009+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T15:03:18.099067+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "USD1USDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.55
   },
   {
     "id": "9a178fac",
@@ -14136,16 +14136,16 @@
     "base_symbol": "REZ",
     "notional_usd": 63.91,
     "opened_at": "2026-09-27T03:10:07.530288+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T15:03:18.099067+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "REZ",
       "long_exchange": "Aster",
       "long_contract": "REZUSDT"
     },
-    "notes": "Bot自動エントリー: APR 66.94% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 66.94% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.04
   },
   {
     "id": "37cfad69",
@@ -14153,15 +14153,65 @@
     "base_symbol": "INJ",
     "notional_usd": 2635.5,
     "opened_at": "2026-09-27T09:49:21.694217+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T15:03:18.099067+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "INJ/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "INJUSDT"
     },
-    "notes": "Bot自動エントリー: APR 136.28% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 136.28% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.19
+  },
+  {
+    "id": "1b1998b8",
+    "type": "spread",
+    "base_symbol": "ZEC",
+    "notional_usd": 3000.2,
+    "opened_at": "2026-09-27T15:03:18.099067+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZEC",
+      "long_exchange": "Injective",
+      "long_contract": "ZEC/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 239.73% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d62c0e10",
+    "type": "spread",
+    "base_symbol": "2Z",
+    "notional_usd": 63.91,
+    "opened_at": "2026-09-27T15:03:18.099067+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "2Z",
+      "long_exchange": "Backpack",
+      "long_contract": "2Z_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 122.40% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "61eb2bc3",
+    "type": "carry",
+    "base_symbol": "ZEC",
+    "notional_usd": 750.05,
+    "opened_at": "2026-09-27T15:03:18.099067+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "ZEC_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 22.78% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
