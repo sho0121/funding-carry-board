@@ -14034,16 +14034,16 @@
     "base_symbol": "CELO",
     "notional_usd": 680.02,
     "opened_at": "2026-09-26T23:25:31.974519+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T03:10:07.530288+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "CELO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "CELO"
     },
-    "notes": "Bot自動エントリー: APR 140.10% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 140.10% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.75
   },
   {
     "id": "296c7edd",
@@ -14051,16 +14051,16 @@
     "base_symbol": "2Z",
     "notional_usd": 298.39,
     "opened_at": "2026-09-26T23:25:31.974519+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T03:10:07.530288+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "2Z/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "2Z"
     },
-    "notes": "Bot自動エントリー: APR 87.70% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 87.70% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.19
   },
   {
     "id": "9e70be70",
@@ -14085,15 +14085,66 @@
     "base_symbol": "ZRO",
     "notional_usd": 634.05,
     "opened_at": "2026-09-26T23:25:31.974519+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T03:10:07.530288+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "ZRO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "ZRO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 81.07% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 81.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.63
+  },
+  {
+    "id": "3d47c66d",
+    "type": "spread",
+    "base_symbol": "RENDER",
+    "notional_usd": 3000.2,
+    "opened_at": "2026-09-27T03:10:07.530288+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "RENDER",
+      "long_exchange": "Injective",
+      "long_contract": "RENDER/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 201.89% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "c46a2dcb",
+    "type": "spread",
+    "base_symbol": "GRAM",
+    "notional_usd": 63.91,
+    "opened_at": "2026-09-27T03:10:07.530288+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "GRAM_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "GRAM/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 110.90% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b8bc5ef8",
+    "type": "spread",
+    "base_symbol": "REZ",
+    "notional_usd": 63.91,
+    "opened_at": "2026-09-27T03:10:07.530288+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "REZ",
+      "long_exchange": "Aster",
+      "long_contract": "REZUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 66.94% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
