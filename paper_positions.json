@@ -14187,16 +14187,16 @@
     "base_symbol": "2Z",
     "notional_usd": 63.91,
     "opened_at": "2026-09-27T15:03:18.099067+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-27T21:54:41.111834+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "2Z",
       "long_exchange": "Backpack",
       "long_contract": "2Z_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 122.40% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 122.40% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.07
   },
   {
     "id": "61eb2bc3",
@@ -14229,6 +14229,23 @@
       "long_contract": "PONS/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 163.02% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "39e2b76d",
+    "type": "spread",
+    "base_symbol": "BIO",
+    "notional_usd": 63.91,
+    "opened_at": "2026-09-27T21:54:41.111834+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BIO",
+      "long_exchange": "Aster",
+      "long_contract": "BIOUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 70.73% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
