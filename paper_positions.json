@@ -14387,16 +14387,16 @@
     "base_symbol": "FARTCOIN",
     "notional_usd": 1035.79,
     "opened_at": "2026-09-29T01:01:19.891228+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-29T06:38:59.802943+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "FARTCOIN",
       "long_exchange": "Injective",
       "long_contract": "FARTCOIN/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 353.22% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 353.22% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.09
   },
   {
     "id": "312d5df0",
@@ -14404,15 +14404,49 @@
     "base_symbol": "INJ",
     "notional_usd": 2269.63,
     "opened_at": "2026-09-29T01:01:19.891228+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-29T06:38:59.802943+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "INJ/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "INJ"
     },
-    "notes": "Bot自動エントリー: APR 215.94% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 215.94% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.92
+  },
+  {
+    "id": "ac5b312d",
+    "type": "spread",
+    "base_symbol": "FARTCOIN",
+    "notional_usd": 1036.03,
+    "opened_at": "2026-09-29T06:38:59.802943+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "FARTCOIN_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "FARTCOIN/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 371.11% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "63961d7f",
+    "type": "spread",
+    "base_symbol": "MOVE",
+    "notional_usd": 468.24,
+    "opened_at": "2026-09-29T06:38:59.802943+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MOVE/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "MOVE"
+    },
+    "notes": "Bot自動エントリー: APR 207.82% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
