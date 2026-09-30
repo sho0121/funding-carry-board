@@ -14506,16 +14506,16 @@
     "base_symbol": "ETH",
     "notional_usd": 925.67,
     "opened_at": "2026-09-29T13:48:03.198513+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-30T16:44:10.809772+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "ETH/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "ETHU"
     },
-    "notes": "Bot自動エントリー: APR 176.98% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 176.98% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.66
   },
   {
     "id": "72d30439",
@@ -14574,15 +14574,49 @@
     "base_symbol": "HBAR",
     "notional_usd": 289.28,
     "opened_at": "2026-09-30T10:20:00.405545+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-30T16:44:10.809772+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "HBAR",
       "long_exchange": "Injective",
       "long_contract": "HBAR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 255.04% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 255.04% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.32
+  },
+  {
+    "id": "c1f67891",
+    "type": "spread",
+    "base_symbol": "IMX",
+    "notional_usd": 418.87,
+    "opened_at": "2026-09-30T16:44:10.809772+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "IMX/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "IMX"
+    },
+    "notes": "Bot自動エントリー: APR 237.54% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b0164536",
+    "type": "spread",
+    "base_symbol": "FARTCOIN",
+    "notional_usd": 1140.41,
+    "opened_at": "2026-09-30T16:44:10.809772+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "FARTCOIN_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "FARTCOIN/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 229.51% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
