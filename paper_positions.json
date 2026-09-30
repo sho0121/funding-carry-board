@@ -14557,15 +14557,32 @@
     "base_symbol": "PUMP",
     "notional_usd": 390.86,
     "opened_at": "2026-09-30T03:36:21.988919+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-09-30T10:20:00.405545+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PUMP",
       "long_exchange": "Injective",
       "long_contract": "PUMP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 156.73% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 156.73% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.81
+  },
+  {
+    "id": "aa579cd2",
+    "type": "spread",
+    "base_symbol": "HBAR",
+    "notional_usd": 289.28,
+    "opened_at": "2026-09-30T10:20:00.405545+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "HBAR",
+      "long_exchange": "Injective",
+      "long_contract": "HBAR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 255.04% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
