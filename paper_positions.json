@@ -12684,15 +12684,15 @@
     "base_symbol": "INJ",
     "notional_usd": 1114.75,
     "opened_at": "2026-09-17T17:31:06.034703+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-01T20:24:30.904073+00:00",
     "legs": {
       "exchange": "Injective",
       "contract": "INJ/USDC PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 122.57% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 122.57% / リスク倍率 1.00 / 自動クローズ: 最大保有期間(14日)に到達",
+    "realized_pnl_usd": 55.37
   },
   {
     "id": "5da3f3b8",
@@ -14719,6 +14719,23 @@
       "long_contract": "FIL/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 256.58% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3dd7b1bd",
+    "type": "spread",
+    "base_symbol": "ZETA",
+    "notional_usd": 807.93,
+    "opened_at": "2026-10-01T20:24:30.904073+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ZETA",
+      "long_exchange": "Injective",
+      "long_contract": "ZETA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 354.29% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
