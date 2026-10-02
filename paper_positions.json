@@ -14778,16 +14778,16 @@
     "base_symbol": "PONS",
     "notional_usd": 298.1,
     "opened_at": "2026-10-02T13:35:36.349751+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-02T22:55:32.981327+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PONS",
       "long_exchange": "Injective",
       "long_contract": "PONS/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 410.60% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 410.60% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.16
   },
   {
     "id": "ca05f02e",
@@ -14838,6 +14838,23 @@
       "long_contract": "YFI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 314.25% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b16358a3",
+    "type": "spread",
+    "base_symbol": "STRK",
+    "notional_usd": 298.1,
+    "opened_at": "2026-10-02T22:55:32.981327+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "STRK/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "STRK"
+    },
+    "notes": "Bot自動エントリー: APR 371.59% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
