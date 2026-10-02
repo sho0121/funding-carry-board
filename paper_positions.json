@@ -14676,16 +14676,16 @@
     "base_symbol": "MON",
     "notional_usd": 294.92,
     "opened_at": "2026-10-01T07:11:21.643143+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-02T06:43:28.843783+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MON",
       "long_exchange": "Injective",
       "long_contract": "MON/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 269.53% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 269.53% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.15
   },
   {
     "id": "786d90ee",
@@ -14736,6 +14736,23 @@
       "long_contract": "ZETA/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 354.29% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "28503312",
+    "type": "spread",
+    "base_symbol": "USELESS",
+    "notional_usd": 358.28,
+    "opened_at": "2026-10-02T06:43:28.843783+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USELESS",
+      "long_exchange": "Injective",
+      "long_contract": "USELESS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 432.46% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
