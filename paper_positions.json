@@ -14693,16 +14693,16 @@
     "base_symbol": "FARTCOIN",
     "notional_usd": 672.61,
     "opened_at": "2026-10-01T15:07:52.862708+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-03T13:08:08.868473+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "FARTCOIN",
       "long_exchange": "Injective",
       "long_contract": "FARTCOIN/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 278.01% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 278.01% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.7
   },
   {
     "id": "c9691488",
@@ -14880,15 +14880,49 @@
     "base_symbol": "USELESS",
     "notional_usd": 488.1,
     "opened_at": "2026-10-03T07:35:02.816234+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-03T13:08:08.868473+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "USELESS",
       "long_exchange": "Injective",
       "long_contract": "USELESS/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 421.01% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 421.01% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.93
+  },
+  {
+    "id": "9f8d612d",
+    "type": "spread",
+    "base_symbol": "PENGU",
+    "notional_usd": 1260.8,
+    "opened_at": "2026-10-03T13:08:08.868473+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "PENGU",
+      "long_exchange": "Injective",
+      "long_contract": "PENGU/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 421.72% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "336bf668",
+    "type": "spread",
+    "base_symbol": "WLFI",
+    "notional_usd": 508.24,
+    "opened_at": "2026-10-03T13:08:08.868473+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "WLFIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "WLFI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 414.95% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
