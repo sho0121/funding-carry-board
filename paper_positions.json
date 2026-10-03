@@ -14337,15 +14337,15 @@
     "base_symbol": "XRP",
     "notional_usd": 455.08,
     "opened_at": "2026-09-28T14:59:20.333507+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-03T22:45:28.214583+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "XRP_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 11.76% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 11.76% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.15
   },
   {
     "id": "84ef6f74",
@@ -14991,6 +14991,23 @@
       "long_contract": "DOT"
     },
     "notes": "Bot自動エントリー: APR 454.95% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8532e2b3",
+    "type": "spread",
+    "base_symbol": "CHIP",
+    "notional_usd": 392.46,
+    "opened_at": "2026-10-03T22:45:28.214583+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "CHIP",
+      "long_exchange": "Backpack",
+      "long_contract": "CHIP_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 42.57% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
