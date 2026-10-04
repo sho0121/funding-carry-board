@@ -14914,16 +14914,16 @@
     "base_symbol": "WLFI",
     "notional_usd": 508.24,
     "opened_at": "2026-10-03T13:08:08.868473+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-04T02:28:10.849563+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "WLFIUSDT",
       "long_exchange": "Injective",
       "long_contract": "WLFI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 414.95% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 414.95% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.19
   },
   {
     "id": "521b46fe",
@@ -15008,6 +15008,23 @@
       "long_contract": "CHIP_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 42.57% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "17a6a7aa",
+    "type": "spread",
+    "base_symbol": "TURBO",
+    "notional_usd": 135.45,
+    "opened_at": "2026-10-04T02:28:10.849563+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "TURBO",
+      "long_exchange": "Injective",
+      "long_contract": "TURBO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 490.46% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
