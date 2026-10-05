@@ -15067,16 +15067,16 @@
     "base_symbol": "PENGU",
     "notional_usd": 529.29,
     "opened_at": "2026-10-04T15:15:14.265700+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-05T08:14:05.388299+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "PENGU",
       "long_exchange": "Injective",
       "long_contract": "PENGU/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 439.20% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 439.20% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.51
   },
   {
     "id": "8b0d49fb",
@@ -15160,6 +15160,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 33.55% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ec79d4c5",
+    "type": "spread",
+    "base_symbol": "WLFI",
+    "notional_usd": 529.29,
+    "opened_at": "2026-10-05T08:14:05.388299+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "WLFIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "WLFI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 424.34% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
