@@ -13393,15 +13393,15 @@
     "base_symbol": "HYPE",
     "notional_usd": 573.11,
     "opened_at": "2026-09-20T22:58:34.786517+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-05T01:38:30.606628+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "HYPE_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 13.10% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 13.10% / リスク倍率 1.00 / 自動クローズ: 最大保有期間(14日)に到達",
+    "realized_pnl_usd": 1.34
   },
   {
     "id": "d3f54c0e",
@@ -15118,15 +15118,48 @@
     "base_symbol": "WLFI",
     "notional_usd": 497.61,
     "opened_at": "2026-10-04T15:15:14.265700+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-05T01:38:30.606628+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "WLFIUSDT",
       "long_exchange": "Injective",
       "long_contract": "WLFI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 431.50% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 431.50% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.79
+  },
+  {
+    "id": "691b00c5",
+    "type": "spread",
+    "base_symbol": "SCR",
+    "notional_usd": 588.92,
+    "opened_at": "2026-10-05T01:38:30.606628+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SCRUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SCR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 423.94% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7f8dbdc9",
+    "type": "carry",
+    "base_symbol": "MON",
+    "notional_usd": 1576.91,
+    "opened_at": "2026-10-05T01:38:30.606628+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "MON_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 33.55% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
