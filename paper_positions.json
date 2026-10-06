@@ -15388,16 +15388,16 @@
     "base_symbol": "MORPHO",
     "notional_usd": 758.42,
     "opened_at": "2026-10-06T17:51:07.162549+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-06T22:13:35.328826+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MORPHO",
       "long_exchange": "Injective",
       "long_contract": "MORPHO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 191.40% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 191.40% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.83
   },
   {
     "id": "fc9b1975",
@@ -15461,6 +15461,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "17f6d7c7",
+    "type": "spread",
+    "base_symbol": "ADA",
+    "notional_usd": 758.42,
+    "opened_at": "2026-10-06T22:13:35.328826+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "ADAUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "ADA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 202.12% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
