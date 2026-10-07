@@ -15152,15 +15152,15 @@
     "base_symbol": "MON",
     "notional_usd": 1576.91,
     "opened_at": "2026-10-05T01:38:30.606628+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-07T08:19:13.296012+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "MON_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 33.55% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 33.55% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -3.15
   },
   {
     "id": "ec79d4c5",
@@ -15437,15 +15437,15 @@
     "base_symbol": "WLFI",
     "notional_usd": 736.95,
     "opened_at": "2026-10-06T17:51:07.162549+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-07T08:19:13.296012+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "WLFIUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 32.85% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 32.85% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.72
   },
   {
     "id": "2a0bbf76",
@@ -15495,6 +15495,38 @@
       "long_contract": "ADA/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 219.39% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "c5fc7b38",
+    "type": "carry",
+    "base_symbol": "APT",
+    "notional_usd": 323.99,
+    "opened_at": "2026-10-07T08:19:13.296012+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "APT_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b3d5b28d",
+    "type": "carry",
+    "base_symbol": "SOL",
+    "notional_usd": 3000.2,
+    "opened_at": "2026-10-07T08:19:13.296012+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "SOL_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
