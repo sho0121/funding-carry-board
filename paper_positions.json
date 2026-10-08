@@ -15371,16 +15371,16 @@
     "base_symbol": "ALGO",
     "notional_usd": 931.33,
     "opened_at": "2026-10-06T17:51:07.162549+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-08T08:23:05.467635+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ALGO",
       "long_exchange": "Injective",
       "long_contract": "ALGO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 416.76% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 416.76% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 15.97
   },
   {
     "id": "e0e3e849",
@@ -15552,16 +15552,16 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 1122.67,
     "opened_at": "2026-10-08T01:35:34.797299+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-08T08:23:05.467635+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "VIRTUAL",
       "long_exchange": "Injective",
       "long_contract": "VIRTUAL/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 512.38% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 512.38% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.05
   },
   {
     "id": "5c275d2b",
@@ -15578,6 +15578,40 @@
       "long_contract": "TURBO/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 499.12% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "406c2da7",
+    "type": "spread",
+    "base_symbol": "USELESS",
+    "notional_usd": 224.68,
+    "opened_at": "2026-10-08T08:23:05.467635+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USELESS",
+      "long_exchange": "Injective",
+      "long_contract": "USELESS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 523.27% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "af814619",
+    "type": "spread",
+    "base_symbol": "SCR",
+    "notional_usd": 255.97,
+    "opened_at": "2026-10-08T08:23:05.467635+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SCRUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SCR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 497.90% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
