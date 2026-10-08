@@ -15486,16 +15486,16 @@
     "base_symbol": "ADA",
     "notional_usd": 758.42,
     "opened_at": "2026-10-07T02:02:42.312003+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-08T01:35:34.797299+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ADA",
       "long_exchange": "Injective",
       "long_contract": "ADA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 219.39% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 219.39% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.64
   },
   {
     "id": "c5fc7b38",
@@ -15535,15 +15535,49 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 624.9,
     "opened_at": "2026-10-07T21:13:01.508784+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-08T01:35:34.797299+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "VIRTUAL_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "VIRTUAL/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 507.32% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 507.32% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.11
+  },
+  {
+    "id": "a7a92359",
+    "type": "spread",
+    "base_symbol": "VIRTUAL",
+    "notional_usd": 1122.67,
+    "opened_at": "2026-10-08T01:35:34.797299+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "VIRTUAL",
+      "long_exchange": "Injective",
+      "long_contract": "VIRTUAL/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 512.38% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5c275d2b",
+    "type": "spread",
+    "base_symbol": "TURBO",
+    "notional_usd": 260.65,
+    "opened_at": "2026-10-08T01:35:34.797299+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "TURBO",
+      "long_exchange": "Injective",
+      "long_contract": "TURBO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 499.12% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
