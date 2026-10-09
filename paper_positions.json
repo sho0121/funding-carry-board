@@ -15620,16 +15620,16 @@
     "base_symbol": "NEIRO",
     "notional_usd": 414.55,
     "opened_at": "2026-10-08T16:07:43.560433+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-09T20:33:37.388267+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "NEIROUSDT",
       "long_exchange": "Injective",
       "long_contract": "NEIRO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 491.21% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 491.21% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 5.9
   },
   {
     "id": "16279172",
@@ -15816,6 +15816,23 @@
       "long_contract": "MOVE"
     },
     "notes": "Bot自動エントリー: APR 473.58% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ae8638ac",
+    "type": "spread",
+    "base_symbol": "ADA",
+    "notional_usd": 414.55,
+    "opened_at": "2026-10-09T20:33:37.388267+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "ADAUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "ADA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 474.07% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
