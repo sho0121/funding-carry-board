@@ -15688,16 +15688,16 @@
     "base_symbol": "TRX",
     "notional_usd": 762.3,
     "opened_at": "2026-10-08T21:49:04.108461+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-09T01:43:16.724670+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TRX/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "TRXUSDT"
     },
-    "notes": "Bot自動エントリー: APR 492.36% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 492.36% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.13
   },
   {
     "id": "f24a0770",
@@ -15714,6 +15714,23 @@
       "long_contract": "SKR"
     },
     "notes": "Bot自動エントリー: APR 95.60% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8d3fe9f2",
+    "type": "spread",
+    "base_symbol": "USELESS",
+    "notional_usd": 413.98,
+    "opened_at": "2026-10-09T01:43:16.724670+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USELESS",
+      "long_exchange": "Injective",
+      "long_contract": "USELESS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 516.66% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
