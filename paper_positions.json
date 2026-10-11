@@ -16110,15 +16110,31 @@
     "base_symbol": "STRK",
     "notional_usd": 667.29,
     "opened_at": "2026-10-11T15:21:15.236753+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-11T19:56:18.475199+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "STRK_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "STRKUSDT"
     },
-    "notes": "Bot自動エントリー: APR 44.34% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 44.34% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.03
+  },
+  {
+    "id": "ea6ba5f9",
+    "type": "carry",
+    "base_symbol": "US",
+    "notional_usd": 297.58,
+    "opened_at": "2026-10-11T19:56:18.475199+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "USUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 86.64% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
