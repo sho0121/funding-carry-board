@@ -16010,16 +16010,16 @@
     "base_symbol": "WIF",
     "notional_usd": 476.88,
     "opened_at": "2026-10-11T08:12:59.463219+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-12T03:50:48.214255+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "WIF/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "WIF"
     },
-    "notes": "Bot自動エントリー: APR 154.63% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 154.63% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.6
   },
   {
     "id": "cfae575c",
@@ -16160,15 +16160,49 @@
     "base_symbol": "ADA",
     "notional_usd": 918.14,
     "opened_at": "2026-10-11T23:28:19.733115+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-12T03:50:48.214255+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ADA",
       "long_exchange": "Injective",
       "long_contract": "ADA/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 381.17% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 381.17% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.22
+  },
+  {
+    "id": "8428501e",
+    "type": "spread",
+    "base_symbol": "USELESS",
+    "notional_usd": 374.53,
+    "opened_at": "2026-10-12T03:50:48.214255+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USELESS",
+      "long_exchange": "Injective",
+      "long_contract": "USELESS/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 549.53% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d0f02da0",
+    "type": "spread",
+    "base_symbol": "ADA",
+    "notional_usd": 1020.49,
+    "opened_at": "2026-10-12T03:50:48.214255+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "ADAUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "ADA/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 383.26% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
