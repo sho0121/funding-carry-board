@@ -16279,16 +16279,16 @@
     "base_symbol": "DOT",
     "notional_usd": 799.41,
     "opened_at": "2026-10-12T20:50:20.876898+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-13T17:29:19.743621+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "DOT",
       "long_exchange": "Injective",
       "long_contract": "DOT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 468.94% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 468.94% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.78
   },
   {
     "id": "5ebafbbf",
@@ -16396,16 +16396,16 @@
     "base_symbol": "SCR",
     "notional_usd": 260.68,
     "opened_at": "2026-10-13T10:04:14.696958+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-13T17:29:19.743621+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SCRUSDT",
       "long_exchange": "Injective",
       "long_contract": "SCR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 527.83% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 527.83% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.65
   },
   {
     "id": "0e3966fa",
@@ -16413,15 +16413,66 @@
     "base_symbol": "ICP",
     "notional_usd": 840.93,
     "opened_at": "2026-10-13T10:04:14.696958+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-13T17:29:19.743621+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ICP",
       "long_exchange": "Injective",
       "long_contract": "ICP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 505.14% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 505.14% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.01
+  },
+  {
+    "id": "46e2cc0a",
+    "type": "spread",
+    "base_symbol": "NEIRO",
+    "notional_usd": 201.94,
+    "opened_at": "2026-10-13T17:29:19.743621+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "NEIROUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "NEIRO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 421.97% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "54ae6950",
+    "type": "spread",
+    "base_symbol": "EIGEN",
+    "notional_usd": 715.85,
+    "opened_at": "2026-10-13T17:29:19.743621+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "EIGEN/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "EIGEN"
+    },
+    "notes": "Bot自動エントリー: APR 387.29% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f28a5f16",
+    "type": "spread",
+    "base_symbol": "BRETT",
+    "notional_usd": 284.89,
+    "opened_at": "2026-10-13T17:29:19.743621+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BRETT/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "BRETT"
+    },
+    "notes": "Bot自動エントリー: APR 336.17% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
