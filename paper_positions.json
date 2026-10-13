@@ -16127,15 +16127,15 @@
     "base_symbol": "US",
     "notional_usd": 297.58,
     "opened_at": "2026-10-11T19:56:18.475199+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-13T10:04:14.696958+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "USUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 86.64% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 86.64% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.24
   },
   {
     "id": "a6cd4cbf",
@@ -16362,16 +16362,16 @@
     "base_symbol": "EIGEN",
     "notional_usd": 996.18,
     "opened_at": "2026-10-13T02:27:43.451674+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-13T10:04:14.696958+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "EIGEN/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "EIGEN"
     },
-    "notes": "Bot自動エントリー: APR 358.59% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 358.59% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.93
   },
   {
     "id": "65a60f34",
@@ -16388,6 +16388,40 @@
       "long_contract": "AXS"
     },
     "notes": "Bot自動エントリー: APR 333.39% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "4408512b",
+    "type": "spread",
+    "base_symbol": "SCR",
+    "notional_usd": 260.68,
+    "opened_at": "2026-10-13T10:04:14.696958+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SCRUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SCR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 527.83% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "0e3966fa",
+    "type": "spread",
+    "base_symbol": "ICP",
+    "notional_usd": 840.93,
+    "opened_at": "2026-10-13T10:04:14.696958+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ICP",
+      "long_exchange": "Injective",
+      "long_contract": "ICP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 505.14% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
