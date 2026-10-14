@@ -16027,15 +16027,15 @@
     "base_symbol": "FORM",
     "notional_usd": 750.65,
     "opened_at": "2026-10-11T08:12:59.463219+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-14T01:38:18.197531+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "FORMUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.96
   },
   {
     "id": "e92bf6a7",
@@ -16507,6 +16507,23 @@
       "long_contract": "XRP_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 158.39% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "79e2e683",
+    "type": "spread",
+    "base_symbol": "MET",
+    "notional_usd": 287.09,
+    "opened_at": "2026-10-14T01:38:18.197531+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "METUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "MET_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 27.27% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
