@@ -17176,16 +17176,16 @@
     "base_symbol": "BLUR",
     "notional_usd": 135.62,
     "opened_at": "2026-10-16T01:03:05.810346+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-16T15:12:39.596797+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BLUR/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "BLUR"
     },
-    "notes": "Bot自動エントリー: APR 922.82% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 922.82% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.3
   },
   {
     "id": "0113cd3a",
@@ -17193,16 +17193,16 @@
     "base_symbol": "KAITO",
     "notional_usd": 557.31,
     "opened_at": "2026-10-16T05:28:56.440463+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-16T15:12:39.596797+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "KAITO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "KAITO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 352.07% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 352.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.61
   },
   {
     "id": "afad5871",
@@ -17210,15 +17210,66 @@
     "base_symbol": "MET",
     "notional_usd": 364.48,
     "opened_at": "2026-10-16T10:33:45.061385+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-16T15:12:39.596797+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "METUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "MET"
     },
-    "notes": "Bot自動エントリー: APR 70.07% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 70.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.66
+  },
+  {
+    "id": "782b76c0",
+    "type": "spread",
+    "base_symbol": "AERO",
+    "notional_usd": 589.25,
+    "opened_at": "2026-10-16T15:12:39.596797+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AERO",
+      "long_exchange": "Injective",
+      "long_contract": "AERO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 489.67% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d2c521fd",
+    "type": "spread",
+    "base_symbol": "MORPHO",
+    "notional_usd": 103.68,
+    "opened_at": "2026-10-16T15:12:39.596797+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MORPHO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MORPHOUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 391.81% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "14265d4b",
+    "type": "spread",
+    "base_symbol": "MET",
+    "notional_usd": 319.25,
+    "opened_at": "2026-10-16T15:12:39.596797+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "METUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "MET_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 73.47% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
