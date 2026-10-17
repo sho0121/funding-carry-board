@@ -16685,15 +16685,15 @@
     "base_symbol": "FARTCOIN",
     "notional_usd": 103.68,
     "opened_at": "2026-10-14T12:48:18.569849+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-17T21:26:34.052743+00:00",
     "legs": {
       "exchange": "Hyperliquid",
       "contract": "FARTCOIN",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 15.05% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 15.05% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.0
   },
   {
     "id": "52440dec",
@@ -17481,16 +17481,16 @@
     "base_symbol": "DYM",
     "notional_usd": 1124.0,
     "opened_at": "2026-10-17T13:38:03.790137+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-17T21:26:34.052743+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "DYM",
       "long_exchange": "Injective",
       "long_contract": "DYM/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 452.40% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 452.40% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.58
   },
   {
     "id": "0929ee6b",
@@ -17515,16 +17515,16 @@
     "base_symbol": "ONDO",
     "notional_usd": 478.85,
     "opened_at": "2026-10-17T13:38:03.790137+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-17T21:26:34.052743+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "ONDOUSDT",
       "long_exchange": "Injective",
       "long_contract": "ONDO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 392.41% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 392.41% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.48
   },
   {
     "id": "ecb47731",
@@ -17532,16 +17532,16 @@
     "base_symbol": "AERO",
     "notional_usd": 873.33,
     "opened_at": "2026-10-17T16:53:39.097204+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-17T21:26:34.052743+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "AERO_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "AERO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 546.28% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 546.28% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.03
   },
   {
     "id": "27493d28",
@@ -17549,16 +17549,16 @@
     "base_symbol": "ICP",
     "notional_usd": 2078.01,
     "opened_at": "2026-10-17T16:53:39.097204+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-17T21:26:34.052743+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "ICPUSDT",
       "long_exchange": "Injective",
       "long_contract": "ICP/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 494.47% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 494.47% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.09
   },
   {
     "id": "5cdce2a7",
@@ -17608,6 +17608,89 @@
       "long_contract": "MORPHO"
     },
     "notes": "Bot自動エントリー: APR 448.88% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "901440cd",
+    "type": "spread",
+    "base_symbol": "AERO",
+    "notional_usd": 1229.53,
+    "opened_at": "2026-10-17T21:26:34.052743+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "AERO",
+      "long_exchange": "Injective",
+      "long_contract": "AERO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 534.77% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "53be6a01",
+    "type": "spread",
+    "base_symbol": "ONDO",
+    "notional_usd": 2131.08,
+    "opened_at": "2026-10-17T21:26:34.052743+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ONDO",
+      "long_exchange": "Injective",
+      "long_contract": "ONDO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 436.69% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "dda3d18f",
+    "type": "spread",
+    "base_symbol": "IO",
+    "notional_usd": 1193.58,
+    "opened_at": "2026-10-17T21:26:34.052743+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "IO",
+      "long_exchange": "Injective",
+      "long_contract": "IO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 432.53% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e614d351",
+    "type": "carry",
+    "base_symbol": "PAXG",
+    "notional_usd": 873.33,
+    "opened_at": "2026-10-17T21:26:34.052743+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "PAXG_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 14.42% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "764017a5",
+    "type": "carry",
+    "base_symbol": "ETH",
+    "notional_usd": 60.69,
+    "opened_at": "2026-10-17T21:26:34.052743+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "ETHUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 7.89% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
