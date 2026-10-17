@@ -17278,16 +17278,16 @@
     "base_symbol": "BLUR",
     "notional_usd": 103.68,
     "opened_at": "2026-10-16T22:29:24.906992+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-17T01:03:26.716922+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BLUR/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "BLURUSDT"
     },
-    "notes": "Bot自動エントリー: APR 898.94% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 898.94% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.15
   },
   {
     "id": "fbe392a5",
@@ -17304,6 +17304,23 @@
       "long_contract": "W_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 90.85% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5869f193",
+    "type": "spread",
+    "base_symbol": "BOME",
+    "notional_usd": 103.68,
+    "opened_at": "2026-10-17T01:03:26.716922+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BOME/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "BOMEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 402.72% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
