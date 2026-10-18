@@ -17599,16 +17599,16 @@
     "base_symbol": "MORPHO",
     "notional_usd": 806.23,
     "opened_at": "2026-10-17T19:05:26.891582+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-18T12:28:38.805583+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MORPHO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MORPHO"
     },
-    "notes": "Bot自動エントリー: APR 448.88% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 448.88% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.06
   },
   {
     "id": "901440cd",
@@ -17776,6 +17776,23 @@
       "long_contract": "EIGEN/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 411.67% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "9de4f513",
+    "type": "spread",
+    "base_symbol": "PONS",
+    "notional_usd": 202.7,
+    "opened_at": "2026-10-18T12:28:38.805583+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "PONS/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "PONS"
+    },
+    "notes": "Bot自動エントリー: APR 456.80% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
