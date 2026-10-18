@@ -17583,15 +17583,15 @@
     "base_symbol": "SPCX.US",
     "notional_usd": 74.47,
     "opened_at": "2026-10-17T16:53:39.097204+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-18T22:15:54.091963+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "SPCX.US_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 20.63% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 20.63% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.06
   },
   {
     "id": "ca98ef9f",
@@ -17844,6 +17844,22 @@
       "long_contract": "EIGEN/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 391.17% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "b6fd7009",
+    "type": "carry",
+    "base_symbol": "APT",
+    "notional_usd": 300.09,
+    "opened_at": "2026-10-18T22:15:54.091963+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "APT_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 17.16% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
