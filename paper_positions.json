@@ -17667,15 +17667,15 @@
     "base_symbol": "PAXG",
     "notional_usd": 873.33,
     "opened_at": "2026-10-17T21:26:34.052743+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-19T00:47:06.058497+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "PAXG_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 14.42% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 14.42% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.58
   },
   {
     "id": "764017a5",
@@ -17801,16 +17801,16 @@
     "base_symbol": "POPCAT",
     "notional_usd": 1060.63,
     "opened_at": "2026-10-18T16:24:19.754092+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-19T00:47:06.058497+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "POPCAT",
       "long_exchange": "Injective",
       "long_contract": "POPCAT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 415.62% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 415.62% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.72
   },
   {
     "id": "f8932840",
@@ -17860,6 +17860,39 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 17.16% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "59e077ad",
+    "type": "spread",
+    "base_symbol": "ORDI",
+    "notional_usd": 1060.63,
+    "opened_at": "2026-10-19T00:47:06.058497+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ORDI/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "ORDI"
+    },
+    "notes": "Bot自動エントリー: APR 391.86% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "45dc2bcc",
+    "type": "carry",
+    "base_symbol": "NEAR",
+    "notional_usd": 409.98,
+    "opened_at": "2026-10-19T00:47:06.058497+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "NEAR_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 26.13% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
