@@ -18716,16 +18716,16 @@
     "base_symbol": "IO",
     "notional_usd": 513.21,
     "opened_at": "2026-10-21T15:57:03.501831+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-21T19:57:52.200058+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "IOUSDT",
       "long_exchange": "Injective",
       "long_contract": "IO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 382.40% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 382.40% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.01
   },
   {
     "id": "ce34cf14",
@@ -18759,6 +18759,23 @@
       "long_contract": "DYDX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 328.88% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7b396d0b",
+    "type": "spread",
+    "base_symbol": "IO",
+    "notional_usd": 493.99,
+    "opened_at": "2026-10-21T19:57:52.200058+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "IO",
+      "long_exchange": "Injective",
+      "long_contract": "IO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 369.58% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
