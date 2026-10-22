@@ -18445,16 +18445,16 @@
     "base_symbol": "kPEPE",
     "notional_usd": 485.78,
     "opened_at": "2026-10-20T17:48:01.464829+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-22T12:51:39.393816+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "kPEPE_USDC_PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "kPEPE"
     },
-    "notes": "Bot自動エントリー: APR 31.77% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 31.77% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.29
   },
   {
     "id": "10b86418",
@@ -18869,16 +18869,16 @@
     "base_symbol": "ETHFI",
     "notional_usd": 893.72,
     "opened_at": "2026-10-22T07:02:34.744469+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-22T12:51:39.393816+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "ETHFI/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "ETHFIUSDT"
     },
-    "notes": "Bot自動エントリー: APR 332.90% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 332.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.5
   },
   {
     "id": "34cd6371",
@@ -18895,6 +18895,40 @@
       "long_contract": "JTOUSDT"
     },
     "notes": "Bot自動エントリー: APR 241.61% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "c6a1d2c5",
+    "type": "spread",
+    "base_symbol": "ETHFI",
+    "notional_usd": 1230.4,
+    "opened_at": "2026-10-22T12:51:39.393816+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ETHFI/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "ETHFI"
+    },
+    "notes": "Bot自動エントリー: APR 318.23% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e3c35f17",
+    "type": "spread",
+    "base_symbol": "XPL",
+    "notional_usd": 921.73,
+    "opened_at": "2026-10-22T12:51:39.393816+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "XPL_USDC_PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "XPL"
+    },
+    "notes": "Bot自動エントリー: APR 33.67% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
