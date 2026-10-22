@@ -18614,16 +18614,16 @@
     "base_symbol": "BOME",
     "notional_usd": 517.8,
     "opened_at": "2026-10-21T05:43:20.419839+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-22T01:20:25.950442+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BOME/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "BOME"
     },
-    "notes": "Bot自動エントリー: APR 247.91% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 247.91% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.73
   },
   {
     "id": "56d29b11",
@@ -18818,15 +18818,49 @@
     "base_symbol": "EDGE",
     "notional_usd": 269.56,
     "opened_at": "2026-10-21T23:03:13.211197+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-22T01:20:25.950442+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "EDGE_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "EDGEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 93.30% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 93.30% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.43
+  },
+  {
+    "id": "c20acd51",
+    "type": "spread",
+    "base_symbol": "JTO",
+    "notional_usd": 517.8,
+    "opened_at": "2026-10-22T01:20:25.950442+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "JTO/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "JTO"
+    },
+    "notes": "Bot自動エントリー: APR 221.71% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f2ee9f49",
+    "type": "spread",
+    "base_symbol": "BILL",
+    "notional_usd": 208.59,
+    "opened_at": "2026-10-22T01:20:25.950442+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "BILLUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "BILL_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 67.76% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
