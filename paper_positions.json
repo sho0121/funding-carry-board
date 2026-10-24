@@ -19411,16 +19411,16 @@
     "base_symbol": "TURBO",
     "notional_usd": 252.64,
     "opened_at": "2026-10-23T22:56:33.327223+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-24T01:23:46.651632+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TURBO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "TURBO"
     },
-    "notes": "Bot自動エントリー: APR 237.14% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 237.14% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.76
   },
   {
     "id": "e698b408",
@@ -19428,15 +19428,49 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 611.69,
     "opened_at": "2026-10-23T22:56:33.327223+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-24T01:23:46.651632+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "VIRTUAL",
       "long_exchange": "Injective",
       "long_contract": "VIRTUAL/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 148.69% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 148.69% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.13
+  },
+  {
+    "id": "7fe69604",
+    "type": "spread",
+    "base_symbol": "VIRTUAL",
+    "notional_usd": 619.06,
+    "opened_at": "2026-10-24T01:23:46.651632+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "VIRTUAL_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "VIRTUAL/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 151.47% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e86a5cb2",
+    "type": "spread",
+    "base_symbol": "LDO",
+    "notional_usd": 989.21,
+    "opened_at": "2026-10-24T01:23:46.651632+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "LDO/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "LDO"
+    },
+    "notes": "Bot自動エントリー: APR 127.94% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
