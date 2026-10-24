@@ -19649,16 +19649,16 @@
     "base_symbol": "EDGE",
     "notional_usd": 227.22,
     "opened_at": "2026-10-24T18:36:02.302440+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-24T21:28:28.061941+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "EDGE_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "EDGEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 40.12% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 40.12% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.4
   },
   {
     "id": "90278ac6",
@@ -19666,15 +19666,47 @@
     "base_symbol": "SNDK",
     "notional_usd": 2543.02,
     "opened_at": "2026-10-24T18:36:02.302440+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-24T21:28:28.061941+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "SNDKUSDT",
       "long_exchange": "Aster",
       "long_contract": "SNDKUSD1"
     },
-    "notes": "Bot自動エントリー: APR 22.56% / リスク倍率 1.00",
+    "notes": "Bot自動エントリー: APR 22.56% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -5.09
+  },
+  {
+    "id": "1cf2189d",
+    "type": "carry",
+    "base_symbol": "TAG",
+    "notional_usd": 312.56,
+    "opened_at": "2026-10-24T21:28:28.061941+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "TAGUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "fb0175a1",
+    "type": "carry",
+    "base_symbol": "BNB",
+    "notional_usd": 855.1,
+    "opened_at": "2026-10-24T21:28:28.061941+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "BNB_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 10.95% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
