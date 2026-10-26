@@ -19547,16 +19547,16 @@
     "base_symbol": "MORPHO",
     "notional_usd": 1211.59,
     "opened_at": "2026-10-24T11:51:39.025523+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-26T07:24:44.813184+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MORPHO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MORPHO"
     },
-    "notes": "Bot自動エントリー: APR 335.33% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 335.33% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 18.09
   },
   {
     "id": "2e0d19df",
@@ -19798,15 +19798,49 @@
     "base_symbol": "KAS",
     "notional_usd": 1531.59,
     "opened_at": "2026-10-26T01:07:57.860290+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-26T07:24:44.813184+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "KAS/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "KAS"
     },
-    "notes": "Bot自動エントリー: APR 275.77% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 275.77% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.17
+  },
+  {
+    "id": "515893d0",
+    "type": "spread",
+    "base_symbol": "S",
+    "notional_usd": 1406.32,
+    "opened_at": "2026-10-26T07:24:44.813184+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "S",
+      "long_exchange": "Injective",
+      "long_contract": "S/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 252.96% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "af10842d",
+    "type": "spread",
+    "base_symbol": "ZK",
+    "notional_usd": 384.04,
+    "opened_at": "2026-10-26T07:24:44.813184+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "ZK/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "ZK"
+    },
+    "notes": "Bot自動エントリー: APR 202.25% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
