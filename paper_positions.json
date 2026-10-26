@@ -19832,16 +19832,16 @@
     "base_symbol": "ZK",
     "notional_usd": 384.04,
     "opened_at": "2026-10-26T07:24:44.813184+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-26T20:20:44.626974+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "ZK/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "ZK"
     },
-    "notes": "Bot自動エントリー: APR 202.25% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 202.25% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.04
   },
   {
     "id": "10352224",
@@ -19892,6 +19892,23 @@
       "long_contract": "JTO"
     },
     "notes": "Bot自動エントリー: APR 439.43% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "ee9fd458",
+    "type": "spread",
+    "base_symbol": "BSV",
+    "notional_usd": 384.04,
+    "opened_at": "2026-10-26T20:20:44.626974+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BSV",
+      "long_exchange": "Injective",
+      "long_contract": "BSV/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 390.70% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
