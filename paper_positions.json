@@ -16329,15 +16329,15 @@
     "base_symbol": "ZEC",
     "notional_usd": 1024.5,
     "opened_at": "2026-10-12T20:50:20.876898+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-27T00:15:10.986512+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "ZEC_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 17.27% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 17.27% / リスク倍率 1.00 / 自動クローズ: 最大保有期間(14日)に到達",
+    "realized_pnl_usd": 15.03
   },
   {
     "id": "c976ad10",
@@ -19849,16 +19849,16 @@
     "base_symbol": "ALT",
     "notional_usd": 575.48,
     "opened_at": "2026-10-26T14:50:39.238073+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-27T00:15:10.986512+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "ALT/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "ALT"
     },
-    "notes": "Bot自動エントリー: APR 550.16% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 550.16% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.1
   },
   {
     "id": "a2a392a0",
@@ -19866,16 +19866,16 @@
     "base_symbol": "DOT",
     "notional_usd": 1532.71,
     "opened_at": "2026-10-26T14:50:39.238073+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-27T00:15:10.986512+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "DOTUSDT",
       "long_exchange": "Injective",
       "long_contract": "DOT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 520.42% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 520.42% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 6.81
   },
   {
     "id": "740ddb5a",
@@ -19883,16 +19883,16 @@
     "base_symbol": "JTO",
     "notional_usd": 1015.65,
     "opened_at": "2026-10-26T14:50:39.238073+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-27T00:15:10.986512+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "JTO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "JTO"
     },
-    "notes": "Bot自動エントリー: APR 439.43% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 439.43% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.24
   },
   {
     "id": "ee9fd458",
@@ -19909,6 +19909,73 @@
       "long_contract": "BSV/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 390.70% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "13b1f9ba",
+    "type": "spread",
+    "base_symbol": "LIT",
+    "notional_usd": 2013.78,
+    "opened_at": "2026-10-27T00:15:10.986512+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "LIT/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "LIT"
+    },
+    "notes": "Bot自動エントリー: APR 411.52% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f8a8de04",
+    "type": "spread",
+    "base_symbol": "USUAL",
+    "notional_usd": 857.08,
+    "opened_at": "2026-10-27T00:15:10.986512+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "USUAL",
+      "long_exchange": "Injective",
+      "long_contract": "USUAL/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 333.07% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e0cce39f",
+    "type": "spread",
+    "base_symbol": "BERA",
+    "notional_usd": 252.98,
+    "opened_at": "2026-10-27T00:15:10.986512+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BERA/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "BERA"
+    },
+    "notes": "Bot自動エントリー: APR 266.06% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "8d2e28d4",
+    "type": "carry",
+    "base_symbol": "WLFI",
+    "notional_usd": 1004.44,
+    "opened_at": "2026-10-27T00:15:10.986512+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Aster",
+      "contract": "WLFIUSDT",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 42.75% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
