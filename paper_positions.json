@@ -20069,16 +20069,16 @@
     "base_symbol": "TURBO",
     "notional_usd": 447.93,
     "opened_at": "2026-10-28T06:34:26.355450+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-28T19:17:44.760486+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "TURBO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "TURBO"
     },
-    "notes": "Bot自動エントリー: APR 409.70% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 409.70% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.61
   },
   {
     "id": "951235f7",
@@ -20120,16 +20120,16 @@
     "base_symbol": "IMX",
     "notional_usd": 413.8,
     "opened_at": "2026-10-28T13:46:58.755938+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-28T19:17:44.760486+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "IMX",
       "long_exchange": "Injective",
       "long_contract": "IMX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 361.77% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 361.77% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.75
   },
   {
     "id": "23d6a708",
@@ -20163,6 +20163,40 @@
       "long_contract": "SNX/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 276.78% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "f3e3495a",
+    "type": "spread",
+    "base_symbol": "DOT",
+    "notional_usd": 815.04,
+    "opened_at": "2026-10-28T19:17:44.760486+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "DOT",
+      "long_exchange": "Injective",
+      "long_contract": "DOT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 545.72% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "40eda8fb",
+    "type": "spread",
+    "base_symbol": "GALA",
+    "notional_usd": 204.1,
+    "opened_at": "2026-10-28T19:17:44.760486+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "GALA/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "GALA"
+    },
+    "notes": "Bot自動エントリー: APR 298.04% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
