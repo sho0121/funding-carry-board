@@ -20154,16 +20154,16 @@
     "base_symbol": "SNX",
     "notional_usd": 874.94,
     "opened_at": "2026-10-28T13:46:58.755938+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-29T03:56:13.962180+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SNX",
       "long_exchange": "Injective",
       "long_contract": "SNX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 276.78% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 276.78% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 6.03
   },
   {
     "id": "f3e3495a",
@@ -20171,16 +20171,16 @@
     "base_symbol": "DOT",
     "notional_usd": 815.04,
     "opened_at": "2026-10-28T19:17:44.760486+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-10-29T03:56:13.962180+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "DOT",
       "long_exchange": "Injective",
       "long_contract": "DOT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 545.72% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 545.72% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.47
   },
   {
     "id": "40eda8fb",
@@ -20197,6 +20197,40 @@
       "long_contract": "GALA"
     },
     "notes": "Bot自動エントリー: APR 298.04% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7a7269e7",
+    "type": "spread",
+    "base_symbol": "TURBO",
+    "notional_usd": 220.6,
+    "opened_at": "2026-10-29T03:56:13.962180+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "TURBO/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "TURBO"
+    },
+    "notes": "Bot自動エントリー: APR 507.38% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "aeb192ec",
+    "type": "spread",
+    "base_symbol": "SNX",
+    "notional_usd": 428.13,
+    "opened_at": "2026-10-29T03:56:13.962180+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SNXUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "SNX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 328.40% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
