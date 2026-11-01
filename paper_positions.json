@@ -20813,16 +20813,16 @@
     "base_symbol": "BLUR",
     "notional_usd": 233.81,
     "opened_at": "2026-10-31T22:23:37.433741+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-01T01:49:05.815883+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BLUR/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "BLURUSDT"
     },
-    "notes": "Bot自動エントリー: APR 1056.69% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 1056.69% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.31
   },
   {
     "id": "867624ba",
@@ -20856,6 +20856,23 @@
       "long_contract": "ALT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 251.04% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "c042b962",
+    "type": "spread",
+    "base_symbol": "BLUR",
+    "notional_usd": 233.81,
+    "opened_at": "2026-11-01T01:49:05.815883+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BLUR/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "BLUR"
+    },
+    "notes": "Bot自動エントリー: APR 1034.05% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
