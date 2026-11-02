@@ -20796,16 +20796,16 @@
     "base_symbol": "GALA",
     "notional_usd": 344.03,
     "opened_at": "2026-10-31T19:02:18.545398+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-02T00:10:40.898041+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "GALA/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "GALA"
     },
-    "notes": "Bot自動エントリー: APR 202.96% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 202.96% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.33
   },
   {
     "id": "feb4519d",
@@ -20873,6 +20873,23 @@
       "long_contract": "BLUR"
     },
     "notes": "Bot自動エントリー: APR 1034.05% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "681b1f93",
+    "type": "spread",
+    "base_symbol": "GRASS",
+    "notional_usd": 344.03,
+    "opened_at": "2026-11-02T00:10:40.898041+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "GRASS/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "GRASS"
+    },
+    "notes": "Bot自動エントリー: APR 499.29% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
