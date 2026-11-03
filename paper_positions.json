@@ -20881,16 +20881,16 @@
     "base_symbol": "GRASS",
     "notional_usd": 344.03,
     "opened_at": "2026-11-02T00:10:40.898041+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-03T07:30:25.411126+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "GRASS/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "GRASS"
     },
-    "notes": "Bot自動エントリー: APR 499.29% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 499.29% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.75
   },
   {
     "id": "bb9107df",
@@ -20915,16 +20915,16 @@
     "base_symbol": "TRX",
     "notional_usd": 322.81,
     "opened_at": "2026-11-02T17:43:31.342837+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-03T07:30:25.411126+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "TRX",
       "long_exchange": "Injective",
       "long_contract": "TRX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 438.28% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 438.28% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.43
   },
   {
     "id": "773f7421",
@@ -20957,6 +20957,23 @@
       "long_contract": "LIT/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 476.40% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "440efdf1",
+    "type": "spread",
+    "base_symbol": "MORPHO",
+    "notional_usd": 666.84,
+    "opened_at": "2026-11-03T07:30:25.411126+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MORPHO/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "MORPHO"
+    },
+    "notes": "Bot自動エントリー: APR 429.69% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
