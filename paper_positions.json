@@ -20898,16 +20898,16 @@
     "base_symbol": "LIT",
     "notional_usd": 1248.37,
     "opened_at": "2026-11-02T17:43:31.342837+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-03T00:21:53.908969+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "LITUSDT",
       "long_exchange": "Injective",
       "long_contract": "LIT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 450.11% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 450.11% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 2.72
   },
   {
     "id": "0c36b548",
@@ -20940,6 +20940,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 49.50% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "6331aed8",
+    "type": "spread",
+    "base_symbol": "LIT",
+    "notional_usd": 1248.37,
+    "opened_at": "2026-11-03T00:21:53.908969+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "LIT",
+      "long_exchange": "Injective",
+      "long_contract": "LIT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 476.40% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
