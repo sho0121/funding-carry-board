@@ -20965,16 +20965,16 @@
     "base_symbol": "MORPHO",
     "notional_usd": 666.84,
     "opened_at": "2026-11-03T07:30:25.411126+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-03T21:28:30.190547+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MORPHO/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MORPHO"
     },
-    "notes": "Bot自動エントリー: APR 429.69% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 429.69% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.04
   },
   {
     "id": "83491609",
@@ -21033,16 +21033,16 @@
     "base_symbol": "AAVE",
     "notional_usd": 421.18,
     "opened_at": "2026-11-03T15:44:45.905336+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-03T21:28:30.190547+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "AAVE/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "AAVE"
     },
-    "notes": "Bot自動エントリー: APR 128.53% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 128.53% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.72
   },
   {
     "id": "94334c90",
@@ -21059,6 +21059,40 @@
       "long_contract": "ADA/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 127.10% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3e9ac89d",
+    "type": "spread",
+    "base_symbol": "POPCAT",
+    "notional_usd": 404.94,
+    "opened_at": "2026-11-03T21:28:30.190547+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "POPCAT",
+      "long_exchange": "Injective",
+      "long_contract": "POPCAT/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 467.93% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7d6e058b",
+    "type": "spread",
+    "base_symbol": "RUNE",
+    "notional_usd": 1218.53,
+    "opened_at": "2026-11-03T21:28:30.190547+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "RUNE",
+      "long_exchange": "Injective",
+      "long_contract": "RUNE/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 381.76% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
