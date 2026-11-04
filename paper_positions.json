@@ -21016,16 +21016,16 @@
     "base_symbol": "MNT",
     "notional_usd": 487.46,
     "opened_at": "2026-11-03T15:44:45.905336+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-04T08:29:10.664338+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "MNT",
       "long_exchange": "Injective",
       "long_contract": "MNT/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 166.18% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 166.18% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.96
   },
   {
     "id": "47a59aa4",
@@ -21093,6 +21093,23 @@
       "long_contract": "RUNE/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 381.76% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "e383bf99",
+    "type": "spread",
+    "base_symbol": "RENDER",
+    "notional_usd": 415.75,
+    "opened_at": "2026-11-04T08:29:10.664338+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "RENDER",
+      "long_exchange": "Injective",
+      "long_contract": "RENDER/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 101.81% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
