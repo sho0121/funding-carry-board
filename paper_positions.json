@@ -18988,15 +18988,15 @@
     "base_symbol": "B",
     "notional_usd": 391.45,
     "opened_at": "2026-10-22T17:53:12.514044+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-05T19:24:00.751952+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "BUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 24.06% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 24.06% / リスク倍率 1.00 / 自動クローズ: 最大保有期間(14日)に到達",
+    "realized_pnl_usd": 8.06
   },
   {
     "id": "129ebc63",
@@ -21288,16 +21288,16 @@
     "base_symbol": "GRASS",
     "notional_usd": 1544.1,
     "opened_at": "2026-11-05T03:04:34.756839+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-05T19:24:00.751952+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "GRASS",
       "long_exchange": "Injective",
       "long_contract": "GRASS/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 89.27% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 89.27% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 10.06
   },
   {
     "id": "682dbfd2",
@@ -21305,15 +21305,15 @@
     "base_symbol": "SPCX.US",
     "notional_usd": 260.72,
     "opened_at": "2026-11-05T03:04:34.756839+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-05T19:24:00.751952+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "SPCX.US_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 47.08% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 47.08% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.15
   },
   {
     "id": "cf3afc68",
@@ -21321,16 +21321,16 @@
     "base_symbol": "NEAR",
     "notional_usd": 263.15,
     "opened_at": "2026-11-05T11:49:18.845354+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-05T19:24:00.751952+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "NEAR_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "NEAR/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 441.57% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 441.57% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.45
   },
   {
     "id": "63923f32",
@@ -21347,6 +21347,72 @@
       "long_contract": "DYM/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 438.34% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "d1896f62",
+    "type": "spread",
+    "base_symbol": "SUSHI",
+    "notional_usd": 1419.97,
+    "opened_at": "2026-11-05T19:24:00.751952+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "SUSHI",
+      "long_exchange": "Injective",
+      "long_contract": "SUSHI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 209.01% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "fb945a1c",
+    "type": "spread",
+    "base_symbol": "COMP",
+    "notional_usd": 1588.36,
+    "opened_at": "2026-11-05T19:24:00.751952+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "COMP",
+      "long_exchange": "Injective",
+      "long_contract": "COMP/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 160.28% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "be6bf3e0",
+    "type": "carry",
+    "base_symbol": "MU.US",
+    "notional_usd": 237.25,
+    "opened_at": "2026-11-05T19:24:00.751952+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "MU.US_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 84.11% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3df1d093",
+    "type": "carry",
+    "base_symbol": "SNDK.US",
+    "notional_usd": 286.62,
+    "opened_at": "2026-11-05T19:24:00.751952+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "exchange": "Backpack",
+      "contract": "SNDK.US_USDC_PERP",
+      "perp_side": "short"
+    },
+    "notes": "Bot自動エントリー: APR 37.03% / リスク倍率 1.00",
     "realized_pnl_usd": null
   }
 ]
