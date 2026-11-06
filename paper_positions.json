@@ -21405,14 +21405,31 @@
     "base_symbol": "SNDK.US",
     "notional_usd": 286.62,
     "opened_at": "2026-11-05T19:24:00.751952+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-06T00:43:12.766605+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "SNDK.US_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 37.03% / リスク倍率 1.00",
+    "notes": "Bot自動エントリー: APR 37.03% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.15
+  },
+  {
+    "id": "bdff2865",
+    "type": "spread",
+    "base_symbol": "XMR",
+    "notional_usd": 207.73,
+    "opened_at": "2026-11-06T00:43:12.766605+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "XMR_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "XMR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 135.37% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
