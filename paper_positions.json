@@ -21522,16 +21522,16 @@
     "base_symbol": "ZORA",
     "notional_usd": 303.24,
     "opened_at": "2026-11-06T15:35:44.456387+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-07T08:11:33.212236+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ZORA",
       "long_exchange": "Backpack",
       "long_contract": "ZORA_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 51.80% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 51.80% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.22
   },
   {
     "id": "b8835d9b",
@@ -21615,6 +21615,23 @@
       "long_contract": "NOWUSDT"
     },
     "notes": "Bot自動エントリー: APR 24.09% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "67a44ac3",
+    "type": "spread",
+    "base_symbol": "NEAR",
+    "notional_usd": 123.53,
+    "opened_at": "2026-11-07T08:11:33.212236+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "NEARUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "NEAR/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 402.54% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
