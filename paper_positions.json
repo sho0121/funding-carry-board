@@ -21742,16 +21742,16 @@
     "base_symbol": "INJ",
     "notional_usd": 254.06,
     "opened_at": "2026-11-07T19:50:19.432578+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-08T03:54:10.534714+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "INJ/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "INJ"
     },
-    "notes": "Bot自動エントリー: APR 73.62% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 73.62% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.34
   },
   {
     "id": "f1605c9b",
@@ -21768,6 +21768,23 @@
       "long_contract": "MANTA/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 407.59% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3142dd87",
+    "type": "spread",
+    "base_symbol": "WLFI",
+    "notional_usd": 328.05,
+    "opened_at": "2026-11-08T03:54:10.534714+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "WLFIUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "WLFI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 333.33% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
