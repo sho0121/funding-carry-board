@@ -22385,16 +22385,16 @@
     "base_symbol": "PUMP",
     "notional_usd": 1263.28,
     "opened_at": "2026-11-10T09:07:18.545846+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-10T22:46:34.386951+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "PUMPUSDT",
       "long_exchange": "Backpack",
       "long_contract": "PUMP_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 55.03% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 55.03% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.56
   },
   {
     "id": "c8f5f98f",
@@ -22509,6 +22509,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 10.76% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "48e54058",
+    "type": "spread",
+    "base_symbol": "SUSHI",
+    "notional_usd": 83.42,
+    "opened_at": "2026-11-10T22:46:34.386951+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "SUSHI",
+      "long_exchange": "Injective",
+      "long_contract": "SUSHI/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 414.15% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
