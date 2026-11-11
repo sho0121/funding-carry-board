@@ -22419,16 +22419,16 @@
     "base_symbol": "CC",
     "notional_usd": 304.07,
     "opened_at": "2026-11-10T17:27:03.414292+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-11T02:30:36.444798+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "CCUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "CC"
     },
-    "notes": "Bot自動エントリー: APR 36.46% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 36.46% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.14
   },
   {
     "id": "b859b529",
@@ -22526,6 +22526,23 @@
       "long_contract": "SUSHI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 414.15% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "3fde5dbc",
+    "type": "spread",
+    "base_symbol": "INIT",
+    "notional_usd": 304.07,
+    "opened_at": "2026-11-11T02:30:36.444798+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "INIT",
+      "long_exchange": "Aster",
+      "long_contract": "INITUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 382.98% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
