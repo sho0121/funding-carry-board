@@ -22755,16 +22755,16 @@
     "base_symbol": "AVAX",
     "notional_usd": 1325.81,
     "opened_at": "2026-11-12T23:07:13.367551+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-13T12:49:16.955531+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "AVAX_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 64.06% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 64.06% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.42
   },
   {
     "id": "c130dfd1",
@@ -22772,15 +22772,49 @@
     "base_symbol": "PENDLE",
     "notional_usd": 1262.69,
     "opened_at": "2026-11-13T04:37:35.237614+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-13T12:49:16.955531+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "PENDLE/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "PENDLE_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 357.21% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 357.21% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.4
+  },
+  {
+    "id": "5cc7929e",
+    "type": "spread",
+    "base_symbol": "SAND",
+    "notional_usd": 289.16,
+    "opened_at": "2026-11-13T12:49:16.955531+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SAND/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "SANDUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 73.99% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "16d9fd87",
+    "type": "spread",
+    "base_symbol": "SOL",
+    "notional_usd": 1673.82,
+    "opened_at": "2026-11-13T12:49:16.955531+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SOL/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "SOLUSD1"
+    },
+    "notes": "Bot自動エントリー: APR 60.86% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
