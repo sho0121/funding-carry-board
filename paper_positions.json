@@ -22857,16 +22857,16 @@
     "base_symbol": "AERO",
     "notional_usd": 1643.68,
     "opened_at": "2026-11-14T01:13:03.904139+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-14T15:29:55.037294+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "AEROUSDT",
       "long_exchange": "Injective",
       "long_contract": "AERO/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 162.97% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 162.97% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.08
   },
   {
     "id": "8f3922d8",
@@ -22917,6 +22917,23 @@
       "long_contract": "BERAUSDT"
     },
     "notes": "Bot自動エントリー: APR 229.41% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "5824e16e",
+    "type": "spread",
+    "base_symbol": "INIT",
+    "notional_usd": 438.16,
+    "opened_at": "2026-11-14T15:29:55.037294+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "INIT",
+      "long_exchange": "Aster",
+      "long_contract": "INITUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 288.14% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
