@@ -22789,16 +22789,16 @@
     "base_symbol": "SAND",
     "notional_usd": 289.16,
     "opened_at": "2026-11-13T12:49:16.955531+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-15T00:38:53.881867+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "SAND/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "SANDUSDT"
     },
-    "notes": "Bot自動エントリー: APR 73.99% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 73.99% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.95
   },
   {
     "id": "16d9fd87",
@@ -22823,16 +22823,16 @@
     "base_symbol": "WLFI",
     "notional_usd": 446.58,
     "opened_at": "2026-11-13T20:16:47.035834+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-15T00:38:53.881867+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "WLFIUSDT",
       "long_exchange": "Injective",
       "long_contract": "WLFI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 194.55% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 194.55% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.41
   },
   {
     "id": "aeed7cd6",
@@ -22985,6 +22985,40 @@
       "long_contract": "BRETT"
     },
     "notes": "Bot自動エントリー: APR 225.00% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "50714ff2",
+    "type": "spread",
+    "base_symbol": "WLD",
+    "notional_usd": 1485.43,
+    "opened_at": "2026-11-15T00:38:53.881867+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "WLD/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "WLD_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 220.86% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "37d35221",
+    "type": "spread",
+    "base_symbol": "VIRTUAL",
+    "notional_usd": 322.02,
+    "opened_at": "2026-11-15T00:38:53.881867+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "VIRTUALUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "VIRTUAL/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 208.00% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
