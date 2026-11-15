@@ -22959,16 +22959,16 @@
     "base_symbol": "BERA",
     "notional_usd": 1552.3,
     "opened_at": "2026-11-14T20:20:08.494783+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-15T07:28:57.106510+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BERA/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "BERA_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 304.73% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 304.73% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.92
   },
   {
     "id": "8b726611",
@@ -23010,15 +23010,49 @@
     "base_symbol": "VIRTUAL",
     "notional_usd": 322.02,
     "opened_at": "2026-11-15T00:38:53.881867+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-15T07:28:57.106510+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "VIRTUALUSDT",
       "long_exchange": "Injective",
       "long_contract": "VIRTUAL/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 208.00% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 208.00% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.04
+  },
+  {
+    "id": "15d97d56",
+    "type": "spread",
+    "base_symbol": "NEIRO",
+    "notional_usd": 809.82,
+    "opened_at": "2026-11-15T07:28:57.106510+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "NEIRO/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "NEIROUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 193.99% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "4d46e97a",
+    "type": "spread",
+    "base_symbol": "FIL",
+    "notional_usd": 1292.5,
+    "opened_at": "2026-11-15T07:28:57.106510+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "FILUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "FIL/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 188.35% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
