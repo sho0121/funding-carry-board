@@ -23078,15 +23078,32 @@
     "base_symbol": "BERA",
     "notional_usd": 1109.97,
     "opened_at": "2026-11-16T00:40:16.591924+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-16T07:35:40.547100+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BERA/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "BERA_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 389.01% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 389.01% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.71
+  },
+  {
+    "id": "901a90e9",
+    "type": "spread",
+    "base_symbol": "SKR",
+    "notional_usd": 1292.5,
+    "opened_at": "2026-11-16T07:35:40.547100+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "SKRUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "SKR_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 207.71% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
