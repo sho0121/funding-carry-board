@@ -23044,16 +23044,16 @@
     "base_symbol": "FIL",
     "notional_usd": 1292.5,
     "opened_at": "2026-11-15T07:28:57.106510+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-16T00:40:16.591924+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "FILUSDT",
       "long_exchange": "Injective",
       "long_contract": "FIL/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 188.35% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 188.35% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 7.4
   },
   {
     "id": "64e9a067",
@@ -23070,6 +23070,23 @@
       "long_contract": "WLFI/USDC PERP"
     },
     "notes": "Bot自動エントリー: APR 186.43% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "64d978f2",
+    "type": "spread",
+    "base_symbol": "BERA",
+    "notional_usd": 1109.97,
+    "opened_at": "2026-11-16T00:40:16.591924+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BERA/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "BERA_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 389.01% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
