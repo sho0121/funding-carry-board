@@ -21506,15 +21506,15 @@
     "base_symbol": "B",
     "notional_usd": 377.81,
     "opened_at": "2026-11-06T15:35:44.456387+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-17T19:02:46.319361+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "BUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 48.46% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 48.46% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.57
   },
   {
     "id": "e9454bec",
@@ -23205,6 +23205,23 @@
       "long_contract": "SOLUSDC"
     },
     "notes": "Bot自動エントリー: APR 86.72% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "17f929ab",
+    "type": "spread",
+    "base_symbol": "BNB",
+    "notional_usd": 377.81,
+    "opened_at": "2026-11-17T19:02:46.319361+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "BNB/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "BNB_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 125.91% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
