@@ -21963,15 +21963,15 @@
     "base_symbol": "TAG",
     "notional_usd": 363.08,
     "opened_at": "2026-11-08T16:59:49.128776+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-17T10:02:33.785055+00:00",
     "legs": {
       "exchange": "Aster",
       "contract": "TAGUSDT",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 22.98% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 22.98% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 1.84
   },
   {
     "id": "25abedc6",
@@ -23112,16 +23112,16 @@
     "base_symbol": "NIGHT",
     "notional_usd": 380.06,
     "opened_at": "2026-11-16T17:49:48.063672+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-17T10:02:33.785055+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "NIGHT/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "NIGHTUSDT"
     },
-    "notes": "Bot自動エントリー: APR 127.41% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 127.41% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.52
   },
   {
     "id": "f6c69c1c",
@@ -23146,16 +23146,16 @@
     "base_symbol": "MORPHO",
     "notional_usd": 226.97,
     "opened_at": "2026-11-17T01:28:21.924904+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-17T10:02:33.785055+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MORPHO/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "MORPHOUSDT"
     },
-    "notes": "Bot自動エントリー: APR 571.20% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 571.20% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.82
   },
   {
     "id": "c26fd4df",
@@ -23188,6 +23188,23 @@
       "perp_side": "short"
     },
     "notes": "Bot自動エントリー: APR 96.01% / リスク倍率 1.00",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "a8d53af8",
+    "type": "spread",
+    "base_symbol": "SOL",
+    "notional_usd": 970.11,
+    "opened_at": "2026-11-17T10:02:33.785055+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "SOL/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "SOLUSDC"
+    },
+    "notes": "Bot自動エントリー: APR 86.72% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
