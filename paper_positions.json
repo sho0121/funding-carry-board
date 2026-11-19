@@ -22517,16 +22517,16 @@
     "base_symbol": "SUSHI",
     "notional_usd": 83.42,
     "opened_at": "2026-11-10T22:46:34.386951+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-19T17:57:06.787270+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "SUSHI",
       "long_exchange": "Injective",
       "long_contract": "SUSHI/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 414.15% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 414.15% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 3.09
   },
   {
     "id": "3fde5dbc",
@@ -23330,15 +23330,15 @@
     "base_symbol": "PAXG",
     "notional_usd": 102.48,
     "opened_at": "2026-11-18T09:39:34.128067+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-19T17:57:06.787270+00:00",
     "legs": {
       "exchange": "Backpack",
       "contract": "PAXG_USDC_PERP",
       "perp_side": "short"
     },
-    "notes": "Bot自動エントリー: APR 10.79% / リスク倍率 1.00",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 10.79% / リスク倍率 1.00 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.06
   },
   {
     "id": "8adadc7e",
@@ -23397,16 +23397,16 @@
     "base_symbol": "NEIRO",
     "notional_usd": 294.31,
     "opened_at": "2026-11-18T18:37:47.794312+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-19T17:57:06.787270+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "NEIRO/USDC PERP",
       "long_exchange": "Aster",
       "long_contract": "NEIROUSDT"
     },
-    "notes": "Bot自動エントリー: APR 488.99% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 488.99% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.3
   },
   {
     "id": "6a2bdc56",
@@ -23499,16 +23499,16 @@
     "base_symbol": "BNB",
     "notional_usd": 989.4,
     "opened_at": "2026-11-19T08:20:16.729686+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-19T17:57:06.787270+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "BNB/USDC PERP",
       "long_exchange": "Backpack",
       "long_contract": "BNB_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 84.23% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 84.23% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.59
   },
   {
     "id": "afcaaf83",
@@ -23516,15 +23516,49 @@
     "base_symbol": "MET",
     "notional_usd": 210.79,
     "opened_at": "2026-11-19T08:20:16.729686+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-19T17:57:06.787270+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "MET_USDC_PERP",
       "long_exchange": "Aster",
       "long_contract": "METUSDT"
     },
-    "notes": "Bot自動エントリー: APR 78.97% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 78.97% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.24
+  },
+  {
+    "id": "d78d2ffc",
+    "type": "spread",
+    "base_symbol": "IO",
+    "notional_usd": 83.42,
+    "opened_at": "2026-11-19T17:57:06.787270+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "IO",
+      "long_exchange": "Injective",
+      "long_contract": "IO/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 215.51% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "332ff6fd",
+    "type": "spread",
+    "base_symbol": "AVAX",
+    "notional_usd": 1907.42,
+    "opened_at": "2026-11-19T17:57:06.787270+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "AVAXUSDT",
+      "long_exchange": "Injective",
+      "long_contract": "AVAX/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 66.90% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
