@@ -23550,15 +23550,32 @@
     "base_symbol": "AVAX",
     "notional_usd": 1907.42,
     "opened_at": "2026-11-19T17:57:06.787270+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-20T00:13:05.357849+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "AVAXUSDT",
       "long_exchange": "Injective",
       "long_contract": "AVAX/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 66.90% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 66.90% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.75
+  },
+  {
+    "id": "b7755cec",
+    "type": "spread",
+    "base_symbol": "ZEC",
+    "notional_usd": 1907.42,
+    "opened_at": "2026-11-20T00:13:05.357849+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Backpack",
+      "short_contract": "ZEC_USDC_PERP",
+      "long_exchange": "Injective",
+      "long_contract": "ZEC/USDC PERP"
+    },
+    "notes": "Bot自動エントリー: APR 69.92% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
