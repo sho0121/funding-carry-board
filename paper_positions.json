@@ -23669,16 +23669,16 @@
     "base_symbol": "POPCAT",
     "notional_usd": 950.64,
     "opened_at": "2026-11-20T16:47:38.771296+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-21T03:44:29.296676+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "POPCAT/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "POPCAT"
     },
-    "notes": "Bot自動エントリー: APR 450.60% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 450.60% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -2.15
   },
   {
     "id": "9da9591d",
@@ -23703,16 +23703,16 @@
     "base_symbol": "LIT",
     "notional_usd": 167.93,
     "opened_at": "2026-11-20T16:47:38.771296+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-21T03:44:29.296676+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "LIT",
       "long_exchange": "Backpack",
       "long_contract": "LIT_USDC_PERP"
     },
-    "notes": "Bot自動エントリー: APR 81.08% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 81.08% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.04
   },
   {
     "id": "608a5e19",
@@ -23770,16 +23770,16 @@
     "base_symbol": "LTC",
     "notional_usd": 627.83,
     "opened_at": "2026-11-20T22:57:50.997969+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-21T03:44:29.296676+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "LTC_USDC_PERP",
       "long_exchange": "Injective",
       "long_contract": "LTC/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 66.83% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 66.83% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -1.11
   },
   {
     "id": "560906ef",
@@ -23796,6 +23796,40 @@
       "long_contract": "SOLUSD1"
     },
     "notes": "Bot自動エントリー: APR 61.25% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "10232435",
+    "type": "spread",
+    "base_symbol": "INIT",
+    "notional_usd": 1118.57,
+    "opened_at": "2026-11-21T03:44:29.296676+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "INITUSDT",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "INIT"
+    },
+    "notes": "Bot自動エントリー: APR 118.03% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "0fe0b629",
+    "type": "spread",
+    "base_symbol": "LIT",
+    "notional_usd": 627.83,
+    "opened_at": "2026-11-21T03:44:29.296676+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "LIT/USDC PERP",
+      "long_exchange": "Backpack",
+      "long_contract": "LIT_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 100.68% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
