@@ -24800,16 +24800,16 @@
     "base_symbol": "ACE",
     "notional_usd": 238.17,
     "opened_at": "2026-11-26T22:47:06.460339+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-27T04:45:25.483193+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ACE",
       "long_exchange": "Aster",
       "long_contract": "ACEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 1530.49% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 1530.49% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.28
   },
   {
     "id": "91c55a86",
@@ -24843,6 +24843,23 @@
       "long_contract": "STBL"
     },
     "notes": "Bot自動エントリー: APR 56.07% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "2b057ca9",
+    "type": "spread",
+    "base_symbol": "MON",
+    "notional_usd": 310.66,
+    "opened_at": "2026-11-27T04:45:25.483193+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "MON",
+      "long_exchange": "Backpack",
+      "long_contract": "MON_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 68.63% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
