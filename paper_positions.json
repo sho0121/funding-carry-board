@@ -24766,16 +24766,16 @@
     "base_symbol": "CC",
     "notional_usd": 396.36,
     "opened_at": "2026-11-26T13:29:46.681469+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-27T14:38:08.777532+00:00",
     "legs": {
       "short_exchange": "Backpack",
       "short_contract": "CC_USDC_PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "CC"
     },
-    "notes": "Bot自動エントリー: APR 69.22% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 69.22% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 0.96
   },
   {
     "id": "9dbab875",
@@ -24860,6 +24860,23 @@
       "long_contract": "MON_USDC_PERP"
     },
     "notes": "Bot自動エントリー: APR 68.63% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "94c864f8",
+    "type": "spread",
+    "base_symbol": "ACE",
+    "notional_usd": 396.36,
+    "opened_at": "2026-11-27T14:38:08.777532+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "ACE",
+      "long_exchange": "Aster",
+      "long_contract": "ACEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 1337.21% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
