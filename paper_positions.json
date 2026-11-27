@@ -24664,16 +24664,16 @@
     "base_symbol": "ZK",
     "notional_usd": 560.67,
     "opened_at": "2026-11-25T12:01:32.988859+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-27T23:11:16.405465+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ZK",
       "long_exchange": "Injective",
       "long_contract": "ZK/USDC PERP"
     },
-    "notes": "Bot自動エントリー: APR 137.27% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 137.27% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 4.43
   },
   {
     "id": "7328ca3a",
@@ -24817,16 +24817,16 @@
     "base_symbol": "MOVE",
     "notional_usd": 2172.63,
     "opened_at": "2026-11-26T22:47:06.460339+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-27T23:11:16.405465+00:00",
     "legs": {
       "short_exchange": "Injective",
       "short_contract": "MOVE/USDC PERP",
       "long_exchange": "Hyperliquid",
       "long_contract": "MOVE"
     },
-    "notes": "Bot自動エントリー: APR 1371.29% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 1371.29% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": 83.31
   },
   {
     "id": "12cd3955",
@@ -24834,16 +24834,16 @@
     "base_symbol": "STBL",
     "notional_usd": 501.11,
     "opened_at": "2026-11-26T22:47:06.460339+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-27T23:11:16.405465+00:00",
     "legs": {
       "short_exchange": "Aster",
       "short_contract": "STBLUSDT",
       "long_exchange": "Hyperliquid",
       "long_contract": "STBL"
     },
-    "notes": "Bot自動エントリー: APR 56.07% / リスク倍率 0.85",
-    "realized_pnl_usd": null
+    "notes": "Bot自動エントリー: APR 56.07% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.3
   },
   {
     "id": "2b057ca9",
@@ -24868,15 +24868,83 @@
     "base_symbol": "ACE",
     "notional_usd": 396.36,
     "opened_at": "2026-11-27T14:38:08.777532+00:00",
-    "status": "open",
-    "closed_at": null,
+    "status": "closed",
+    "closed_at": "2026-11-27T23:11:16.405465+00:00",
     "legs": {
       "short_exchange": "Hyperliquid",
       "short_contract": "ACE",
       "long_exchange": "Aster",
       "long_contract": "ACEUSDT"
     },
-    "notes": "Bot自動エントリー: APR 1337.21% / リスク倍率 0.85",
+    "notes": "Bot自動エントリー: APR 1337.21% / リスク倍率 0.85 / 自動クローズ: 対象の裁定機会が消滅",
+    "realized_pnl_usd": -0.62
+  },
+  {
+    "id": "4887c225",
+    "type": "spread",
+    "base_symbol": "MOVE",
+    "notional_usd": 1498.75,
+    "opened_at": "2026-11-27T23:11:16.405465+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "MOVE/USDC PERP",
+      "long_exchange": "Aster",
+      "long_contract": "MOVEUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 3268.28% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "268982aa",
+    "type": "spread",
+    "base_symbol": "CAKE",
+    "notional_usd": 1234.55,
+    "opened_at": "2026-11-27T23:11:16.405465+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Injective",
+      "short_contract": "CAKE/USDC PERP",
+      "long_exchange": "Hyperliquid",
+      "long_contract": "CAKE"
+    },
+    "notes": "Bot自動エントリー: APR 422.99% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "1be945e2",
+    "type": "spread",
+    "base_symbol": "BLUR",
+    "notional_usd": 2396.22,
+    "opened_at": "2026-11-27T23:11:16.405465+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Hyperliquid",
+      "short_contract": "BLUR",
+      "long_exchange": "Aster",
+      "long_contract": "BLURUSDT"
+    },
+    "notes": "Bot自動エントリー: APR 231.53% / リスク倍率 0.85",
+    "realized_pnl_usd": null
+  },
+  {
+    "id": "7323f830",
+    "type": "spread",
+    "base_symbol": "XLM",
+    "notional_usd": 245.76,
+    "opened_at": "2026-11-27T23:11:16.405465+00:00",
+    "status": "open",
+    "closed_at": null,
+    "legs": {
+      "short_exchange": "Aster",
+      "short_contract": "XLMUSDT",
+      "long_exchange": "Backpack",
+      "long_contract": "XLM_USDC_PERP"
+    },
+    "notes": "Bot自動エントリー: APR 36.10% / リスク倍率 0.85",
     "realized_pnl_usd": null
   }
 ]
